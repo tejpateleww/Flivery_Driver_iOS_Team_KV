@@ -25,59 +25,19 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="MK7-gC-iRk">
-                                <rect key="frame" x="35.5" y="30" width="249" height="249"/>
+                                <rect key="frame" x="32" y="156" width="256" height="256"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="MK7-gC-iRk" secondAttribute="height" multiplier="1:1" id="qzC-ug-Ehw"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T4M-3g-37V">
-                                <rect key="frame" x="0.0" y="508" width="320" height="30"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d74-W9-Sev">
-                                        <rect key="frame" x="0.0" y="14.5" width="47.5" height="1"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="1" id="I3d-t6-rmB"/>
-                                        </constraints>
-                                    </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The standard Lorem Ipsum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ad2-EG-AFS">
-                                        <rect key="frame" x="57.5" y="4.5" width="205" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yxx-mN-teg">
-                                        <rect key="frame" x="272.5" y="14.5" width="47.5" height="1"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="1" id="xjz-qG-I1E"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="Yxx-mN-teg" secondAttribute="trailing" id="2PK-4K-HgS"/>
-                                    <constraint firstItem="Yxx-mN-teg" firstAttribute="leading" secondItem="Ad2-EG-AFS" secondAttribute="trailing" constant="10" id="Fhx-Od-d1a"/>
-                                    <constraint firstItem="d74-W9-Sev" firstAttribute="centerY" secondItem="T4M-3g-37V" secondAttribute="centerY" id="SgG-mx-pZf"/>
-                                    <constraint firstItem="Ad2-EG-AFS" firstAttribute="leading" secondItem="d74-W9-Sev" secondAttribute="trailing" constant="10" id="fa0-vB-qrS"/>
-                                    <constraint firstAttribute="height" constant="30" id="fgo-s1-GTF"/>
-                                    <constraint firstItem="Ad2-EG-AFS" firstAttribute="centerX" secondItem="T4M-3g-37V" secondAttribute="centerX" id="jza-05-CZS"/>
-                                    <constraint firstItem="Ad2-EG-AFS" firstAttribute="centerY" secondItem="T4M-3g-37V" secondAttribute="centerY" id="oee-0i-76G"/>
-                                    <constraint firstItem="Yxx-mN-teg" firstAttribute="centerY" secondItem="T4M-3g-37V" secondAttribute="centerY" id="reR-Uv-dfN"/>
-                                    <constraint firstItem="d74-W9-Sev" firstAttribute="leading" secondItem="T4M-3g-37V" secondAttribute="leading" id="z1Z-u5-eCI"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="MK7-gC-iRk" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="0UV-6t-o11"/>
+                            <constraint firstItem="MK7-gC-iRk" firstAttribute="width" secondItem="B1D-MD-D0Q" secondAttribute="width" multiplier="0.8" id="76v-7P-jH1"/>
                             <constraint firstAttribute="trailing" secondItem="B1D-MD-D0Q" secondAttribute="trailing" id="8ub-u7-SZY"/>
-                            <constraint firstItem="MK7-gC-iRk" firstAttribute="width" secondItem="MK7-gC-iRk" secondAttribute="height" multiplier="1:1" id="BJh-Pr-TB6"/>
-                            <constraint firstItem="MK7-gC-iRk" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="10" id="ByI-Z0-6zo"/>
                             <constraint firstAttribute="bottom" secondItem="B1D-MD-D0Q" secondAttribute="bottom" id="FZB-vG-eIi"/>
                             <constraint firstItem="MK7-gC-iRk" firstAttribute="centerX" secondItem="B1D-MD-D0Q" secondAttribute="centerX" id="Oua-cb-G8g"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="T4M-3g-37V" secondAttribute="bottom" constant="30" id="P9J-I7-5rJ"/>
-                            <constraint firstItem="T4M-3g-37V" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="VpC-Ih-si7"/>
-                            <constraint firstAttribute="trailing" secondItem="T4M-3g-37V" secondAttribute="trailing" id="WKK-xN-kai"/>
                             <constraint firstItem="B1D-MD-D0Q" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="xI6-rD-kj7"/>
                             <constraint firstItem="B1D-MD-D0Q" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="xPq-mP-xxm"/>
                         </constraints>
@@ -89,7 +49,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Logo" width="249" height="45"/>
-        <image name="imgSplashBackground" width="414" height="736"/>
+        <image name="Logo" width="345" height="345"/>
+        <image name="imgSplashBackground" width="480" height="986"/>
     </resources>
 </document>

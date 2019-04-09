@@ -19,7 +19,7 @@ struct WebSupport {
 
 struct WebserviceURLs {
     
-    static let kBaseURL                                 = "https://www.tantaxitanzania.com/Drvier_Api/"//"https://pickngolk.info/web/Drvier_Api/" // "http://54.169.67.226/web/Drvier_Api/" //
+    static let kBaseURL                                 = "http://34.73.215.81/web/Drvier_Api/"//"https://pickngolk.info/web/Drvier_Api/" // "http://54.169.67.226/web/Drvier_Api/" //
     static let kImageBaseURL                            = "https://www.tantaxitanzania.com/" // "http://54.169.67.226/web/" //
     static let kOTPForDriverRegister                    = "OtpForRegister"
     static let kVehicalModelList                        = "TaxiModel/"

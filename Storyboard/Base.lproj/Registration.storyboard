@@ -9,6 +9,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+        </array>
         <array key="proxima-nova.otf">
             <string>ProximaNova-Regular</string>
         </array>
@@ -17,7 +20,7 @@
         <!--Driver Registration View Controller-->
         <scene sceneID="MKN-A9-3Hc">
             <objects>
-                <viewController storyboardIdentifier="DriverRegistrationViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EQ5-DG-fhx" customClass="DriverRegistrationViewController" customModule="ODDS_Driver" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DriverRegistrationViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EQ5-DG-fhx" customClass="DriverRegistrationViewController" customModule="Flivery_Driver" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JNa-KA-Z8f"/>
                         <viewControllerLayoutGuide type="bottom" id="4EP-pD-M18"/>
@@ -26,7 +29,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgSplashBackground" translatesAutoresizingMaskIntoConstraints="NO" id="ej6-CC-Qk9">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgSplashBackground" translatesAutoresizingMaskIntoConstraints="NO" id="ej6-CC-Qk9">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
@@ -188,7 +191,7 @@
                                     <constraint firstItem="Gfv-Zv-gqB" firstAttribute="centerX" secondItem="TvV-Am-ftR" secondAttribute="centerX" id="tAo-AC-wRt"/>
                                 </constraints>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDi-np-y9r">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDi-np-y9r">
                                 <rect key="frame" x="0.0" y="164" width="320" height="384"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fgq-d6-aa2">
@@ -359,7 +362,7 @@
         <!--Driver Email View Controller-->
         <scene sceneID="1q9-uM-6L2">
             <objects>
-                <viewController storyboardIdentifier="DriverEmailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="reg-LN-93W" customClass="DriverEmailViewController" customModule="ODDS_Driver" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DriverEmailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="reg-LN-93W" customClass="DriverEmailViewController" customModule="Flivery_Driver" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pRo-mN-g6u"/>
                         <viewControllerLayoutGuide type="bottom" id="vzJ-KK-Mqs"/>
@@ -387,12 +390,12 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="RYd-gx-8D3">
                                                         <rect key="frame" x="20" y="10" width="280" height="222"/>
                                                         <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oxb-fo-KNt">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oxb-fo-KNt" customClass="ThemeView" customModule="Flivery_Driver" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="280" height="48"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SsH-va-7Tk" customClass="ThemeTextField" customModule="ODDS_Driver" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="280" height="40"/>
-                                                                        <color key="tintColor" red="1" green="0.63921568630000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SsH-va-7Tk" customClass="ThemeTextField" customModule="Flivery_Driver" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="4" width="280" height="40"/>
+                                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="40" id="wKb-v7-zNh"/>
                                                                         </constraints>
@@ -401,23 +404,22 @@
                                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isLeftViewNeeded" value="YES"/>
-                                                                            <userDefinedRuntimeAttribute type="image" keyPath="LeftImage" value="iconMobile"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </textField>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="trailing" secondItem="SsH-va-7Tk" secondAttribute="trailing" id="HRD-vu-G4m"/>
-                                                                    <constraint firstItem="SsH-va-7Tk" firstAttribute="top" secondItem="oxb-fo-KNt" secondAttribute="top" id="Yni-NO-SWV"/>
+                                                                    <constraint firstItem="SsH-va-7Tk" firstAttribute="centerY" secondItem="oxb-fo-KNt" secondAttribute="centerY" id="MaE-kl-A8r"/>
                                                                     <constraint firstItem="SsH-va-7Tk" firstAttribute="leading" secondItem="oxb-fo-KNt" secondAttribute="leading" id="qep-Xc-zYa"/>
                                                                 </constraints>
                                                             </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HU6-79-rUv">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HU6-79-rUv" customClass="ThemeView" customModule="Flivery_Driver" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="58" width="280" height="48"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lVI-hn-ySh" customClass="ThemeTextField" customModule="ODDS_Driver" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="280" height="40"/>
-                                                                        <color key="tintColor" red="1" green="0.63921568630000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lVI-hn-ySh" customClass="ThemeTextField" customModule="Flivery_Driver" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="4" width="280" height="40"/>
+                                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="40" id="GsA-Ty-5PP"/>
                                                                         </constraints>
@@ -426,24 +428,23 @@
                                                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isLeftViewNeeded" value="YES"/>
-                                                                            <userDefinedRuntimeAttribute type="image" keyPath="LeftImage" value="iconEmail"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </textField>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="trailing" secondItem="lVI-hn-ySh" secondAttribute="trailing" id="Ku7-pA-4XT"/>
+                                                                    <constraint firstItem="lVI-hn-ySh" firstAttribute="centerY" secondItem="HU6-79-rUv" secondAttribute="centerY" id="kOC-GX-ora"/>
                                                                     <constraint firstAttribute="height" constant="48" id="msm-ez-jmu"/>
                                                                     <constraint firstItem="lVI-hn-ySh" firstAttribute="leading" secondItem="HU6-79-rUv" secondAttribute="leading" id="whC-x3-WWn"/>
-                                                                    <constraint firstItem="lVI-hn-ySh" firstAttribute="top" secondItem="HU6-79-rUv" secondAttribute="top" id="xAf-dX-3m8"/>
                                                                 </constraints>
                                                             </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ku-7q-yKA">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ku-7q-yKA" customClass="ThemeView" customModule="Flivery_Driver" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="116" width="280" height="48"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Yb-71-g2v" customClass="ThemeTextField" customModule="ODDS_Driver" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="280" height="40"/>
-                                                                        <color key="tintColor" red="1" green="0.63921568630000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Yb-71-g2v" customClass="ThemeTextField" customModule="Flivery_Driver" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="4" width="280" height="40"/>
+                                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="40" id="Bbo-VB-NYl"/>
                                                                         </constraints>
@@ -452,23 +453,22 @@
                                                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isLeftViewNeeded" value="YES"/>
-                                                                            <userDefinedRuntimeAttribute type="image" keyPath="LeftImage" value="iconLock"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </textField>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="trailing" secondItem="8Yb-71-g2v" secondAttribute="trailing" id="lwU-vg-eDU"/>
+                                                                    <constraint firstItem="8Yb-71-g2v" firstAttribute="centerY" secondItem="4ku-7q-yKA" secondAttribute="centerY" id="pqp-xw-DiE"/>
                                                                     <constraint firstItem="8Yb-71-g2v" firstAttribute="leading" secondItem="4ku-7q-yKA" secondAttribute="leading" id="td6-A5-2SD"/>
-                                                                    <constraint firstItem="8Yb-71-g2v" firstAttribute="top" secondItem="4ku-7q-yKA" secondAttribute="top" id="ywo-Rq-cFx"/>
                                                                 </constraints>
                                                             </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="COo-00-Yk7">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="COo-00-Yk7" customClass="ThemeView" customModule="Flivery_Driver" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="174" width="280" height="48"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fv0-8C-vtF" customClass="ThemeTextField" customModule="ODDS_Driver" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="280" height="40"/>
-                                                                        <color key="tintColor" red="1" green="0.63921568630000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fv0-8C-vtF" customClass="ThemeTextField" customModule="Flivery_Driver" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="4" width="280" height="40"/>
+                                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="40" id="0U9-va-T6Z"/>
                                                                         </constraints>
@@ -477,7 +477,6 @@
                                                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isLeftViewNeeded" value="YES"/>
-                                                                            <userDefinedRuntimeAttribute type="image" keyPath="LeftImage" value="iconLock"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </textField>
                                                                 </subviews>
@@ -485,7 +484,7 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="trailing" secondItem="fv0-8C-vtF" secondAttribute="trailing" id="dbx-j4-Qaz"/>
                                                                     <constraint firstItem="fv0-8C-vtF" firstAttribute="leading" secondItem="COo-00-Yk7" secondAttribute="leading" id="i7M-za-yNP"/>
-                                                                    <constraint firstItem="fv0-8C-vtF" firstAttribute="top" secondItem="COo-00-Yk7" secondAttribute="top" id="r89-BW-Bn5"/>
+                                                                    <constraint firstItem="fv0-8C-vtF" firstAttribute="centerY" secondItem="COo-00-Yk7" secondAttribute="centerY" id="w8z-wO-4xa"/>
                                                                 </constraints>
                                                             </view>
                                                         </subviews>
@@ -505,7 +504,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7WA-hi-9QQ">
                                                         <rect key="frame" x="20" y="97" width="280" height="48"/>
                                                         <subviews>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type your OTP here...." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jNc-80-HiG" customClass="ThemeTextField" customModule="ODDS_Driver" customModuleProvider="target">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type your OTP here...." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jNc-80-HiG" customClass="ThemeTextField" customModule="Flivery_Driver" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="280" height="46"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="46" id="FR9-Hq-FGp"/>
@@ -582,7 +581,7 @@
                                                     <constraint firstItem="OYG-tZ-JvY" firstAttribute="centerX" secondItem="Qfy-Gz-Wm0" secondAttribute="centerX" id="zRH-HH-nII"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rpR-Io-dBf" customClass="ThemeButton" customModule="ODDS_Driver" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rpR-Io-dBf" customClass="ThemeButton" customModule="Flivery_Driver" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="417" width="280" height="40"/>
                                                 <color key="backgroundColor" red="0.89411764709999997" green="0.51764705879999995" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -716,7 +715,7 @@
         <!--DriverBankDetailsViewController-->
         <scene sceneID="B94-6l-Xej">
             <objects>
-                <viewController storyboardIdentifier="DriverBankDetailsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Qg5-lo-G1Z" userLabel="DriverBankDetailsViewController" customClass="DriverBankDetailsViewController" customModule="ODDS_Driver" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DriverBankDetailsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Qg5-lo-G1Z" userLabel="DriverBankDetailsViewController" customClass="DriverBankDetailsViewController" customModule="Flivery_Driver" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2Oz-iD-pKm"/>
                         <viewControllerLayoutGuide type="bottom" id="u0o-9T-ovs"/>
@@ -737,18 +736,17 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="MIA-iF-cWs">
                                                         <rect key="frame" x="20" y="20" width="280" height="190"/>
                                                         <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hwd-Vd-cpI">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hwd-Vd-cpI" customClass="ThemeView" customModule="Flivery_Driver" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="280" height="40"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Account Holder Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KMq-oc-SBu" customClass="ThemeTextField" customModule="ODDS_Driver" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Account Holder Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KMq-oc-SBu" customClass="ThemeTextField" customModule="Flivery_Driver" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="280" height="40"/>
-                                                                        <color key="tintColor" red="1" green="0.63921568630000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isLeftViewNeeded" value="YES"/>
-                                                                            <userDefinedRuntimeAttribute type="image" keyPath="LeftImage" value="iconUser"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </textField>
                                                                 </subviews>
@@ -761,12 +759,12 @@
                                                                     <constraint firstAttribute="bottom" secondItem="KMq-oc-SBu" secondAttribute="bottom" id="b5p-PL-ytq"/>
                                                                 </constraints>
                                                             </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rmr-B5-u08">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rmr-B5-u08" customClass="ThemeView" customModule="Flivery_Driver" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="50" width="280" height="40"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Bank Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kpg-nl-yvR" customClass="ThemeTextField" customModule="ODDS_Driver" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Bank Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kpg-nl-yvR" customClass="ThemeTextField" customModule="Flivery_Driver" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="280" height="40"/>
-                                                                        <color key="tintColor" red="1" green="0.63921568630000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="40" id="JuD-P3-IxD"/>
                                                                         </constraints>
@@ -775,7 +773,6 @@
                                                                         <textInputTraits key="textInputTraits"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isLeftViewNeeded" value="YES"/>
-                                                                            <userDefinedRuntimeAttribute type="image" keyPath="LeftImage" value="iconTransferToBankSelect"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </textField>
                                                                 </subviews>
@@ -787,18 +784,17 @@
                                                                     <constraint firstItem="Kpg-nl-yvR" firstAttribute="top" secondItem="rmr-B5-u08" secondAttribute="top" id="pmt-KK-7bf"/>
                                                                 </constraints>
                                                             </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QlD-iq-K0S">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QlD-iq-K0S" customClass="ThemeView" customModule="Flivery_Driver" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="100" width="280" height="40"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Bank Branch" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tcC-fN-R9g" customClass="ThemeTextField" customModule="ODDS_Driver" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Bank Branch" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tcC-fN-R9g" customClass="ThemeTextField" customModule="Flivery_Driver" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="280" height="40"/>
-                                                                        <color key="tintColor" red="1" green="0.63921568630000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isLeftViewNeeded" value="YES"/>
-                                                                            <userDefinedRuntimeAttribute type="image" keyPath="LeftImage" value="iconTransferToBankSelect"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </textField>
                                                                 </subviews>
@@ -810,18 +806,17 @@
                                                                     <constraint firstItem="tcC-fN-R9g" firstAttribute="leading" secondItem="QlD-iq-K0S" secondAttribute="leading" id="zRm-1y-Bw2"/>
                                                                 </constraints>
                                                             </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UfV-4b-sWH">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UfV-4b-sWH" customClass="ThemeView" customModule="Flivery_Driver" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="150" width="280" height="40"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Account Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XyD-e8-SNq" customClass="ThemeTextField" customModule="ODDS_Driver" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Account Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XyD-e8-SNq" customClass="ThemeTextField" customModule="Flivery_Driver" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="280" height="40"/>
-                                                                        <color key="tintColor" red="1" green="0.63921568630000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isLeftViewNeeded" value="YES"/>
-                                                                            <userDefinedRuntimeAttribute type="image" keyPath="LeftImage" value="iconBankAccount"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </textField>
                                                                 </subviews>
@@ -844,7 +839,7 @@
                                                     <constraint firstAttribute="trailing" secondItem="MIA-iF-cWs" secondAttribute="trailing" constant="20" id="VhI-fj-j29"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nN4-t0-2Zd" customClass="ThemeButton" customModule="ODDS_Driver" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nN4-t0-2Zd" customClass="ThemeButton" customModule="Flivery_Driver" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="435" width="280" height="40"/>
                                                 <color key="backgroundColor" red="0.89338213209999995" green="0.51630395650000005" blue="0.15679338570000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -996,7 +991,7 @@
         <!--DriverOTPViewController-->
         <scene sceneID="WCg-p6-paI">
             <objects>
-                <viewController storyboardIdentifier="DriverOTPViewController" id="9dB-hK-205" userLabel="DriverOTPViewController" customClass="DriverOTPViewController" customModule="ODDS_Driver" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DriverOTPViewController" id="9dB-hK-205" userLabel="DriverOTPViewController" customClass="DriverOTPViewController" customModule="Flivery_Driver" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qzf-It-fQJ"/>
                         <viewControllerLayoutGuide type="bottom" id="vjk-Ph-Ugj"/>
@@ -1014,7 +1009,7 @@
         <!--Driver Personel Details View Controller-->
         <scene sceneID="qGT-0G-Rc8">
             <objects>
-                <viewController storyboardIdentifier="DriverPersonelDetailsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="JTk-re-dVi" customClass="DriverPersonelDetailsViewController" customModule="ODDS_Driver" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DriverPersonelDetailsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="JTk-re-dVi" customClass="DriverPersonelDetailsViewController" customModule="Flivery_Driver" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="D64-Rg-KZb"/>
                         <viewControllerLayoutGuide type="bottom" id="NF9-F4-umG"/>
@@ -1060,13 +1055,13 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vtg-dF-QaG">
                                                         <rect key="frame" x="15" y="6" width="290" height="184"/>
                                                         <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L9i-ld-krB" customClass="ThemView" customModule="ODDS_Driver" customModuleProvider="target">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L9i-ld-krB" customClass="ThemeView" customModule="Flivery_Driver" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="290" height="40"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="User Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lij-DB-raE" customClass="ThemeTextField" customModule="ODDS_Driver" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="User Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lij-DB-raE" customClass="ThemeTextField" customModule="Flivery_Driver" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="290" height="40"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <color key="tintColor" red="1" green="0.63921568630000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="40" id="m14-pM-ZvM"/>
                                                                         </constraints>
@@ -1075,7 +1070,6 @@
                                                                         <textInputTraits key="textInputTraits"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isLeftViewNeeded" value="YES"/>
-                                                                            <userDefinedRuntimeAttribute type="image" keyPath="LeftImage" value="iconUser"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </textField>
                                                                 </subviews>
@@ -1090,7 +1084,7 @@
                                                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bpk-dC-8VE">
                                                                 <rect key="frame" x="0.0" y="44" width="290" height="0.0"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Date Of Birth" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vRX-dc-mgo" customClass="ThemeTextField" customModule="ODDS_Driver" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Date Of Birth" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vRX-dc-mgo" customClass="ThemeTextField" customModule="Flivery_Driver" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="290" height="40"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <color key="tintColor" red="1" green="0.63921568630000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1116,13 +1110,13 @@
                                                                     <constraint firstItem="vRX-dc-mgo" firstAttribute="top" secondItem="Bpk-dC-8VE" secondAttribute="top" id="dv1-J7-J93"/>
                                                                 </constraints>
                                                             </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bMB-oe-cG7">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bMB-oe-cG7" customClass="ThemeView" customModule="Flivery_Driver" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="48" width="290" height="40"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NTL-r1-Edy" customClass="ThemeTextField" customModule="ODDS_Driver" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NTL-r1-Edy" customClass="ThemeTextField" customModule="Flivery_Driver" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="290" height="40"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <color key="tintColor" red="1" green="0.63921568630000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="40" id="M2O-6r-FwQ"/>
                                                                         </constraints>
@@ -1131,7 +1125,6 @@
                                                                         <textInputTraits key="textInputTraits"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isLeftViewNeeded" value="YES"/>
-                                                                            <userDefinedRuntimeAttribute type="image" keyPath="LeftImage" value="iconAddress"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </textField>
                                                                 </subviews>
@@ -1142,7 +1135,7 @@
                                                                     <constraint firstItem="NTL-r1-Edy" firstAttribute="top" secondItem="bMB-oe-cG7" secondAttribute="top" id="k1b-nc-fdO"/>
                                                                 </constraints>
                                                             </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qxi-mp-w3h">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qxi-mp-w3h" customClass="ThemeView" customModule="Flivery_Driver" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="96" width="290" height="40"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="TxX-Rm-CO1">
@@ -1244,19 +1237,18 @@
                                                                     <constraint firstItem="TxX-Rm-CO1" firstAttribute="centerY" secondItem="Qxi-mp-w3h" secondAttribute="centerY" id="tbk-Ge-RB4"/>
                                                                 </constraints>
                                                             </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TMK-Fi-RD0">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TMK-Fi-RD0" customClass="ThemeView" customModule="Flivery_Driver" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="144" width="290" height="40"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Invite Code (Optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kam-PF-2IK" customClass="ThemeTextField" customModule="ODDS_Driver" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Invite Code (Optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kam-PF-2IK" customClass="ThemeTextField" customModule="Flivery_Driver" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="290" height="40"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <color key="tintColor" red="1" green="0.63921568630000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isLeftViewNeeded" value="YES"/>
-                                                                            <userDefinedRuntimeAttribute type="image" keyPath="LeftImage" value="iconInvite"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </textField>
                                                                 </subviews>
@@ -1279,7 +1271,7 @@
                                                     <constraint firstAttribute="trailing" secondItem="vtg-dF-QaG" secondAttribute="trailing" constant="15" id="z6P-Zi-sqC"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGb-AL-JhV" customClass="ThemeButton" customModule="ODDS_Driver" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGb-AL-JhV" customClass="ThemeButton" customModule="Flivery_Driver" customModuleProvider="target">
                                                 <rect key="frame" x="15" y="454" width="290" height="40"/>
                                                 <color key="backgroundColor" red="0.89338213209999995" green="0.51630395650000005" blue="0.15679338570000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -1382,7 +1374,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tOY-eB-Uat" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Post code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b95-9Q-hSq" customClass="ThemeTextField" customModule="ODDS_Driver" customModuleProvider="target">
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Post code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b95-9Q-hSq" customClass="ThemeTextField" customModule="Flivery_Driver" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="142" height="40"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="tintColor" red="1" green="0.63921568630000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1410,7 +1402,7 @@
         <!--Driver Vehicle Types View Controller-->
         <scene sceneID="qVq-X8-cbu">
             <objects>
-                <viewController storyboardIdentifier="DriverVehicleTypesViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2MF-Pb-QfN" customClass="DriverVehicleTypesViewController" customModule="ODDS_Driver" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DriverVehicleTypesViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2MF-Pb-QfN" customClass="DriverVehicleTypesViewController" customModule="Flivery_Driver" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="c4p-eA-1fY"/>
                         <viewControllerLayoutGuide type="bottom" id="fFQ-1G-tae"/>
@@ -1423,7 +1415,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="520"/>
                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DriverVehicleTypesTOP" rowHeight="80" id="Qkx-bV-luk" customClass="DriverVehicleTypesTableViewCell" customModule="ODDS_Driver" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DriverVehicleTypesTOP" rowHeight="80" id="Qkx-bV-luk" customClass="DriverVehicleTypesTableViewCell" customModule="Flivery_Driver" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qkx-bV-luk" id="knA-kq-Vmy">
@@ -1453,7 +1445,7 @@ You must be 21 years of age or over.</string>
                                             <outlet property="lblTopDetails" destination="qxf-bH-Sw2" id="ZxN-Hd-PeD"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DriverVehicleTypesData" rowHeight="95" id="Hvi-iR-jrN" customClass="DriverVehicleTypesTableViewCell" customModule="ODDS_Driver" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DriverVehicleTypesData" rowHeight="95" id="Hvi-iR-jrN" customClass="DriverVehicleTypesTableViewCell" customModule="Flivery_Driver" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="108" width="320" height="95"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Hvi-iR-jrN" id="2dY-ah-W0v">
@@ -1515,7 +1507,7 @@ You must be 21 years of age or over.</string>
                                             <outlet property="lblTitlesOFClass" destination="3aT-zx-Yu9" id="jqb-tp-B8c"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DriverVehicleTypesTableViewCellNext" rowHeight="60" id="BBB-LN-ySA" customClass="DriverVehicleTypesTableViewCell" customModule="ODDS_Driver" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DriverVehicleTypesTableViewCellNext" rowHeight="60" id="BBB-LN-ySA" customClass="DriverVehicleTypesTableViewCell" customModule="Flivery_Driver" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="203" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BBB-LN-ySA" id="kW3-37-YMQ">
@@ -1571,7 +1563,7 @@ You must be 21 years of age or over.</string>
         <!--Driver Vehicles View Controller-->
         <scene sceneID="Mjn-UJ-Pxn">
             <objects>
-                <viewController storyboardIdentifier="DriverVehiclesViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dht-7T-DQJ" customClass="DriverVehiclesViewController" customModule="ODDS_Driver" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DriverVehiclesViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dht-7T-DQJ" customClass="DriverVehiclesViewController" customModule="Flivery_Driver" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Q9k-TO-S33"/>
                         <viewControllerLayoutGuide type="bottom" id="uv7-qm-QH4"/>
@@ -1584,7 +1576,7 @@ You must be 21 years of age or over.</string>
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="520"/>
                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DriverVehiclesTableViewCellTop" rowHeight="122" id="Dl4-CZ-vZj" customClass="DriverVehiclesTableViewCell" customModule="ODDS_Driver" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DriverVehiclesTableViewCellTop" rowHeight="122" id="Dl4-CZ-vZj" customClass="DriverVehiclesTableViewCell" customModule="Flivery_Driver" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="122"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Dl4-CZ-vZj" id="4ZW-Wr-fRm">
@@ -1640,7 +1632,7 @@ You must be 21 years of age or over.</string>
                                             <outlet property="lblTopDetails" destination="fnu-yL-0id" id="lOr-F0-4vk"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="100" reuseIdentifier="DriverVehiclesTableViewCellData" rowHeight="66" id="hZi-LE-J4a" customClass="DriverVehiclesTableViewCell" customModule="ODDS_Driver" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="100" reuseIdentifier="DriverVehiclesTableViewCellData" rowHeight="66" id="hZi-LE-J4a" customClass="DriverVehiclesTableViewCell" customModule="Flivery_Driver" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="150" width="320" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hZi-LE-J4a" id="IGZ-PJ-f54">
@@ -1689,7 +1681,7 @@ You must be 21 years of age or over.</string>
                                             <outlet property="lblVehicleName" destination="Orz-GH-Jyz" id="aBL-49-PK6"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DriverVehiclesTableViewCellBottom" rowHeight="60" id="tJF-Vj-Nlx" customClass="DriverVehiclesTableViewCell" customModule="ODDS_Driver" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DriverVehiclesTableViewCellBottom" rowHeight="60" id="tJF-Vj-Nlx" customClass="DriverVehiclesTableViewCell" customModule="Flivery_Driver" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="216" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tJF-Vj-Nlx" id="U7X-Kk-1MV">
@@ -1745,7 +1737,7 @@ You must be 21 years of age or over.</string>
         <!--Driver Certificates View Controller-->
         <scene sceneID="CSz-AY-2NG">
             <objects>
-                <viewController storyboardIdentifier="DriverCertificatesViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EGc-cO-SG2" customClass="DriverCertificatesViewController" customModule="ODDS_Driver" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DriverCertificatesViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EGc-cO-SG2" customClass="DriverCertificatesViewController" customModule="Flivery_Driver" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Pcj-VZ-m6F"/>
                         <viewControllerLayoutGuide type="bottom" id="XmT-5r-gAh"/>
@@ -1968,7 +1960,7 @@ You must be 21 years of age or over.</string>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AuO-80-tbE">
                                                                 <rect key="frame" x="0.0" y="0.0" width="245" height="50"/>
                                                                 <subviews>
-                                                                    <textField hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wuq-e0-Kdu" customClass="ThemeTextField" customModule="ODDS_Driver" customModuleProvider="target">
+                                                                    <textField hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wuq-e0-Kdu" customClass="ThemeTextField" customModule="Flivery_Driver" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="245" height="50"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="textColor"/>
@@ -2159,7 +2151,7 @@ You must be 21 years of age or over.</string>
                                                     <color key="titleColor" red="0.89338213209999995" green="0.51630395650000005" blue="0.15679338570000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RXE-UN-TOk" customClass="ThemeButton" customModule="ODDS_Driver" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RXE-UN-TOk" customClass="ThemeButton" customModule="Flivery_Driver" customModuleProvider="target">
                                                 <rect key="frame" x="15" y="425" width="290" height="40"/>
                                                 <color key="backgroundColor" red="0.89338213209999995" green="0.51630395650000005" blue="0.15679338570000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -2264,7 +2256,7 @@ You must be 21 years of age or over.</string>
         <!--Driver Select Vehicle Types View Controller-->
         <scene sceneID="Qdz-wf-v2y">
             <objects>
-                <viewController storyboardIdentifier="DriverSelectVehicleTypesViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ftm-BO-rKl" customClass="DriverSelectVehicleTypesViewController" customModule="ODDS_Driver" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DriverSelectVehicleTypesViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ftm-BO-rKl" customClass="DriverSelectVehicleTypesViewController" customModule="Flivery_Driver" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8Tj-ha-RAJ"/>
                         <viewControllerLayoutGuide type="bottom" id="cME-eS-Y7J"/>
@@ -2285,18 +2277,21 @@ You must be 21 years of age or over.</string>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="VcI-aU-78V">
                                                         <rect key="frame" x="20" y="20" width="280" height="250"/>
                                                         <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZAm-hM-eJd">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZAm-hM-eJd" customClass="ThemeView" customModule="Flivery_Driver" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="280" height="42"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Vehicle Plate Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iQS-hZ-ShZ" customClass="ThemeTextField" customModule="ODDS_Driver" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Vehicle Plate Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iQS-hZ-ShZ" customClass="ThemeTextField" customModule="Flivery_Driver" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="280" height="40"/>
-                                                                        <color key="tintColor" red="1" green="0.63921568630000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="40" id="2lp-sa-cmn"/>
                                                                         </constraints>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isLeftViewNeeded" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
                                                                     </textField>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2306,18 +2301,21 @@ You must be 21 years of age or over.</string>
                                                                     <constraint firstItem="iQS-hZ-ShZ" firstAttribute="top" secondItem="ZAm-hM-eJd" secondAttribute="top" id="XT1-9h-6Lq"/>
                                                                 </constraints>
                                                             </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="21u-1T-YHH">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="21u-1T-YHH" customClass="ThemeView" customModule="Flivery_Driver" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="52" width="280" height="42"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Vehicle Model" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7fX-8O-UhY" customClass="ThemeTextField" customModule="ODDS_Driver" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Vehicle Model" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7fX-8O-UhY" customClass="ThemeTextField" customModule="Flivery_Driver" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="280" height="40"/>
-                                                                        <color key="tintColor" red="1" green="0.63921568630000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="40" id="dq4-UF-4Cb"/>
                                                                         </constraints>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isLeftViewNeeded" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
                                                                     </textField>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2327,18 +2325,21 @@ You must be 21 years of age or over.</string>
                                                                     <constraint firstAttribute="trailing" secondItem="7fX-8O-UhY" secondAttribute="trailing" id="LAS-w5-1kZ"/>
                                                                 </constraints>
                                                             </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MqU-Zh-zb5">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MqU-Zh-zb5" customClass="ThemeView" customModule="Flivery_Driver" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="104" width="280" height="42"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Vehicle Make" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CFS-1C-K6a" customClass="ThemeTextField" customModule="ODDS_Driver" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Vehicle Make" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CFS-1C-K6a" customClass="ThemeTextField" customModule="Flivery_Driver" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="280" height="40"/>
-                                                                        <color key="tintColor" red="1" green="0.63921568630000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="40" id="6SS-H5-A9u"/>
                                                                         </constraints>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isLeftViewNeeded" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
                                                                         <connections>
                                                                             <outlet property="delegate" destination="Ftm-BO-rKl" id="SK2-9t-huC"/>
                                                                         </connections>
@@ -2351,18 +2352,21 @@ You must be 21 years of age or over.</string>
                                                                     <constraint firstAttribute="trailing" secondItem="CFS-1C-K6a" secondAttribute="trailing" id="kkv-2x-rvk"/>
                                                                 </constraints>
                                                             </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JaM-hY-DCn">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JaM-hY-DCn" customClass="ThemeView" customModule="Flivery_Driver" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="156" width="280" height="42"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Vehicle Type" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZXK-gF-63u" customClass="ThemeTextField" customModule="ODDS_Driver" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Vehicle Type" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZXK-gF-63u" customClass="ThemeTextField" customModule="Flivery_Driver" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="280" height="40"/>
-                                                                        <color key="tintColor" red="1" green="0.63921568630000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="40" id="dm6-55-57r"/>
                                                                         </constraints>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isLeftViewNeeded" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
                                                                         <connections>
                                                                             <outlet property="delegate" destination="Ftm-BO-rKl" id="hkZ-2M-a4F"/>
                                                                         </connections>
@@ -2375,7 +2379,7 @@ You must be 21 years of age or over.</string>
                                                                     <constraint firstItem="ZXK-gF-63u" firstAttribute="top" secondItem="JaM-hY-DCn" secondAttribute="top" id="lrm-0g-GwF"/>
                                                                 </constraints>
                                                             </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6UR-gc-W6s">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6UR-gc-W6s" customClass="ThemeView" customModule="Flivery_Driver" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="208" width="280" height="42"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bottomLine" translatesAutoresizingMaskIntoConstraints="NO" id="tia-0H-JvR">
@@ -2386,7 +2390,7 @@ You must be 21 years of age or over.</string>
                                                                     </imageView>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Number Of Passenger" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hVh-sd-lep" customClass="IQDropDownTextField">
                                                                         <rect key="frame" x="0.0" y="0.0" width="280" height="40"/>
-                                                                        <color key="tintColor" red="1" green="0.63921568630000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="40" id="sac-yx-TOO"/>
                                                                         </constraints>
@@ -2421,7 +2425,7 @@ You must be 21 years of age or over.</string>
                                                     <constraint firstItem="VcI-aU-78V" firstAttribute="leading" secondItem="Hck-v9-YPT" secondAttribute="leading" constant="20" id="x1l-pk-4Xv"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rLs-vR-dZd" customClass="ThemeButton" customModule="ODDS_Driver" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rLs-vR-dZd" customClass="ThemeButton" customModule="Flivery_Driver" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="567" width="280" height="40"/>
                                                 <color key="backgroundColor" red="0.89338213209999995" green="0.51630395650000005" blue="0.15679338570000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -2682,7 +2686,7 @@ You must be 21 years of age or over.</string>
         <!--Car And TaxiesVC-->
         <scene sceneID="w9f-ok-bgg">
             <objects>
-                <viewController storyboardIdentifier="CarAndTaxiesVC" modalPresentationStyle="overCurrentContext" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Bgu-wr-ntr" customClass="CarAndTaxiesVC" customModule="ODDS_Driver" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CarAndTaxiesVC" modalPresentationStyle="overCurrentContext" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Bgu-wr-ntr" customClass="CarAndTaxiesVC" customModule="Flivery_Driver" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="D9b-rT-ZPM"/>
                         <viewControllerLayoutGuide type="bottom" id="WhY-08-64s"/>
@@ -2736,7 +2740,7 @@ You must be 21 years of age or over.</string>
                                         <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CarAndTaxiesTableViewCell" rowHeight="50" id="iRu-sK-lMB" customClass="CarAndTaxiesTableViewCell" customModule="ODDS_Driver" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CarAndTaxiesTableViewCell" rowHeight="50" id="iRu-sK-lMB" customClass="CarAndTaxiesTableViewCell" customModule="Flivery_Driver" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="260" height="50"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iRu-sK-lMB" id="6ey-lF-yTs">
@@ -2787,7 +2791,7 @@ You must be 21 years of age or over.</string>
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C8l-ct-O86" customClass="ThemeButton" customModule="ODDS_Driver" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C8l-ct-O86" customClass="ThemeButton" customModule="Flivery_Driver" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="304" width="280" height="40"/>
                                         <color key="backgroundColor" red="0.89338213209999995" green="0.51630395650000005" blue="0.15679338570000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -2841,24 +2845,16 @@ You must be 21 years of age or over.</string>
         </scene>
     </scenes>
     <resources>
-        <image name="Logo" width="249" height="45"/>
+        <image name="Logo" width="345" height="345"/>
         <image name="Unchecked" width="30" height="30"/>
         <image name="bottomLine" width="386" height="1"/>
-        <image name="iconAddress" width="85" height="85"/>
-        <image name="iconBankAccount" width="85" height="85"/>
         <image name="iconBirthday" width="85" height="85"/>
         <image name="iconCARPlaceholder" width="85" height="85"/>
         <image name="iconCheckMarkUnSelected" width="33" height="33"/>
-        <image name="iconEmail" width="26" height="26"/>
-        <image name="iconInvite" width="85" height="85"/>
-        <image name="iconLock" width="170" height="170"/>
-        <image name="iconMobile" width="160" height="160"/>
         <image name="iconPlaceholderVehicle" width="85" height="85"/>
         <image name="iconPluse" width="85" height="85"/>
         <image name="iconPostcode" width="85" height="85"/>
         <image name="iconRadioUnSelected" width="85" height="85"/>
-        <image name="iconTransferToBankSelect" width="85" height="85"/>
-        <image name="iconUser" width="85" height="85"/>
         <image name="iconUsers" width="85" height="85"/>
         <image name="icon_Back" width="85" height="85"/>
         <image name="imageView:SpK-QK-iQj:image" width="85" height="85">
@@ -4083,6 +4079,6 @@ Ons8ez57R3tMe1J7Wntce157YHtie2d7b4zbjN2M4ozwjPSM+40AjQ2NEI0djSKNKo0tjTKNOo09jU+N
 Uo1XAAAAAAAAAgEAAAAAAAAAWQAAAAAAAAAAAAAAAAAAjVk
 </mutableData>
         </image>
-        <image name="imgSplashBackground" width="414" height="736"/>
+        <image name="imgSplashBackground" width="480" height="986"/>
     </resources>
 </document>

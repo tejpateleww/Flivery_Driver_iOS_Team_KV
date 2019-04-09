@@ -14,7 +14,7 @@ class ThemeButton: UIButton {
     
     override func awakeFromNib() {
         self.titleLabel?.font = UIFont.init(name: CustomeFontProximaNovaSemibold, size: 15)
-        self.layer.cornerRadius = 3.0
+//        self.layer.cornerRadius = 3.0
         self.layer.masksToBounds = true
         
         if isSubmitButton == true

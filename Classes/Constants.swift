@@ -11,13 +11,13 @@ import UIKit
 //import BFKit
 
 let App_Delegate = UIApplication.shared.delegate as! AppDelegate
-let ThemeYellowColor : UIColor = UIColor.init(hex: "00aced")
+let ThemeYellowColor : UIColor = UIColor.init(hex: "ce2c31")
 let ThemeGrayColor : UIColor = UIColor.init(hex:  "8e8c80")
 let ThemeStatusBarColor : UIColor = UIColor.init(hex:  "cccccc")
 let themeGrayBGColor : UIColor = UIColor.init(hex: "DDDDDD")
 let themeGrayTextColor : UIColor = UIColor.init(hex: "7A7A7C")
 let Appdelegate = UIApplication.shared.delegate as! AppDelegate
-let AppNAME : String = "ODDS-Driver"
+let AppNAME : String = "Flivery-Driver"
 
 let navigationBarHeightIphoneX = 84
 var utility = Utilities()

@@ -5,7 +5,7 @@
 
 import UIKit
 import ACFloatingTextfield_Swift
-class ThemeTextField: ACFloatingTextfield {
+class ThemeTextField: UITextField {
     
     @IBInspectable public var isLeftViewNeeded: Bool = false
 //    @IBInspectable public var LeftImage: UIImage = UIImage()
@@ -17,30 +17,34 @@ class ThemeTextField: ACFloatingTextfield {
         self.textColor = UIColor.white
         self.backgroundColor = UIColor.clear
         self.setValue(UIColor.white , forKeyPath: "placeholderLabel.textColor")
-        self.lineColor = .clear
-        self.placeHolderColor = .white
-        self.selectedPlaceHolderColor = .white
-        self.selectedLineColor = .clear
+//        self.lineColor = .clear
+//        self.placeHolderColor = .white
+//        self.selectedPlaceHolderColor = .white
+//        self.selectedLineColor = .clear
 //        self.SetLeftViewImage(Image: LeftImage)
 
 
 
-            self.layer.cornerRadius = 2
-            self.layer.shadowRadius = 3.0
-            self.layer.shadowColor = UIColor.black.withAlphaComponent(0.6).cgColor
-            self.layer.shadowOffset = CGSize (width: 1.0, height: 1.0)
-            self.layer.shadowOpacity = 1.0
-        
-//        if isLeftViewNeeded == true {
-////            self.SetLeftViewImage(Image: LeftImage)
-//        }
-//        else {
+//            self.layer.cornerRadius = 2
+//            self.layer.shadowRadius = 3.0
+//            self.layer.shadowColor = UIColor.black.withAlphaComponent(0.6).cgColor
+//            self.layer.shadowOffset = CGSize (width: 1.0, height: 1.0)
+//            self.layer.shadowOpacity = 1.0
+
+        if isLeftViewNeeded == true {
+            let LeftView = UIView(frame: CGRect(x: 0, y: 0, width: 20.0, height: 20.0))
+            LeftView.backgroundColor = UIColor.clear
+
+            self.leftView = LeftView
+            self.leftViewMode = .always
+        }
+        else {
 //            let LeftView = UIView(frame: CGRect(x: 0, y: 0, width: 20.0, height: 20.0))
 //            LeftView.backgroundColor = UIColor.clear
 //
 //            self.leftView = LeftView
 //            self.leftViewMode = .always
-//        }
+        }
 
         if isBorderNeeded == true {
             let border = CALayer()

@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "98E3764336EE49A10B1409A488F7364A"
+               BlueprintIdentifier = "05668BFD258776CA1DFA48BD530E9D33"
                BlueprintName = "SRCountdownTimer"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "SRCountdownTimer.framework">
