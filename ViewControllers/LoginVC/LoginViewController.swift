@@ -64,8 +64,8 @@
         self.txtPassword.placeholder = "Password".localized
         self.btnForgotPassWord.setTitle("Forgot Password".localized, for: .normal)
         self.btnSignIn.setTitle("Sign In".localized, for: .normal)
-        self.btnSignUp.setTitle("Sign Up".localized, for: .normal)
-        self.lblDonTHaveAnyAccount.text = "Don't have an Account?".localized
+//        self.btnSignUp.setTitle("Sign Up".localized, for: .normal)
+        self.lblDonTHaveAnyAccount.text = "Don't have an Account? Sign Up".localized
         
     }
     
@@ -134,10 +134,10 @@
        
         //
         
-        btnSignUp.layer.cornerRadius = 3.0
-        btnSignUp.layer.borderColor = UIColor.white.cgColor
-        btnSignUp.layer.borderWidth = 1.0
-        btnSignUp.clipsToBounds = true
+//        btnSignUp.layer.cornerRadius = 3.0
+//        btnSignUp.layer.borderColor = UIColor.white.cgColor
+//        btnSignUp.layer.borderWidth = 1.0
+//        btnSignUp.clipsToBounds = true
         //
         //        if DeviceType.IS_IPHONE_4_OR_LESS || DeviceType.IS_IPAD {
         //            constraintHeightOfLogo.constant = 120

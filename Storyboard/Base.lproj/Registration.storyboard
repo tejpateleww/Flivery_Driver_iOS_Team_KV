@@ -872,7 +872,7 @@
                                                     <color key="titleColor" red="0.89338213209999995" green="0.51630395650000005" blue="0.15679338570000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                             </button>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="dcL-Eq-a0V">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Title_logo" translatesAutoresizingMaskIntoConstraints="NO" id="dcL-Eq-a0V">
                                                 <rect key="frame" x="85" y="10" width="150" height="150"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="dcL-Eq-a0V" secondAttribute="height" multiplier="1:1" id="QfY-zg-T2Q"/>
@@ -1024,7 +1024,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PiX-kF-hL6">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="527"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="GmT-Bv-iVZ">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Title_logo" translatesAutoresizingMaskIntoConstraints="NO" id="GmT-Bv-iVZ">
                                                 <rect key="frame" x="85" y="10" width="150" height="150"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="150" id="1Y2-5p-8KL"/>
@@ -1760,7 +1760,7 @@ You must be 21 years of age or over.</string>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconPlaceholderVehicle" translatesAutoresizingMaskIntoConstraints="NO" id="P0V-lP-GM7">
                                                                 <rect key="frame" x="250" y="7.5" width="35" height="35"/>
-                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="35" id="fH3-WL-qLi"/>
                                                                     <constraint firstAttribute="height" constant="35" id="rvl-0l-YoF"/>
@@ -1771,7 +1771,7 @@ You must be 21 years of age or over.</string>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Driver Licence (Front Only)" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nj1-K0-iWR">
                                                                         <rect key="frame" x="5" y="0.0" width="240" height="17"/>
-                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="17" id="XQt-6X-m2S"/>
                                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="17" id="jGw-5S-cU1"/>
@@ -1782,13 +1782,13 @@ You must be 21 years of age or over.</string>
                                                                     </label>
                                                                     <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oYy-Xu-hHj">
                                                                         <rect key="frame" x="5" y="17" width="240" height="33"/>
-                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
                                                                 </subviews>
-                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="bottom" secondItem="oYy-Xu-hHj" secondAttribute="bottom" id="5mE-6f-3ja"/>
                                                                     <constraint firstAttribute="trailing" secondItem="oYy-Xu-hHj" secondAttribute="trailing" id="8g3-5j-MXk"/>
@@ -1856,7 +1856,7 @@ You must be 21 years of age or over.</string>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconPlaceholderVehicle" translatesAutoresizingMaskIntoConstraints="NO" id="eOS-Il-ugZ">
                                                                 <rect key="frame" x="250" y="7.5" width="35" height="35"/>
-                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="35" id="207-xj-pBI"/>
                                                                     <constraint firstAttribute="width" constant="35" id="LoT-Mv-Ayc"/>
@@ -1867,7 +1867,7 @@ You must be 21 years of age or over.</string>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Certificate" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WeW-7U-eK4">
                                                                         <rect key="frame" x="5" y="0.0" width="240" height="17"/>
-                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="17" id="Gpp-ac-CzA"/>
                                                                             <constraint firstAttribute="height" constant="17" id="Lre-C7-seT"/>
@@ -1878,13 +1878,13 @@ You must be 21 years of age or over.</string>
                                                                     </label>
                                                                     <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V5W-Xu-mKi">
                                                                         <rect key="frame" x="5" y="17" width="240" height="33"/>
-                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
                                                                 </subviews>
-                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="trailing" secondItem="WeW-7U-eK4" secondAttribute="trailing" id="8bi-Vg-WpV"/>
                                                                     <constraint firstItem="V5W-Xu-mKi" firstAttribute="leading" secondItem="o93-x7-N5k" secondAttribute="leading" constant="5" id="Bv5-MC-WdS"/>
@@ -1951,7 +1951,7 @@ You must be 21 years of age or over.</string>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconPlaceholderVehicle" translatesAutoresizingMaskIntoConstraints="NO" id="QCY-iu-0xM">
                                                                 <rect key="frame" x="250" y="7.5" width="35" height="35"/>
-                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="35" id="q0G-w7-9qj"/>
                                                                     <constraint firstAttribute="width" constant="35" id="q1O-4P-sGt"/>
@@ -1962,13 +1962,13 @@ You must be 21 years of age or over.</string>
                                                                 <subviews>
                                                                     <textField hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wuq-e0-Kdu" customClass="ThemeTextField" customModule="Flivery_Driver" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="245" height="50"/>
-                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
                                                                 </subviews>
-                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstItem="wuq-e0-Kdu" firstAttribute="leading" secondItem="AuO-80-tbE" secondAttribute="leading" id="6iW-K4-nZr"/>
                                                                     <constraint firstItem="wuq-e0-Kdu" firstAttribute="top" secondItem="AuO-80-tbE" secondAttribute="top" id="XNl-hz-Hye"/>
@@ -1999,7 +1999,7 @@ You must be 21 years of age or over.</string>
                                                             </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vehicle Registration Document" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="noP-2G-faB">
                                                                 <rect key="frame" x="5" y="0.0" width="240" height="50"/>
-                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                                 <nil key="highlightedColor"/>
@@ -2039,7 +2039,7 @@ You must be 21 years of age or over.</string>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconPlaceholderVehicle" translatesAutoresizingMaskIntoConstraints="NO" id="JBW-bH-WMj">
                                                                 <rect key="frame" x="250" y="7.5" width="35" height="35"/>
-                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="35" id="Isj-zJ-3jF"/>
                                                                     <constraint firstAttribute="height" constant="35" id="Zr4-U2-MY3"/>
@@ -2050,7 +2050,7 @@ You must be 21 years of age or over.</string>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vehicle Insurance Policy/certificate " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ztb-jb-vfK">
                                                                         <rect key="frame" x="5" y="0.0" width="240" height="17"/>
-                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="17" id="H7Q-LN-hHl"/>
                                                                             <constraint firstAttribute="height" constant="17" id="nh2-Ol-Rkp"/>
@@ -2061,13 +2061,13 @@ You must be 21 years of age or over.</string>
                                                                     </label>
                                                                     <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m6u-dT-KBz">
                                                                         <rect key="frame" x="5" y="17" width="240" height="33"/>
-                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
                                                                 </subviews>
-                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstItem="Ztb-jb-vfK" firstAttribute="top" secondItem="RTG-oS-FiA" secondAttribute="top" id="4ct-sU-Phh"/>
                                                                     <constraint firstAttribute="bottom" secondItem="m6u-dT-KBz" secondAttribute="bottom" id="LHT-0J-Uoa"/>
@@ -2168,7 +2168,7 @@ You must be 21 years of age or over.</string>
                                                     <action selector="btnNext:" destination="EGc-cO-SG2" eventType="touchUpInside" id="HPy-dG-Cph"/>
                                                 </connections>
                                             </button>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="cCh-xv-bjx">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Title_logo" translatesAutoresizingMaskIntoConstraints="NO" id="cCh-xv-bjx">
                                                 <rect key="frame" x="85" y="10" width="150" height="150"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="150" id="oWp-Df-sp2"/>
@@ -2451,7 +2451,7 @@ You must be 21 years of age or over.</string>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="iJ4-rH-1P4">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Title_logo" translatesAutoresizingMaskIntoConstraints="NO" id="iJ4-rH-1P4">
                                                 <rect key="frame" x="85" y="10" width="150" height="150"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="150" id="dIf-Ei-UoG"/>
@@ -2846,6 +2846,7 @@ You must be 21 years of age or over.</string>
     </scenes>
     <resources>
         <image name="Logo" width="345" height="345"/>
+        <image name="Title_logo" width="205" height="168"/>
         <image name="Unchecked" width="30" height="30"/>
         <image name="bottomLine" width="386" height="1"/>
         <image name="iconBirthday" width="85" height="85"/>

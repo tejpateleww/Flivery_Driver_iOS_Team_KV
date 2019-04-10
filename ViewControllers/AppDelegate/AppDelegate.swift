@@ -39,6 +39,8 @@ let googlPlacesApiKey = "AIzaSyD1bcITZ_nUkP-ke6xgaP5RIC--tXQU3I4" // "AIzaSyCKEP
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        
+        sleep(2)
         IQKeyboardManager.shared.enable = true
         UserDefaults.standard.set(false, forKey: kIsSocketEmited)
         UserDefaults.standard.synchronize()
