@@ -106,9 +106,9 @@ class DriverSelectVehicleTypesViewController: UIViewController,getVehicleIdAndNa
         
         
         txtNumberPassenger.font = UIFont.init(name: CustomeFontProximaNovaRegular, size: 14)
-        txtNumberPassenger.textColor = UIColor.black
-        txtNumberPassenger.backgroundColor = UIColor.white
-        txtNumberPassenger.setValue(UIColor.black , forKeyPath: "placeholderLabel.textColor")
+        txtNumberPassenger.textColor = UIColor.white
+//        txtNumberPassenger.backgroundColor = UIColor.white
+        txtNumberPassenger.setValue(UIColor.white , forKeyPath: "placeholderLabel.textColor")
         
         
         
@@ -444,7 +444,7 @@ class DriverSelectVehicleTypesViewController: UIViewController,getVehicleIdAndNa
                 //                let checkCarModelClass: Bool = Singletons.sharedInstance.boolTaxiModel
                 
                 
-                self.aryDataCarsAndTaxi = result["cars_and_taxi"] as! [[String:AnyObject]]
+                self.aryDataCarsAndTaxi = result["delivery_services"] as! [[String:AnyObject]]
                 
                 
                 for (i,_) in self.aryDataCarsAndTaxi.enumerated()

@@ -70,6 +70,7 @@ class TripToDestinationViewController: BaseViewController, GMSAutocompleteViewCo
         super.viewWillAppear(true)
         
         setLocalizable()
+        setNavBarWithMenuORBack(Title: "Trip to Destination".localized, LetfBtn: kIconBack, IsNeedRightButton: false, isTranslucent: false)
     }
     
     func  setLocalizable()

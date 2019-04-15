@@ -52,6 +52,7 @@ class EditDriverProfileVC: BaseViewController {
         setLocalizable()
 //        self.setNavBarWithBack(Title: "Profile Update".localized, IsNeedRightButton: false)
         self.title = "Profile Update".localized
+        setNavBarWithMenuORBack(Title: "Profile Update".localized, LetfBtn: kIconBack, IsNeedRightButton: false, isTranslucent: false)
 
     }
     func setLocalizable()

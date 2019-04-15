@@ -162,7 +162,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate,ARCarMovem
         BottomButtonView.isHidden = true
         StartTripView.isHidden = true
         btnStartTrip.isHidden = true
-        (self.parent as? ContainerViewController)?.viewHomeMyJobsBTN.isHidden = false
+//        (self.parent as? ContainerViewController)?.viewHomeMyJobsBTN.isHidden = false
 //        self.constrainLocationViewBottom.constant = 0//self.viewHomeMyJobsBTN.frame.height
         isAdvanceBooking = false
         Singletons.sharedInstance.isFirstTimeDidupdateLocation = true;
@@ -270,7 +270,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate,ARCarMovem
         
         runTimer()
     }
-    override func viewDidLayoutSubviews() {
+    override func viewDidLayoutSubviews()
+    {
         self.title = "Home".localized
         btnWaiting.setTitle("Hold Trip".localized, for: .normal)
         btnWaiting.setTitle("Stop waiting".localized, for: .selected)
@@ -1021,90 +1022,110 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate,ARCarMovem
             let okAction = UIAlertAction(title: "OK".localized, style: .default, handler: { (action) in
                 
                 Singletons.sharedInstance.isFromNotification = true
-                self.tabBarController?.selectedIndex = 1
-                
-                //                let myJobs = (self.navigationController?.childViewControllers[0] as! TabbarController).childViewControllers.last as! MyJobsViewController
-                
-                //                myJobs.btnFutureBookingClicked(myJobs.btnFutureBooking)
-                
-                let viewCount = self.parent?.children.count
-                
-                if viewCount == 3
-                {
-                    if let VC = self.parent?.children[2] as? MyJobsViewController
-                    {
-                        print("called it after book later offline to online on the same page")
-                        if let vcFuture = VC.children[0] as? FutureBookingVC
-                        {
-                            vcFuture.webserviceOFFurureBooking()
-                        }
-                        VC.btnFutureBookingClicked(VC.btnFutureBooking)
-                    }
-                    else
-                    {
-                        print("called it after book later offline to online from home page")
-                        let ViewController = self.storyboard?.instantiateViewController(withIdentifier: "MyJobsViewController") as? MyJobsViewController
-                        self.navigationController?.pushViewController(ViewController!, animated: true)
-                    }
-                }
-                    
-                else if viewCount == nil
-                {
-                    if UIApplication.shared.windows[0].rootViewController?.children[1].children.count == 1
-                    {
-                        print("called it after book later offline to online from Sidemenu")
-                        let VC = (UIApplication.shared.windows[0].rootViewController?.children[1].children[0] as? MyJobsViewController)
-                        let MyjobVC = ((UIApplication.shared.windows[0].rootViewController)?.children[1].children[0].children[0]) as? FutureBookingVC
-                        MyjobVC?.webserviceOFFurureBooking()
-                        //                        VC?.btnFutureBookingClicked(VC?.btnFutureBooking)
+//                self.tabBarController?.selectedIndex = 1
+//
+//                //                let myJobs = (self.navigationController?.childViewControllers[0] as! TabbarController).childViewControllers.last as! MyJobsViewController
+//
+//                //                myJobs.btnFutureBookingClicked(myJobs.btnFutureBooking)
+//
+//                let viewCount = self.parent?.children.count
+//
+//                if viewCount == 3
+//                {
+//                    if let VC = self.parent?.children[2] as? MyJobsViewController
+//                    {
+//                        print("called it after book later offline to online on the same page")
+//                        if let vcFuture = VC.children[0] as? FutureBookingVC
+//                        {
+//                            vcFuture.webserviceOFFurureBooking()
+//                        }
+//                        VC.btnFutureBookingClicked(VC.btnFutureBooking)
+//                    }
+//                    else
+//                    {
+//                        print("called it after book later offline to online from home page")
+//                        let ViewController = self.storyboard?.instantiateViewController(withIdentifier: "MyJobsViewController") as? MyJobsViewController
+//                        self.navigationController?.pushViewController(ViewController!, animated: true)
+//                    }
+//                }
+//
+//                else if viewCount == nil
+//                {
+//                    if UIApplication.shared.windows[0].rootViewController?.children[1].children.count == 1
+//                    {
+//                        print("called it after book later offline to online from Sidemenu")
+//                        let VC = (UIApplication.shared.windows[0].rootViewController?.children[1].children[0] as? MyJobsViewController)
+//                        let MyjobVC = ((UIApplication.shared.windows[0].rootViewController)?.children[1].children[0].children[0]) as? FutureBookingVC
+//                        MyjobVC?.webserviceOFFurureBooking()
+//                        //                        VC?.btnFutureBookingClicked(VC?.btnFutureBooking)
+//
+//                    }
+//                    else
+//                    {
+//                        //                        if let navController = (UIApplication.shared.windows[0].rootViewController as! SSASideMenu).childViewControllers[1] as? UINavigationController
+//                        //                        {
+//                        //
+//                        //                            print("called it after book later offline to online undefinite")
+//                        //                            let viewController = self.storyboard?.instantiateViewController(withIdentifier: "MyJobsViewController") as? MyJobsViewController
+//                        //                            navController.pushViewController(viewController!, animated: true)
+//                        //                        }
+//                    }
+//                }
+//                else
+//                {
+//
+//                    //                    print("called it after book later offline to online undefinite also")
+//                    //                    if let ViewController = self.storyboard?.instantiateViewController(withIdentifier: "MyJobsViewController") as? MyJobsViewController
+//                    //                    {
+//                    //                        self.navigationController?.pushViewController(ViewController, animated: true)
+//                    //                    }
+//                    if viewCount == 2
+//                    {
+//                        if let VC = self.parent?.children[1] as? MyJobsViewController
+//                        {
+//                            print("called it after book later offline to online on the same page")
+//                            if let vcFuture = VC.children[2] as? FutureBookingVC
+//                            {
+//                                vcFuture.webserviceOFFurureBooking()
+//                            }
+//                            VC.btnFutureBookingClicked(VC.btnFutureBooking)
+//                        }
+//                    }
+//                    else
+//                    {
+//                        print("called it after book later offline to online undefinite also")
+//                        if let ViewController = self.storyboard?.instantiateViewController(withIdentifier: "MyJobsViewController") as? MyJobsViewController
+//                        {
+//                            self.navigationController?.pushViewController(ViewController, animated: true)
+//                            //                            if let vcFuture = ViewController.childViewControllers[0] as? FutureBookingViewController
+//                            //                            {
+//                            //                                vcFuture.webserviceOFFurureBooking(showHud: true)
+//                            //                            }
+//                            //                            ViewController.btnFutureBookingClicked(ViewController.btnFutureBooking)
+//                        }
+//                    }
+//                }
+//
+                if let vc = UIApplication.topViewController() {
+                    if vc is MyJobsViewController {
+                        let myJobs = vc as! MyJobsViewController
+                        myJobs.btnFutureBookingClicked(myJobs.btnFutureBooking)
+                    }else {
                         
-                    }
-                    else
-                    {
-                        //                        if let navController = (UIApplication.shared.windows[0].rootViewController as! SSASideMenu).childViewControllers[1] as? UINavigationController
-                        //                        {
-                        //
-                        //                            print("called it after book later offline to online undefinite")
-                        //                            let viewController = self.storyboard?.instantiateViewController(withIdentifier: "MyJobsViewController") as? MyJobsViewController
-                        //                            navController.pushViewController(viewController!, animated: true)
-                        //                        }
-                    }
-                }
-                else
-                {
-                    
-                    //                    print("called it after book later offline to online undefinite also")
-                    //                    if let ViewController = self.storyboard?.instantiateViewController(withIdentifier: "MyJobsViewController") as? MyJobsViewController
-                    //                    {
-                    //                        self.navigationController?.pushViewController(ViewController, animated: true)
-                    //                    }
-                    if viewCount == 2
-                    {
-                        if let VC = self.parent?.children[1] as? MyJobsViewController
-                        {
-                            print("called it after book later offline to online on the same page")
-                            if let vcFuture = VC.children[2] as? FutureBookingVC
-                            {
-                                vcFuture.webserviceOFFurureBooking()
-                            }
-                            VC.btnFutureBookingClicked(VC.btnFutureBooking)
-                        }
-                    }
-                    else
-                    {
-                        print("called it after book later offline to online undefinite also")
-                        if let ViewController = self.storyboard?.instantiateViewController(withIdentifier: "MyJobsViewController") as? MyJobsViewController
-                        {
-                            self.navigationController?.pushViewController(ViewController, animated: true)
-                            //                            if let vcFuture = ViewController.childViewControllers[0] as? FutureBookingViewController
-                            //                            {
-                            //                                vcFuture.webserviceOFFurureBooking(showHud: true)
-                            //                            }
-                            //                            ViewController.btnFutureBookingClicked(ViewController.btnFutureBooking)
-                        }
+                        //                        let vwMyJobs = self.storyboard?.instantiateViewController(withIdentifier: "MyJobsViewController") as! MyJobsViewController
+                        //                        vwMyJobs.isFutureBookingArrive = true
+                        //                        self.navigationController?.pushViewController(vwMyJobs, animated: true)
+                        
+                        let vwHome = self.parent as! ContainerViewController//self.storyboard?.instantiateViewController(withIdentifier: "MyJobsViewController") as! MyJobsViewController
+                        vwHome.btnMyJob(vwHome.btnMyJobs)
+                        let vwMyJobs = self.parent?.children.last as! MyJobsViewController
+                        
+//                        vwMyJobs.isFutureBookingArrive = true
+                        //                        self.navigationController?.pushViewController(vwMyJobs, animated: true)
+                        
+                        vwMyJobs.btnFutureBookingClicked(vwMyJobs.btnFutureBooking)
                     }
                 }
-                
             })
             
             
@@ -1274,7 +1295,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate,ARCarMovem
                 self.btnStartTrip.isHidden = false
                 self.btnStartTrip.layoutIfNeeded()
                 self.BottomButtonView.layoutIfNeeded()
-                (self.parent as? ContainerViewController)?.viewHomeMyJobsBTN.isHidden = true
+//                (self.parent as? ContainerViewController)?.viewHomeMyJobsBTN.isHidden = true
                 //                self.viewLocationDetails.isHidden = true
 //                self.constrainLocationViewBottom.constant = self.BottomButtonView.frame.size.height
             }
@@ -1354,8 +1375,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate,ARCarMovem
         self.aryBookingData = data as NSArray
         Singletons.sharedInstance.aryPassengerInfo = data as NSArray
         
-        UserDefaults.standard.set(data, forKey: "BookNowInformation")
-        UserDefaults.standard.synchronize()
+//        UserDefaults.standard.set(data, forKey: "BookNowInformation")
+//        UserDefaults.standard.synchronize()
         
         self.aryPassengerData = NSArray(array: data)
         //
@@ -1603,7 +1624,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate,ARCarMovem
         self.btnStartTrip.isHidden = false
         self.aryBookingData = data as NSArray
         Singletons.sharedInstance.aryPassengerInfo = data as NSArray
-        (self.parent as? ContainerViewController)?.viewHomeMyJobsBTN.isHidden = true
+//        (self.parent as? ContainerViewController)?.viewHomeMyJobsBTN.isHidden = true
         //                self.viewLocationDetails.isHidden = true
 //        self.constrainLocationViewBottom.constant = self.BottomButtonView.frame.size.height
         self.isAdvanceBooking = true
@@ -2354,6 +2375,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate,ARCarMovem
                 //needToCheck
                 UtilityClass.showAlert("App Name".localized, message: "Trip has been cancelled.".localized, vc: self )
                 self.resetMapView()
+//                (self.parent as? ContainerViewController)?.viewHomeMyJobsBTN.isHidden = false
                 if let resDict = result as? NSDictionary {
                     //                    UtilityClass.showAlert(appName.kAPPName, message: resDict.object(forKey: "message") as! String, vc: self)
                 }
@@ -2438,8 +2460,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate,ARCarMovem
         
         let data: NSArray = self.aryBookingData
         
-        UserDefaults.standard.set(data, forKey: "BookNowInformation")
-        UserDefaults.standard.synchronize()
+//        UserDefaults.standard.set(data, forKey: "BookNowInformation")
+//        UserDefaults.standard.synchronize()
         
         self.aryPassengerData = NSArray(array: data)
         self.BottomButtonView.isHidden = false

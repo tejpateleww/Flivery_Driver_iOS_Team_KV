@@ -197,7 +197,8 @@ struct RegistrationFinalKeys {
 
 struct socketApiKeys {
     
-    static let kSocketBaseURL = "https://www.tantaxitanzania.com:8081"//"http://3.120.161.225:8080" //"http://13.237.0.107:8080/" //http://3.120.161.225:8080"//"https://pickngolk.info:8081" // "https://pickngolk.info:8081"   // "http://54.169.67.226:8080"  //
+    static let kSocketBaseURL = "http://34.73.215.81:8080"
+    //"https://www.tantaxitanzania.com:8081"//"http://3.120.161.225:8080" //"http://13.237.0.107:8080/" //http://3.120.161.225:8080"//"https://pickngolk.info:8081" // "https://pickngolk.info:8081"   // "http://54.169.67.226:8080"  //
     
     static let kUpdateDriverLocation = "UpdateDriverLatLong"
     static let kReceiveBookingRequest = "AriveBookingRequest"

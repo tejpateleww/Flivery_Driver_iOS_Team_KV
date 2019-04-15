@@ -7,7 +7,7 @@
 */
 
 "App Name" = "Flivery Driver";
-"Currency" = "TZS";
+"Currency" = "$";
 "Internet Error" = "Internet Error";
 "Sorry! Not connected to internet" = "Sorry! Not connected to internet";
 "Something is wrong, try again later" = "Something is wrong, try again later";

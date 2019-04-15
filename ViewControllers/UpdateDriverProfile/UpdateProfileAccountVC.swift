@@ -9,7 +9,7 @@
 import UIKit
 
 
-class UpdateProfileAccountVC: UIViewController {
+class UpdateProfileAccountVC: BaseViewController {
     
     var strDriverID = String()
     
@@ -45,6 +45,7 @@ class UpdateProfileAccountVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         setLocalizable()
+        self.setNavBarWithMenuORBack(Title: "Account".localized, LetfBtn: kIconBack, IsNeedRightButton: false, isTranslucent: false)
     }
     func setLocalizable(){
         self.title = "Account".localized

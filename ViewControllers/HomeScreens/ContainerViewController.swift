@@ -11,6 +11,9 @@ import UIKit
 class ContainerViewController: BaseViewController {
  @IBOutlet var viewHomeMyJobsBTN: UIView!
     @IBOutlet weak var scrollObject: UIScrollView!
+    
+    @IBOutlet weak var btnHome: UIButton!
+    @IBOutlet weak var btnMyJobs: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,15 +23,15 @@ class ContainerViewController: BaseViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        self.setNavBarWithMenu(Title:  "Home".localized, IsNeedRightButton: true)
-
+        self.setNavBarWithMenuORBack(Title: "Home".localized, LetfBtn: kIconMenu, IsNeedRightButton: true, isTranslucent: false)
     }
 
     @IBAction func btnHome(_ sender: UIButton) {
         self.scrollToPage(page: 0, animated: true)
      }
 
-    @IBAction func btnMyJob(_ sender: UIButton) {
+    @IBAction func btnMyJob(_ sender: UIButton)
+    {
         self.scrollToPage(page: 1, animated: true)
      }
 

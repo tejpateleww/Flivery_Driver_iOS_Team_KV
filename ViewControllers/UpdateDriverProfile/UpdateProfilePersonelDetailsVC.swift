@@ -10,7 +10,7 @@ import UIKit
 import SDWebImage
 import ACFloatingTextfield_Swift
 
-class UpdateProfilePersonelDetailsVC: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate,UIPickerViewDelegate,UITextFieldDelegate {
+class UpdateProfilePersonelDetailsVC: BaseViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate,UIPickerViewDelegate,UITextFieldDelegate {
     
     var aryCompanyIDS = [[String:AnyObject]]()
     var companyID = String()
@@ -121,7 +121,7 @@ class UpdateProfilePersonelDetailsVC: UIViewController,UIImagePickerControllerDe
         thePicker.reloadAllComponents()
         thePicker.reloadInputViews()
         setLocalizable()
-    
+        self.setNavBarWithMenuORBack(Title: "Profile".localized, LetfBtn: kIconBack, IsNeedRightButton: false, isTranslucent: false)
     }
     
     func setLocalizable()
@@ -149,21 +149,30 @@ class UpdateProfilePersonelDetailsVC: UIViewController,UIImagePickerControllerDe
     
     func selectedMale()
     {
-        btnMale.setImage(UIImage(named: "iconRadioSelected"), for: .normal)
-        btnFemale.setImage(UIImage(named: "iconRadioUnSelected"), for: .normal)
-        btnOthers.setImage(UIImage(named: "iconRadioUnSelected"), for: .normal)
+        btnMale.setImage((UIImage(named: "iconRadioSelected")?.withRenderingMode(.alwaysTemplate)), for: .normal)
+        btnMale.tintColor = ThemeYellowColor
+        btnFemale.setImage((UIImage(named: "iconRadioUnSelected"))?.withRenderingMode(.alwaysTemplate), for: .normal)
+        btnFemale.tintColor = UIColor.black
+        btnOthers.setImage((UIImage(named: "iconRadioUnSelected"))?.withRenderingMode(.alwaysTemplate), for: .normal)
+        btnOthers.tintColor = UIColor.black
     }
     func selectedFemale()
     {
-        btnMale.setImage(UIImage(named: "iconRadioUnSelected"), for: .normal)
-        btnFemale.setImage(UIImage(named: "iconRadioSelected"), for: .normal)
-        btnOthers.setImage(UIImage(named: "iconRadioUnSelected"), for: .normal)
+        btnMale.setImage((UIImage(named: "iconRadioUnSelected"))?.withRenderingMode(.alwaysTemplate), for: .normal)
+        btnFemale.setImage((UIImage(named: "iconRadioSelected"))?.withRenderingMode(.alwaysTemplate), for: .normal)
+        btnOthers.setImage((UIImage(named: "iconRadioUnSelected"))?.withRenderingMode(.alwaysTemplate), for: .normal)
+        btnFemale.tintColor = ThemeYellowColor
+        btnMale.tintColor = UIColor.black
+        btnOthers.tintColor = UIColor.black
     }
     func selectedOthers()
     {
-        btnMale.setImage(UIImage(named: "iconRadioUnSelected"), for: .normal)
-        btnFemale.setImage(UIImage(named: "iconRadioUnSelected"), for: .normal)
-        btnOthers.setImage(UIImage(named: "iconRadioSelected"), for: .normal)
+        btnMale.setImage((UIImage(named: "iconRadioUnSelected"))?.withRenderingMode(.alwaysTemplate), for: .normal)
+        btnFemale.setImage((UIImage(named: "iconRadioUnSelected"))?.withRenderingMode(.alwaysTemplate), for: .normal)
+        btnOthers.setImage((UIImage(named: "iconRadioSelected"))?.withRenderingMode(.alwaysTemplate), for: .normal)
+        btnOthers.tintColor = ThemeYellowColor
+        btnFemale.tintColor = UIColor.black
+        btnMale.tintColor = UIColor.black
     }
 
     

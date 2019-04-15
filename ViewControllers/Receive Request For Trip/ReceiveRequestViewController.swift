@@ -141,7 +141,7 @@ class ReceiveRequestViewController: UIViewController, SRCountdownTimerDelegate {
 //            if strGrandTotal != "0" {
 //                lblGrandTotal.text = "Grand Total : \(strGrandTotal) \(currency)"
 //            } else if strEstimateFare != "0" {
-                lblGrandTotal.text = "\("Estimate Fare".localized) : \(strEstimateFare) \(currency)"
+                lblGrandTotal.text = "\("Estimate Fare".localized) : \(currency) \(strEstimateFare)"
 //            }
         
             lblMessage.text = strRequestMessage

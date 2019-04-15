@@ -54,7 +54,12 @@ class MyJobsViewController: BaseViewController
         shadowRadius = 1
         shadowOffsetWidth = 0
         shadowOffsetHeight = 1
-        
+//        if isFutureBookingArrive {
+//            isFutureBookingArrive = false
+            self.btnFutureBookingClicked(btnFutureBooking)
+//        }
+//        
+//        getTimeOfStartTrip()
         //        giveCornorRadiosToView()
         // Do any additional setup after loading the view.
     }
@@ -76,8 +81,9 @@ class MyJobsViewController: BaseViewController
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-         self.setNavBarWithMenu(Title:  "My Jobs".localized, IsNeedRightButton: true)
+        
 
+        self.setNavBarWithMenuORBack(Title: "My Jobs".localized, LetfBtn: kIconMenu, IsNeedRightButton: true, isTranslucent: false)
         //        if Singletons.sharedInstance.isPresentVC == true
         //        {
         //
@@ -298,7 +304,8 @@ class MyJobsViewController: BaseViewController
     }
     
     
-    func callSocket() {
+    func callSocket()
+    {
         
         //        let socket = (((self.navigationController?.childViewControllers[0] as! TabbarController).childViewControllers)[0] as! ContentViewController).socket
         
@@ -322,6 +329,18 @@ class MyJobsViewController: BaseViewController
         socket.emit("NotifyPassengerForAdvancedTrip", with: [myJSON])
         Singletons.sharedInstance.strBookingType = "BookLater"
         print("Start Trip : \(myJSON)")
+        
+        if let viewCon = ((UIApplication.shared.keyWindow?.rootViewController?.children[0])?.children[0])?.children[0] as? ContainerViewController
+        {
+//            viewCon.btnMyJob(viewCon.btnMyJobs)
+
+            viewCon.btnHome(viewCon.btnHome)
+        }
+//        let viewCon = self.parent as? ContainerViewController
+//        viewCon.btnMyJob(viewCon.btnMyJobs)
+        
+        
+        Utilities.hideActivityIndicator()
         
     }
     

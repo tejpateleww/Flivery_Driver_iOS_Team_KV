@@ -31,6 +31,7 @@ class ChangePasswordViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         setLicalization()
+        setNavBarWithMenuORBack(Title: "Change Password".localized, LetfBtn: kIconBack, IsNeedRightButton: false, isTranslucent: false)
     }
     func setLicalization()
     {

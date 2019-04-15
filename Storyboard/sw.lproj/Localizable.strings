@@ -7,7 +7,7 @@
 //*/
 //
 "App Name" = "Dereva wa ODDS";
-"Currency" = "TZS";
+"Currency" = "$";
 "Internet Error" = "Internet Error";
 "Sorry! Not connected to internet" = "Hakuna Intaneti";
 "Something is wrong, try again later" = "Jaribu Tena Baadae";

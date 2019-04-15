@@ -23,8 +23,13 @@ let navigationBarHeightIphoneX = 84
 var utility = Utilities()
 
 let kHtmlReplaceString   :   String  =   "<[^>]+>"
-let currency : String = "TZS"
+let currency : String = "$"
 let dictanceType : String = "km"
+
+
+
+let kIconMenu : String = "iconMenu"
+let kIconBack : String = "iconBack"
 
 let kIsSocketEmited : String = "IsEmited"
 let SCREEN_WIDTH = UIScreen.main.bounds.width

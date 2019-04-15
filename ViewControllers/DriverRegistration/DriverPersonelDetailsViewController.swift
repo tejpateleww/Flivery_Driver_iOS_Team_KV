@@ -179,14 +179,19 @@ class DriverPersonelDetailsViewController: UIViewController, UIImagePickerContro
     
     func selectedMale()
     {
-        btnMale.setImage(UIImage(named: "iconRadioSelected"), for: .normal)
-        btnFemale.setImage(UIImage(named: "iconRadioUnSelected"), for: .normal)
+        btnMale.setImage((UIImage(named: "iconRadioSelected")?.withRenderingMode(.alwaysTemplate)), for: .normal)
+        btnMale.tintColor = ThemeYellowColor
+        btnFemale.setImage((UIImage(named: "iconRadioUnSelected")?.withRenderingMode(.alwaysTemplate)), for: .normal)
+        btnFemale.tintColor = UIColor.white
 //        btnOthers.setImage(UIImage(named: "iconCheckMarkUnSelected"), for: .normal)
     }
     func selectedFemale()
     {
-        btnMale.setImage(UIImage(named: "iconRadioUnSelected"), for: .normal)
-        btnFemale.setImage(UIImage(named: "iconRadioSelected"), for: .normal)
+        btnMale.setImage((UIImage(named: "iconRadioUnSelected")?.withRenderingMode(.alwaysTemplate)), for: .normal)
+        btnMale.tintColor = UIColor.white
+        btnFemale.setImage((UIImage(named: "iconRadioSelected")?.withRenderingMode(.alwaysTemplate)), for: .normal)
+        btnFemale.tintColor = ThemeYellowColor
+        
 //        btnOthers.setImage(UIImage(named: "iconCheckMarkUnSelected"), for: .normal)
     }
 //    func selectedOthers()
@@ -387,9 +392,9 @@ class DriverPersonelDetailsViewController: UIViewController, UIImagePickerContro
         else if (btnFemale.currentImage?.isEqual(UIImage(named: "iconRadioSelected")))! {
             userDefault.set("Female", forKey: RegistrationFinalKeys.kGender)
         }
-        else if (btnOthers.currentImage?.isEqual(UIImage(named: "iconRadioSelected")))! {
-            userDefault.set("Other", forKey: RegistrationFinalKeys.kGender)
-        }
+//        else if (btnOthers.currentImage?.isEqual(UIImage(named: "iconRadioSelected")))! {
+//            userDefault.set("Other", forKey: RegistrationFinalKeys.kGender)
+//        }
         else {
             userDefault.set("Male", forKey: RegistrationFinalKeys.kGender)
         }

@@ -396,7 +396,7 @@ class PendingJobsListVC: UIViewController, UITableViewDataSource, UITableViewDel
         Singletons.sharedInstance.isRequestAccepted = true
         self.webserviceofPendingJobs()
         
-        self.navigationController?.popViewController(animated: true)
+//        self.navigationController?.popViewController(animated: true)
         
         //            })
         //

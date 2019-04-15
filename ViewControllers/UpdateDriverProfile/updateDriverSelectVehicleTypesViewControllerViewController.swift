@@ -9,7 +9,7 @@
 import UIKit
 import IQDropDownTextField
 
-class updateDriverSelectVehicleTypesViewControllerViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate,UITextFieldDelegate,IQDropDownTextFieldDelegate
+class updateDriverSelectVehicleTypesViewControllerViewController: BaseViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate,UITextFieldDelegate,IQDropDownTextFieldDelegate
 {
     
     
@@ -94,6 +94,9 @@ class updateDriverSelectVehicleTypesViewControllerViewController: UIViewControll
         
         Singletons.sharedInstance.arrVehicleClass = NSMutableArray(array: stringToArrayOFVehicleModel.map { Int($0)!})
         setLocalizable()
+        
+        self.setNavBarWithMenuORBack(Title: "Vehicle Option".localized, LetfBtn: kIconBack, IsNeedRightButton: false, isTranslucent: false)
+        
     }
     @IBOutlet weak var btnSave: ThemeButton!
     
@@ -119,8 +122,10 @@ class updateDriverSelectVehicleTypesViewControllerViewController: UIViewControll
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        imgVehicle.layer.cornerRadius = imgVehicle.frame.width / 2
+        imgVehicle.layer.cornerRadius = 10
         imgVehicle.clipsToBounds = true
+        imgVehicle.layer.borderColor = ThemeYellowColor.cgColor
+        imgVehicle.layer.borderWidth = 1.5
     }
     
     //-------------------------------------------------------------
@@ -314,7 +319,7 @@ class updateDriverSelectVehicleTypesViewControllerViewController: UIViewControll
         txtVehicleRegistrationNumber.text = Vehicle.object(forKey: "VehicleRegistrationNo") as? String
         txtVehicleModel.text = Vehicle.object(forKey: "VehicleModel") as? String
         
-        txtCompany.text = Vehicle.object(forKey: "VehicleModelName") as? String
+        txtCompany.text = Vehicle.object(forKey: "Company") as? String
 
         let carType = Vehicle.object(forKey: "VehicleClass") as? String
         txtCarType.text = carType
@@ -489,7 +494,7 @@ class updateDriverSelectVehicleTypesViewControllerViewController: UIViewControll
                 //                let checkCarModelClass: Bool = Singletons.sharedInstance.boolTaxiModel
                 
                 
-                self.aryDataCarsAndTaxi = result["cars_and_taxi"] as! [[String:AnyObject]]
+                self.aryDataCarsAndTaxi = result["delivery_services"] as! [[String:AnyObject]]
                 
                 
                 for (i,_) in self.aryDataCarsAndTaxi.enumerated()

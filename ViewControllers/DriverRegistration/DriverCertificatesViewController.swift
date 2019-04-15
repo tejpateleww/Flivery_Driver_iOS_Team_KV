@@ -346,10 +346,11 @@ class DriverCertificatesViewController: UIViewController,UIImagePickerController
         let pickedImage  = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
         let selector = WWCalendarTimeSelector.instantiate()
         
+        
         // 2. You can then set delegate, and any customization options
         //        selector.delegate = self
         selector.optionTopPanelTitle = "Please add expiry date".localized
-        
+        selector.optionTintColor = ThemeYellowColor
         // 3. Then you simply present it from your view controller when necessary!
         selector.delegate = self
         
@@ -625,9 +626,9 @@ class DriverCertificatesViewController: UIViewController,UIImagePickerController
                     
 //                    let next = self.storyboard?.instantiateViewController(withIdentifier: "SideMenuController") as! SideMenuController
 //                    self.navigationController?.pushViewController(next, animated: true)
-                    
-                    self.navigationController?.isNavigationBarHidden = true
-                    self.performSegue(withIdentifier: "afterCompleteRegistration", sender: nil)
+                    (UIApplication.shared.delegate as! AppDelegate).GoToHome()
+//                    self.navigationController?.isNavigationBarHidden = true
+//                    self.performSegue(withIdentifier: "afterCompleteRegistration", sender: nil)
                     
                 }
             }

@@ -40,6 +40,7 @@ class SettingPasscodeVC: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         setLocalizable()
+        self.setNavBarWithMenuORBack(Title: "Settings".localized, LetfBtn: kIconBack, IsNeedRightButton: false, isTranslucent: false)
     }
     
     func setLocalizable(){

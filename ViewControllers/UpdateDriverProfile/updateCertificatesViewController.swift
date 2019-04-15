@@ -8,7 +8,7 @@
 
 import UIKit
 
-class updateCertificatesViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, WWCalendarTimeSelectorProtocol {
+class updateCertificatesViewController: BaseViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, WWCalendarTimeSelectorProtocol {
 
     
     let datePicker: UIDatePicker = UIDatePicker()
@@ -27,10 +27,11 @@ class updateCertificatesViewController: UIViewController, UIImagePickerControlle
         super.viewDidLoad()
 
         
-        imgVehicleImage.layer.cornerRadius = imgVehicleImage.frame.width / 2
+        imgVehicleImage.layer.cornerRadius = 10
+        
         imgVehicleImage.layer.masksToBounds = true
         
-        imgVehicleImage.layer.borderWidth = 1.0
+        imgVehicleImage.layer.borderWidth = 1.5
         imgVehicleImage.layer.borderColor = ThemeYellowColor.cgColor
         
         imgVehicleImage.image = UIImage.init(named: "iconCarPlaceholder")
@@ -46,6 +47,7 @@ class updateCertificatesViewController: UIViewController, UIImagePickerControlle
         
         imagePicker.delegate = self
         setLocalizable()
+        self.setNavBarWithMenuORBack(Title: "Documents".localized, LetfBtn: kIconBack, IsNeedRightButton: false, isTranslucent: false)
         setData()
         
     }

@@ -248,7 +248,7 @@ class DriverVehicleTypesViewController: UIViewController, UITableViewDelegate, U
             {
                 print(result)
                 
-                self.aryData = result["cars_and_taxi"] as! [[String:AnyObject]]
+                self.aryData = result["delivery_services"] as! [[String:AnyObject]]
                 
                 for (i,_) in self.aryData.enumerated()
                 {

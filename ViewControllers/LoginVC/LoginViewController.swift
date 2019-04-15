@@ -73,8 +73,8 @@
             super.loadView()
     
     
-//        txtMobile.text = "3698523698"
-//            txtPassword.text = "12345678"
+        txtMobile.text = "1166993300"
+            txtPassword.text = "12345678"
     
 //            Utilities.setStatusBarColor(color: UIColor.clear)
     

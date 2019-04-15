@@ -9,7 +9,7 @@
 import UIKit
 //import TTSegmentedControl
 
-class DriverRegistrationViewController: UIViewController, UIScrollViewDelegate //SPSegmentControlCellStyleDelegate, SPSegmentControlDelegate
+class DriverRegistrationViewController: BaseViewController, UIScrollViewDelegate //SPSegmentControlCellStyleDelegate, SPSegmentControlDelegate
 {
 
     var percentIndicatorViewLabel = String()
@@ -77,6 +77,8 @@ class DriverRegistrationViewController: UIViewController, UIScrollViewDelegate /
     {
         super.viewDidLayoutSubviews()
         self.lblTitle.text = "App Name".localized
+        
+        self.setNavBarWithMenuORBack(Title: "App Name".localized, LetfBtn: kIconBack, IsNeedRightButton: false, isTranslucent: true)
 //        print(UserDefaults.standard.object(forKey: savedDataForRegistration.kPageNumber))
         
         if UserDefaults.standard.object(forKey: savedDataForRegistration.kPageNumber) != nil

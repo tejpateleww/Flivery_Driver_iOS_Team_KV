@@ -418,7 +418,7 @@ class DispatchJobsBookLaterViewController: UIViewController, getVehicleServiceId
                 //                let checkCarModelClass: Bool = Singletons.sharedInstance.boolTaxiModel
                 
                 
-                self.aryData_Cars_and_taxi = result["cars_and_taxi"] as! [[String:AnyObject]]
+                self.aryData_Cars_and_taxi = result["delivery_services"] as! [[String:AnyObject]]
                 self.aryData_Delivery_services = result["delivery_services"] as! [[String:AnyObject]]
                 
                 let activityData = ActivityData()

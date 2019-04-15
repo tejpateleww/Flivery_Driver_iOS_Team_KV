@@ -132,7 +132,7 @@ class WalletAddCardsViewController: BaseViewController, UIPickerViewDataSource, 
 
 //        self.setNavBarWithBack(Title: "Cards".localized, IsNeedRightButton: false)
         self.title = "Cards".localized
-
+        setNavBarWithMenuORBack(Title: "Cards".localized, LetfBtn: kIconBack, IsNeedRightButton: false, isTranslucent: false)
         cardNum()
         cardExpiry()
         cardCVV()

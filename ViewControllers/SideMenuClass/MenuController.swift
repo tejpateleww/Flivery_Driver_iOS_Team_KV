@@ -39,7 +39,7 @@ class  MenuController: UIViewController, UITableViewDataSource, UITableViewDeleg
         
         aryItemIcons = [kiconPaymentOption,kiconPassword,kiconTripToDestination,kiconInviteFriend,kiconSettings,kIconLogout]
 
-        self.view.backgroundColor = ThemeYellowColor
+        self.view.backgroundColor = UIColor.black
         
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(MenuController.setRating), name: NSNotification.Name(rawValue: "rating"), object: nil)

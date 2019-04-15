@@ -8,7 +8,7 @@
 
 import UIKit
 import SideMenuSwift
-class SetPasscodeViewController: UIViewController {
+class SetPasscodeViewController: BaseViewController {
 
     
     var aryPassword = [String]()
@@ -40,6 +40,7 @@ class SetPasscodeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setNavBarWithMenuORBack(Title: "Passcode", LetfBtn: kIconBack, IsNeedRightButton: false, isTranslucent: false)
         if(isChangePassword && Singletons.sharedInstance.setPasscode != "")
         {
             lblPassword.text = "Enter old password"
