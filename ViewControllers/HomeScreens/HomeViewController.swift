@@ -885,10 +885,17 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate,ARCarMovem
                 if let DropoffLocation = ((data as NSArray).object(at: 0) as! NSDictionary).object(forKey: "DropoffLocation") as? String {
                     next.strDropoffLocation = DropoffLocation
                 }
-                
+
                 if let RequestMessage = ((data as NSArray).object(at: 0) as! NSDictionary).object(forKey: GetResponseMessageKey()) as? String {
                     next.strRequestMessage = RequestMessage
                 }
+
+                if let arrParcel = (data as? [[String : AnyObject]])
+                {
+                    next.arrParcelData = arrParcel
+                }
+
+
                 self.addLocalNotification()
                 (UIApplication.shared.delegate as! AppDelegate).window?.rootViewController?.present(next, animated: true, completion: nil)
                 

@@ -23,7 +23,8 @@ class TripInfoCompletedTripVC: UIViewController {
     @IBOutlet var lblBookingID: UILabel!
     
     
-//    @IBOutlet weak var lblDropOffLocationInFo: UILabel!
+    @IBOutlet weak var imgTripToDestinationIcon: UIImageView!
+    //    @IBOutlet weak var lblDropOffLocationInFo: UILabel!
 //    @IBOutlet weak var lblPickUPLocationInFo: UILabel!
     @IBOutlet var lblDate: UILabel!
     @IBOutlet var btnViewCompleteTripData: UIView!
@@ -127,6 +128,8 @@ class TripInfoCompletedTripVC: UIViewController {
     @IBOutlet weak var lblTripDetail: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        imgTripToDestinationIcon = Utilities.changeColorOfIconTo(theImageView: imgTripToDestinationIcon, color: ThemeYellowColor)
 
         if Singletons.sharedInstance.pasengerFlightNumber == "" {
             stackViewFlightNumber.isHidden = true

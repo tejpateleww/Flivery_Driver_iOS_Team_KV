@@ -33,18 +33,16 @@ class RatingViewController: UIViewController,FloatRatingViewDelegate {
     var dictData : NSDictionary!
     var dictPassengerInfo : NSDictionary!
    
+    @IBOutlet weak var btnCancel: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-//        viewStarsRating.rating = 0.0
         viewStarsRating.value = 0.0
 //        viewStarsRating.delegate = self
         strBookingID = (dictData["details"]! as! [String : AnyObject])["Id"] as! String
         lblDetail.text = "\("How was your Ride with".localized) \((dictPassengerInfo!.object(forKey: "Fullname") as! String))?"// (dictPassengerInfo!.object(forKey: "Fullname") as! String)
-        // Do any additional setup after loading the view.
-//
-//        btnSubmit.layer.cornerRadius = 5
-//        btnSubmit.layer.masksToBounds = true
-        
+        let tempImage = Utilities.changeColorOfIconTo(theImageView: btnCancel.imageView!, color: ThemeYellowColor)
+        btnCancel.setImage(tempImage.image, for: .normal)
+
         Utilities.setCornerRadiusButton(button: btnSubmit, borderColor: ThemeYellowColor, bgColor: ThemeYellowColor, textColor: UIColor.white)
     }
     
@@ -68,14 +66,14 @@ class RatingViewController: UIViewController,FloatRatingViewDelegate {
     //-------------------------------------------------------------
     // MARK: - Custom Methods
     //-------------------------------------------------------------
-    
+
 //    func floatRatingView(_ ratingView: FloatRatingView, didUpdate rating: Double){
 //
 //        viewStarsRating.rating = Double(rating)
 //        ratingToDriver = Float(viewStarsRating.rating)
 //
 //    }
-    
+
     
     func webserviceCallToGiveRating() {
         

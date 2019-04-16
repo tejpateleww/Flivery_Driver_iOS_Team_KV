@@ -210,7 +210,16 @@ class BaseViewController: UIViewController {
 //                        self.headerView?.btnSwitch.setImage(UIImage(named: "iconSwitchOff"), for: .normal)
                         self.btnDuty.isSelected = false
                         Singletons.sharedInstance.driverDuty = "0"
-                        UtilityClass.showAlert("", message: (result as! NSDictionary).object(forKey: GetResponseMessageKey()) as! String, vc: self)
+//                        UtilityClass.showAlert("", message: (result as! NSDictionary).object(forKey: GetResponseMessageKey()) as! String, vc: self)
+                        if let dictData = result as? [String:AnyObject]
+                        {
+
+                            if let strMessage = dictData["message"] as? String
+                            {
+                                UtilityClass.showAlert("", message: strMessage, vc: self)
+                            }
+
+                        }
                         UIApplication.shared.isIdleTimerDisabled = false
                         let socket = (UIApplication.shared.delegate as! AppDelegate).SocketManager
                         socket.disconnect()
@@ -226,7 +235,18 @@ class BaseViewController: UIViewController {
                         socket.connect()
                         UIApplication.shared.isIdleTimerDisabled = true
 
-                        UtilityClass.showAlert("", message: (result as! NSDictionary).object(forKey: GetResponseMessageKey()) as! String, vc: self)
+//                        UtilityClass.showAlert("", message: (result as! NSDictionary).object(forKey: GetResponseMessageKey()) as! String, vc: self)
+
+
+                        if let dictData = result as? [String:AnyObject]
+                        {
+
+                            if let strMessage = dictData["message"] as? String
+                            {
+                                UtilityClass.showAlert("", message: strMessage, vc: self)
+                            }
+
+                        }
 
                         let contentVC = (self.navigationController?.children[0] as? TabbarController)?.children[0] as? HomeViewController
                         contentVC?.UpdateDriverLocation()
@@ -246,7 +266,16 @@ class BaseViewController: UIViewController {
                         UtilityClass.showAlert("App Name".localized, message: resDict.object(forKey: GetResponseMessageKey()) as! String, vc: self)
                     }
                     else if let resAry = result as? NSArray {
-                        UtilityClass.showAlert("App Name".localized, message: (resAry.object(at: 0) as! NSDictionary).object(forKey: GetResponseMessageKey()) as! String, vc: self)
+                        if let dictData = result as? [[String:AnyObject]]
+                        {
+
+                            if let strMessage = dictData[0]["message"] as? String
+                            {
+                                UtilityClass.showAlert("", message: strMessage, vc: self)
+                            }
+
+                        }
+//                        UtilityClass.showAlert("App Name".localized, message: (resAry.object(at: 0) as! NSDictionary).object(forKey: GetResponseMessageKey()) as! String, vc: self)
                     }
 
                      self.btnDuty.isEnabled = true

@@ -526,5 +526,13 @@ class Utilities: NSObject
         return controller
         
     }
+
+
+    class func changeColorOfIconTo(theImageView : UIImageView,color : UIColor) -> UIImageView
+    {
+        theImageView.image!.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+        theImageView.tintColor = color
+        return theImageView
+    }
   
 }

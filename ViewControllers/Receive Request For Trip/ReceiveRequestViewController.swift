@@ -28,7 +28,7 @@ class ReceiveRequestViewController: UIViewController, SRCountdownTimerDelegate {
     @IBOutlet weak var lblPickupLocation: MarqueeLabel!
     @IBOutlet weak var lblDropoffLocationInfo: UILabel!
     @IBOutlet weak var lblDropoffLocation: MarqueeLabel!
-    
+    @IBOutlet weak var imgLocation : UIImageView!
     //    @IBOutlet weak var lblFlightNumber: UILabel!
     //    @IBOutlet weak var lblNotes: UILabel!
     
@@ -54,7 +54,7 @@ class ReceiveRequestViewController: UIViewController, SRCountdownTimerDelegate {
     var strRequestMessage = String()
     var strFlightNumber = String()
     var strNotes = String()
-    
+    var arrParcelData = [[String:AnyObject]]()
     
     //-------------------------------------------------------------
     // MARK: - Base Methods
@@ -66,12 +66,14 @@ class ReceiveRequestViewController: UIViewController, SRCountdownTimerDelegate {
 
         CountDownView()
         
-        btnReject.layer.cornerRadius = 5
-        btnReject.layer.masksToBounds = true
-        
-        btnAccepted.layer.cornerRadius = 5
-        btnAccepted.layer.masksToBounds = true
-        
+//        btnReject.layer.cornerRadius = 5
+//        btnReject.layer.masksToBounds = true
+//
+//        btnAccepted.layer.cornerRadius = 5
+//        btnAccepted.layer.masksToBounds = true
+
+        imgLocation = Utilities.changeColorOfIconTo(theImageView: imgLocation, color: ThemeYellowColor)
+
         btnAccepted.layer.borderWidth = 1
         btnAccepted.layer.borderColor = ThemeYellowColor.cgColor
         
@@ -133,17 +135,29 @@ class ReceiveRequestViewController: UIViewController, SRCountdownTimerDelegate {
 //        }
 //        else {
             viewDetails.isHidden = false
-            print(strGrandTotal)
-            print(strPickupLocation)
-            print(strDropoffLocation)
-            print(strFlightNumber)
-            print(strNotes)
+//            print(strGrandTotal)
+//            print(strPickupLocation)
+//            print(strDropoffLocation)
+//            print(strFlightNumber)
+//            print(strNotes)
 //            if strGrandTotal != "0" {
 //                lblGrandTotal.text = "Grand Total : \(strGrandTotal) \(currency)"
 //            } else if strEstimateFare != "0" {
-                lblGrandTotal.text = "\("Estimate Fare".localized) : \(currency) \(strEstimateFare)"
+//        lblGrandTotal.text = arrParcelData[0]["name"] == nil ? "-" : arrParcelData[0]["name"] as? String//"\("Estimate Fare".localized) : \(currency) \(strEstimateFare)"
 //            }
-        
+
+        if let dictData = arrParcelData[0] as? [String:AnyObject]
+        {
+            if let arrParcelData = dictData["Parcel"] as? [[String:AnyObject]]
+            {
+                if let strName = arrParcelData[0]["Name"] as? String
+                {
+                    lblGrandTotal.text = strName
+                }
+            }
+        }
+
+
             lblMessage.text = strRequestMessage
             lblPickupLocation.text = strPickupLocation
             lblDropoffLocation.text = strDropoffLocation
