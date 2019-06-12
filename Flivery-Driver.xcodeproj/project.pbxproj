@@ -185,6 +185,8 @@
 		21B479C320DD262C00C6D8F8 /* shareRideListingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B479C220DD262C00C6D8F8 /* shareRideListingModel.swift */; };
 		21B4FFFC216CA86D0076D566 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E92910202AE2BF00A399E2 /* LoginViewController.swift */; };
 		340B0EEC221ABB4D002A1E13 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340B0EEB221ABB4D002A1E13 /* SplashViewController.swift */; };
+		3457CE0522B0E5750060A8CF /* SignatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3457CE0422B0E5750060A8CF /* SignatureViewController.swift */; };
+		3457CE0722B0E6150060A8CF /* YPDrawSignatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3457CE0622B0E6150060A8CF /* YPDrawSignatureView.swift */; };
 		3A5DDCA421BA588800F9B5A3 /* WaitForTipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5DDCA321BA588800F9B5A3 /* WaitForTipViewController.swift */; };
 		3A5F1BCC21CE0872000007AE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A5F1BCB21CE0872000007AE /* GoogleService-Info.plist */; };
 		3AC13C5621C8C80100DA3FE6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC13C5521C8C80000DA3FE6 /* Extensions.swift */; };
@@ -439,6 +441,8 @@
 		2F9828EC23C43B927B2DBBCA /* Pods_PickNGo_Driver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PickNGo_Driver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		33F8E76E2E490881164207BB /* Pods-TanTaxi-Driver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TanTaxi-Driver.release.xcconfig"; path = "Pods/Target Support Files/Pods-TanTaxi-Driver/Pods-TanTaxi-Driver.release.xcconfig"; sourceTree = "<group>"; };
 		340B0EEB221ABB4D002A1E13 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		3457CE0422B0E5750060A8CF /* SignatureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignatureViewController.swift; sourceTree = "<group>"; };
+		3457CE0622B0E6150060A8CF /* YPDrawSignatureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YPDrawSignatureView.swift; sourceTree = "<group>"; };
 		3A5DDCA321BA588800F9B5A3 /* WaitForTipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitForTipViewController.swift; sourceTree = "<group>"; };
 		3A5F1BCB21CE0872000007AE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3AC13C5521C8C80000DA3FE6 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -618,6 +622,7 @@
 		00E928E3202AE2BF00A399E2 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				3457CE0322B0E5750060A8CF /* GetSignature VC */,
 				3AF9136621C9199F00E2C08A /* MyRatingViewCell.swift */,
 				EECDB7DA203D48B20079F78B /* Trip Info */,
 				3A5DDCA221BA588800F9B5A3 /* WaitForTipViewController */,
@@ -1223,6 +1228,7 @@
 				21B479C120DD260400C6D8F8 /* Models */,
 				005A36DD202B1CE700502672 /* Constants.swift */,
 				0082BF2D2031572900EC36D7 /* Utilities.swift */,
+				3457CE0622B0E6150060A8CF /* YPDrawSignatureView.swift */,
 				00E929BD202AE2C000A399E2 /* UtilityCalss */,
 			);
 			path = Classes;
@@ -1321,6 +1327,14 @@
 				21B479C220DD262C00C6D8F8 /* shareRideListingModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		3457CE0322B0E5750060A8CF /* GetSignature VC */ = {
+			isa = PBXGroup;
+			children = (
+				3457CE0422B0E5750060A8CF /* SignatureViewController.swift */,
+			);
+			path = "GetSignature VC";
 			sourceTree = "<group>";
 		};
 		3A5DDCA221BA588800F9B5A3 /* WaitForTipViewController */ = {
@@ -1608,7 +1622,7 @@
 				TargetAttributes = {
 					00E5CEA21F8B402C004409A4 = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = JF372Z97LU;
+						DevelopmentTeam = LNR2265795;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -1881,6 +1895,7 @@
 				3AFADCE3219E98CC0009E3D2 /* UIAlertView+Blocks.m in Sources */,
 				3AFADCEB219E98CC0009E3D2 /* SDWebImageDownloader.m in Sources */,
 				00E92A32202AE2C100A399E2 /* SPRandom.swift in Sources */,
+				3457CE0722B0E6150060A8CF /* YPDrawSignatureView.swift in Sources */,
 				00E92A31202AE2C100A399E2 /* SPLaunchAnimation.swift in Sources */,
 				00E929D7202AE2C100A399E2 /* DriverEmailViewController.swift in Sources */,
 				00E92A2A202AE2C100A399E2 /* SPDelay.swift in Sources */,
@@ -1903,6 +1918,7 @@
 				00E92A09202AE2C100A399E2 /* TabbarController.swift in Sources */,
 				00E92A01202AE2C100A399E2 /* SettingPasscodeVC.swift in Sources */,
 				00E92A5B202AE2C100A399E2 /* updateCertificatesViewController.swift in Sources */,
+				3457CE0522B0E5750060A8CF /* SignatureViewController.swift in Sources */,
 				00E929DD202AE2C100A399E2 /* DriverVehicleTypesViewController.swift in Sources */,
 				00E92A6D202AE2C100A399E2 /* CustonView.swift in Sources */,
 				00E92A2C202AE2C100A399E2 /* SPBezierPathFigure.swift in Sources */,
@@ -2181,11 +2197,11 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = JF372Z97LU;
+				DEVELOPMENT_TEAM = LNR2265795;
 				INFOPLIST_FILE = "$(SRCROOT)/Other Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.flivery.driver;
+				PRODUCT_BUNDLE_IDENTIFIER = com.flivery.driver1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2205,11 +2221,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JF372Z97LU;
+				DEVELOPMENT_TEAM = LNR2265795;
 				INFOPLIST_FILE = "$(SRCROOT)/Other Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.flivery.driver;
+				PRODUCT_BUNDLE_IDENTIFIER = com.flivery.driver1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

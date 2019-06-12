@@ -218,12 +218,11 @@ func webserviceForUpdateDocumentDetails(_ dictParams: AnyObject, image: UIImage,
 // MARK: - Webservice For Completed Trip Successfully
 //-------------------------------------------------------------
 
-func webserviceForCompletedTripSuccessfully(_ dictParams: AnyObject, completion: @escaping(_ result: AnyObject, _ success: Bool) -> Void)
+func webserviceForCompletedTripSuccessfully(_ dictParams: AnyObject,_ dictImages: [String: UIImage], completion: @escaping(_ result: AnyObject, _ success: Bool) -> Void)
 {
     let url = SubmitCompleteBooking
-    postData(dictParams, nsURL: url, completion: completion)
+    parameterWithImage(dictParams as! [String : AnyObject], images: dictImages, nsURL: url, completion: completion)
 }
-
 //-------------------------------------------------------------
 // MARK: - Webservice For Sign Out
 //-------------------------------------------------------------
@@ -238,10 +237,10 @@ func webserviceForSignOut(_ dictParams: AnyObject, completion: @escaping(_ resul
 // MARK: - Webservice For Completed Advance Trip Successfully
 //-------------------------------------------------------------
 
-func webserviceForCompletedAdvanceTripSuccessfully(_ dictParams: AnyObject, completion: @escaping(_ result: AnyObject, _ success: Bool) -> Void)
+func webserviceForCompletedAdvanceTripSuccessfully(_ dictParams: AnyObject,_ dictImages: [String: UIImage], completion: @escaping(_ result: AnyObject, _ success: Bool) -> Void)
 {
     let url = SubmitCompleteAdvancedBooking
-    postData(dictParams, nsURL: url, completion: completion)
+    parameterWithImage(dictParams as! [String : AnyObject], images: dictImages, nsURL: url, completion: completion)
 }
 
 //-------------------------------------------------------------

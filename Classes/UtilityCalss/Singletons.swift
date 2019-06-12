@@ -17,7 +17,7 @@ class Singletons: NSObject {
     var arrVehicleClass: NSMutableArray!
  
     var AryVehicleClass: [Int]!
-    
+     var confirmationType = String()
     var isFirstTimeDidupdateLocation = true
     var aryPassengerInfo = NSArray()
     var strPassengerID = String()

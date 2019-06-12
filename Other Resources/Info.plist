@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+    <key>NSPhotoLibraryAddUsageDescription</key>
+    <string>This will add signature for verification</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -55,12 +57,12 @@
 	<string>Camera access required for capturing photos!</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>App would like to use your current location to journal places you go.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>App would like to use your current location to journal places you go.</string>
 	<key>NSLocationUsageDescription</key>
 	<string>App would like to use your current location to journal places you go.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>App would like to use your current location to journal places you go.</string>
-    <key>NSLocationAlwaysUsageDescription</key>
-    <string>App would like to use your current location to journal places you go.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Photo Library access required for using photos!</string>
 	<key>UIAppFonts</key>
@@ -104,7 +106,6 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
-	
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 </dict>

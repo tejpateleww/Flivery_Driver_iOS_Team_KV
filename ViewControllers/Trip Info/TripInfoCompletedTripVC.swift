@@ -267,15 +267,15 @@ class TripInfoCompletedTripVC: UIViewController {
  */
         
         if let TripFare = dictData.object(forKey: "TripFare") as? String {
-            lblTripFare.text = "\(currency) \(String(format: "%.2f", Double(TripFare)!))"
+            lblTripFare.text = "\(currency) \(String(format: "%.2f", Double(TripFare) ?? 0.0))"
         }
         
         if let TripDistance = dictData.object(forKey: "TripDistance") as? String {
-            lblDistanceTravelled.text = "\(String(format: "%.2f", Double(TripDistance)!)) km"
+            lblDistanceTravelled.text = "\(String(format: "%.2f", Double(TripDistance) ?? 0.0)) km"
         }
         
         if let DistanceFare = dictData.object(forKey: "DistanceFare") as? String {
-            lblDistanceFare.text = "\(currency) \(String(format: "%.2f", Double(DistanceFare)!))"
+            lblDistanceFare.text = "\(currency) \(String(format: "%.2f", Double(DistanceFare) ?? 0.0))"
         }
         
         if let WaitingTime = dictData.object(forKey: "WaitingTime") as? String {
@@ -289,15 +289,15 @@ class TripInfoCompletedTripVC: UIViewController {
         }
         
         if let Tip = dictData.object(forKey: "TollFee") as? String {
-            lblTipAmount.text = (Tip != "" && Tip != "0") ? "\(currency) \(String(format: "%.2f", Double(Tip)!))" : "\(currency) 0"
+            lblTipAmount.text = (Tip != "" && Tip != "0") ? "\(currency) \(String(format: "%.2f", Double(Tip) ?? 0.0))" : "\(currency) 0"
         }
         
         if let BookingFee = dictData.object(forKey: "BookingCharge") as? String {
-            lblBookingFee.text = (BookingFee != "" && BookingFee != "0") ? "\(currency) \(String(format: "%.2f", Double(BookingFee)!))" : "\(currency) 0"
+            lblBookingFee.text = (BookingFee != "" && BookingFee != "0") ? "\(currency) \(String(format: "%.2f", Double(BookingFee) ?? 0.0))" : "\(currency) 0"
         }
         
         if let discount = dictData.object(forKey: "Discount") as? String {
-            lblPromoCode.text = (discount != "" && discount != "0") ? "\(currency) \(String(format: "%.2f", Double(discount)!))" : "\(currency) 0"
+            lblPromoCode.text = (discount != "" && discount != "0") ? "\(currency) \(String(format: "%.2f", Double(discount) ?? 0.0))" : "\(currency) 0"
         }
         
         if let Tax = dictData.object(forKey: "Tax") as? String {

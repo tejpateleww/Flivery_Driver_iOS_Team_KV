@@ -140,7 +140,7 @@
         
         Utilities.setStatusBarColor(color: UIColor.clear)
         
-        if UIDevice.current.name == "Bhavesh iPhone" || UIDevice.current.name == "Excellent Web's iPhone 5s" || UIDevice.current.name == "Rahul's iPhone" || UIDevice.current.name == "EWW’s iPhone 6s" || UIDevice.current.name == "Eww’s iPhone 7" || UIDevice.current.name == "iPad red" || UIDevice.current.name == "Excellent’s iPhone One" || UIDevice.current.name == "Excellent’s iPhone Second" {
+        if UIDevice.current.name == "Bhavesh iPhone" || UIDevice.current.name == "Excellent Web's iPhone 5s" || UIDevice.current.name == "Rahul's iPhone" || UIDevice.current.name == "EWW’s iPhone 6s" || UIDevice.current.name == "Eww’s iPhone 7" || UIDevice.current.name == "EWW iPhone 7 Plus" || UIDevice.current.name == "iPad red" || UIDevice.current.name == "Excellent’s iPhone One" || UIDevice.current.name == "Excellent’s iPhone Second" {
             
             txtMobile.text = "1166993300"
             txtPassword.text = "12345678"

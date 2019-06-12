@@ -38,7 +38,7 @@ protocol addCardFromHomeVCDelegate {
 }
 // ------------------------------------------------------------
 
-class HomeViewController: UIViewController, CLLocationManagerDelegate, ARCarMovementDelegate, SRCountdownTimerDelegate, ReceiveRequestDelegate, GMSMapViewDelegate, CompleterTripInfoDelegate, UITabBarControllerDelegate, delegateRatingIsSubmitSuccessfully, delegateWaitforTip {
+class HomeViewController: UIViewController, CLLocationManagerDelegate, ARCarMovementDelegate, SRCountdownTimerDelegate, ReceiveRequestDelegate, GMSMapViewDelegate, CompleterTripInfoDelegate, UITabBarControllerDelegate, delegateRatingIsSubmitSuccessfully, delegateWaitforTip, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func delegateResultTip() {
         
@@ -1267,7 +1267,13 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, ARCarMove
                 
                 Singletons.sharedInstance.passengerType = PassengerType
             }
-            
+            if let res = data as? [[String: Any]]{
+                if let result = res[0]["BookingInfo"] as? [[String: Any]]{
+                    if let confirmationType = result[0]["DeliveredParcelImageType"] as? String{
+                        Singletons.sharedInstance.confirmationType = confirmationType
+                    }
+                }
+            }
             Singletons.sharedInstance.isRequestAccepted = true
             UserDefaults.standard.set(Singletons.sharedInstance.isRequestAccepted, forKey: tripStatus.kisRequestAccepted)
             
@@ -1587,7 +1593,13 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, ARCarMove
                 UtilityClass.hideACProgressHUD()
                 return
             }
-            
+            if let res = data as? [[String: Any]]{
+                if let result = res[0]["BookingInfo"] as? [[String: Any]]{
+                    if let confirmationType = result[0]["DeliveredParcelImageType"] as? String{
+                        Singletons.sharedInstance.confirmationType = confirmationType
+                    }
+                }
+            }
             Singletons.sharedInstance.isRequestAccepted = true
             UserDefaults.standard.set(Singletons.sharedInstance.isRequestAccepted, forKey: tripStatus.kisRequestAccepted)
             
@@ -2712,9 +2724,14 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, ARCarMove
         
         
         // 9-July-2018
-        self.completeTripButtonAction()
+      //  self.completeTripButtonAction()
         
         Singletons.sharedInstance.MeterStatus = meterStatus.kIsMeterStop
+        if Singletons.sharedInstance.confirmationType == "image"{
+            self.PickingImageFromCamera()
+        }else{
+            self.presentSignatureVC()
+        }
         
         //        }
         //        else
@@ -2722,7 +2739,57 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, ARCarMove
         //            UtilityClass.showAlert("Hold Trip Active", message: "Please stop holding trip", vc: self)
         //        }
     }
+    func presentSignatureVC() {
+        
+        Utilities.hideActivityIndicator()
+        
+        let next = self.storyboard?.instantiateViewController(withIdentifier: "SignatureViewController") as! SignatureViewController
+        (UIApplication.shared.delegate as! AppDelegate).window?.rootViewController?.present(next, animated: true, completion: nil)
+        
+        next.onDismiss = {
+            if next.IsNeedToOpenCamera == false {
+                self.submittedParcelImage = next.parcelSignatureImage
+                self.completeTripButtonAction()
+                next.dismiss(animated: true)
+            } else if next.IsNeedToOpenCamera == true {
+                next.dismiss(animated: true, completion: {
+                    if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
+                        self.perform(#selector(self.PickingImageFromCamera), with: nil, afterDelay: 1.0)
+                        //                    self.PickingImageFromCamera()
+                    } else {
+                        Utilities.showToastMSG(MSG: "Your device doesn't have Camera.")
+                    }
+                })
+            }
+            
+        }
+    }
     
+    @objc func PickingImageFromCamera()
+    {
+        let picker = UIImagePickerController()
+        Utilities.hideActivityIndicator()
+        picker.delegate = self
+        picker.allowsEditing = true
+        picker.sourceType = .camera
+        picker.cameraCaptureMode = .photo
+        present(picker, animated: true, completion: nil)
+    }
+    
+    var submittedParcelImage = UIImage()
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let pickedImage = info[.editedImage] as? UIImage{
+            submittedParcelImage = pickedImage
+        }
+        if let pickedImage = info[.originalImage] as? UIImage{
+            submittedParcelImage = pickedImage
+        }
+        
+        dismiss(animated: true, completion: {self.completeTripButtonAction()})
+    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: {self.completeTripButtonAction()})
+    }
     func completeTripButtonAction()
     {
         
@@ -4440,8 +4507,11 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, ARCarMove
     
     func webserviceCallForCompleteTrip(dictOFParam : AnyObject)
     {
-        webserviceForCompletedTripSuccessfully(dictOFParam as AnyObject) { (result, status) in
-            
+        Utilities.showActivityIndicator()
+        let dictOfImages: [String: UIImage] = ["DeliveredParcelImage" : submittedParcelImage]
+        
+        webserviceForCompletedTripSuccessfully(dictOFParam as AnyObject, dictOfImages) { (result, status) in
+            Utilities.hideActivityIndicator()
             if (status) {
                 
                 self.dictCompleteTripData = (result as! NSDictionary)
@@ -4449,7 +4519,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, ARCarMove
                 self.resetMapView()
                 
                 Singletons.sharedInstance.isRequestAccepted = false
-                Singletons.sharedInstance.isPickUPPasenger = false
                 Singletons.sharedInstance.isTripContinue = false
                 Singletons.sharedInstance.bookingIdTemp = ""
                 Singletons.sharedInstance.advanceBookingIdTemp = ""
@@ -4477,7 +4546,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, ARCarMove
                             if (TripToDesting == 1) {
                                 Singletons.sharedInstance.dictTripDestinationLocation["location"] = self.dictCompleteTripData.value(forKey: "location") as AnyObject
                                 Singletons.sharedInstance.dictTripDestinationLocation["trip_to_destin"] = 0 as AnyObject
-                             
+                                
                                 self.userDefault.set(false, forKey: "buttonSelected")
                                 self.userDefault.synchronize()
                             }
@@ -4549,7 +4618,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, ARCarMove
                     self.webserviceOfCurrentBooking()
                 })
                 
-//                "Please complete trip again"
+                //                "Please complete trip again"
                 
                 //                if let res: String = result as? String {
                 //                    UtilityClass.showAlert("App Name".localized, message: res, vc: self)
@@ -4573,14 +4642,17 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, ARCarMove
     }
     
     
+    
     //-------------------------------------------------------------
     // MARK: - Webservice Methods For Completeing Advance Booking
     //-------------------------------------------------------------
     
     func webserviceCallForAdvanceCompleteTrip(dictOFParam : AnyObject)
     {
-        webserviceForCompletedAdvanceTripSuccessfully(dictOFParam as AnyObject) { (result, status) in
-            
+        Utilities.showActivityIndicator()
+        let dictOfImages: [String: UIImage] = ["DeliveredParcelImage" : submittedParcelImage]
+        webserviceForCompletedAdvanceTripSuccessfully(dictOFParam as AnyObject, dictOfImages ) { (result, status) in
+            Utilities.hideActivityIndicator()
             if (status) {
                 
                 self.dictCompleteTripData = (result as! NSDictionary)
@@ -4589,9 +4661,9 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, ARCarMove
                 
                 Singletons.sharedInstance.oldBookingType.isBookNow = false
                 Singletons.sharedInstance.oldBookingType.isBookLater = false
-                                
+                
+                
                 Singletons.sharedInstance.isRequestAccepted = false
-                Singletons.sharedInstance.isPickUPPasenger = false
                 Singletons.sharedInstance.isTripContinue = false
                 UserDefaults.standard.set(Singletons.sharedInstance.isTripContinue, forKey: tripStatus.kisTripContinue)
                 UserDefaults.standard.set(Singletons.sharedInstance.isRequestAccepted, forKey: tripStatus.kisRequestAccepted)
