@@ -6,34 +6,35 @@
   Copyright © 2019 Excellent Webworld. All rights reserved.
 */
 
-"App Name" = "Flivery Driver";
+"App Name" = "Flivery Expéditeur";
 "Currency" = "$";
 "Internet Error" = "Internet Error";
 "Sorry! Not connected to internet" = "Sorry! Not connected to internet";
-"Something is wrong, try again later" = "Something is wrong, try again later";
-"Permission Denied, You cannot access location data." = "Permission Denied, You cannot access location data.";
+"Something is wrong, try again later" = "Une erreur s\'est produite avant d\'essayer à nouveau plus tard";
+"Permission Denied, You cannot access location data." = "Autorisation refusée, vous ne pouvez pas accéder aux données de localisation.";
 "Location" = "Location";
 "GPS settings" = "GPS settings";
 "Please set your Location Mode to High accuracy." = "Please set your Location Mode to High accuracy.";
-"Settings" = "Settings";
-"Success Message" = "Success Message";
-"Error Message" = "Error Message";
-"Info Message!" = "Info Message!";
-"Done" = "Done";
-"Submit" = "Submit";
+"Settings" = "Réglages";
+"Success Message" = "Message de réussite";
+"Error Message" = "Message d\'erreur";
+"Info Message!" = "Message d\'information!";
+"Done" = "Terminé";
+"Submit" = "Soumettre";
 "Dismiss" = "Dismiss";
 "System Alert" = "System Alert";
-"Update" = "Update";
-"OK" = "OK";
-"Mobile Number" = "Mobile Number";
+"Update" = "Mettre à jour";
+"OK" = "D\'accord";
+"Mobile Number" = "Numéro de portable";
 "Password" = "Password";
-
-"Sign In" = "Sign In";
+"Forgot Password?" = "Forgot Password?";
+"SIGN IN" = "S\'identifier";
 //"Login" = "Login";
 "Don't have an Account? Sign Up" = "Don't have an Account? Sign Up";
-"Sign Up" = "Sign Up";
-"Forgot Password?" = "Forgot Password?";
-"Please enter mobile number" = "Please enter mobile number";
+"Sign Up" = "S\'inscrire";
+"Forgot Password" = "Mot de passe oublié?";
+"Forgot Password?" = "Mot de passe oublié?";
+"Please enter mobile number" = "S\'il vous plaît entrer le numéro de téléphone.";
 "Please enter valid mobile number" = "Please enter valid mobile number";
 "Please enter email" = "Please enter email";
 "Please enter a valid email" = "Please enter a valid email";
@@ -111,7 +112,7 @@
 "Drop off location" = "Drop off location";
 "Pick up location" = "Pick up location";
 "Flight No" = "Flight No";
-"Notes" = "Notes";
+"Notes" = "Remarques";
 "Receive Request" = "Receive Request";
 "Cancel Request" = "Cancel Request";
 "Reject" = "Reject";
@@ -231,6 +232,7 @@
 "Vehicle Model" = "Vehicle Model";
 "Vehicle Type" = "Vehicle Type";
 "Vehicle Make" = "Vehicle Make";
+"Number Of Passenger" = "Number Of Passenger";
 "TIN Certificate" = "TIN Certificate";
 "Driver Licence (Front only)" = "Driver Licence (Front only)";
 "Revenue Licence" = "Revenue Licence";

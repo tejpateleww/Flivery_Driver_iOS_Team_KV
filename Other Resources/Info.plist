@@ -17,9 +17,9 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.0</string>
+	<string>1.0.1</string>
 	<key>CFBundleVersion</key>
-	<string>1.0.0</string>
+	<string>1.0.1</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -59,6 +59,8 @@
 	<string>App would like to use your current location to journal places you go.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>App would like to use your current location to journal places you go.</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>App would like to use your current location to journal places you go.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Photo Library access required for using photos!</string>
 	<key>UIAppFonts</key>
@@ -80,8 +82,6 @@
 		<string>proxima-nova-semibold.otf</string>
 		<string>proxima-nova.otf</string>
 	</array>
-	<key>UIApplicationExitsOnSuspend</key>
-	<false/>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>
@@ -104,6 +104,7 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 </dict>

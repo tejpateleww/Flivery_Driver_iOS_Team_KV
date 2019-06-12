@@ -20,7 +20,7 @@ struct WebSupport {
 struct WebserviceURLs {
     
     static let kBaseURL                                 = "http://34.73.215.81/web/Drvier_Api/"//"https://pickngolk.info/web/Drvier_Api/" // "http://54.169.67.226/web/Drvier_Api/" //
-    static let kImageBaseURL                            = "https://www.tantaxitanzania.com/" // "http://54.169.67.226/web/" //
+    static let kImageBaseURL                            = "http://34.73.215.81/web/" //"https://www.tantaxitanzania.com/" // "http://54.169.67.226/web/" //
     static let kOTPForDriverRegister                    = "OtpForRegister"
     static let kVehicalModelList                        = "TaxiModel/"
     static let kDriverRegister                          = "Register"
@@ -75,7 +75,10 @@ struct WebserviceURLs {
     static let kPrivateMeterBooking                     = "PrivateMeterBooking"
     
 //    https://www.tantaxitanzania.com/Drvier_Api/FeedbackList/9
-    static let kFeedbackList                     = "FeedbackList/"
+    static let kFeedbackList                            = "FeedbackList/"
+    
+    // for Multiple booking list
+    static let kCurrentTrips                            = "CurrentTrips/"
 }
 
 struct OTPEmail {

@@ -10,6 +10,7 @@
  import CoreLocation
  import SideMenuSwift
  //import ACFloatingTextfield_Swift
+ import Localize_Swift
  
  class LoginViewController: UIViewController, CLLocationManagerDelegate,UITextFieldDelegate {
     
@@ -40,6 +41,7 @@
     @IBOutlet var btnSignUp: UIButton!
     
     @IBOutlet var lblLaungageName: UILabel!
+    @IBOutlet weak var lblSignInTitle: UILabel!
     
    
     //    @IBOutlet weak var constraintHeightOfLogo: NSLayoutConstraint! // 140
@@ -53,28 +55,36 @@
     
     func setLocalization() {
         
-        if let SelectedLanguage = UserDefaults.standard.value(forKey: "i18n_language") as? String {
-            if SelectedLanguage == "en" {
-                lblLaungageName.text = "SW"
-            } else if SelectedLanguage == "sw" {
-                lblLaungageName.text = "EN"
-            }
-        }
-        self.txtMobile.placeholder = "Mobile Number".localized
-        self.txtPassword.placeholder = "Password".localized
-        self.btnForgotPassWord.setTitle("Forgot Password".localized, for: .normal)
-        self.btnSignIn.setTitle("Sign In".localized, for: .normal)
-//        self.btnSignUp.setTitle("Sign Up".localized, for: .normal)
-        self.lblDonTHaveAnyAccount.text = "Don't have an Account? Sign Up".localized
-        
+//        if let SelectedLanguage = UserDefaults.standard.value(forKey: "i18n_language") as? String {
+//            if SelectedLanguage == "en" {
+//                lblLaungageName.text = secondLanguage.uppercased() //"SW"
+//            } else if SelectedLanguage == secondLanguage {
+//                lblLaungageName.text = "EN"
+//            }
+//        }
+        self.view.layoutSubviews()
+//        DispatchQueue.main.async {
+            print("the language in setLocalization is \( UserDefaults.standard.value(forKey: "i18n_language") as? String ?? "-")")
+            self.txtMobile.placeholder = "Mobile Number"
+            self.txtPassword.placeholder = "Password"
+            self.btnForgotPassWord.setTitle("Forgot Password?", for: .normal)
+            self.btnSignIn.setTitle("Sign In", for: .normal)
+            //        self.btnSignUp.setTitle("Sign Up", for: .normal)
+            self.lblDonTHaveAnyAccount.text = "Don't have an Account? Sign Up"
+            
+            self.lblSignInTitle.text = "SIGN IN"
+              self.lblSignInTitle.layoutIfNeeded()
+            print("lblSignInTitle.text: \(self.lblSignInTitle.text ?? "-")")
+//        }
+          self.view.layoutIfNeeded()
     }
     
     override func loadView() {
             super.loadView()
     
     
-        txtMobile.text = "1166993300"
-            txtPassword.text = "12345678"
+//            txtMobile.text = "1166993300"
+//            txtPassword.text = "12345678"
     
 //            Utilities.setStatusBarColor(color: UIColor.clear)
     
@@ -86,10 +96,10 @@
 //            }
 //            else
 //            {
-//                UtilityClass.showAlertWithCompletion(appName.kAPPName, message: "Sorry! Not connected to internet".localized, vc: self) { (status) in
+//                UtilityClass.showAlertWithCompletion(appName.kAPPName, message: "Sorry! Not connected to internet", vc: self) { (status) in
 //                    self.navigationController?.popViewController(animated: false)
 //                }
-////                UtilityClass.showAlert(appName.kAPPName, message: "Sorry! Not connected to internet".localized, vc: self)
+////                UtilityClass.showAlert(appName.kAPPName, message: "Sorry! Not connected to internet", vc: self)
 //                return
 //            }
         
@@ -99,7 +109,7 @@
 //                // do some tasks..
 //            }
 //            else {
-//                UtilityClass.showAlert(appName.kAPPName, message: "Sorry! Not connected to internet".localized, vc: self)
+//                UtilityClass.showAlert(appName.kAPPName, message: "Sorry! Not connected to internet", vc: self)
 //            }
     
 //            webserviceOfAppSetting()
@@ -110,26 +120,36 @@
     {
         super.viewDidLoad()
         
+        
         txtMobile.delegate = self
         lblLaungageName.layer.cornerRadius = 5
         lblLaungageName.backgroundColor = ThemeYellowColor
         lblLaungageName.layer.borderColor = UIColor.black.cgColor
         lblLaungageName.layer.borderWidth = 0.5
         
-        if let SelectedLanguage = UserDefaults.standard.value(forKey: "i18n_language") as? String {
-            if SelectedLanguage == "en" {
-                lblLaungageName.text = "EN"
-            } else if SelectedLanguage == "sw" {
-                    lblLaungageName.text = "SW"
-            }
-        }
+//        if let SelectedLanguage = UserDefaults.standard.value(forKey: "i18n_language") as? String {
+//            if SelectedLanguage == "en" {
+//                lblLaungageName.text = "EN"
+//            } else if SelectedLanguage == secondLanguage {
+//                    lblLaungageName.text = secondLanguage.uppercased() //"SW"
+//            }
+//        }
         
 //        txtMobile.text = "1111111111"
 //        txtPassword.text = "123456"
         
         Utilities.setStatusBarColor(color: UIColor.clear)
         
-
+        if UIDevice.current.name == "Bhavesh iPhone" || UIDevice.current.name == "Excellent Web's iPhone 5s" || UIDevice.current.name == "Rahul's iPhone" || UIDevice.current.name == "EWW’s iPhone 6s" || UIDevice.current.name == "Eww’s iPhone 7" || UIDevice.current.name == "iPad red" || UIDevice.current.name == "Excellent’s iPhone One" || UIDevice.current.name == "Excellent’s iPhone Second" {
+            
+            txtMobile.text = "1166993300"
+            txtPassword.text = "12345678"
+        }
+        
+        #if targetEnvironment(simulator)
+            txtMobile.text = "1166993300"
+            txtPassword.text = "12345678"
+        #endif
         
        
         //
@@ -174,7 +194,7 @@
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
         self.setLocalization()
-//        self.title = "Ingia".localized
+//        self.title = "Ingia"
     }
     
     override func viewDidLayoutSubviews()
@@ -204,17 +224,22 @@
     {
         
         if let SelectedLanguage = UserDefaults.standard.value(forKey: "i18n_language") as? String {
+//            SelectedLanguage = secondLanguage
             if SelectedLanguage == "en" {
                 setLayoutForswahilLanguage()
-                lblLaungageName.text = "EN"
-            } else if SelectedLanguage == "sw" {
+                
+//                lblLaungageName.text = "EN"
+            } else if SelectedLanguage == secondLanguage {
                 setLayoutForenglishLanguage()
-                lblLaungageName.text = "SW"
+//                setLayoutForswahilLanguage()
+//                lblLaungageName.text = secondLanguage // "SW"
             }
         }
         self.setLocalization()
+        
     }
     
+
     @IBAction func btnSignIn(_ sender: UIButton) {
         //        SideMenuController
         
@@ -222,21 +247,20 @@
         {
             webserviceForLoginDrivers()
         }
-        
     }
     
     @IBAction func btnForgotPassword(_ sender: UIButton) {
         
         //1. Create the alert controller.
-        let alert = UIAlertController(title: "Forgot Password?".localized, message: "Please enter email".localized, preferredStyle: .alert)
+        let alert = UIAlertController(title: "Forgot Password?", message: "Please enter email", preferredStyle: .alert)
         
         //2. Add the text field. You can configure it however you need.
         alert.addTextField { (textField) in
-            textField.placeholder = "Email".localized
+            textField.placeholder = "Email"
         }
         
         // 3. Grab the value from the text field, and print it when the user clicks OK.
-        alert.addAction(UIAlertAction(title: "OK".localized, style: .default, handler: { [weak alert] (_) in
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
             let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
             print("Text field: \(String(describing: textField?.text))")
             
@@ -251,8 +275,7 @@
             
         }))
         
-        alert.addAction(UIAlertAction(title: "Cancel".localized, style: .default, handler: { [weak alert] (_) in
-            
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { [weak alert] (_) in
             
         }))
         
@@ -262,16 +285,12 @@
     @IBAction func btnFaceBook(_ sender: UIButton) {
     }
     
-    @IBAction func btnSignUP(_ sender: UIButton)
-    {
-      
+    @IBAction func btnSignUP(_ sender: UIButton) {
         //        performSegue(withIdentifier: "SegueToRegisterVc", sender: self)
-        
     }
+    
     @IBAction func btnGoogle(_ sender: UIButton) {
     }
-    
-    
     
     func checkPass() {
         NotificationCenter.default.addObserver(self, selector: #selector(self.showAlertForPasswordWrong), name: Notification.Name("checkForgotPassword"), object: nil)
@@ -279,8 +298,7 @@
     
     @objc func showAlertForPasswordWrong() {
         
-        UtilityClass.showAlert("App Name".localized, message: "Please enter mobile number".localized, vc: self)
-        
+        UtilityClass.showAlert("App Name", message: "Please enter mobile number", vc: self)
     }
     
     // ------------------------------------------------------------
@@ -368,17 +386,17 @@
                 print(result)
                 
                 if let res = result as? String {
-                    UtilityClass.showAlert("App Name".localized, message: res, vc: self)
+                    UtilityClass.showAlert("App Name", message: res, vc: self)
                 }
                 else if let resDict = result as? NSDictionary {
                     if let errorMessage = resDict[ GetResponseMessageKey()] as? String
                     {
-                        UtilityClass.showAlert("App Name".localized, message: errorMessage, vc: self)
+                        UtilityClass.showAlert("App Name", message: errorMessage, vc: self)
 
                     }
                 }
                 else if let resAry = result as? NSArray {
-                    UtilityClass.showAlert("App Name".localized, message: (resAry.object(at: 0) as! NSDictionary).object(forKey: GetResponseMessageKey()) as! String, vc: self)
+                    UtilityClass.showAlert("App Name", message: (resAry.object(at: 0) as! NSDictionary).object(forKey: GetResponseMessageKey()) as! String, vc: self)
                 }
                 
             }
@@ -397,8 +415,8 @@
             if (status) {
                 
                 print(result)
-                let alert = UIAlertController(title: "App Name".localized, message: result.object(forKey: GetResponseMessageKey()) as? String, preferredStyle: .alert)
-                let ok = UIAlertAction(title: "OK".localized, style: .default, handler: nil)
+                let alert = UIAlertController(title: "App Name", message: result.object(forKey: GetResponseMessageKey()) as? String, preferredStyle: .alert)
+                let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
                 alert.addAction(ok)
                 self.present(alert, animated: true, completion: nil)
                 
@@ -406,13 +424,13 @@
                 print(result)
                 
                 if let res = result as? String {
-                    UtilityClass.showAlert("App Name".localized, message: res, vc: self)
+                    UtilityClass.showAlert("App Name", message: res, vc: self)
                 }
                 else if let resDict = result as? NSDictionary {
-                    UtilityClass.showAlert("App Name".localized, message: resDict.object(forKey: GetResponseMessageKey()) as! String, vc: self)
+                    UtilityClass.showAlert("App Name", message: resDict.object(forKey: GetResponseMessageKey()) as! String, vc: self)
                 }
                 else if let resAry = result as? NSArray {
-                    UtilityClass.showAlert("App Name".localized, message: (resAry.object(at: 0) as! NSDictionary).object(forKey: GetResponseMessageKey()) as! String, vc: self)
+                    UtilityClass.showAlert("App Name", message: (resAry.object(at: 0) as! NSDictionary).object(forKey: GetResponseMessageKey()) as! String, vc: self)
                 }
             }
         }
@@ -445,12 +463,12 @@
                 
                 if ((result as! NSDictionary).object(forKey: "update") as? Bool) != nil {
                     
-                    let alert = UIAlertController(title: "App Name".localized, message: (result as! NSDictionary).object(forKey: GetResponseMessageKey()) as? String, preferredStyle: .alert)
-                    let UPDATE = UIAlertAction(title: "Update".localized, style: .default, handler: { ACTION in
+                    let alert = UIAlertController(title: "App Name", message: (result as! NSDictionary).object(forKey: GetResponseMessageKey()) as? String, preferredStyle: .alert)
+                    let UPDATE = UIAlertAction(title: "Update", style: .default, handler: { ACTION in
                         
                         UIApplication.shared.openURL(NSURL(string: appName.kAPPUrl)! as URL)
                     })
-                    let Cancel = UIAlertAction(title: "Cancel".localized, style: .default, handler: { ACTION in
+                    let Cancel = UIAlertAction(title: "Cancel", style: .default, handler: { ACTION in
                         
                         if(Singletons.sharedInstance.isDriverLoggedIN)
                         {
@@ -502,14 +520,14 @@
                  */
                 
                 if let res = result as? String {
-                    UtilityClass.showAlert("App Name".localized, message: res, vc: self)
+                    UtilityClass.showAlert("App Name", message: res, vc: self)
                 }
                 else if let update = (result as! NSDictionary).object(forKey: "update") as? Bool {
                     
                     if (update) {
                         //                        UtilityClass.showAlert(appName.kAPPName, message: (result as! NSDictionary).object(forKey: "message") as! String, vc: self)
                         
-                        UtilityClass.showAlertWithCompletion("App Name".localized, message: (result as! NSDictionary).object(forKey: GetResponseMessageKey()) as! String, vc: self, completionHandler: { ACTION in
+                        UtilityClass.showAlertWithCompletion("App Name", message: (result as! NSDictionary).object(forKey: GetResponseMessageKey()) as! String, vc: self, completionHandler: { ACTION in
                             
                             UIApplication.shared.open((NSURL(string: appName.kAPPUrl)! as URL), options: [:], completionHandler: { (status) in
                                 
@@ -517,7 +535,7 @@
                         })
                     }
                     else {
-                        UtilityClass.showAlert("App Name".localized, message: (result as! NSDictionary).object(forKey: GetResponseMessageKey()) as! String, vc: self)
+                        UtilityClass.showAlert("App Name", message: (result as! NSDictionary).object(forKey: GetResponseMessageKey()) as! String, vc: self)
                     }
                     
                 }
@@ -568,17 +586,17 @@
         
         if txtMobile.text!.count == 0
         {
-            UtilityClass.showAlert("App Name".localized, message: "Please enter mobile number".localized, vc: self)
+            UtilityClass.showAlert("App Name", message: "Please enter mobile number", vc: self)
             return false
         }
 //        else if txtMobile.text!.count != 10 {
-//            UtilityClass.showAlert("App Name".localized, message: "Please enter valid phone number.", vc: self)
+//            UtilityClass.showAlert("App Name", message: "Please enter valid phone number.", vc: self)
 //            return false
 //        }
         else if txtPassword.text!.count == 0
         {
             
-            UtilityClass.showAlert("App Name".localized, message: "Please enter password".localized, vc: self)
+            UtilityClass.showAlert("App Name", message: "Please enter password", vc: self)
             
             return false
         }

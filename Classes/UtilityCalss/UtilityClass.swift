@@ -68,7 +68,6 @@ class UtilityClass: NSObject {
             imageView.layer.masksToBounds = true
         }
         
-        
     }
     
     // Alert
@@ -133,6 +132,14 @@ class UtilityClass: NSObject {
         //vc will be the view controller on which you will present your alert as you cannot use self because this method is static.
     }
     
+    
+    class func changeImageColor(imageView: UIImageView, imageName: String, color: UIColor) -> UIImageView {
+        
+        let img: UIImage = (UIImage.init(named: imageName)?.withRenderingMode(.alwaysTemplate))!
+        imageView.image = img
+        imageView.tintColor = color
+        return imageView
+    }
     
     
     class func showHUD() {

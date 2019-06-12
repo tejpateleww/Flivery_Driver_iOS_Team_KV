@@ -77,6 +77,8 @@ let TrackRunningTrip = WebserviceURLs.kTrackRunningTrip
 
 let PrivateMeterBooking = WebserviceURLs.kPrivateMeterBooking
 
+let currentTripsist = WebserviceURLs.kCurrentTrips
+
 
 //-------------------------------------------------------------
 // MARK: - Webservice For Registration
@@ -598,6 +600,15 @@ func webserviceForTrackRunningTrip(_ dictParams: AnyObject, completion: @escapin
 }
 
 
+//-------------------------------------------------------------
+// MARK: - Webservice For Track Your Current Trip
+//-------------------------------------------------------------
+
+func webserviceForTrackYourCurrentTrip(_ dictParams: AnyObject, completion: @escaping(_ result: AnyObject, _ success: Bool) -> Void)
+{
+    let url = currentTripsist + "\(dictParams)"
+    getData("" as AnyObject, nsURL: url, completion: completion)
+}
 
 
 

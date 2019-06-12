@@ -12,7 +12,7 @@ import SideMenuSwift
 
 
 let KEnglish : String = "EN"
-let KSwiley : String = "SW"
+let KSwiley : String = secondLanguage //"SW"
 class  MenuController: UIViewController, UITableViewDataSource, UITableViewDelegate
 {
     
@@ -35,9 +35,9 @@ class  MenuController: UIViewController, UITableViewDataSource, UITableViewDeleg
         //kiconMyJobs
         //kMyRating
         //kiconMyRating
-        aryItemNames = [kPaymentOption,kPassword,kTripToDestination,kInviteFriend,kSettings,kLogout]
+        aryItemNames = ["Your Running Trip",kPaymentOption,kPassword,kTripToDestination,kInviteFriend,kSettings,kLogout]
         
-        aryItemIcons = [kiconPaymentOption,kiconPassword,kiconTripToDestination,kiconInviteFriend,kiconSettings,kIconLogout]
+        aryItemIcons = ["iconMyBooking",kiconPaymentOption,kiconPassword,kiconTripToDestination,kiconInviteFriend,kiconSettings,kIconLogout]
 
         self.view.backgroundColor = UIColor.black
         
@@ -141,8 +141,8 @@ class  MenuController: UIViewController, UITableViewDataSource, UITableViewDeleg
 
 //            if let SelectedLanguage = UserDefaults.standard.value(forKey: "i18n_language") as? String {
 //                if SelectedLanguage == "en" {
-//                    cellProfile.lblLaungageName.text = "SW"
-//                } else if SelectedLanguage == "sw" {
+//                    cellProfile.lblLaungageName.text = secondLanguage.uppercased() // "SW"
+            //                } else if SelectedLanguage == secondLanguage { // "sw" {
 //                    cellProfile.lblLaungageName.text = "EN"
 //                }
 //            }
@@ -189,7 +189,7 @@ class  MenuController: UIViewController, UITableViewDataSource, UITableViewDeleg
             if SelectedLanguage == "en" {
                 setLayoutForswahilLanguage()
                 
-            } else if SelectedLanguage == "sw" {
+            } else if SelectedLanguage == secondLanguage { // "sw" {
                 setLayoutForenglishLanguage()
             }
         }
@@ -201,7 +201,7 @@ class  MenuController: UIViewController, UITableViewDataSource, UITableViewDeleg
         
     @objc func MyJob(){
         //
-        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "MyJobsViewController") as!    MyJobsViewController
+        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "MyJobsViewController") as! MyJobsViewController
         self.navigationController?.pushViewController(viewController, animated: true)
         
         //     sideMenuController?.performSegue(withIdentifier: "SegueSideMenuToMyJob", sender: self)
@@ -295,6 +295,10 @@ class  MenuController: UIViewController, UITableViewDataSource, UITableViewDeleg
                     homeVC?.navigationController?.pushViewController(viewController, animated: true)
                 }
 
+            }
+            else if strCellItemTitle == "Your Running Trip" {
+                let viewController = self.storyboard?.instantiateViewController(withIdentifier: "MultipleBookingTrackingViewController") as! MultipleBookingTrackingViewController
+                homeVC?.navigationController?.pushViewController(viewController, animated: true)
             }
             else if strCellItemTitle == kPassword
             {

@@ -393,7 +393,7 @@ class PendingJobsListVC: UIViewController, UITableViewDataSource, UITableViewDel
         
         let viewController = self.storyboard?.instantiateViewController(withIdentifier: "MyJobsViewController") as? MyJobsViewController
         viewController?.callSocket()
-        Singletons.sharedInstance.isRequestAccepted = true
+//        Singletons.sharedInstance.isRequestAccepted = true // Bhavesh Changes
         self.webserviceofPendingJobs()
         
 //        self.navigationController?.popViewController(animated: true)

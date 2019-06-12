@@ -53,6 +53,17 @@ class Utilities: NSObject
         vc.present(alert, animated: true, completion: nil)
         
     }
+    
+    class func presentPopupOverScreen(_ alertController : UIViewController) {
+        
+        let alertWindow = UIWindow(frame: UIScreen.main.bounds)
+        alertWindow.rootViewController = UIViewController()
+        alertWindow.windowLevel = UIWindow.Level.alert + 1;
+        alertWindow.makeKeyAndVisible()
+        alertWindow.rootViewController?.present(alertController, animated: true, completion: nil)
+    }
+    
+    
     class func checkEmptyString(str: String?) -> String
     {
         var newString : String?
@@ -486,17 +497,7 @@ class Utilities: NSObject
     class  func ConvertSecondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {
         return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
     }
-    
-    class func presentPopupOverScreen(_ alertController : UIViewController)
-    {
-        let alertWindow = UIWindow(frame: UIScreen.main.bounds)
-        alertWindow.rootViewController = UIViewController()
-        alertWindow.windowLevel = UIWindow.Level.alert + 1;
-        alertWindow.makeKeyAndVisible()
-        alertWindow.rootViewController?.present(alertController, animated: true, completion: nil)
-    }
-    
-    
+
     
     
     class func findtopViewController(controller: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {

@@ -101,7 +101,7 @@ class Singletons: NSObject {
     var strRideTypeFromAcceptRequest = String()
     
     /// isPickUPPasenger = true than Start Trip else only accepted
-    var isPickUPPasenger: Bool!
+    var isPickUPPasenger = Bool()
     
 }
 

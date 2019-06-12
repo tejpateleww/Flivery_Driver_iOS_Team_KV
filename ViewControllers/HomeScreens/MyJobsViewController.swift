@@ -304,8 +304,7 @@ class MyJobsViewController: BaseViewController
     }
     
     
-    func callSocket()
-    {
+    func callSocket() {
         
         //        let socket = (((self.navigationController?.childViewControllers[0] as! TabbarController).childViewControllers)[0] as! ContentViewController).socket
         

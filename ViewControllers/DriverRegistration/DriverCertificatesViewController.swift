@@ -58,8 +58,12 @@ class DriverCertificatesViewController: UIViewController,UIImagePickerController
         imgVehicleInsurience.layer.masksToBounds = true
 */
         
-        
-        
+        DispatchQueue.main.async {
+            self.imgDriverLicence = UtilityClass.changeImageColor(imageView: self.imgDriverLicence, imageName: "iconPlaceholderVehicle", color: ThemeYellowColor)
+            self.imgAccreditationCertifi = UtilityClass.changeImageColor(imageView: self.imgAccreditationCertifi, imageName: "iconPlaceholderVehicle", color: ThemeYellowColor)
+            self.imgCarRegistration = UtilityClass.changeImageColor(imageView: self.imgCarRegistration, imageName: "iconPlaceholderVehicle", color: ThemeYellowColor)
+            self.imgVehicleInsurience = UtilityClass.changeImageColor(imageView: self.imgVehicleInsurience, imageName: "iconPlaceholderVehicle", color: ThemeYellowColor)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,8 +72,8 @@ class DriverCertificatesViewController: UIViewController,UIImagePickerController
     }
     
  
-    func setLocalizable()
-    {
+    func setLocalizable() {
+        
         self.title = "App Name".localized
 
         txtDriverLicence.placeholder =  "Select driver licence expiry date".localized
@@ -87,15 +91,14 @@ class DriverCertificatesViewController: UIViewController,UIImagePickerController
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        
     }
-    override func viewDidLayoutSubviews()
-    {
+    
+    override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        
         btnNext.layer.cornerRadius = btnNext.frame.size.height/2
         btnNext.clipsToBounds = true
-    }
-   
+    }   
 
     //-------------------------------------------------------------
     // MARK: - Outlets
@@ -743,8 +746,8 @@ class DriverCertificatesViewController: UIViewController,UIImagePickerController
         
 //        }
         
-        dictData[RegistrationFinalKeys.kLat] = "22.0236514" as AnyObject
-        dictData[RegistrationFinalKeys.kLat] = "72.0236514" as AnyObject
+        dictData[RegistrationFinalKeys.kLat] = Singletons.sharedInstance.latitude as AnyObject
+        dictData[RegistrationFinalKeys.kLat] = Singletons.sharedInstance.longitude as AnyObject
        
 //         let carModel: String = userDefault.object(forKey: profileKeys.kCarModel) as! String
 //            dictData[profileKeys.kCarModel] = carModel as AnyObject
@@ -766,7 +769,6 @@ class DriverCertificatesViewController: UIViewController,UIImagePickerController
         
         let bankHolederName: String = userDefault.object(forKey: RegistrationFinalKeys.kbankHolderName) as! String
         dictData[RegistrationFinalKeys.kbankHolderName] = bankHolederName as AnyObject
-        
         
         
         // --------------------

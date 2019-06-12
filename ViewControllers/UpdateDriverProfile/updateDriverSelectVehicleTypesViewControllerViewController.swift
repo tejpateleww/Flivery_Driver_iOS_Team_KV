@@ -352,7 +352,6 @@ class updateDriverSelectVehicleTypesViewControllerViewController: BaseViewContro
         alert.addAction(Camera)
         alert.addAction(cancel)
         self.present(alert, animated: true, completion: nil)
-        
     }
     
     
@@ -402,8 +401,7 @@ class updateDriverSelectVehicleTypesViewControllerViewController: BaseViewContro
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func btnSave(_ sender: Any)
-    {
+    @IBAction func btnSave(_ sender: Any) {
         
         if (Validations()){
             

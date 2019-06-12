@@ -158,6 +158,8 @@
 		00EB9E4F1F90D6C1008DB2DE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00EB9E4E1F90D6C1008DB2DE /* CoreLocation.framework */; };
 		0DFE443B1FB460FC5B3B04D5 /* Pods_Flivery_Driver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BDB493955FFDB4C5697322A /* Pods_Flivery_Driver.framework */; };
 		1110D3BD2075FD1700CC8C1F /* TripToDestinationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1110D3BC2075FD1700CC8C1F /* TripToDestinationViewController.swift */; };
+		18AEB646226D9299009C6460 /* MultipleBookingTrackingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AEB645226D9299009C6460 /* MultipleBookingTrackingViewController.swift */; };
+		18AEB648226D98B8009C6460 /* TrackYourTripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AEB647226D98B8009C6460 /* TrackYourTripTableViewCell.swift */; };
 		2101CD0E216F2CBA007B9680 /* ThemeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2101CD0D216F2CBA007B9680 /* ThemeButton.swift */; };
 		212FA5B320D7BF530057CE58 /* ShareRideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212FA5B220D7BF530057CE58 /* ShareRideViewController.swift */; };
 		2174C3BB216E143D000533CE /* InviteDriverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2174C3B9216E0889000533CE /* InviteDriverViewController.swift */; };
@@ -259,7 +261,7 @@
 		00E928DB202AE2BE00A399E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		00E928DE202AE2BF00A399E2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E928DF202AE2BF00A399E2 /* Main.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Main.strings; sourceTree = "<group>"; };
-		00E928E0202AE2BF00A399E2 /* TanTaxi-Driver-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TanTaxi-Driver-Bridging-Header.h"; sourceTree = "<group>"; };
+		00E928E0202AE2BF00A399E2 /* Flivery-Driver-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Flivery-Driver-Bridging-Header.h"; sourceTree = "<group>"; };
 		00E928E6202AE2BF00A399E2 /* ComingSoonVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComingSoonVC.swift; sourceTree = "<group>"; };
 		00E928E8202AE2BF00A399E2 /* DriverCertificatesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverCertificatesViewController.swift; sourceTree = "<group>"; };
 		00E928E9202AE2BF00A399E2 /* DriverEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverEmailViewController.swift; sourceTree = "<group>"; };
@@ -400,6 +402,14 @@
 		00EB9E4E1F90D6C1008DB2DE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		00FAEEE31F9F770E00D5F5C4 /* TZSegmentedControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TZSegmentedControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1110D3BC2075FD1700CC8C1F /* TripToDestinationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripToDestinationViewController.swift; sourceTree = "<group>"; };
+		184825E5227192AD0005107C /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		184825E6227192AE0005107C /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		184825E7227192AE0005107C /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/TripToDestination.strings; sourceTree = "<group>"; };
+		184825E8227192AE0005107C /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Profile.strings; sourceTree = "<group>"; };
+		184825E9227192AE0005107C /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Registration.strings; sourceTree = "<group>"; };
+		184825EA227192AF0005107C /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = Storyboard/fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		18AEB645226D9299009C6460 /* MultipleBookingTrackingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleBookingTrackingViewController.swift; sourceTree = "<group>"; };
+		18AEB647226D98B8009C6460 /* TrackYourTripTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackYourTripTableViewCell.swift; sourceTree = "<group>"; };
 		1BDB493955FFDB4C5697322A /* Pods_Flivery_Driver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flivery_Driver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2101CD0D216F2CBA007B9680 /* ThemeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeButton.swift; sourceTree = "<group>"; };
 		212FA5B220D7BF530057CE58 /* ShareRideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareRideViewController.swift; sourceTree = "<group>"; };
@@ -535,12 +545,6 @@
 		EEFEA5A92211841000D88655 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Registration.storyboard; sourceTree = "<group>"; };
 		EEFEA5AC2211841500D88655 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Registration.strings; sourceTree = "<group>"; };
 		EEFEA5B0221184F900D88655 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Storyboard/en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		EEFEA5B22211A16900D88655 /* sw */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sw; path = sw.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		EEFEA5B32211A16900D88655 /* sw */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sw; path = sw.lproj/Main.strings; sourceTree = "<group>"; };
-		EEFEA5B42211A16A00D88655 /* sw */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sw; path = sw.lproj/TripToDestination.strings; sourceTree = "<group>"; };
-		EEFEA5B52211A16A00D88655 /* sw */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sw; path = sw.lproj/Profile.strings; sourceTree = "<group>"; };
-		EEFEA5B62211A16B00D88655 /* sw */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sw; path = sw.lproj/Registration.strings; sourceTree = "<group>"; };
-		EEFEA5B72211A16B00D88655 /* sw */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sw; path = Storyboard/sw.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F194C99D06F795219F0128F3 /* Pods_ODDS_Driver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ODDS_Driver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -606,7 +610,7 @@
 				3A5F1BCB21CE0872000007AE /* GoogleService-Info.plist */,
 				00E928DE202AE2BF00A399E2 /* Info.plist */,
 				00E928DF202AE2BF00A399E2 /* Main.strings */,
-				00E928E0202AE2BF00A399E2 /* TanTaxi-Driver-Bridging-Header.h */,
+				00E928E0202AE2BF00A399E2 /* Flivery-Driver-Bridging-Header.h */,
 			);
 			path = "Other Resources";
 			sourceTree = "<group>";
@@ -640,6 +644,7 @@
 				00E928F3202AE2BF00A399E2 /* DummyData.swift */,
 				00E92927202AE2BF00A399E2 /* TabbarController.swift */,
 				63209118218ADA7E00A1241C /* MyFeedbackViewCell.swift */,
+				18AEB645226D9299009C6460 /* MultipleBookingTrackingViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -791,6 +796,7 @@
 				00E92933202AE2BF00A399E2 /* UpdateProfileCells */,
 				00E92936202AE2BF00A399E2 /* Wallet */,
 				21B479BF20DD1F8300C6D8F8 /* shareRideListTableViewCell.swift */,
+				18AEB647226D98B8009C6460 /* TrackYourTripTableViewCell.swift */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -1622,7 +1628,7 @@
 			knownRegions = (
 				en,
 				Base,
-				sw,
+				fr,
 			);
 			mainGroup = 00E5CE9A1F8B402C004409A4;
 			productRefGroup = 00E5CEA41F8B402C004409A4 /* Products */;
@@ -1705,6 +1711,7 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/IQDropDownTextField/IQDropDownTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Localize-Swift/Localize_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/M13Checkbox/M13Checkbox.framework",
 				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
@@ -1727,6 +1734,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQDropDownTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Localize_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/M13Checkbox.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
@@ -1863,6 +1871,7 @@
 				00E92A73202AE2C100A399E2 /* WebserviceClasses.swift in Sources */,
 				3AFADCEA219E98CC0009E3D2 /* SDWebImageDecoder.m in Sources */,
 				00E929EE202AE2C100A399E2 /* DispatchedJobsForMyJobsVC.swift in Sources */,
+				18AEB646226D9299009C6460 /* MultipleBookingTrackingViewController.swift in Sources */,
 				00E92A27202AE2C100A399E2 /* SPAudioPlayer.swift in Sources */,
 				00E92A05202AE2C100A399E2 /* DriverNewsViewController.swift in Sources */,
 				00E92A0A202AE2C100A399E2 /* DriverNewsTableViewCell.swift in Sources */,
@@ -1916,6 +1925,7 @@
 				00E92A2E202AE2C100A399E2 /* SPInternetConnection.swift in Sources */,
 				0082BF2E2031572A00EC36D7 /* Utilities.swift in Sources */,
 				00E929E3202AE2C100A399E2 /* ParentViewController.swift in Sources */,
+				18AEB648226D98B8009C6460 /* TrackYourTripTableViewCell.swift in Sources */,
 				00E929EF202AE2C100A399E2 /* ExpandDispatchedJobs.swift in Sources */,
 				00E929E9202AE2C100A399E2 /* DispatchJobsBookNowViewController.swift in Sources */,
 				00E92A33202AE2C100A399E2 /* SPExtenshionViewController.swift in Sources */,
@@ -1990,7 +2000,7 @@
 			children = (
 				EEFEA5952211839600D88655 /* Base */,
 				EEFEA598221183B600D88655 /* en */,
-				EEFEA5B32211A16900D88655 /* sw */,
+				184825E6227192AE0005107C /* fr */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -2000,7 +2010,7 @@
 			children = (
 				EEFEA59A221183DB00D88655 /* Base */,
 				EEFEA59D221183DE00D88655 /* en */,
-				EEFEA5B42211A16A00D88655 /* sw */,
+				184825E7227192AE0005107C /* fr */,
 			);
 			name = TripToDestination.storyboard;
 			sourceTree = "<group>";
@@ -2010,7 +2020,7 @@
 			children = (
 				EEFEA59F221183F700D88655 /* Base */,
 				EEFEA5A2221183FD00D88655 /* en */,
-				EEFEA5B52211A16A00D88655 /* sw */,
+				184825E8227192AE0005107C /* fr */,
 			);
 			name = Profile.storyboard;
 			sourceTree = "<group>";
@@ -2020,7 +2030,7 @@
 			children = (
 				EEFEA5A42211840700D88655 /* Base */,
 				EEFEA5A72211840900D88655 /* en */,
-				EEFEA5B22211A16900D88655 /* sw */,
+				184825E5227192AD0005107C /* fr */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -2030,7 +2040,7 @@
 			children = (
 				EEFEA5A92211841000D88655 /* Base */,
 				EEFEA5AC2211841500D88655 /* en */,
-				EEFEA5B62211A16B00D88655 /* sw */,
+				184825E9227192AE0005107C /* fr */,
 			);
 			name = Registration.storyboard;
 			sourceTree = "<group>";
@@ -2039,7 +2049,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				EEFEA5B0221184F900D88655 /* en */,
-				EEFEA5B72211A16B00D88655 /* sw */,
+				184825EA227192AF0005107C /* fr */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -2180,7 +2190,7 @@
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ENABLE_BATCH_MODE = NO;
-				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Other Resources/TanTaxi-Driver-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Other Resources/Flivery-Driver-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2204,7 +2214,7 @@
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ENABLE_BATCH_MODE = NO;
-				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Other Resources/TanTaxi-Driver-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Other Resources/Flivery-Driver-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
