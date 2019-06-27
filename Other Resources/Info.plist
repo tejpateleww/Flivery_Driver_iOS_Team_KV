@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>NSPhotoLibraryAddUsageDescription</key>
-    <string>This will add signature for verification</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -21,7 +19,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0.1</string>
 	<key>CFBundleVersion</key>
-	<string>1.0.1</string>
+	<string>1.0.2</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -63,6 +61,8 @@
 	<string>App would like to use your current location to journal places you go.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>App would like to use your current location to journal places you go.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>This will add signature for verification</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Photo Library access required for using photos!</string>
 	<key>UIAppFonts</key>
