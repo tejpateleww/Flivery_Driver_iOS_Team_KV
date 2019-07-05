@@ -229,6 +229,15 @@
 		63209119218ADA7E00A1241C /* MyFeedbackViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63209118218ADA7E00A1241C /* MyFeedbackViewCell.swift */; };
 		63F23F752188690400FB629F /* LegalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F23F742188690400FB629F /* LegalViewController.swift */; };
 		63F23F77218890D300FB629F /* LegalWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F23F76218890D300FB629F /* LegalWebView.swift */; };
+		6432FEC322CDC0A100151492 /* BidListContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6432FEBC22CDC0A100151492 /* BidListContainerViewController.swift */; };
+		6432FEC422CDC0A100151492 /* OpenBidListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6432FEBD22CDC0A100151492 /* OpenBidListViewController.swift */; };
+		6432FEC522CDC0A100151492 /* DriverOffersListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6432FEBE22CDC0A100151492 /* DriverOffersListViewCell.swift */; };
+		6432FEC622CDC0A100151492 /* BidDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6432FEBF22CDC0A100151492 /* BidDetailsViewController.swift */; };
+		6432FEC722CDC0A100151492 /* MyBidListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6432FEC022CDC0A100151492 /* MyBidListViewCell.swift */; };
+		6432FEC822CDC0A100151492 /* PostABidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6432FEC122CDC0A100151492 /* PostABidViewController.swift */; };
+		6432FEC922CDC0A100151492 /* MyBidListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6432FEC222CDC0A100151492 /* MyBidListViewController.swift */; };
+		6432FECC22CDC0BC00151492 /* NoDataFoundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6432FECA22CDC0BA00151492 /* NoDataFoundTableViewCell.swift */; };
+		6432FECD22CDC0BC00151492 /* NoDataFoundTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6432FECB22CDC0BB00151492 /* NoDataFoundTableViewCell.xib */; };
 		EE5FF5BA223A5DA5000FF171 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5FF5B9223A5DA5000FF171 /* BaseViewController.swift */; };
 		EEB3CDF9223B6A7B00676539 /* MainHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB3CDF8223B6A7B00676539 /* MainHeaderTableViewCell.swift */; };
 		EECDB7D9203D48AE0079F78B /* MeterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECDB7D8203D48AE0079F78B /* MeterViewController.swift */; };
@@ -523,6 +532,15 @@
 		63209118218ADA7E00A1241C /* MyFeedbackViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFeedbackViewCell.swift; sourceTree = "<group>"; };
 		63F23F742188690400FB629F /* LegalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalViewController.swift; sourceTree = "<group>"; };
 		63F23F76218890D300FB629F /* LegalWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalWebView.swift; sourceTree = "<group>"; };
+		6432FEBC22CDC0A100151492 /* BidListContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BidListContainerViewController.swift; sourceTree = "<group>"; };
+		6432FEBD22CDC0A100151492 /* OpenBidListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenBidListViewController.swift; sourceTree = "<group>"; };
+		6432FEBE22CDC0A100151492 /* DriverOffersListViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverOffersListViewCell.swift; sourceTree = "<group>"; };
+		6432FEBF22CDC0A100151492 /* BidDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BidDetailsViewController.swift; sourceTree = "<group>"; };
+		6432FEC022CDC0A100151492 /* MyBidListViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyBidListViewCell.swift; sourceTree = "<group>"; };
+		6432FEC122CDC0A100151492 /* PostABidViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostABidViewController.swift; sourceTree = "<group>"; };
+		6432FEC222CDC0A100151492 /* MyBidListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyBidListViewController.swift; sourceTree = "<group>"; };
+		6432FECA22CDC0BA00151492 /* NoDataFoundTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoDataFoundTableViewCell.swift; sourceTree = "<group>"; };
+		6432FECB22CDC0BB00151492 /* NoDataFoundTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoDataFoundTableViewCell.xib; sourceTree = "<group>"; };
 		71E830EFF7C980BA0858A2D1 /* Pods_TenTexi_Driver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TenTexi_Driver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		932475C955A0B6A950732388 /* Pods-TenTexi-Driver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenTexi-Driver.release.xcconfig"; path = "Pods/Target Support Files/Pods-TenTexi-Driver/Pods-TenTexi-Driver.release.xcconfig"; sourceTree = "<group>"; };
 		9E0742A87EB9F6951940B1DC /* Pods-PickNGo-Driver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickNGo-Driver.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PickNGo-Driver/Pods-PickNGo-Driver.debug.xcconfig"; sourceTree = "<group>"; };
@@ -622,6 +640,7 @@
 		00E928E3202AE2BF00A399E2 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				6432FEBB22CDC0A100151492 /* Past A bid */,
 				3457CE0322B0E5750060A8CF /* GetSignature VC */,
 				3AF9136621C9199F00E2C08A /* MyRatingViewCell.swift */,
 				EECDB7DA203D48B20079F78B /* Trip Info */,
@@ -1500,6 +1519,22 @@
 			path = Legal;
 			sourceTree = "<group>";
 		};
+		6432FEBB22CDC0A100151492 /* Past A bid */ = {
+			isa = PBXGroup;
+			children = (
+				6432FEBC22CDC0A100151492 /* BidListContainerViewController.swift */,
+				6432FEBD22CDC0A100151492 /* OpenBidListViewController.swift */,
+				6432FEBE22CDC0A100151492 /* DriverOffersListViewCell.swift */,
+				6432FECA22CDC0BA00151492 /* NoDataFoundTableViewCell.swift */,
+				6432FECB22CDC0BB00151492 /* NoDataFoundTableViewCell.xib */,
+				6432FEBF22CDC0A100151492 /* BidDetailsViewController.swift */,
+				6432FEC022CDC0A100151492 /* MyBidListViewCell.swift */,
+				6432FEC122CDC0A100151492 /* PostABidViewController.swift */,
+				6432FEC222CDC0A100151492 /* MyBidListViewController.swift */,
+			);
+			path = "Past A bid";
+			sourceTree = "<group>";
+		};
 		6737E2DBC7E2FA228BAA97B8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1662,6 +1697,7 @@
 				21A65ED3216614630037E40E /* proxima-nova-condensed.otf in Resources */,
 				21A65ED4216614630037E40E /* proxima-nova-condensed-semibold-italic.otf in Resources */,
 				21A65ED5216614630037E40E /* proxima-nova-condensed-semibold.otf in Resources */,
+				6432FECD22CDC0BC00151492 /* NoDataFoundTableViewCell.xib in Resources */,
 				21A65ED6216614630037E40E /* proxima-nova-light.otf in Resources */,
 				21A65ED7216614630037E40E /* proxima-nova-condensed-light.otf in Resources */,
 				21A65ED8216614630037E40E /* proxima-nova-condensed-regular-italic.otf in Resources */,
@@ -1832,6 +1868,7 @@
 				00E92A44202AE2C100A399E2 /* SPUILabelExtenshion.swift in Sources */,
 				00E92A52202AE2C100A399E2 /* NSCalendar+Timepiece.swift in Sources */,
 				3AFADCE5219E98CC0009E3D2 /* NSData+ImageContentType.m in Sources */,
+				6432FEC322CDC0A100151492 /* BidListContainerViewController.swift in Sources */,
 				00E929FC202AE2C100A399E2 /* PayViewController.swift in Sources */,
 				3AFADCFA219E98CC0009E3D2 /* SVRadialGradientLayer.m in Sources */,
 				00E92A4F202AE2C100A399E2 /* Snackbar.swift in Sources */,
@@ -1841,6 +1878,7 @@
 				3AFADCE7219E98CC0009E3D2 /* SDImageCache.m in Sources */,
 				00E92A5F202AE2C100A399E2 /* UpdateProfileAccountVC.swift in Sources */,
 				00E92A02202AE2C100A399E2 /* ChangePasswordViewController.swift in Sources */,
+				6432FEC722CDC0A100151492 /* MyBidListViewCell.swift in Sources */,
 				63F23F752188690400FB629F /* LegalViewController.swift in Sources */,
 				00E92A0F202AE2C100A399E2 /* PendingJobsListTableViewCell.swift in Sources */,
 				00E92A59202AE2C100A399E2 /* DriverVehicleListViewController.swift in Sources */,
@@ -1864,6 +1902,7 @@
 				00E92A43202AE2C100A399E2 /* SPGradientView.swift in Sources */,
 				3AFADCE0219E98CC0009E3D2 /* RMUniversalAlert.m in Sources */,
 				00E92A13202AE2C100A399E2 /* WalletBalanceMainTableViewCell.swift in Sources */,
+				6432FEC522CDC0A100151492 /* DriverOffersListViewCell.swift in Sources */,
 				00E92A0E202AE2C100A399E2 /* PastJobsListTableViewCell.swift in Sources */,
 				EECDB7D9203D48AE0079F78B /* MeterViewController.swift in Sources */,
 				00E929F8202AE2C100A399E2 /* SetPasscodeViewController.swift in Sources */,
@@ -1941,6 +1980,7 @@
 				00E92A2E202AE2C100A399E2 /* SPInternetConnection.swift in Sources */,
 				0082BF2E2031572A00EC36D7 /* Utilities.swift in Sources */,
 				00E929E3202AE2C100A399E2 /* ParentViewController.swift in Sources */,
+				6432FEC622CDC0A100151492 /* BidDetailsViewController.swift in Sources */,
 				18AEB648226D98B8009C6460 /* TrackYourTripTableViewCell.swift in Sources */,
 				00E929EF202AE2C100A399E2 /* ExpandDispatchedJobs.swift in Sources */,
 				00E929E9202AE2C100A399E2 /* DispatchJobsBookNowViewController.swift in Sources */,
@@ -1952,6 +1992,7 @@
 				00E92A26202AE2C100A399E2 /* SPAnimationUpward.swift in Sources */,
 				00E92A68202AE2C100A399E2 /* WalletTransferToBankVC.swift in Sources */,
 				00E92A67202AE2C100A399E2 /* WalletTopUpVC.swift in Sources */,
+				6432FEC922CDC0A100151492 /* MyBidListViewController.swift in Sources */,
 				00E92A14202AE2C100A399E2 /* WalletCardsTableViewCell.swift in Sources */,
 				00E92A69202AE2C100A399E2 /* WalletTransferViewController.swift in Sources */,
 				00E929FD202AE2C100A399E2 /* TickPayAlertViewController.swift in Sources */,
@@ -1959,12 +2000,15 @@
 				00E92A70202AE2C100A399E2 /* Singletons.swift in Sources */,
 				2101CD0E216F2CBA007B9680 /* ThemeButton.swift in Sources */,
 				00E92A45202AE2C100A399E2 /* SPUIViewExtenshion.swift in Sources */,
+				6432FEC422CDC0A100151492 /* OpenBidListViewController.swift in Sources */,
 				00E92A1A202AE2C100A399E2 /* ARCarMovement.swift in Sources */,
 				00E929E0202AE2C100A399E2 /* DummyData.swift in Sources */,
 				00E929F5202AE2C100A399E2 /* PendingJobsListVC.swift in Sources */,
+				6432FECC22CDC0BC00151492 /* NoDataFoundTableViewCell.swift in Sources */,
 				21B479C320DD262C00C6D8F8 /* shareRideListingModel.swift in Sources */,
 				00E92A63202AE2C100A399E2 /* WalletBalanceMainVC.swift in Sources */,
 				00E92A15202AE2C100A399E2 /* WalletHistoryTableViewCell.swift in Sources */,
+				6432FEC822CDC0A100151492 /* PostABidViewController.swift in Sources */,
 				00E929F6202AE2C100A399E2 /* MyJobsViewController.swift in Sources */,
 				3AFADCE4219E98CC0009E3D2 /* MKAnnotationView+WebCache.m in Sources */,
 				219A9391216DD9D500FA1A73 /* ThemView.swift in Sources */,

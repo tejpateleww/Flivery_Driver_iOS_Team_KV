@@ -183,6 +183,42 @@ class UtilityClass: NSObject {
         
        
     }
+    
+    // Error Message Show
+    class func defaultMsg(result:Any) -> String {
+        if let res = result as? String {
+            return res
+        }
+        else if let resDict = result as? [String:Any] {
+            if let message = resDict["message"] as? String {
+                return message
+            }
+        }
+        else if let resAry = result as? [[String:Any]] {
+            if let message = resAry[0]["message"] as? String{
+                return message
+            }
+        }
+        return ""
+    }
+    
+  class func formattedDateFromString(dateString: String, withFormat format: String) -> String? {
+        
+        let inputFormatter = DateFormatter()
+        inputFormatter.dateFormat = "yyyy/MM/dd"
+        
+    if let date = inputFormatter.date(from: dateString) {
+            
+            let outputFormatter = DateFormatter()
+            outputFormatter.dateFormat = format
+            
+        return outputFormatter.string(from: date)
+        }
+        
+        return nil
+    }
+
+    
    /*
     func convertAnyToString(dictData: [String:AnyObject], paramString: String) -> String {
         

@@ -79,6 +79,11 @@ let PrivateMeterBooking = WebserviceURLs.kPrivateMeterBooking
 
 let currentTripsist = WebserviceURLs.kCurrentTrips
 
+let DriverBid = WebserviceURLs.kDriverBid
+
+let DriverBidList  = WebserviceURLs.KDriverBidList
+
+let DriverBidAccept = WebserviceURLs.kDriverBidAccept
 
 //-------------------------------------------------------------
 // MARK: - Webservice For Registration
@@ -608,6 +613,34 @@ func webserviceForTrackYourCurrentTrip(_ dictParams: AnyObject, completion: @esc
     let url = currentTripsist + "\(dictParams)"
     getData("" as AnyObject, nsURL: url, completion: completion)
 }
+
+//-------------------------------------------------------------
+// MARK: - Webservice For DriverBid
+//-------------------------------------------------------------
+
+func webserviceForDriverBid(_ dictParams: AnyObject, completion: @escaping(_ result: AnyObject, _ success: Bool) -> Void)
+{
+    let url = DriverBid + Singletons.sharedInstance.strDriverID
+    getData(dictParams, nsURL: url, completion: completion)
+}
+// MARK: - Webservice For DriverBidList
+//-------------------------------------------------------------
+
+func webserviceForDriverBidList(_ dictParams: AnyObject, completion: @escaping(_ result: AnyObject, _ success: Bool) -> Void)
+{
+    let url = DriverBidList + Singletons.sharedInstance.strDriverID
+    getData(dictParams, nsURL: url, completion: completion)
+}
+
+// MARK: - Webservice For Bid Accept
+//-------------------------------------------------------------
+
+func webserviceForBidAccept(_ dictParams: AnyObject, completion: @escaping(_ result: AnyObject, _ success: Bool) -> Void)
+{
+    let url = DriverBidAccept
+    postData(dictParams, nsURL: url, completion: completion)
+}
+
 
 
 

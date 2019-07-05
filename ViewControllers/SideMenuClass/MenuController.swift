@@ -35,10 +35,11 @@ class  MenuController: UIViewController, UITableViewDataSource, UITableViewDeleg
         //kiconMyJobs
         //kMyRating
         //kiconMyRating
-        aryItemNames = ["Your Running Trip",kPaymentOption,kPassword,kTripToDestination,kInviteFriend,kSettings,kLogout]
+        aryItemNames = ["Your Running Trip",kPaymentOption,kPassword,kTripToDestination,kBidList,kInviteFriend,kSettings,kLogout]
         
-        aryItemIcons = ["iconMyBooking",kiconPaymentOption,kiconPassword,kiconTripToDestination,kiconInviteFriend,kiconSettings,kIconLogout]
+        aryItemIcons = ["iconMyBooking",kiconPaymentOption,kiconPassword,kiconTripToDestination,kIconBids,kiconInviteFriend,kiconSettings,kIconLogout]
 
+        
         self.view.backgroundColor = UIColor.black
         
         let notificationCenter = NotificationCenter.default
@@ -66,7 +67,6 @@ class  MenuController: UIViewController, UITableViewDataSource, UITableViewDeleg
         //        self.view.layer.insertSublayer(gradientLayer, at: 0)
         
     }
-    
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
@@ -239,11 +239,17 @@ class  MenuController: UIViewController, UITableViewDataSource, UITableViewDeleg
         sideMenuController?.hideMenu(animated: true, completion: nil)
         homeVC?.navigationController?.pushViewController(viewController, animated: true)
     }
+    @objc func BidList(){
+        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "BidListContainerViewController") as! BidListContainerViewController
+        let homeVC = self.parent?.children.first?.children.first as? HomeViewController
+        sideMenuController?.hideMenu(animated: true, completion: nil)
+        homeVC?.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
     @objc func InviteFriend(){
         let viewController = self.storyboard?.instantiateViewController(withIdentifier: "InviteDriverViewController") as! InviteDriverViewController
         let homeVC = self.parent?.children.first?.children.first as? HomeViewController
         sideMenuController?.hideMenu(animated: true, completion: nil)
-
         homeVC?.navigationController?.pushViewController(viewController, animated: true)
     }
     @objc func setting(){
@@ -304,6 +310,11 @@ class  MenuController: UIViewController, UITableViewDataSource, UITableViewDeleg
             {
                 let viewController = self.storyboard?.instantiateViewController(withIdentifier: "ChangePasswordViewController") as! ChangePasswordViewController
                 homeVC?.navigationController?.pushViewController(viewController, animated: true)
+            }
+            else if strCellItemTitle == kBidList
+            {
+                let ViewController = self.storyboard?.instantiateViewController(withIdentifier: "BidListContainerViewController") as! BidListContainerViewController
+                homeVC?.navigationController?.pushViewController(ViewController, animated: true)
             }
             else if strCellItemTitle == kInviteFriend
             {

@@ -124,6 +124,7 @@ let kSettings : String = "Settings"
 let kLegal : String = "Legal"
 let kSupport : String = "Support"
 let kLogout : String = "Logout"
+let kBidList : String = "Bid List"
 
 //let kMeter : String = "Meter"
 //let kTripToDstination : String = "Trip To Destination"
@@ -143,6 +144,7 @@ let kiconSettings : String = "iconSettingUnSelect"
 let klegal : String = "iconlegall"
 let kiconSupport : String = "iconSupportInactive"
 let kIconLogout : String = "iconLogoutInactive"
+let kIconBids : String = "icon_legal"
 //let kiconLogout : String = "iconAddress"
 let NotificationTrackRunningTrip = NSNotification.Name("NotificationTrackRunningTrip")
 let NotificationChangeLanguage = NSNotification.Name("ChangeLanguageNotification")
