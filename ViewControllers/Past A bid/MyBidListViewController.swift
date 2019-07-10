@@ -11,11 +11,14 @@ import UIKit
 class MyBidListViewController:BaseViewController,UITableViewDataSource,UITableViewDelegate
 {
 
+     //MARK:- ====== Outlets ======
     @IBOutlet weak var tblView: UITableView!
+    
+    //MARK:- ====== Variables ======
     private let refreshControl = UIRefreshControl()
      var aryData = [[String:AnyObject]]()
    
-
+   //MARK:- ====== View Controller Life cycle======
     override func viewDidLoad()
     {
         print(Singletons.sharedInstance.strDriverID)
@@ -28,6 +31,7 @@ class MyBidListViewController:BaseViewController,UITableViewDataSource,UITableVi
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        webserviceCallToGetDriverBidList()
         setNavBarWithMenuORBack(Title: "Bid List".localized, LetfBtn: kIconBack, IsNeedRightButton: false, isTranslucent: false)
 
     }
@@ -43,8 +47,7 @@ class MyBidListViewController:BaseViewController,UITableViewDataSource,UITableVi
             }
         }
     }
-    
-
+     //MARK: ===== Data Refresh Method ======
     @objc private func refreshData(_ sender: Any) {
         // Fetch Weather Data
         webserviceCallToGetDriverBidList()
@@ -73,11 +76,14 @@ class MyBidListViewController:BaseViewController,UITableViewDataSource,UITableVi
 
         }
     }
+    //MARK: ===== API Call Get Bid List ======
     @objc func ViewDetailsAction(_ sender:UIButton) {
         let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "BidDetailsViewController") as! BidDetailsViewController
         detailVC.aryData = [aryData[sender.tag]]
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
+    
+     //MARK: ===== Tableview Datasource and Delegate ======
     func numberOfSections(in tableView: UITableView) -> Int
     {
         return 1
@@ -100,7 +106,9 @@ class MyBidListViewController:BaseViewController,UITableViewDataSource,UITableVi
             customCell.btnViewDetails.tag = indexPath.row
             customCell.btnViewDetails.addTarget(self, action:#selector(ViewDetailsAction(_:)), for: .touchUpInside)
         customCell.selectionStyle = .none
-
+        if let bids = aryData[indexPath.row]["DriverBids"] as? String{
+                customCell.lblBidCount.text = "Bids - " + bids
+            }
         if let distance = aryData[indexPath.row]["Distance"] as? String{
             customCell.lblDistance.text = distance
         }
@@ -132,11 +140,8 @@ class MyBidListViewController:BaseViewController,UITableViewDataSource,UITableVi
             
         }
     }
-
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-
-
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
@@ -146,7 +151,6 @@ class MyBidListViewController:BaseViewController,UITableViewDataSource,UITableVi
             return UITableView.automaticDimension
         }
     }
-
 }
 //
 //"Id": "86",

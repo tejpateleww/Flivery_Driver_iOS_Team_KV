@@ -24,7 +24,7 @@ class Singletons: NSObject {
     var CardsVCHaveAryData = [[String:AnyObject]]()
     var walletHistoryData = [[String:AnyObject]]()
     var DriverBidData = [[String:AnyObject]]()
-    var BidAcceptData = [[String:AnyObject]]()
+    var BidAcceptData = [String:AnyObject]()
     var DriverBidList = [[String:AnyObject]]()
     var DriverTripCurrentStatus = String()
     var strQRCodeForSendMoney = String()

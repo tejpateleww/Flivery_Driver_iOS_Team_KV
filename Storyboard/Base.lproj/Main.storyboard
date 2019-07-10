@@ -15184,6 +15184,12 @@
                                                                             <size key="value" width="0.0" height="-1"/>
                                                                         </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
+                                                                    <variation key="default">
+                                                                        <mask key="subviews">
+                                                                            <exclude reference="uaQ-cz-SSP"/>
+                                                                            <exclude reference="oA5-jf-6MV"/>
+                                                                        </mask>
+                                                                    </variation>
                                                                 </view>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mep-W9-l96">
                                                                     <rect key="frame" x="0.0" y="30" width="304" height="85"/>
@@ -15506,17 +15512,17 @@
                         <viewControllerLayoutGuide type="bottom" id="L3B-DN-Plf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="FKT-YT-aRF">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eGA-s5-Cql">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7W6-IT-lOq">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9b1-9A-0vG">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="680"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Shippers Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Be-xE-KEf" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
                                                         <rect key="frame" x="20" y="20" width="280" height="40"/>
@@ -15723,7 +15729,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="586-cf-Ioh">
-                                                        <rect key="frame" x="12" y="580" width="296" height="50"/>
+                                                        <rect key="frame" x="12" y="498" width="296" height="50"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="khM-ad-0yH" customClass="ThemeButton" customModule="Flivery_Driver" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="143" height="50"/>
@@ -15804,7 +15810,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="WXU-20-paG">
-                                                        <rect key="frame" x="10" y="240" width="300" height="240"/>
+                                                        <rect key="frame" x="10" y="240" width="300" height="175"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Notes" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tV3-yN-0QQ" customClass="ACFloatingTextfield" customModule="ACFloatingTextfield_Swift">
                                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="45"/>
@@ -15830,7 +15836,7 @@
                                                                 <rect key="frame" x="0.0" y="65" width="300" height="45"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l5p-co-M2Y">
-                                                                        <rect key="frame" x="255" y="0.0" width="45" height="45"/>
+                                                                        <rect key="frame" x="265" y="5" width="35" height="35"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="l5p-co-M2Y" secondAttribute="height" multiplier="1:1" id="uKr-cA-BRN"/>
                                                                         </constraints>
@@ -15854,11 +15860,11 @@
                                                                     <constraint firstAttribute="bottom" secondItem="o0H-IS-Kor" secondAttribute="bottom" id="1iq-1A-kMC"/>
                                                                     <constraint firstItem="7ZM-pO-9T4" firstAttribute="top" secondItem="4g1-7y-DlS" secondAttribute="top" id="KQ8-cw-c3l"/>
                                                                     <constraint firstItem="o0H-IS-Kor" firstAttribute="leading" secondItem="4g1-7y-DlS" secondAttribute="leading" id="LyK-Jm-60n"/>
-                                                                    <constraint firstItem="l5p-co-M2Y" firstAttribute="top" secondItem="4g1-7y-DlS" secondAttribute="top" id="QQx-Ma-0iJ"/>
+                                                                    <constraint firstItem="l5p-co-M2Y" firstAttribute="top" secondItem="4g1-7y-DlS" secondAttribute="top" constant="5" id="QQx-Ma-0iJ"/>
                                                                     <constraint firstAttribute="bottom" secondItem="7ZM-pO-9T4" secondAttribute="bottom" id="b3p-Ea-noi"/>
                                                                     <constraint firstAttribute="trailing" secondItem="l5p-co-M2Y" secondAttribute="trailing" id="fC1-KO-pxt"/>
                                                                     <constraint firstItem="7ZM-pO-9T4" firstAttribute="leading" secondItem="4g1-7y-DlS" secondAttribute="leading" id="mGg-yr-5ia"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="l5p-co-M2Y" secondAttribute="bottom" id="tKq-xV-G26"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="l5p-co-M2Y" secondAttribute="bottom" constant="5" id="tKq-xV-G26"/>
                                                                     <constraint firstAttribute="trailing" secondItem="7ZM-pO-9T4" secondAttribute="trailing" id="vAH-mc-EKq"/>
                                                                     <constraint firstAttribute="trailing" secondItem="o0H-IS-Kor" secondAttribute="trailing" id="yJR-Kz-Ama"/>
                                                                 </constraints>
@@ -15946,6 +15952,11 @@
                                                                 </constraints>
                                                             </view>
                                                         </subviews>
+                                                        <variation key="default">
+                                                            <mask key="subviews">
+                                                                <exclude reference="nbW-CV-PfW"/>
+                                                            </mask>
+                                                        </variation>
                                                     </stackView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -15958,13 +15969,12 @@
                                                     <constraint firstAttribute="trailing" secondItem="bBq-tW-vpk" secondAttribute="trailing" constant="10" id="Fim-Uc-vjw"/>
                                                     <constraint firstAttribute="trailing" secondItem="3Be-xE-KEf" secondAttribute="trailing" constant="20" id="GgM-3J-job"/>
                                                     <constraint firstItem="WXU-20-paG" firstAttribute="top" secondItem="Lbd-vj-is8" secondAttribute="bottom" constant="20" id="LSZ-Tf-wLD"/>
-                                                    <constraint firstAttribute="bottom" secondItem="586-cf-Ioh" secondAttribute="bottom" constant="50" id="MVg-iZ-Exv"/>
                                                     <constraint firstItem="Lbd-vj-is8" firstAttribute="leading" secondItem="9b1-9A-0vG" secondAttribute="leading" constant="10" id="O5c-bR-cuV"/>
                                                     <constraint firstAttribute="trailing" secondItem="Lbd-vj-is8" secondAttribute="trailing" constant="10" id="OG3-Qj-dpy"/>
                                                     <constraint firstItem="586-cf-Ioh" firstAttribute="leading" secondItem="9b1-9A-0vG" secondAttribute="leading" constant="12" id="R6Q-It-fgy"/>
                                                     <constraint firstItem="WXU-20-paG" firstAttribute="top" secondItem="3ej-MR-Vn7" secondAttribute="bottom" constant="10" id="TU7-Sg-ZYL"/>
                                                     <constraint firstItem="bBq-tW-vpk" firstAttribute="top" secondItem="3Be-xE-KEf" secondAttribute="bottom" constant="20" id="VGI-go-YcF"/>
-                                                    <constraint firstItem="586-cf-Ioh" firstAttribute="top" secondItem="WXU-20-paG" secondAttribute="bottom" constant="100" id="WkK-Bv-hQ3"/>
+                                                    <constraint firstAttribute="bottom" secondItem="586-cf-Ioh" secondAttribute="bottom" constant="20" id="bHh-Jc-12o"/>
                                                     <constraint firstAttribute="trailing" secondItem="WXU-20-paG" secondAttribute="trailing" constant="10" id="dkR-NE-Ufh"/>
                                                     <constraint firstItem="3Be-xE-KEf" firstAttribute="leading" secondItem="9b1-9A-0vG" secondAttribute="leading" constant="20" id="dq8-2Q-CMY"/>
                                                     <constraint firstItem="F68-36-dC9" firstAttribute="top" secondItem="3ej-MR-Vn7" secondAttribute="bottom" constant="30" id="evg-ZW-6U6"/>
@@ -15986,6 +15996,7 @@
                                             <constraint firstAttribute="trailing" secondItem="9b1-9A-0vG" secondAttribute="trailing" id="Fj2-DK-7iZ"/>
                                             <constraint firstItem="9b1-9A-0vG" firstAttribute="leading" secondItem="7W6-IT-lOq" secondAttribute="leading" id="Ssw-mL-JpV"/>
                                             <constraint firstItem="9b1-9A-0vG" firstAttribute="top" secondItem="7W6-IT-lOq" secondAttribute="top" id="ZPb-eK-Ale"/>
+                                            <constraint firstItem="9b1-9A-0vG" firstAttribute="height" secondItem="7W6-IT-lOq" secondAttribute="height" id="iU8-gJ-SXb"/>
                                             <constraint firstAttribute="bottom" secondItem="9b1-9A-0vG" secondAttribute="bottom" id="pKI-WU-LYM"/>
                                         </constraints>
                                     </scrollView>
@@ -16009,7 +16020,7 @@
                             <constraint firstAttribute="trailing" secondItem="eGA-s5-Cql" secondAttribute="trailing" id="rpl-Fq-k1k"/>
                         </constraints>
                     </view>
-                    <size key="freeformSize" width="320" height="800"/>
+                    <size key="freeformSize" width="320" height="568"/>
                     <connections>
                         <outlet property="TxtDateAndTime" destination="xYs-4X-O4y" id="ffj-I5-NAH"/>
                         <outlet property="btnAccept" destination="khM-ad-0yH" id="lZg-gc-1Fm"/>
@@ -16842,7 +16853,7 @@
         <image name="iconGiftCard" width="85" height="85"/>
         <image name="iconGroceries" width="85" height="85"/>
         <image name="iconHailedTab" width="18" height="18"/>
-        <image name="iconHammer" width="16" height="16"/>
+        <image name="iconHammer" width="64" height="64"/>
         <image name="iconHomeTab" width="24" height="24"/>
         <image name="iconLineLeftSide" width="16" height="16"/>
         <image name="iconLock" width="170" height="170"/>

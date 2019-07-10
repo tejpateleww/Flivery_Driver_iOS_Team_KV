@@ -11,7 +11,7 @@ import SDWebImage
 
 class BidDetailsViewController: UIViewController
 {
-
+    //MARK:- ====== Outlets ======
     @IBOutlet weak var viewLabel: UIView!
     @IBOutlet weak var iconVehicle: UIImageView!
     @IBOutlet weak var lblBidCount: UILabel!
@@ -29,7 +29,7 @@ class BidDetailsViewController: UIViewController
     @IBOutlet weak var lblDriveOfferTitle: UILabel!
     @IBOutlet weak var tblView: UITableView!
     
-    
+    //MARK:- ====== Variables ======
      private let refreshControl = UIRefreshControl()
      var bidDetail = [String:Any]()
      var aryData = [[String:AnyObject]]()
@@ -37,7 +37,7 @@ class BidDetailsViewController: UIViewController
      var arrBidDetails = [[String:AnyObject]]()
    
     
-  
+   //MARK:- ====== View Controller Life cycle ======
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,7 +49,7 @@ class BidDetailsViewController: UIViewController
         super.viewDidLayoutSubviews()
         
     }
-    
+      //MARK:- ====== Data Setup ======
     func DataSetup(){
         if let distance = aryData[0]["Distance"] as? String{
             lblDistance.text = distance
@@ -79,14 +79,11 @@ class BidDetailsViewController: UIViewController
         if let modelimage = aryData[0]["ModelImage"] as? String{
            iconVehicle.sd_setImage(with: URL(string: WebserviceURLs.kImageBaseURL + modelimage), placeholderImage: UIImage(named: "iconProfilePicBlank"), options: [], completed: nil)
         }
-        
         if let bids = aryData[0]["DriverBids"] as? String{
             lblBidCount.text = "Bids - " + bids
         }
-      
     }
     
-  
 }
    /* func numberOfSections(in tableView: UITableView) -> Int
     {

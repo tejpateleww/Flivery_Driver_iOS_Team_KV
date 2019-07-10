@@ -15,7 +15,7 @@ class OpenBidListViewController: UIViewController,UITableViewDelegate,UITableVie
     private let refreshControl = UIRefreshControl()
     var aryData = [[String:AnyObject]]()
     var arrNumberOfOnlineCars : [[String:AnyObject]]!
-   
+    let status = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +31,10 @@ class OpenBidListViewController: UIViewController,UITableViewDelegate,UITableVie
         // Fetch Weather Data
         webserviceCallToGetDriverBids()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        webserviceCallToGetDriverBids()
+    }
        
     //MARK: ===== API Call Get Bids ======
     func webserviceCallToGetDriverBids()
@@ -38,7 +42,6 @@ class OpenBidListViewController: UIViewController,UITableViewDelegate,UITableVie
         webserviceForDriverBid("" as AnyObject) { (result, status) in
             if (status) {
                 print(result)
-                
                 self.aryData = (result as! NSDictionary).object(forKey: "data") as! [[String:AnyObject]]
                 Singletons.sharedInstance.DriverBidList = self.aryData
                 self.tblView.reloadData()
@@ -76,7 +79,9 @@ class OpenBidListViewController: UIViewController,UITableViewDelegate,UITableVie
             customCell.btnViewDetails.tag = indexPath.row
             customCell.btnViewDetails.addTarget(self, action:#selector(sendOfferBtnAction(_:)), for: .touchUpInside)
             customCell.selectionStyle = .none
-            
+//            if let bids = aryData[indexPath.row]["DriverBids"] as? String{
+//                customCell.lblBidCount.text = "Bids - " + bids
+//            }
             if let distance = aryData[indexPath.row]["Distance"] as? String{
                 customCell.lblDistance.text = distance
             }
@@ -104,6 +109,21 @@ class OpenBidListViewController: UIViewController,UITableViewDelegate,UITableVie
             if let modelimage = aryData[indexPath.row]["ModelImage"] as? String{
                 customCell.iconVehicle.sd_setImage(with: URL(string: WebserviceURLs.kImageBaseURL + modelimage), placeholderImage: UIImage(named: "iconProfilePicBlank"), options: [], completed: nil)
             }
+            if let driverStatus = aryData[indexPath.row]["DriverStatus"] as? String{
+                if driverStatus != "1" {
+                    customCell.btnViewDetails.isUserInteractionEnabled = true
+                    customCell.btnViewDetails.setTitle("send Offer", for: .normal)
+                }
+                else{
+                    customCell.btnViewDetails.isUserInteractionEnabled = false
+                    customCell.btnViewDetails.setTitle("Offer Sent", for: .normal)
+                }
+            }
+            else{
+                customCell.btnViewDetails.isUserInteractionEnabled = true
+                customCell.btnViewDetails.setTitle("send Offer", for: .normal)
+            }
+            
             return customCell
             
         }
@@ -114,6 +134,7 @@ class OpenBidListViewController: UIViewController,UITableViewDelegate,UITableVie
         return aryData.count != 0 ?  UITableView.automaticDimension : self.tblView.frame.height
     }
     @objc func sendOfferBtnAction(_ sender:UIButton) {
+       
         let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "PostABidViewController") as! PostABidViewController
         detailVC.BidData = [aryData[sender.tag]]
         self.navigationController?.pushViewController(detailVC, animated: true)

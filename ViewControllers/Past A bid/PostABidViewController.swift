@@ -15,6 +15,7 @@ import SDWebImage
 
 class PostABidViewController: BaseViewController,UITextFieldDelegate {
 
+    //MARK:- ====== Outlets ============
     @IBOutlet weak var txtShippersName: ACFloatingTextfield?
     @IBOutlet weak var txtPickUpLocation: UITextField?
     @IBOutlet weak var txtDropLocation: UITextField?
@@ -26,55 +27,57 @@ class PostABidViewController: BaseViewController,UITextFieldDelegate {
     @IBOutlet weak var txtVehicleType: ACFloatingTextfield?
     @IBOutlet weak var txtPayment: ACFloatingTextfield?
     @IBOutlet weak var imgDocument : UIImageView!
-    
     @IBOutlet weak var btnReject: UIButton!
     @IBOutlet weak var btnAccept: UIButton!
     @IBOutlet weak var btnSelectLuggage: UIButton!
  
+     //MARK:- ====== Variables ============
     var strPassengerID = String()
     var strbidID = String()
-    var aryData = [[String:AnyObject]]()
+    var aryData = [String:AnyObject]()
     var selectedIndexPath: IndexPath?
     var strCarModelClass = String()
     var strCarModelID = String()
     var strNavigateCarModel = String()
     var imageView = UIImageView()
     var statusType = String()
+    var budget = String()
     private let refreshControl = UIRefreshControl()
     var BidData = [[String:AnyObject]]()
     @IBOutlet weak var collectionviewCars: UICollectionView!
     @IBOutlet var viewSelectVehicle: UIView!
-
     @IBOutlet weak var imgPaymentOption: UIImageView!
+    
+     //MARK:- ====== View Controller Life cycle ============
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-
         txtDropLocation?.delegate = self
         txtPickUpLocation?.delegate = self
         dataSetup()
         self.setNavBarWithMenuORBack(Title: "Bid Details".localized, LetfBtn: kIconBack, IsNeedRightButton: false, isTranslucent: false)
         setupButtonAndTextfield()
-       webserviceBidAccept()
+      
     }
-    
+     //MARK:- ======= Data Setup =======
     @IBAction func btnActionAccept(_ sender: UIButton) {
         btnReject.isSelected = false
         btnAccept.isSelected = true
-        if validation(){
-            webserviceBidAccept()
+        if txtBudget?.text == "" || txtBudget?.text?.trimmingCharacters(in:.whitespaces) == ""{
+            UtilityClass.showAlert("", message: "Please Enter Budget", vc: self)
         }
-        
+        else{
+             webserviceBidAccept()
+        }
     }
     
+     //MARK:- ======= Accept Button Action=======
     @IBAction func btnActionReject(_ sender: UIButton) {
         btnReject.isSelected = true
         btnAccept.isSelected = false
-        if validation(){
-            webserviceBidAccept()
-        }
+        webserviceBidAccept()
     }
-    
+     //MARK:- ======= Data Setup =======
     func dataSetup(){
         if let modelName = BidData[0]["ShipperName"] as? String{
             txtShippersName!.text = modelName
@@ -83,11 +86,19 @@ class PostABidViewController: BaseViewController,UITextFieldDelegate {
             txtPickUpLocation!.text = PickupLocation
         }
         if let pickup = BidData[0]["PickupDateTime"] as? String{
-            TxtDateAndTime?.text = pickup
-//            let pickupDate : [String] = pickup.components(separatedBy: " ")
-//            var date : String = pickupDate[0]
-//            let dateString = UtilityClass.formattedDateFromString(dateString: date, withFormat:"dd MMMM" )
-//            customCell.lblPickupDate.text = dateString
+            
+            let pickupDate : [String] = pickup.components(separatedBy: " ")
+            var date : String = pickupDate[0]
+            var pickupTime:String = pickupDate[1]
+            print(pickupTime)
+            let dateformat = Date()
+            let formatter = DateFormatter()
+            formatter.dateFormat = "hh:mm a"
+             pickupTime = formatter.string(from: dateformat) //"10:22 AM"
+            
+            let dateString = UtilityClass.formattedDateFromString(dateString: date, withFormat:"dd-MM-yyyy" )
+            TxtDateAndTime?.text = dateString! + " - " + pickupTime
+           
         }
         if let droplocation = BidData[0]["DropoffLocation"] as? String{
             txtDropLocation!.text = droplocation
@@ -101,18 +112,20 @@ class PostABidViewController: BaseViewController,UITextFieldDelegate {
         if let Docimage = BidData[0]["Image"] as? String{
             imgDocument.sd_setImage(with: URL(string: WebserviceURLs.kImageBaseURL + Docimage), placeholderImage: UIImage(named: "iconProfilePicBlank"), options: [], completed: nil)
         }
-        if let cardID = BidData[0]["CardId"] as? String{
-           
+        if let Budget = BidData[0]["Budget"] as? String{
+             budget = Budget
         }
-        if let bidID = BidData[0]["BidId"] as? String{
+        if let bidID = BidData[0]["Id"] as? String{
             strbidID = bidID
+            print(bidID)
         }
         if let passengerID = BidData[0]["PassengerId"] as? String{
             strPassengerID = passengerID
-            
+            print(passengerID)
         }
     }
-
+    
+ //MARK:- ======= View Setup =======
     func setupButtonAndTextfield()
     {
         btnAccept.layer.cornerRadius = btnAccept.frame.size.height / 2
@@ -127,30 +140,36 @@ class PostABidViewController: BaseViewController,UITextFieldDelegate {
         paddingView.addSubview(imageView)
         txtVehicleType?.rightViewMode = .always
         txtVehicleType?.rightView = paddingView
+        txtVehicleType?.isUserInteractionEnabled = false
+        txtShippersName?.isUserInteractionEnabled = false
+        TxtDateAndTime?.isUserInteractionEnabled = false
+        txtPickUpLocation?.isUserInteractionEnabled = false
+        txtDropLocation?.isUserInteractionEnabled = false
 
     }
-    
+     //MARK:- ======= Validation =======
     func validation() -> Bool{
-        if txtNotes?.text == "" || txtNotes?.text?.trimmingCharacters(in:.whitespaces) == ""{
-             UtilityClass.showAlert("", message: "Please Enter Notes", vc: self)
-            return false
-        }
-        else if txtBudget?.text == "" || txtBudget?.text?.trimmingCharacters(in:.whitespaces) == ""{
+        if txtBudget?.text == "" || txtBudget?.text?.trimmingCharacters(in:.whitespaces) == ""{
             UtilityClass.showAlert("", message: "Please Enter Budget", vc: self)
             return false
         }
+         else if txtNotes?.text == "" || txtNotes?.text?.trimmingCharacters(in:.whitespaces) == ""{
+            UtilityClass.showAlert("", message: "Please Enter Notes", vc: self)
+            return false
+        }
         return true
-        
     }
-    
+    //MARK:- ======= Api Call For BidAccept =======
     func webserviceBidAccept(){
         statusType = btnAccept.isSelected == true ? "1" : "0"
+         let strBudget = btnAccept.isSelected == true ? txtBudget?.text : budget
+         let notes = txtNotes?.text != "" ? txtNotes?.text : ""
          let param = [
             "PassengerId" : strPassengerID,
             "DriverId"    : Singletons.sharedInstance.strDriverID,
             "BidId"       : strbidID,
-            "Budget"      : txtBudget?.text! as Any,
-            "Notes"       : txtNotes?.text as Any,
+            "Budget"      : strBudget,
+            "Notes"       : notes,
             "Status"      : statusType
         
         ] as [String:AnyObject]
@@ -158,15 +177,18 @@ class PostABidViewController: BaseViewController,UITextFieldDelegate {
         webserviceForBidAccept(param as AnyObject) { (result, status) in
             if status{
                 print(result)
-                self.aryData = (result as! NSDictionary).object(forKey: "data") as! [[String:AnyObject]]
+                self.aryData = (result as! NSDictionary).object(forKey: "data") as! [String:AnyObject]
+                let message = (result as! NSDictionary).object(forKey: "message") as! String
+                 self.navigationController?.popViewController(animated: true)
+                 UtilityClass.showAlert("", message: message, vc: self)
                 Singletons.sharedInstance.BidAcceptData = self.aryData
                 self.refreshControl.endRefreshing()
-                
+               
             }
             else {
                 print(result)
                 UtilityClass.defaultMsg(result:result)
-                //  UtilityClass.setCustomAlert(title: "", message:UtilityClass.defaultMsg(result:result), completionHandler: nil)
+                // UtilityClass.setCustomAlert(title: "", message:UtilityClass.defaultMsg(result:result), completionHandler: nil)
             }
 
         }
