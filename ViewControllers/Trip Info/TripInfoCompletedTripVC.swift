@@ -167,7 +167,7 @@ class TripInfoCompletedTripVC: UIViewController {
         lblDistanceFareTitle.text  = "Distance Fare".localized
         lblWaitingCostTitle.text  = "Waiting Cost :".localized
         lblWaitingTimeTitle.text  = "Waiting Time :".localized
-        lblTipAmountTitle.text  = "Tip by Passenger".localized
+//        lblTipAmountTitle.text  = "Tip by Passenger".localized
         lblBookingFeeTitle.text  = "Booking Charge".localized
         lblPromoCodeTitle.text  = "Discount :".localized
         lblTaxTitle.text  = "Tax" .localized

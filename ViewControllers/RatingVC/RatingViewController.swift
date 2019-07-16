@@ -39,7 +39,7 @@ class RatingViewController: UIViewController,FloatRatingViewDelegate {
         viewStarsRating.value = 0.0
 //        viewStarsRating.delegate = self
         strBookingID = (dictData["details"]! as! [String : AnyObject])["Id"] as! String
-        lblDetail.text = "\("How was your Ride with".localized) \((dictPassengerInfo!.object(forKey: "Fullname") as! String))?"// (dictPassengerInfo!.object(forKey: "Fullname") as! String)
+        lblDetail.text = "\("How was your experience with Shipper?".localized) \((dictPassengerInfo!.object(forKey: "Fullname") as! String))?"// (dictPassengerInfo!.object(forKey: "Fullname") as! String)
         let tempImage = Utilities.changeColorOfIconTo(theImageView: btnCancel.imageView!, color: ThemeYellowColor)
         btnCancel.setImage(tempImage.image, for: .normal)
 

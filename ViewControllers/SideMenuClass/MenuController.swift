@@ -334,7 +334,14 @@ class  MenuController: UIViewController, UITableViewDataSource, UITableViewDeleg
             }
             else if strCellItemTitle == kLogout
             {
-                (UIApplication.shared.delegate as! AppDelegate).GoToLogout()
+
+                RMUniversalAlert.show(in: self, withTitle:appName.kAPPName, message: "Are you sure you want to logout?".localized, cancelButtonTitle: nil, destructiveButtonTitle: nil, otherButtonTitles: ["Logout".localized, "Cancel".localized], tap: {(alert, buttonIndex) in
+                    if (buttonIndex == 2)
+                    {
+                          (UIApplication.shared.delegate as! AppDelegate).GoToLogout()
+                    }
+                })
+
 
             }
 

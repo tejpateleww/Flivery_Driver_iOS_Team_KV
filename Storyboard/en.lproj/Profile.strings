@@ -23,8 +23,8 @@
 /* Class = "UILabel"; text = "Car Registration"; ObjectID = "6Re-Yl-uQD"; */
 "6Re-Yl-uQD.text" = "Car Registration";
 
-/* Class = "UILabel"; text = "Select Accreditation Certificate Expiry date"; ObjectID = "6Vt-Ia-re5"; */
-"6Vt-Ia-re5.text" = "Select Accreditation Certificate Expiry date";
+/* Class = "UILabel"; text = "Select TIN Certificate Expiry date"; ObjectID = "6Vt-Ia-re5"; */
+"6Vt-Ia-re5.text" = "Select TIN Certificate Expiry date";
 
 /* Class = "UILabel"; text = "Female"; ObjectID = "83s-wj-6gh"; */
 "83s-wj-6gh.text" = "Female";
@@ -56,14 +56,11 @@
 /* Class = "UILabel"; text = "Vehicle Insurance Policy/Certificate"; ObjectID = "HrD-Uk-ot0"; */
 "HrD-Uk-ot0.text" = "Vehicle Insurance Policy/Certificate";
 
-/* Class = "UILabel"; text = "Revenue Licence"; ObjectID = "II6-i0-T4c"; */
-"II6-i0-T4c.text" = "Revenue Licence";
+/* Class = "UILabel"; text = "TIN Certificate"; ObjectID = "II6-i0-T4c"; */
+"II6-i0-T4c.text" = "TIN Certificate";
 
 /* Class = "UITextField"; placeholder = "Bank Name"; ObjectID = "IaZ-4g-n1Y"; */
 "IaZ-4g-n1Y.placeholder" = "Bank Name";
-
-/* Class = "UILabel"; text = "Profile"; ObjectID = "LFW-S7-3Ov"; */
-"LFW-S7-3Ov.text" = "Profile";
 
 /* Class = "UITextField"; placeholder = "Bank Account"; ObjectID = "LTB-pU-W1U"; */
 "LTB-pU-W1U.placeholder" = "Bank Account";
@@ -71,8 +68,8 @@
 /* Class = "UIButton"; normalTitle = "Save"; ObjectID = "Mf1-DP-qxs"; */
 "Mf1-DP-qxs.normalTitle" = "Save";
 
-/* Class = "UITextField"; placeholder = "Car Company"; ObjectID = "NU2-lS-aTs"; */
-"NU2-lS-aTs.placeholder" = "Car Company";
+/* Class = "UITextField"; placeholder = "Vehicle Make"; ObjectID = "NU2-lS-aTs"; */
+"NU2-lS-aTs.placeholder" = "Vehicle Make";
 
 /* Class = "UITextField"; placeholder = "City"; ObjectID = "TCt-sR-pOM"; */
 "TCt-sR-pOM.placeholder" = "City";
@@ -85,12 +82,6 @@
 
 /* Class = "UITextField"; placeholder = "ABN"; ObjectID = "UK1-90-cPx"; */
 "UK1-90-cPx.placeholder" = "ABN";
-
-/* Class = "UILabel"; text = "Vehicle Option"; ObjectID = "Uq3-2U-QLh"; */
-"Uq3-2U-QLh.text" = "Vehicle Option";
-
-/* Class = "UILabel"; text = "Logout"; ObjectID = "V9Y-Pu-nLc"; */
-"V9Y-Pu-nLc.text" = "Logout";
 
 /* Class = "UILabel"; text = "Documents"; ObjectID = "VO5-tD-Cqn"; */
 "VO5-tD-Cqn.text" = "Documents";
@@ -167,17 +158,11 @@
 /* Class = "UILabel"; text = "Select up to 3 vehicles."; ObjectID = "sot-xN-eLl"; */
 "sot-xN-eLl.text" = "Select up to 3 vehicles.";
 
-/* Class = "UILabel"; text = "Documents"; ObjectID = "tx7-ua-5u4"; */
-"tx7-ua-5u4.text" = "Documents";
-
 /* Class = "UIButton"; normalTitle = "Save"; ObjectID = "v1i-Cc-hna"; */
 "v1i-Cc-hna.normalTitle" = "Save";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "vg9-1I-qEs"; */
 "vg9-1I-qEs.normalTitle" = "Button";
-
-/* Class = "UILabel"; text = "Account"; ObjectID = "wJ3-i9-zDp"; */
-"wJ3-i9-zDp.text" = "Account";
 
 /* Class = "UITextField"; placeholder = "Mobile Number"; ObjectID = "wPF-e9-k2t"; */
 "wPF-e9-k2t.placeholder" = "Mobile Number";

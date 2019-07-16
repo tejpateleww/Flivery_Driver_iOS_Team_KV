@@ -122,7 +122,7 @@ class WalletCardsVC: BaseViewController, UITableViewDataSource, UITableViewDeleg
         super.viewWillAppear(animated)
         
 
-        self.setNavBarWithMenuORBack(Title: "My Cards".localized, LetfBtn: kIconBack, IsNeedRightButton: false, isTranslucent: false)
+        self.setNavBarWithMenuORBack(Title: "Card List".localized, LetfBtn: kIconBack, IsNeedRightButton: false, isTranslucent: false)
         
     }
     

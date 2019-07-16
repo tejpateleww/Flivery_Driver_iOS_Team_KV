@@ -16,7 +16,9 @@ class ChangePasswordViewController: BaseViewController {
     
 //    @IBOutlet var iconPassword: UIImageView!
     @IBOutlet var btnSubmit: UIButton!
-    @IBOutlet weak var txtConfirmPass: ThemeTextField!
+    @IBOutlet weak var txtConfirmPass: UITextField!
+    @IBOutlet weak var txtNewPassword: UITextField!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -55,8 +57,7 @@ class ChangePasswordViewController: BaseViewController {
     // MARK: - Outlets
     //-------------------------------------------------------------
     
-    @IBOutlet weak var txtNewPassword: UITextField!
-    
+
     //-------------------------------------------------------------
     // MARK: - Actions
     //-------------------------------------------------------------

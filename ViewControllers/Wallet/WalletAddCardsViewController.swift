@@ -523,7 +523,7 @@ class WalletAddCardsViewController: BaseViewController, UIPickerViewDataSource, 
 //        cardCVV()
         txtValidThrough.inputType = .integer
         txtValidThrough.formatter = CardExpirationDateFormatter()
-        txtValidThrough.placeholder = "Expiration Date (MM/YY)"
+        txtValidThrough.placeholder = "Expiry Date"
         txtValidThrough.setValue(UIColor.black , forKeyPath: "placeholderLabel.textColor")
         txtValidThrough.font = UIFont.regular(ofSize: 13.0)
         txtValidThrough.textColor = UIColor.black

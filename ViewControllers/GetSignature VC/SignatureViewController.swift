@@ -15,13 +15,14 @@ class SignatureViewController: UIViewController, YPSignatureDelegate {
     @IBOutlet weak var signatureView: YPDrawSignatureView!
     var onDismiss : (() -> ())?
     var parcelSignatureImage = UIImage()
-    
+    @IBOutlet weak var btnDone : UIButton!
     var IsNeedToOpenCamera:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         signatureView.delegate = self
+        btnDone.setTitle("Done".localized, for: .normal)
     }
     
     func didStart(_ view: YPDrawSignatureView) {

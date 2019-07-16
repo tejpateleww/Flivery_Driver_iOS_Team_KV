@@ -10,14 +10,15 @@
  import CoreLocation
  import SideMenuSwift
  //import ACFloatingTextfield_Swift
- import Localize_Swift
+ //import Localize_Swift
  
  class LoginViewController: UIViewController, CLLocationManagerDelegate,UITextFieldDelegate {
     
     let manager = CLLocationManager()
     
     var currentLocation = CLLocation()
-    
+    @IBOutlet weak var segmentForLanguage: UISegmentedControl!
+
     var strLatitude = Double()
     var strLongitude = Double()
     
@@ -43,7 +44,7 @@
     @IBOutlet var lblLaungageName: UILabel!
     @IBOutlet weak var lblSignInTitle: UILabel!
     
-   
+
     //    @IBOutlet weak var constraintHeightOfLogo: NSLayoutConstraint! // 140
     //    @IBOutlet weak var constraintHeightOfTextFields: NSLayoutConstraint! // 50
     //    @IBOutlet weak var constraintTopOfLogo: NSLayoutConstraint! // 60
@@ -54,67 +55,23 @@
     //-------------------------------------------------------------
     
     func setLocalization() {
-        
-//        if let SelectedLanguage = UserDefaults.standard.value(forKey: "i18n_language") as? String {
-//            if SelectedLanguage == "en" {
-//                lblLaungageName.text = secondLanguage.uppercased() //"SW"
-//            } else if SelectedLanguage == secondLanguage {
-//                lblLaungageName.text = "EN"
-//            }
-//        }
-        self.view.layoutSubviews()
-//        DispatchQueue.main.async {
-            print("the language in setLocalization is \( UserDefaults.standard.value(forKey: "i18n_language") as? String ?? "-")")
-            self.txtMobile.placeholder = "Mobile Number"
-            self.txtPassword.placeholder = "Password"
-            self.btnForgotPassWord.setTitle("Forgot Password?", for: .normal)
-            self.btnSignIn.setTitle("Sign In", for: .normal)
-            //        self.btnSignUp.setTitle("Sign Up", for: .normal)
-            self.lblDonTHaveAnyAccount.text = "Don't have an Account? Sign Up"
-            
-            self.lblSignInTitle.text = "SIGN IN"
-              self.lblSignInTitle.layoutIfNeeded()
-            print("lblSignInTitle.text: \(self.lblSignInTitle.text ?? "-")")
-//        }
-          self.view.layoutIfNeeded()
+
+        txtMobile.placeholder = "Mobile Number".localized
+        txtPassword.placeholder = "Password".localized
+        btnForgotPassWord.setTitle("Forgot Password?".localized, for: .normal)
+        btnSignIn.setTitle("Sign In".localized, for: .normal)
+        lblDonTHaveAnyAccount.text = "Don't have an Account? Sign up!".localized
+        lblSignInTitle.text = "SIGN IN".localized
+
     }
-    
+
+    @IBAction func unwindToVCWithSegue(segue:UIStoryboardSegue) { }
+
+
     override func loadView() {
-            super.loadView()
-    
-    
-//            txtMobile.text = "1166993300"
-//            txtPassword.text = "12345678"
-    
-//            Utilities.setStatusBarColor(color: UIColor.clear)
-    
-//            if Connectivity.isConnectedToInternet()
-//            {
-//                print("Yes! internet is available.")
-                self.webserviceOfAppSetting()
-                // do some tasks..
-//            }
-//            else
-//            {
-//                UtilityClass.showAlertWithCompletion(appName.kAPPName, message: "Sorry! Not connected to internet", vc: self) { (status) in
-//                    self.navigationController?.popViewController(animated: false)
-//                }
-////                UtilityClass.showAlert(appName.kAPPName, message: "Sorry! Not connected to internet", vc: self)
-//                return
-//            }
-        
-//            if Connectivity.isConnectedToInternet()
-//            {
-//                print("Yes! internet is available.")
-//                // do some tasks..
-//            }
-//            else {
-//                UtilityClass.showAlert(appName.kAPPName, message: "Sorry! Not connected to internet", vc: self)
-//            }
-    
-//            webserviceOfAppSetting()
-    //
-        }
+        super.loadView()
+        self.webserviceOfAppSetting()
+    }
     
     override func viewDidLoad()
     {
@@ -122,21 +79,7 @@
         
         
         txtMobile.delegate = self
-        lblLaungageName.layer.cornerRadius = 5
-        lblLaungageName.backgroundColor = ThemeYellowColor
-        lblLaungageName.layer.borderColor = UIColor.black.cgColor
-        lblLaungageName.layer.borderWidth = 0.5
-        
-//        if let SelectedLanguage = UserDefaults.standard.value(forKey: "i18n_language") as? String {
-//            if SelectedLanguage == "en" {
-//                lblLaungageName.text = "EN"
-//            } else if SelectedLanguage == secondLanguage {
-//                    lblLaungageName.text = secondLanguage.uppercased() //"SW"
-//            }
-//        }
-        
-//        txtMobile.text = "1111111111"
-//        txtPassword.text = "123456"
+
         
         Utilities.setStatusBarColor(color: UIColor.clear)
         
@@ -147,24 +90,18 @@
         }
         
         #if targetEnvironment(simulator)
-            txtMobile.text = "1166993300"
-            txtPassword.text = "12345678"
+        txtMobile.text = "1166993300"
+        txtPassword.text = "12345678"
         #endif
-        
-       
-        //
-        
-//        btnSignUp.layer.cornerRadius = 3.0
-//        btnSignUp.layer.borderColor = UIColor.white.cgColor
-//        btnSignUp.layer.borderWidth = 1.0
-//        btnSignUp.clipsToBounds = true
-        //
-        //        if DeviceType.IS_IPHONE_4_OR_LESS || DeviceType.IS_IPAD {
-        //            constraintHeightOfLogo.constant = 120
-        //            constraintHeightOfTextFields.constant = 35
-        //            constraintTopOfLogo.constant = 40
-        //        }
-        //        self.viewMain.isHidden = false
+
+
+        if let currentLanguage = UserDefaults.standard.object(forKey: "i18n_language") as? String {
+            if(currentLanguage == "fr")
+            {
+                segmentForLanguage.selectedSegmentIndex = 1
+            }
+        }
+
         checkPass()
         
         strLatitude = 0
@@ -189,23 +126,38 @@
         
         // Do any additional setup after loading the view.
     }
+
+    @IBAction func valueChangedForLanguage(_ sender: UISegmentedControl) {
+        if(sender.selectedSegmentIndex == 0)
+        {
+            UserDefaults.standard.set("en", forKey: "i18n_language")
+            UserDefaults.standard.synchronize()
+        }
+        else
+        {
+            UserDefaults.standard.set("fr", forKey: "i18n_language")
+            UserDefaults.standard.synchronize()
+        }
+
+        setLocalization()
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
         self.setLocalization()
-//        self.title = "Ingia"
+        //        self.title = "Ingia"
     }
     
     override func viewDidLayoutSubviews()
     {
         super.viewDidLayoutSubviews()
         
-//        btnSignUp.layer.cornerRadius = btnSignUp.frame.size.height - 50
-//        btnSignUp.clipsToBounds = true
-//        
-//        btnSignIn.layer.cornerRadius = btnSignIn.frame.size.height - 30
-//        btnSignIn.clipsToBounds = true
+        //        btnSignUp.layer.cornerRadius = btnSignUp.frame.size.height - 50
+        //        btnSignUp.clipsToBounds = true
+        //
+        //        btnSignIn.layer.cornerRadius = btnSignIn.frame.size.height - 30
+        //        btnSignIn.clipsToBounds = true
         
         
     }
@@ -224,15 +176,15 @@
     {
         
         if let SelectedLanguage = UserDefaults.standard.value(forKey: "i18n_language") as? String {
-//            SelectedLanguage = secondLanguage
+            //            SelectedLanguage = secondLanguage
             if SelectedLanguage == "en" {
                 setLayoutForswahilLanguage()
                 
-//                lblLaungageName.text = "EN"
+                //                lblLaungageName.text = "EN"
             } else if SelectedLanguage == secondLanguage {
                 setLayoutForenglishLanguage()
-//                setLayoutForswahilLanguage()
-//                lblLaungageName.text = secondLanguage // "SW"
+                //                setLayoutForswahilLanguage()
+                //                lblLaungageName.text = secondLanguage // "SW"
             }
         }
         self.setLocalization()
@@ -360,8 +312,8 @@
                     Singletons.sharedInstance.dictDriverProfile = NSMutableDictionary(dictionary: (result as! NSDictionary).object(forKey: "driver") as! NSDictionary)
                     Singletons.sharedInstance.isDriverLoggedIN = true
                     Utilities.encodeDatafromDictionary(KEY: driverProfileKeys.kKeyDriverProfile, Param: Singletons.sharedInstance.dictDriverProfile)
-//                                        UserDefaults.standard.set(Singletons.sharedInstance.dictDriverProfile, forKey: driverProfileKeys.kKeyDriverProfile)
-                                        UserDefaults.standard.set(true, forKey: driverProfileKeys.kKeyIsDriverLoggedIN)
+                    //                                        UserDefaults.standard.set(Singletons.sharedInstance.dictDriverProfile, forKey: driverProfileKeys.kKeyDriverProfile)
+                    UserDefaults.standard.set(true, forKey: driverProfileKeys.kKeyIsDriverLoggedIN)
                     
                     Singletons.sharedInstance.strDriverID = ((Singletons.sharedInstance.dictDriverProfile.object(forKey: "profile") as! NSDictionary).object(forKey: "Vehicle") as! NSDictionary).object(forKey: "DriverId") as! String
                     
@@ -376,8 +328,8 @@
                     }
 
                     (UIApplication.shared.delegate as! AppDelegate).GoToHome()
-//                    let next = self.storyboard?.instantiateViewController(withIdentifier: "SideMenuController") as! SideMenuController
-//                    self.navigationController?.pushViewController(next, animated: true)
+                    //                    let next = self.storyboard?.instantiateViewController(withIdentifier: "SideMenuController") as! SideMenuController
+                    //                    self.navigationController?.pushViewController(next, animated: true)
                 }
                 
             }
@@ -472,8 +424,8 @@
                         
                         if(Singletons.sharedInstance.isDriverLoggedIN)
                         {
-//                            let next = self.storyboard?.instantiateViewController(withIdentifier: "SideMenuController") as! SideMenuController
-//                            self.navigationController?.pushViewController(next, animated: true)
+                            //                            let next = self.storyboard?.instantiateViewController(withIdentifier: "SideMenuController") as! SideMenuController
+                            //                            self.navigationController?.pushViewController(next, animated: true)
                             (UIApplication.shared.delegate as! AppDelegate).GoToHome()
 
                         }
@@ -484,20 +436,20 @@
                 }
                 else
                 {
-                   
+
                     if(Singletons.sharedInstance.isDriverLoggedIN)
                     {
-//                        let next = self.storyboard?.instantiateViewController(withIdentifier: "SideMenuController") as! SideMenuController
-//                        self.navigationController?.pushViewController(next, animated: false)
+                        //                        let next = self.storyboard?.instantiateViewController(withIdentifier: "SideMenuController") as! SideMenuController
+                        //                        self.navigationController?.pushViewController(next, animated: false)
 
                         (UIApplication.shared.delegate as! AppDelegate).GoToHome()
 
                     }
-//                    if(Singletons.sharedInstance.isDriverLoggedIN)
-//                    {
-//                        let next = self.storyboard?.instantiateViewController(withIdentifier: "SideMenuController") as! SideMenuController
-//                        self.navigationController?.pushViewController(next, animated: true)
-//                    }
+                    //                    if(Singletons.sharedInstance.isDriverLoggedIN)
+                    //                    {
+                    //                        let next = self.storyboard?.instantiateViewController(withIdentifier: "SideMenuController") as! SideMenuController
+                    //                        self.navigationController?.pushViewController(next, animated: true)
+                    //                    }
                     
                 }
                 
@@ -589,10 +541,10 @@
             UtilityClass.showAlert("App Name", message: "Please enter mobile number", vc: self)
             return false
         }
-//        else if txtMobile.text!.count != 10 {
-//            UtilityClass.showAlert("App Name", message: "Please enter valid phone number.", vc: self)
-//            return false
-//        }
+            //        else if txtMobile.text!.count != 10 {
+            //            UtilityClass.showAlert("App Name", message: "Please enter valid phone number.", vc: self)
+            //            return false
+            //        }
         else if txtPassword.text!.count == 0
         {
             
@@ -600,10 +552,10 @@
             
             return false
         }
-//        else if txtPassword.text!.count <= 5 {
-//            UtilityClass.showAlert(appName.kAPPName, message: "Password should be more than 5 characters", vc: self)
-//            return false
-//        }
+        //        else if txtPassword.text!.count <= 5 {
+        //            UtilityClass.showAlert(appName.kAPPName, message: "Password should be more than 5 characters", vc: self)
+        //            return false
+        //        }
         
         
         return true

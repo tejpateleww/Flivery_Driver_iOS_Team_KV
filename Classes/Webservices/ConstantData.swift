@@ -251,7 +251,7 @@ struct socketApiKeys {
 }
 
 struct appName {
-    static let kAPPName = "App Name".localized
+    static let kAPPName = "Flivery Driver".localized
 //    "TanTaxi Driver"
     static let kAPPUrl = "https://itunes.apple.com/us/app/TanTaxi Driver/id1445179587?ls=1&mt=8"
     

@@ -67,7 +67,33 @@ class PostABidViewController: BaseViewController,UITextFieldDelegate {
             UtilityClass.showAlert("", message: "Please Enter Budget", vc: self)
         }
         else{
-             webserviceBidAccept()
+
+            var strBudget = Int()
+
+            if let budget = BidData[0]["Budget"] as? String{
+                strBudget = Int(budget)!
+            }
+            else if let budget = BidData[0]["Budget"] as? Int{
+                strBudget = budget
+            }
+
+
+            var enteredBudget = Int()
+
+            if let budget = txtBudget?.text{
+                enteredBudget = Int(budget)!
+            }
+
+
+            if(enteredBudget > strBudget)
+            {
+                UtilityClass.showAlert("", message: "The entered budget should be less than the given budget", vc: self)
+            }
+            else
+            {
+
+                webserviceBidAccept()
+            }
         }
     }
     
@@ -122,6 +148,13 @@ class PostABidViewController: BaseViewController,UITextFieldDelegate {
         if let passengerID = BidData[0]["PassengerId"] as? String{
             strPassengerID = passengerID
             print(passengerID)
+        }
+
+        if let budget = BidData[0]["Budget"] as? String{
+            txtBudget?.placeholder = "Max.$\(budget)"
+        }
+        else if let budget = BidData[0]["Budget"] as? Int{
+            txtBudget?.placeholder = "Max.$\(budget)"
         }
     }
     

@@ -53,6 +53,7 @@ let googlPlacesApiKey = "AIzaSyD1bcITZ_nUkP-ke6xgaP5RIC--tXQU3I4" // "AIzaSyCKEP
         Fabric.with([Crashlytics.self])
         FirebaseApp.configure()
         Messaging.messaging().delegate = self
+        IQKeyboardManager.shared.toolbarDoneBarButtonItemText = "Done".localized
 //        SideMenuController.preferences.drawing.menuButtonImage = UIImage(named: "menu")
 //        SideMenuController.preferences.drawing.sidePanelPosition = .overCenterPanelLeft
 //        SideMenuController.preferences.drawing.sidePanelWidth = (window?.frame.width)! * 0.85
@@ -514,11 +515,8 @@ extension String {
     var localized: String {
 
         let lang = UserDefaults.standard.string(forKey: "i18n_language")
-        print(lang ?? "-")
         let path = Bundle.main.path(forResource: lang, ofType: "lproj")
         let bundle = Bundle(path: path!)
-        print(path ?? "")
-        print(bundle ?? "")
         return NSLocalizedString(self, tableName: nil, bundle: bundle!, value: "", comment: "")
     }
 }
@@ -532,14 +530,15 @@ let secondLanguage = "fr"
 
 
 extension UILabel {
-    
+
     override open func layoutSubviews() {
         super.layoutSubviews()
         if self.text != nil {
-            self.layoutIfNeeded()
-            self.text =  self.text!.localized1()
-            print("self.text: \(String(describing: self.text))")
+            //            count = count + 1
+            self.text = self.text?.localized
+            //            print("The count is \(count)")
         }
+
     }
 }
 

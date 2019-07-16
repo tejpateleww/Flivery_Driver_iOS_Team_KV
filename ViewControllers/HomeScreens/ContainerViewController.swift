@@ -17,6 +17,9 @@ class ContainerViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        btnHome.setTitle("Home".localized, for: .normal)
+        btnMyJobs.setTitle("My Jobs".localized, for: .normal)
+
         // Do any additional setup after loading the view.
     }
 

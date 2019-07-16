@@ -153,6 +153,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, ARCarMove
       
 //        btnMyJob.borderColor = UIColor.red// UIColor.init(red: 228/255, green: 132/255, blue: 40/255, alpha: 1.0)
 //        btnHome.borderColor = UIColor.red//.init(red: 228/255, green: 132/255, blue: 40/255, alpha: 1.0)
+        print("Home")
         btnCurrentlocation.layer.cornerRadius = 5
         btnCurrentlocation.layer.masksToBounds = true
         //        viewLocationDetails.layer.cornerRadius = 5
@@ -344,12 +345,12 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, ARCarMove
 //        btnHome.setTitle("Home".localized, for: .normal)
 //        btnMyJob.setTitle("My Job".localized, for: .normal)
         btnStartTrip.setTitle("Start Trip".localized, for: .normal)
-        btnPassengerInfo.setTitle("Passenger Info".localized, for: .normal)
+        btnPassengerInfo.setTitle("Shipper Info".localized, for: .normal)
         btnCancelTrip.setTitle("Cancel Trip".localized, for: .normal)
-        btnDirectionFourBTN.setTitle("Direction".localized, for: .normal)
+        btnDirectionFourBTN.setTitle("Directions".localized, for: .normal)
         lblPickUpLocation.text = "Current Location".localized
         btnCompleteTrip.setTitle("Complete Trip".localized, for: .normal)
-        btnDirection.setTitle("Direction".localized, for: .normal)
+        btnDirection.setTitle("Directions".localized, for: .normal)
      }
     
     @IBAction func btnSidemenuClicked(_ sender: Any)
@@ -4794,7 +4795,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, ARCarMove
                 UserDefaults.standard.set(false, forKey: kIsSocketEmited)
                 
                 Utilities.showAlertWithCompletion(AppNAME, message: "Your session has been expired, please try to login again.".localized, vc: ((UIApplication.shared.delegate as! AppDelegate).window?.rootViewController)!, completionHandler: { (status) in
-                    self.performSegue(withIdentifier: "SignOutFromHome", sender: (Any).self)
+                     (UIApplication.shared.delegate as! AppDelegate).GoToLogin()
                 })
                 
             }
