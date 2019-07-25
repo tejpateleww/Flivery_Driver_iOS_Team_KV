@@ -9,6 +9,7 @@
  import UIKit
  import CoreLocation
  import SideMenuSwift
+ import IQKeyboardManagerSwift
  //import ACFloatingTextfield_Swift
  //import Localize_Swift
  
@@ -51,17 +52,18 @@
     
     
     //-------------------------------------------------------------
-    // MARK: - Base Methods
+    // MARK: - Base Methodsk
     //-------------------------------------------------------------
     
     func setLocalization() {
-
+        IQKeyboardManager.shared.toolbarDoneBarButtonItemText = "Done".localized
         txtMobile.placeholder = "Mobile Number".localized
         txtPassword.placeholder = "Password".localized
         btnForgotPassWord.setTitle("Forgot Password?".localized, for: .normal)
         btnSignIn.setTitle("Sign In".localized, for: .normal)
         lblDonTHaveAnyAccount.text = "Don't have an Account? Sign up!".localized
         lblSignInTitle.text = "SIGN IN".localized
+
 
     }
 

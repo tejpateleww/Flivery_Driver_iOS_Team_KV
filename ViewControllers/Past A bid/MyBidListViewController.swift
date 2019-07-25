@@ -78,9 +78,14 @@ class MyBidListViewController:BaseViewController,UITableViewDataSource,UITableVi
     }
     //MARK: ===== API Call Get Bid List ======
     @objc func ViewDetailsAction(_ sender:UIButton) {
-        let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "BidDetailsViewController") as! BidDetailsViewController
-        detailVC.aryData = [aryData[sender.tag]]
+        
+        let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "PostABidViewController") as! PostABidViewController
+        detailVC.BidData = [aryData[sender.tag]]
+        detailVC.isThisDetail = true
         self.navigationController?.pushViewController(detailVC, animated: true)
+//        let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "BidDetailsViewController") as! BidDetailsViewController
+//        detailVC.aryData = [aryData[sender.tag]]
+//        self.navigationController?.pushViewController(detailVC, animated: true)
     }
     
      //MARK: ===== Tableview Datasource and Delegate ======
@@ -107,7 +112,7 @@ class MyBidListViewController:BaseViewController,UITableViewDataSource,UITableVi
             customCell.btnViewDetails.addTarget(self, action:#selector(ViewDetailsAction(_:)), for: .touchUpInside)
         customCell.selectionStyle = .none
         if let bids = aryData[indexPath.row]["DriverBids"] as? String{
-                customCell.lblBidCount.text = "Bids - " + bids
+                customCell.lblBidCount.text = "Bids - ".localized + bids
             }
         if let distance = aryData[indexPath.row]["Distance"] as? String{
             customCell.lblDistance.text = distance
@@ -116,7 +121,7 @@ class MyBidListViewController:BaseViewController,UITableViewDataSource,UITableVi
             customCell.lblPickupLocation.text = PickupLocation
         }
         if let price = aryData[indexPath.row]["Budget"] as? String{
-            customCell.lblPrice.text = "USD " + price
+            customCell.lblPrice.text = "\(currency) " + price
         }
         if let deadHead = aryData[indexPath.row]["DeadHead"] as? String{
             customCell.lblDeadhead.text = deadHead
@@ -133,6 +138,13 @@ class MyBidListViewController:BaseViewController,UITableViewDataSource,UITableVi
         if let modelName = aryData[indexPath.row]["Name"] as? String{
             customCell.lblVehicleName.text = modelName
         }
+            
+            if let BidID =  aryData[indexPath.row]["BidId"] as? Int {
+                customCell.lblBidId.text = "Bid Id - ".localized + "\(BidID)"
+            } else if let BidID =  aryData[indexPath.row]["BidId"] as? String {
+                customCell.lblBidId.text =  "Bid Id - ".localized + "\(BidID)"
+            }
+            
         if let modelimage = aryData[indexPath.row]["ModelImage"] as? String{
              customCell.iconVehicle.sd_setImage(with: URL(string: WebserviceURLs.kImageBaseURL + modelimage), placeholderImage: UIImage(named: "iconProfilePicBlank"), options: [], completed: nil)
         }

@@ -133,6 +133,7 @@ class UtilityClass: NSObject {
     }
     
     
+    
     class func changeImageColor(imageView: UIImageView, imageName: String, color: UIColor) -> UIImageView {
         
         let img: UIImage = (UIImage.init(named: imageName)?.withRenderingMode(.alwaysTemplate))!
@@ -141,6 +142,75 @@ class UtilityClass: NSObject {
         return imageView
     }
     
+    /// Response may be Any Type
+    class func showAlertOfAPIResponse(param: Any, vc: UIViewController) {
+        
+        if let res = param as? String {
+            UtilityClass.showAlert(appName.kAPPName, message: res, vc: vc)
+        }
+        else if let resDict = param as? NSDictionary {
+            if let msg = resDict.object(forKey: "message") as? String {
+                UtilityClass.showAlert(appName.kAPPName, message: msg, vc: vc)
+            }
+            else if let msg = resDict.object(forKey: "msg") as? String {
+                UtilityClass.showAlert(appName.kAPPName, message: msg, vc: vc)
+            }
+            else if let msg = resDict.object(forKey: "message") as? [String] {
+                UtilityClass.showAlert(appName.kAPPName, message: msg.first ?? "", vc: vc)
+            }
+        }
+        else if let resAry = param as? NSArray {
+            
+            if let dictIndxZero = resAry.firstObject as? NSDictionary {
+                if let message = dictIndxZero.object(forKey: "message") as? String {
+                    UtilityClass.showAlert(appName.kAPPName, message: message, vc: vc)
+                }
+                else if let msg = dictIndxZero.object(forKey: "msg") as? String {
+                    UtilityClass.showAlert(appName.kAPPName, message: msg, vc: vc)
+                }
+                else if let msg = dictIndxZero.object(forKey: "message") as? [String] {
+                    UtilityClass.showAlert(appName.kAPPName, message: msg.first ?? "", vc: vc)
+                }
+            }
+            else if let msg = resAry as? [String] {
+                UtilityClass.showAlert(appName.kAPPName, message: msg.first ?? "", vc: vc)
+            }
+        }
+    }
+    
+    class func findtopViewController(controller: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+        
+        if let navigationController = controller as? UINavigationController {
+            
+            return findtopViewController(controller: navigationController.visibleViewController)
+            
+        }
+        
+        if let tabController = controller as? UITabBarController {
+            
+            if let selected = tabController.selectedViewController {
+                
+                return findtopViewController(controller: selected)
+                
+            }
+            
+        }
+        
+        if let presented = controller?.presentedViewController {
+            
+            return findtopViewController(controller: presented)
+            
+        }
+        
+        return controller
+        
+    }
+    
+    
+    
+    
+    
+
     
     class func showHUD() {
         

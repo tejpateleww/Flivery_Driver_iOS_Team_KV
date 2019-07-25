@@ -15,14 +15,28 @@ class BidListContainerViewController: BaseViewController {
     @IBOutlet weak var viewLineHeight: UIView!
     
     
+    @IBOutlet var btnMyBid: UIButton!
+    @IBOutlet var btnOpenBid: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.title = "Bid List"
-       setNavBarWithMenuORBack(Title: "Bid List".localized, LetfBtn: kIconBack, IsNeedRightButton: false, isTranslucent: false)
+        setNavBarWithMenuORBack(Title: "Bid List".localized, LetfBtn: kIconBack, IsNeedRightButton: false, isTranslucent: false)
+        self.btnMyBid.setTitle("My Bid".localized, for: .normal)
+        self.btnOpenBid.setTitle("Open Bid".localized, for: .normal)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        Singletons.sharedInstance.isBidListOpened = true
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        Singletons.sharedInstance.isBidListOpened = false
+    }
+    
     @objc func addTapped()
     {
         

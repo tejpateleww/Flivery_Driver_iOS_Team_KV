@@ -101,6 +101,8 @@ class DriverSelectVehicleTypesViewController: UIViewController,getVehicleIdAndNa
         viewCarsAndTexis.isHidden = true
         viewDeliveryService.isHidden = true
         
+        /* txtNumberPassenger textfield is hidden
+        
         txtNumberPassenger.isOptionalDropDown = true
         txtNumberPassenger.itemList = ["1","2","3","4","5","6","7","8","9","10"]
         
@@ -123,7 +125,7 @@ class DriverSelectVehicleTypesViewController: UIViewController,getVehicleIdAndNa
         
         txtNumberPassenger.leftView = LeftView
         txtNumberPassenger.leftViewMode = .always
-    
+    */
         
         self.webserviceforGetCarModels()
         NotificationCenter.default.addObserver(self, selector: #selector(setDataInCarType), name: Notification.Name("setCarType"), object: nil)
@@ -369,13 +371,14 @@ class DriverSelectVehicleTypesViewController: UIViewController,getVehicleIdAndNa
 //            sb.createWithAction(text: "Please select vehicle type".localized, actionTitle: "Dismiss".localized, action: { print("Button is push") })
 //            sb.show()
         }
-        else if txtNumberPassenger.selectedItem == nil ||  txtNumberPassenger.selectedItem == "" || txtNumberPassenger.selectedItem == "Number Of Passenger".localized
-        {
-            isValidate = false
-            validatorMessage = "Please enter no of passenger".localized
+            
+//        else if txtNumberPassenger.selectedItem == nil ||  txtNumberPassenger.selectedItem == "" || txtNumberPassenger.selectedItem == "Number Of Passenger".localized
+//        {
+//            isValidate = false
+//            validatorMessage = "Please enter no of passenger".localized
 //            sb.createWithAction(text: "Please enter no of passenger".localized, actionTitle: "Dismiss".localized, action: { print("Button is push") })
 //            sb.show()
-        }
+//        }
         else if imgVehicle.image == UIImage(named: "iconCARPlaceholder") || imgVehicle.image == nil //UIImage.init(named: "")
         {
             isValidate = false

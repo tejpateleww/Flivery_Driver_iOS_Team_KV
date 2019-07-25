@@ -138,7 +138,7 @@ class PendingJobsListVC: UIViewController, UITableViewDataSource, UITableViewDel
         cell.lblTripDetailsTitle.text = "Distance Travel :".localized
         cell.lblPaymentTypeTitle.text = "Payment Type :".localized
         cell.btnStartTrip.setTitle("Start Trip".localized, for: .normal)
-       
+        cell.btnStartTrip.titleLabel?.lineBreakMode = .byWordWrapping
         cell.viewCell.layer.cornerRadius = 10
         cell.viewCell.clipsToBounds = true
         

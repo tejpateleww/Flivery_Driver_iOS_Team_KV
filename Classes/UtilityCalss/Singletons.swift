@@ -106,6 +106,17 @@ class Singletons: NSObject {
     /// isPickUPPasenger = true than Start Trip else only accepted
     var isPickUPPasenger = Bool()
     
+    var ChattingMessages = MessageObject()
+    var strChatingNowBookingId = String()
+    var strChatingBidId = String()
+    
+    /// check Chat VC is Presented or not
+    var isChatingPresented = Bool()
+    
+    /// Check presented chat screen from Passenger or Dispature
+    var isChatFromPassenger = true
+    var isBidListOpened = Bool()
+    
 }
 
 

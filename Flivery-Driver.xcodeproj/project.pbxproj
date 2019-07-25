@@ -238,6 +238,8 @@
 		6432FEC922CDC0A100151492 /* MyBidListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6432FEC222CDC0A100151492 /* MyBidListViewController.swift */; };
 		6432FECC22CDC0BC00151492 /* NoDataFoundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6432FECA22CDC0BA00151492 /* NoDataFoundTableViewCell.swift */; };
 		6432FECD22CDC0BC00151492 /* NoDataFoundTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6432FECB22CDC0BB00151492 /* NoDataFoundTableViewCell.xib */; };
+		7A1CD5F422E0811A0049191D /* ChatStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A1CD5F322E0811A0049191D /* ChatStoryboard.storyboard */; };
+		7A1CD5FC22E084BC0049191D /* BidChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1CD5FB22E084BC0049191D /* BidChatViewController.swift */; };
 		EE5FF5BA223A5DA5000FF171 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5FF5B9223A5DA5000FF171 /* BaseViewController.swift */; };
 		EEB3CDF9223B6A7B00676539 /* MainHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB3CDF8223B6A7B00676539 /* MainHeaderTableViewCell.swift */; };
 		EECDB7D9203D48AE0079F78B /* MeterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECDB7D8203D48AE0079F78B /* MeterViewController.swift */; };
@@ -536,6 +538,8 @@
 		6432FECA22CDC0BA00151492 /* NoDataFoundTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoDataFoundTableViewCell.swift; sourceTree = "<group>"; };
 		6432FECB22CDC0BB00151492 /* NoDataFoundTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoDataFoundTableViewCell.xib; sourceTree = "<group>"; };
 		71E830EFF7C980BA0858A2D1 /* Pods_TenTexi_Driver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TenTexi_Driver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A1CD5F322E0811A0049191D /* ChatStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChatStoryboard.storyboard; sourceTree = "<group>"; };
+		7A1CD5FB22E084BC0049191D /* BidChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidChatViewController.swift; sourceTree = "<group>"; };
 		932475C955A0B6A950732388 /* Pods-TenTexi-Driver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenTexi-Driver.release.xcconfig"; path = "Pods/Target Support Files/Pods-TenTexi-Driver/Pods-TenTexi-Driver.release.xcconfig"; sourceTree = "<group>"; };
 		9E0742A87EB9F6951940B1DC /* Pods-PickNGo-Driver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickNGo-Driver.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PickNGo-Driver/Pods-PickNGo-Driver.debug.xcconfig"; sourceTree = "<group>"; };
 		AFA70C7471345D085861AE3F /* Pods_TanTaxi_Driver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TanTaxi_Driver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1283,6 +1287,7 @@
 		00E929C8202AE2C100A399E2 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				7A1CD5F322E0811A0049191D /* ChatStoryboard.storyboard */,
 				EEFEA5A52211840700D88655 /* LaunchScreen.storyboard */,
 				EEFEA5962211839600D88655 /* Main.storyboard */,
 				EEFEA59B221183DB00D88655 /* TripToDestination.storyboard */,
@@ -1522,6 +1527,7 @@
 		6432FEBB22CDC0A100151492 /* Past A bid */ = {
 			isa = PBXGroup;
 			children = (
+				7A1CD5FA22E084970049191D /* Bid Chat */,
 				6432FEBC22CDC0A100151492 /* BidListContainerViewController.swift */,
 				6432FEBD22CDC0A100151492 /* OpenBidListViewController.swift */,
 				6432FEBE22CDC0A100151492 /* DriverOffersListViewCell.swift */,
@@ -1561,6 +1567,14 @@
 				1BDB493955FFDB4C5697322A /* Pods_Flivery_Driver.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7A1CD5FA22E084970049191D /* Bid Chat */ = {
+			isa = PBXGroup;
+			children = (
+				7A1CD5FB22E084BC0049191D /* BidChatViewController.swift */,
+			);
+			path = "Bid Chat";
 			sourceTree = "<group>";
 		};
 		C0362C9EB7B3787DD94BD35C /* Pods */ = {
@@ -1720,6 +1734,7 @@
 				EEFEA5942211839600D88655 /* Main.storyboard in Resources */,
 				00E929E2202AE2C100A399E2 /* HeaderView.xib in Resources */,
 				00E92A6E202AE2C100A399E2 /* RequestConfirm.mp3 in Resources */,
+				7A1CD5F422E0811A0049191D /* ChatStoryboard.storyboard in Resources */,
 				00E92A56202AE2C100A399E2 /* WWCalendarTimeSelector.storyboard in Resources */,
 				EEFEA59E221183F700D88655 /* Profile.storyboard in Resources */,
 				3AFADCF8219E98CC0009E3D2 /* SVProgressHUD.bundle in Resources */,
@@ -1911,6 +1926,7 @@
 				3AFADCF1219E98CC0009E3D2 /* UIImage+MultiFormat.m in Sources */,
 				340B0EEC221ABB4D002A1E13 /* SplashViewController.swift in Sources */,
 				00E929DC202AE2C100A399E2 /* DriverVehiclesViewController.swift in Sources */,
+				7A1CD5FC22E084BC0049191D /* BidChatViewController.swift in Sources */,
 				00E92A71202AE2C100A399E2 /* UtilityClass.swift in Sources */,
 				00E92A29202AE2C100A399E2 /* SPConstraintsAssistent.swift in Sources */,
 				00E92A3C202AE2C100A399E2 /* SPSegmentControlStyleProtocol.swift in Sources */,

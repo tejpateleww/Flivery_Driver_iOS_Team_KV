@@ -149,6 +149,8 @@ let kIconBids : String = "icon_legal"
 let NotificationTrackRunningTrip = NSNotification.Name("NotificationTrackRunningTrip")
 let NotificationChangeLanguage = NSNotification.Name("ChangeLanguageNotification")
 
+let NotificationgetResponseOfChatting = NSNotification.Name("NotificationgetResponseOfChatting")
+let NotificationgetResponseOfChattingOfSpecificDriver = NSNotification.Name("NotificationgetResponseOfChattingOfSpecificDriver")
 
 
 func GetPaymentTypeKey() -> String {

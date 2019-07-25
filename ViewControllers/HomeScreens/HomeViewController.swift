@@ -4521,8 +4521,10 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, ARCarMove
                 
                 Singletons.sharedInstance.isRequestAccepted = false
                 Singletons.sharedInstance.isTripContinue = false
-                Singletons.sharedInstance.bookingIdTemp = ""
-                Singletons.sharedInstance.advanceBookingIdTemp = ""
+                
+                
+//                Singletons.sharedInstance.bookingIdTemp = ""
+//                Singletons.sharedInstance.advanceBookingIdTemp = ""
                 
                 if let paymentType = (self.dictCompleteTripData.object(forKey: "details") as! NSDictionary).object(forKey: "PaymentType") as? String {
                     Singletons.sharedInstance.passengerPaymentType = paymentType

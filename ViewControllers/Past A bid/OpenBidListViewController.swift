@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-class OpenBidListViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
+class OpenBidListViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     @IBOutlet weak var tblView: UITableView!
     private let refreshControl = UIRefreshControl()
@@ -88,8 +88,15 @@ class OpenBidListViewController: UIViewController,UITableViewDelegate,UITableVie
             if let PickupLocation = aryData[indexPath.row]["PickupLocation"] as? String{
                 customCell.lblPickupLocation.text = PickupLocation
             }
+            
+            if let BidID =  aryData[indexPath.row]["BidId"] as? Int {
+                customCell.lblBidId.text = "Bid Id - ".localized + "\(BidID)"
+            } else if let BidID =  aryData[indexPath.row]["BidId"] as? String {
+                customCell.lblBidId.text =  "Bid Id - ".localized + "\(BidID)"
+            }
+            
             if let price = aryData[indexPath.row]["Budget"] as? String{
-                customCell.lblPrice.text = "USD " + price
+                customCell.lblPrice.text = "\(currency) " + price
             }
             if let deadHead = aryData[indexPath.row]["DeadHead"] as? String{
                 customCell.lblDeadhead.text = deadHead
@@ -112,16 +119,16 @@ class OpenBidListViewController: UIViewController,UITableViewDelegate,UITableVie
             if let driverStatus = aryData[indexPath.row]["DriverStatus"] as? String{
                 if driverStatus != "1" {
                     customCell.btnViewDetails.isUserInteractionEnabled = true
-                    customCell.btnViewDetails.setTitle("send Offer", for: .normal)
+                    customCell.btnViewDetails.setTitle("Send Offer".localized, for: .normal)
                 }
                 else{
                     customCell.btnViewDetails.isUserInteractionEnabled = false
-                    customCell.btnViewDetails.setTitle("Offer Sent", for: .normal)
+                    customCell.btnViewDetails.setTitle("Offer Sent".localized, for: .normal)
                 }
             }
             else{
                 customCell.btnViewDetails.isUserInteractionEnabled = true
-                customCell.btnViewDetails.setTitle("send Offer", for: .normal)
+                customCell.btnViewDetails.setTitle("Send Offer".localized, for: .normal)
             }
             
             return customCell

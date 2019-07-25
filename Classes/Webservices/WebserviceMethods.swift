@@ -29,7 +29,7 @@ let SubmitBookNowByDispatchJob = WebserviceURLs.kSubmitBookNowByDispatchJob
 let SubmitBookLaterByDispatchJob = WebserviceURLs.kSubmitBookLaterByDispatchJob
 let GetDriverProfile = WebserviceURLs.kGetDriverProfile
 let GetDistanceFromBackend = WebserviceURLs.kGetDistaceFromBackend
-
+let Chating = WebserviceURLs.kChating
 let UpdateDriverBasicInfo = WebserviceURLs.KUpdateDriverBasicInfo
 
 let AcceptDispatchJobRequest = WebserviceURLs.kAcceptDispatchJobRequest
@@ -94,6 +94,18 @@ func webserviceForRegistrationForDriver(_ dictParams: AnyObject, image1: UIImage
     let url = Registration
     sendImage(dictParams as! [String : AnyObject], image1: image1, image2: image2, image3: image3, image4: image4, image5: image5, image6: image6, nsURL: url, completion: completion)
   
+}
+
+
+//-------------------------------------------------------------
+// MARK: - Webservice For Chatting with Passenger
+//-------------------------------------------------------------
+
+func webserviceForChattingwithPassenger(_ dictParams: AnyObject, completion: @escaping(_ result: AnyObject, _ success: Bool) -> Void)
+{ // BookingId/BookingType
+    let url = Chating
+    postData(dictParams, nsURL: url, completion: completion)
+//    getData("" as AnyObject, nsURL: url, completion: completion)
 }
 
 

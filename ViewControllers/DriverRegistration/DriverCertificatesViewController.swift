@@ -689,8 +689,8 @@ class DriverCertificatesViewController: UIViewController,UIImagePickerController
          let postcode: String = userDefault.object(forKey: RegistrationFinalKeys.kZipcode) as! String
             dictData[RegistrationFinalKeys.kZipcode] = postcode as AnyObject
       
-         let passenger: String = userDefault.object(forKey: RegistrationFinalKeys.kNumberOfPasssenger) as! String
-            dictData[RegistrationFinalKeys.kNumberOfPasssenger] = passenger as AnyObject
+//         let passenger: String = userDefault.object(forKey: RegistrationFinalKeys.kNumberOfPasssenger) as! String
+//            dictData[RegistrationFinalKeys.kNumberOfPasssenger] = passenger as AnyObject
         
         let vehicleModelName: String = userDefault.object(forKey: RegistrationFinalKeys.kVehicleModelName) as! String
         dictData[RegistrationFinalKeys.kVehicleModelName] = vehicleModelName as AnyObject

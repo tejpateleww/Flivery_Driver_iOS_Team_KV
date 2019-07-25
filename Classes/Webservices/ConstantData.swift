@@ -52,6 +52,7 @@ struct WebserviceURLs {
     static let kCards                                   = "Cards/"
     static let kAddMoney                                = "AddMoney"
     static let kTransactionHistory                      = "TransactionHistory/"
+    static let kChating                                 = "ChatHistory/"
     static let kSendMoney                               = "SendMoney"
     static let kQRCodeDetails                           = "QRCodeDetails"
     static let kRemoveCard                              = "RemoveCard/"
@@ -248,6 +249,10 @@ struct socketApiKeys {
     static let kAskForTipsForBookLater = "AskForTipsForBookLater"
     static let kReceiveTipsToDriverForBookLater = "ReceiveTipsToDriverForBookLater"
     
+    static let kMyReceiveMessage = "myreceive_message"
+    static let kReceiveMessage = "receive_message"
+    static let kSendMessage = "send_message"
+    static let kConnectDriver = "driver_connect"
 }
 
 struct appName {

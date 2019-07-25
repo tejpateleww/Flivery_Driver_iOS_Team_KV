@@ -1230,8 +1230,8 @@
                                     <constraint firstAttribute="height" constant="25" id="yLg-wE-cHa"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="X4Y-jN-ml7">
-                                <rect key="frame" x="7" y="202.5" width="306" height="215"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="X4Y-jN-ml7">
+                                <rect key="frame" x="7" y="202.5" width="306" height="225"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C5M-Oo-yKG">
                                         <rect key="frame" x="0.0" y="0.0" width="306" height="50"/>
@@ -1285,6 +1285,7 @@
                                             <constraint firstAttribute="trailing" secondItem="pQ1-Fu-4Rc" secondAttribute="trailing" id="JdV-ib-2Dz"/>
                                             <constraint firstAttribute="bottom" secondItem="pQ1-Fu-4Rc" secondAttribute="bottom" id="NnO-Zt-H9N"/>
                                             <constraint firstAttribute="trailing" secondItem="zLj-rZ-quO" secondAttribute="trailing" id="P5T-Jh-9TC"/>
+                                            <constraint firstAttribute="height" constant="50" id="PH9-E4-5AL"/>
                                             <constraint firstItem="pQ1-Fu-4Rc" firstAttribute="leading" secondItem="C5M-Oo-yKG" secondAttribute="leading" id="UGq-Cm-dVj"/>
                                             <constraint firstItem="zLj-rZ-quO" firstAttribute="leading" secondItem="C5M-Oo-yKG" secondAttribute="leading" id="XTh-Ls-A2b"/>
                                             <constraint firstAttribute="bottom" secondItem="zLj-rZ-quO" secondAttribute="bottom" id="Xp0-vn-Vbi"/>
@@ -1351,6 +1352,7 @@
                                             <constraint firstItem="Yeb-Ia-J2T" firstAttribute="leading" secondItem="yKc-JQ-KGb" secondAttribute="leading" id="4yO-K4-Z1R"/>
                                             <constraint firstAttribute="trailing" secondItem="m0f-IE-e70" secondAttribute="trailing" id="HcF-W2-oCL"/>
                                             <constraint firstItem="6Vt-Ia-re5" firstAttribute="leading" secondItem="II6-i0-T4c" secondAttribute="leading" id="Jni-oB-b4P"/>
+                                            <constraint firstAttribute="height" constant="50" id="RXj-ha-MOD"/>
                                             <constraint firstAttribute="trailing" secondItem="Yeb-Ia-J2T" secondAttribute="trailing" id="SO5-oh-xhE"/>
                                             <constraint firstAttribute="bottom" secondItem="m0f-IE-e70" secondAttribute="bottom" id="SXl-Sz-o4d"/>
                                             <constraint firstAttribute="trailing" secondItem="cMe-TD-wyZ" secondAttribute="trailing" id="WrH-w2-x2n"/>
@@ -1406,6 +1408,7 @@
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="XaO-4b-37Y" secondAttribute="trailing" constant="15" id="1u6-K4-0HN"/>
                                             <constraint firstItem="6Re-Yl-uQD" firstAttribute="top" secondItem="pja-gC-tr5" secondAttribute="top" constant="5" id="2uO-Xy-VUH"/>
+                                            <constraint firstAttribute="height" constant="50" id="8v2-1y-hVt"/>
                                             <constraint firstItem="XaO-4b-37Y" firstAttribute="leading" secondItem="6Re-Yl-uQD" secondAttribute="trailing" constant="8" id="9Cq-19-UCo"/>
                                             <constraint firstItem="6Re-Yl-uQD" firstAttribute="leading" secondItem="pja-gC-tr5" secondAttribute="leading" constant="8" id="EaD-XI-zs7"/>
                                             <constraint firstAttribute="trailing" secondItem="jlF-8x-UQC" secondAttribute="trailing" id="MFu-FV-Vht"/>
@@ -1419,26 +1422,26 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DUn-Bg-HDC">
-                                        <rect key="frame" x="0.0" y="165" width="306" height="50"/>
+                                        <rect key="frame" x="0.0" y="165" width="306" height="60"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a4m-ln-yEu">
-                                                <rect key="frame" x="260" y="10" width="31" height="30"/>
+                                                <rect key="frame" x="260" y="15" width="31" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="1fs-H6-q6K"/>
                                                     <constraint firstAttribute="width" constant="31" id="oxl-Mo-DSi"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vehicle Insurance Policy/Certificate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HrD-Uk-ot0">
-                                                <rect key="frame" x="8" y="8" width="241.5" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vehicle Insurance Policy/Certificate  dfdf df" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HrD-Uk-ot0">
+                                                <rect key="frame" x="8" y="0.0" width="244" height="35"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="21" id="QbV-Bp-ZXU"/>
+                                                    <constraint firstAttribute="height" constant="35" id="QbV-Bp-ZXU"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Vehicle Insurance Policy Expiry date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="el1-p2-ulC">
-                                                <rect key="frame" x="8" y="31.5" width="225.5" height="13.5"/>
+                                                <rect key="frame" x="8" y="37.5" width="225.5" height="13.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="13.5" id="PWA-uA-HKD"/>
                                                 </constraints>
@@ -1447,13 +1450,13 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g5b-DA-D8p">
-                                                <rect key="frame" x="0.0" y="0.0" width="306" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="306" height="60"/>
                                                 <connections>
                                                     <action selector="btnVehicleInsurance:" destination="R89-Dr-0Kg" eventType="touchUpInside" id="Mto-TI-Dq4"/>
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="alw-Jm-xwZ">
-                                                <rect key="frame" x="0.0" y="49" width="306" height="1"/>
+                                                <rect key="frame" x="0.0" y="59" width="306" height="1"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="Zab-Km-BqO"/>
@@ -1464,15 +1467,17 @@
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="a4m-ln-yEu" secondAttribute="trailing" constant="15" id="6D3-eW-lNx"/>
                                             <constraint firstAttribute="bottom" secondItem="alw-Jm-xwZ" secondAttribute="bottom" id="6UG-aw-IeH"/>
+                                            <constraint firstItem="a4m-ln-yEu" firstAttribute="leading" secondItem="HrD-Uk-ot0" secondAttribute="trailing" constant="8" id="8zI-5c-c9V"/>
                                             <constraint firstItem="HrD-Uk-ot0" firstAttribute="leading" secondItem="DUn-Bg-HDC" secondAttribute="leading" constant="8" id="9nz-Ur-I7M"/>
                                             <constraint firstItem="g5b-DA-D8p" firstAttribute="leading" secondItem="DUn-Bg-HDC" secondAttribute="leading" id="AFL-3c-FMz"/>
                                             <constraint firstItem="g5b-DA-D8p" firstAttribute="top" secondItem="DUn-Bg-HDC" secondAttribute="top" id="AyG-9i-h4O"/>
                                             <constraint firstItem="a4m-ln-yEu" firstAttribute="centerY" secondItem="DUn-Bg-HDC" secondAttribute="centerY" id="Ft3-g4-SK0"/>
                                             <constraint firstAttribute="trailing" secondItem="alw-Jm-xwZ" secondAttribute="trailing" id="MN5-fF-Gax"/>
+                                            <constraint firstAttribute="height" constant="60" id="Nfd-ho-nAy"/>
+                                            <constraint firstItem="a4m-ln-yEu" firstAttribute="leading" secondItem="el1-p2-ulC" secondAttribute="trailing" constant="26.5" id="PKg-hx-Cfb"/>
                                             <constraint firstAttribute="bottom" secondItem="g5b-DA-D8p" secondAttribute="bottom" id="X8N-r1-B1f"/>
                                             <constraint firstItem="el1-p2-ulC" firstAttribute="top" secondItem="HrD-Uk-ot0" secondAttribute="bottom" constant="2.5" id="b0F-Gi-wh7"/>
-                                            <constraint firstItem="HrD-Uk-ot0" firstAttribute="top" secondItem="DUn-Bg-HDC" secondAttribute="top" constant="8" id="hsj-sp-2bj"/>
-                                            <constraint firstAttribute="bottom" secondItem="el1-p2-ulC" secondAttribute="bottom" constant="5" id="mbZ-I7-Vsc"/>
+                                            <constraint firstItem="HrD-Uk-ot0" firstAttribute="top" secondItem="DUn-Bg-HDC" secondAttribute="top" id="hsj-sp-2bj"/>
                                             <constraint firstItem="alw-Jm-xwZ" firstAttribute="leading" secondItem="DUn-Bg-HDC" secondAttribute="leading" id="rdK-55-opr"/>
                                             <constraint firstItem="el1-p2-ulC" firstAttribute="leading" secondItem="HrD-Uk-ot0" secondAttribute="leading" id="sjS-Fk-fzn"/>
                                             <constraint firstAttribute="trailing" secondItem="g5b-DA-D8p" secondAttribute="trailing" id="xHr-OV-Q80"/>
@@ -1975,7 +1980,7 @@ You must be 21 years of age or over.</string>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="73d-Vx-uig">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="460.5"/>
                                                 <subviews>
-                                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconCARPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="Ukz-MO-OCt">
+                                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconCARPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="Ukz-MO-OCt">
                                                         <rect key="frame" x="20" y="20" width="280" height="130"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="130" id="mmu-52-Nxo"/>

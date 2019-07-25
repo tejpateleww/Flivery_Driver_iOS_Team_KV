@@ -132,6 +132,7 @@ class WalletAddCardsViewController: BaseViewController, UIPickerViewDataSource, 
 
 //        self.setNavBarWithBack(Title: "Cards".localized, IsNeedRightButton: false)
         self.title = "Cards".localized
+        self.btnAddPaymentMethods.setTitle("Add Card".localized, for: .normal)
         setNavBarWithMenuORBack(Title: "Cards".localized, LetfBtn: kIconBack, IsNeedRightButton: false, isTranslucent: false)
         cardNum()
         cardExpiry()

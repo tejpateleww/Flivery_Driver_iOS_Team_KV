@@ -76,6 +76,22 @@ extension UIViewController {
     func ConvertSecondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {
         return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
     }
+    
+    func isModal() -> Bool {
+        if (presentingViewController != nil) {
+            return true
+        }
+        if navigationController?.presentingViewController?.presentedViewController == navigationController {
+            return true
+        }
+        if (tabBarController?.presentingViewController is UITabBarController) {
+            return true
+        }
+        return false
+    }
+
 }
+
+
 
 

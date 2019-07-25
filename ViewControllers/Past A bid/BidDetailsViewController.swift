@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-class BidDetailsViewController: UIViewController
+class BidDetailsViewController: BaseViewController
 {
     //MARK:- ====== Outlets ======
     @IBOutlet weak var viewLabel: UIView!
@@ -28,6 +28,7 @@ class BidDetailsViewController: UIViewController
     @IBOutlet weak var lblPrice: UILabel!
     @IBOutlet weak var lblDriveOfferTitle: UILabel!
     @IBOutlet weak var tblView: UITableView!
+    @IBOutlet var lblBidID: UILabel!
     
     //MARK:- ====== Variables ======
      private let refreshControl = UIRefreshControl()
@@ -40,47 +41,90 @@ class BidDetailsViewController: UIViewController
    //MARK:- ====== View Controller Life cycle ======
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.setNavBarWithMenuORBack(Title: "Bid Detail".localized, LetfBtn: kIconBack, IsNeedRightButton: false, isTranslucent: false)
+
        // self.tblView.register(UINib(nibName: "NoDataFoundTableViewCell", bundle: nil), forCellReuseIdentifier: "NoDataFoundTableViewCell")
         DataSetup()
     }
    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let RightButton = UIBarButtonItem(image: UIImage(named: "icon_chat"), style: .plain, target: self, action: #selector(OpenChatDetail))
+        self.navigationItem.rightBarButtonItem = RightButton
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
     }
+    
+    //MARK:- ====== Navigation bar Button Action ======
+    
+    @objc func OpenChatDetail() {
+        
+        let BidStoryboard = UIStoryboard(name: "ChatStoryboard", bundle: nil)
+        let BidChatPage = BidStoryboard.instantiateViewController(withIdentifier: "BidChatViewController") as! BidChatViewController
+        
+        if let BidID = self.bidDetail["BidId"] as? Int {
+            BidChatPage.strBidId = "\(BidID)"
+        } else if let BidID = self.bidDetail["BidId"] as? String {
+            BidChatPage.strBidId = BidID
+        }
+        
+        if let PassengerID = self.bidDetail["PassengerId"] as? Int {
+            BidChatPage.strPassengerId = "\(PassengerID)"
+        } else if let PassengerID = self.bidDetail["PassengerId"] as? String {
+            BidChatPage.strPassengerId = PassengerID
+        }
+        
+        if let ShipperName = self.bidDetail["ShipperName"] as? String {
+            BidChatPage.strShipperName = ShipperName
+        }
+        
+        self.navigationController?.pushViewController(BidChatPage, animated: true)
+        
+    }
+    
       //MARK:- ====== Data Setup ======
     func DataSetup(){
-        if let distance = aryData[0]["Distance"] as? String{
+        self.bidDetail = aryData[0]
+        if let distance = self.bidDetail["Distance"] as? String{
             lblDistance.text = distance
         }
-        if let PickupLocation = aryData[0]["PickupLocation"] as? String{
+        
+        if let BidID = self.bidDetail["BidId"] as? Int {
+            lblBidID.text = "Bid Id - ".localized + "\(BidID)"
+        } else if let BidID = self.bidDetail["BidId"] as? String {
+            lblBidID.text = "Bid Id - ".localized + "\(BidID)"
+        }
+        
+        if let PickupLocation = self.bidDetail["PickupLocation"] as? String{
             lblPickupLocation.text = PickupLocation
         }
-        if let price = aryData[0]["Budget"] as? String{
-            lblPrice.text = "USD " + price
+        if let price = self.bidDetail["Budget"] as? String{
+            lblPrice.text = "\(currency) " + price
         }
-        if let deadHead = aryData[0]["DeadHead"] as? String{
+        if let deadHead = self.bidDetail["DeadHead"] as? String{
             lblDeahead.text = deadHead
         }
-        if let pickup = aryData[0]["PickupDateTime"] as? String{
+        if let pickup = self.bidDetail["PickupDateTime"] as? String{
             let pickupDate : [String] = pickup.components(separatedBy: " ")
             var date : String = pickupDate[0]
             let datestring = UtilityClass.formattedDateFromString(dateString: date, withFormat: "dd MMMM")
             lblPickupDate.text =  datestring
         }
-        if let droplocation = aryData[0]["DropoffLocation"] as? String{
+        if let droplocation = self.bidDetail["DropoffLocation"] as? String{
             lblDropoffLocation.text = droplocation
         }
         
-        if let modelName = aryData[0]["Name"] as? String{
+        if let modelName = self.bidDetail["Name"] as? String{
             lblVehicleName.text = modelName
         }
-        if let modelimage = aryData[0]["ModelImage"] as? String{
+        if let modelimage = self.bidDetail["ModelImage"] as? String{
            iconVehicle.sd_setImage(with: URL(string: WebserviceURLs.kImageBaseURL + modelimage), placeholderImage: UIImage(named: "iconProfilePicBlank"), options: [], completed: nil)
         }
-        if let bids = aryData[0]["DriverBids"] as? String{
-            lblBidCount.text = "Bids - " + bids
+        if let bids = self.bidDetail["DriverBids"] as? String{
+            lblBidCount.text = "Bids - ".localized + bids
         }
     }
     

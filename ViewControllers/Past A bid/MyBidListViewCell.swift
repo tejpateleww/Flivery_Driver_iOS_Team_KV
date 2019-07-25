@@ -26,6 +26,7 @@ class MyBidListViewCell: UITableViewCell {
     @IBOutlet weak var lblDistanceTitle: UILabel!
     @IBOutlet weak var lblPriceTitle: UILabel!
     
+    @IBOutlet var lblBidId: UILabel!
     
     @IBOutlet weak var lblPickupDate: UILabel!
     @IBOutlet weak var lblDeadhead: UILabel!

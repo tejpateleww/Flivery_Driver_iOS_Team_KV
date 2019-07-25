@@ -154,19 +154,19 @@ class ParentViewController: UIViewController, HeaderViewDelegate {
         }
     }
     
-    func isModal() -> Bool {
-        if (presentingViewController != nil) {
-            return true
-        }
-        if navigationController?.presentingViewController?.presentedViewController == navigationController {
-            return true
-        }
-        if (tabBarController?.presentingViewController is UITabBarController) {
-            return true
-        }
-        return false
-    }
-    
+//    func isModal() -> Bool {
+//        if (presentingViewController != nil) {
+//            return true
+//        }
+//        if navigationController?.presentingViewController?.presentedViewController == navigationController {
+//            return true
+//        }
+//        if (tabBarController?.presentingViewController is UITabBarController) {
+//            return true
+//        }
+//        return false
+//    }
+//
     func SearchClicked()         //  Search
     {
         

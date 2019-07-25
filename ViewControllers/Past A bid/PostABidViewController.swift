@@ -26,6 +26,9 @@ class PostABidViewController: BaseViewController,UITextFieldDelegate {
     @IBOutlet weak var txtNotes: ACFloatingTextfield?
     @IBOutlet weak var txtVehicleType: ACFloatingTextfield?
     @IBOutlet weak var txtPayment: ACFloatingTextfield?
+    @IBOutlet var txtDocument: ACFloatingTextfield!
+    
+    @IBOutlet var lblBidId: UILabel!
     @IBOutlet weak var imgDocument : UIImageView!
     @IBOutlet weak var btnReject: UIButton!
     @IBOutlet weak var btnAccept: UIButton!
@@ -40,6 +43,7 @@ class PostABidViewController: BaseViewController,UITextFieldDelegate {
     var strCarModelID = String()
     var strNavigateCarModel = String()
     var imageView = UIImageView()
+    var ParcelImageView = UIImageView()
     var statusType = String()
     var budget = String()
     private let refreshControl = UIRefreshControl()
@@ -47,6 +51,10 @@ class PostABidViewController: BaseViewController,UITextFieldDelegate {
     @IBOutlet weak var collectionviewCars: UICollectionView!
     @IBOutlet var viewSelectVehicle: UIView!
     @IBOutlet weak var imgPaymentOption: UIImageView!
+    
+    @IBOutlet var BottomStack: UIStackView!
+    
+    var isThisDetail:Bool = false
     
      //MARK:- ====== View Controller Life cycle ============
     override func viewDidLoad() {
@@ -59,6 +67,13 @@ class PostABidViewController: BaseViewController,UITextFieldDelegate {
         setupButtonAndTextfield()
       
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.btnAccept.setTitle("Accept".localized, for: .normal)
+        self.btnReject.setTitle("Reject".localized, for: .normal)
+    }
+    
      //MARK:- ======= Data Setup =======
     @IBAction func btnActionAccept(_ sender: UIButton) {
         btnReject.isSelected = false
@@ -135,14 +150,21 @@ class PostABidViewController: BaseViewController,UITextFieldDelegate {
         if let modelimage = BidData[0]["ModelImage"] as? String{
             imageView.sd_setImage(with: URL(string: WebserviceURLs.kImageBaseURL + modelimage), placeholderImage: UIImage(named: "iconProfilePicBlank"), options: [], completed: nil)
         }
+        txtDocument.text = "Parcel Image"
         if let Docimage = BidData[0]["Image"] as? String{
-            imgDocument.sd_setImage(with: URL(string: WebserviceURLs.kImageBaseURL + Docimage), placeholderImage: UIImage(named: "iconProfilePicBlank"), options: [], completed: nil)
+            ParcelImageView.sd_setImage(with: URL(string: WebserviceURLs.kImageBaseURL + Docimage), placeholderImage: UIImage(named: "iconProfilePicBlank"), options: [], completed: nil)
         }
         if let Budget = BidData[0]["Budget"] as? String{
              budget = Budget
         }
         if let bidID = BidData[0]["Id"] as? String{
             strbidID = bidID
+            self.lblBidId.text  = "Bid Id - ".localized + "\(strbidID)"
+            print(bidID)
+        }
+        else if let bidID = BidData[0]["Id"] as? Int{
+            strbidID = "\(bidID)"
+            self.lblBidId.text  = "Bid Id - ".localized + "\(strbidID)"
             print(bidID)
         }
         if let passengerID = BidData[0]["PassengerId"] as? String{
@@ -151,11 +173,25 @@ class PostABidViewController: BaseViewController,UITextFieldDelegate {
         }
 
         if let budget = BidData[0]["Budget"] as? String{
-            txtBudget?.placeholder = "Max.$\(budget)"
+            if self.isThisDetail == true {
+                txtBudget?.placeholder = ""
+                txtBudget?.text = "$\(budget)"
+            } else {
+                txtBudget?.placeholder = "Max.$\(budget)"
+                txtBudget?.text = ""
+            }
         }
         else if let budget = BidData[0]["Budget"] as? Int{
-            txtBudget?.placeholder = "Max.$\(budget)"
+            if self.isThisDetail == true {
+                txtBudget?.placeholder = ""
+                txtBudget?.text = "$\(budget)"
+            } else {
+                txtBudget?.placeholder = "Max.$\(budget)"
+                txtBudget?.text = ""
+            }
         }
+        
+        
     }
     
  //MARK:- ======= View Setup =======
@@ -171,19 +207,34 @@ class PostABidViewController: BaseViewController,UITextFieldDelegate {
         imageView.contentMode = .scaleAspectFit
         let paddingView: UIView = UIView.init(frame: CGRect(x: 0, y: 0, width: 50, height: 30))
         paddingView.addSubview(imageView)
+        ParcelImageView.frame = CGRect(x: 0, y: 0, width: 60 , height: 60)
+        ParcelImageView.contentMode = .scaleAspectFit
+        let ParcelpaddingView: UIView = UIView.init(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
+        ParcelpaddingView.addSubview(ParcelImageView)
         txtVehicleType?.rightViewMode = .always
         txtVehicleType?.rightView = paddingView
         txtVehicleType?.isUserInteractionEnabled = false
+        txtDocument?.rightViewMode = .always
+        txtDocument?.rightView = ParcelpaddingView
+        txtDocument?.isUserInteractionEnabled = false
         txtShippersName?.isUserInteractionEnabled = false
         TxtDateAndTime?.isUserInteractionEnabled = false
         txtPickUpLocation?.isUserInteractionEnabled = false
         txtDropLocation?.isUserInteractionEnabled = false
 
+        if self.isThisDetail {
+            txtNotes?.isUserInteractionEnabled = false
+            txtBudget?.isUserInteractionEnabled = false
+            BottomStack.isHidden = true
+        } else {
+            BottomStack.isHidden = false
+        }
+        
     }
      //MARK:- ======= Validation =======
     func validation() -> Bool{
         if txtBudget?.text == "" || txtBudget?.text?.trimmingCharacters(in:.whitespaces) == ""{
-            UtilityClass.showAlert("", message: "Please Enter Budget", vc: self)
+            UtilityClass.showAlert("", message: "Please enter your budget".localized, vc: self)
             return false
         }
          else if txtNotes?.text == "" || txtNotes?.text?.trimmingCharacters(in:.whitespaces) == ""{
