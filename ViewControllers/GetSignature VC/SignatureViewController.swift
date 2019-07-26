@@ -16,6 +16,7 @@ class SignatureViewController: UIViewController, YPSignatureDelegate {
     var onDismiss : (() -> ())?
     var parcelSignatureImage = UIImage()
     @IBOutlet weak var btnDone : UIButton!
+    @IBOutlet weak var btnUploadPicture : UIButton!
     var IsNeedToOpenCamera:Bool = false
     
     override func viewDidLoad() {
@@ -23,6 +24,7 @@ class SignatureViewController: UIViewController, YPSignatureDelegate {
 
         signatureView.delegate = self
         btnDone.setTitle("Done".localized, for: .normal)
+        btnUploadPicture.setTitle("Upload Picture".localized, for: .normal)
     }
     
     func didStart(_ view: YPDrawSignatureView) {

@@ -217,6 +217,14 @@
 "Please enter valid bank account No." = "Veuiller entrer un numéro de carte bancaire valide";
 "No driver available" = "Aucun livreur disponible";
 "Rate Dialog";
+"Parcel Received" = "Colis reçu";
+"OR" = "OU";
+"Please Provide Signature Above" = "Veuillez fournir la signature ci-dessus";
+"Upload your parcel photo here" = "Veuillez télécharger votre image ici";
+"Upload Picture" = "Charger une photo";
+"Parcel Received" = "Colis reçu";
+"Estimated Fare : " = "Tarif estimé:";
+"Clear" = "nette";
 "Please Add Licence Expiry Date" = "S'il vous plaît ajouter la date d'expiration de la licence";
 "Please Add Revenue Expiry Date" = "S'il vous plaît ajouter la date d'expiration des revenus";
 "Please Add Insurance Expiry Date" = "Veuillez ajouter la date d'expiration de l'assurance";

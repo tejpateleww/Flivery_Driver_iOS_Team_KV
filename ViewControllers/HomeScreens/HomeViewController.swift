@@ -4253,9 +4253,11 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, ARCarMove
         }
         
         let param = Singletons.sharedInstance.strDriverID + "/" + Singletons.sharedInstance.deviceToken
-        
+
         webserviceForCurrentBooking(param as AnyObject) { (result, status) in
-            
+            Singletons.sharedInstance.isPickUPPasenger = false
+            Singletons.sharedInstance.isRequestAccepted = false
+
             if (status) {
                 
                 
@@ -4521,7 +4523,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, ARCarMove
                 
                 Singletons.sharedInstance.isRequestAccepted = false
                 Singletons.sharedInstance.isTripContinue = false
-                
+                Singletons.sharedInstance.isPickUPPasenger = false
                 
 //                Singletons.sharedInstance.bookingIdTemp = ""
 //                Singletons.sharedInstance.advanceBookingIdTemp = ""
