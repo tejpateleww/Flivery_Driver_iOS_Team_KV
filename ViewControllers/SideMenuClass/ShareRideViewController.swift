@@ -118,7 +118,7 @@ class ShareRideViewController: ParentViewController, UITableViewDelegate, UITabl
         cell.lblPickUpLocation.text = "Pick up location".localized
         cell.lblDropLocation.text = "Drop off location".localized
         cell.lblStatus.text = "Trip Status :" .localized
-        cell.lblPaymentType.text = "Payment Type :".localized
+        cell.lblPaymentType.text = "\("Payment Type".localized.uppercased()) :"
         cell.lblNumberOfPassengers.text = "Number Of Passenger".localized
 //        cell.btnTrackYourTrip.setTitle("".localized, for: .normal)
         

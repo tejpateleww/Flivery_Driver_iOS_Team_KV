@@ -173,7 +173,7 @@ class PastJobsListVC: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        
+        /*
         let cell = tableView.dequeueReusableCell(withIdentifier: "PastJobsListTableViewCell") as! PastJobsListTableViewCell
         //        let cell2 = tableView.dequeueReusableCell(withIdentifier: "NoDataFound") as! PastJobsListTableViewCell
         
@@ -416,7 +416,296 @@ class PastJobsListVC: UIViewController, UITableViewDataSource, UITableViewDelega
             cell.TaxStackView.isHidden = false
             cell.TotalStackView.isHidden = false
         }
-      
+      */
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UpCommingTableViewCell") as! UpCommingTableViewCell
+        
+        if aryData.count > 0 {
+            //            let currentData = (aryData.object(at: indexPath.row) as! [String:AnyObject])
+            
+            cell.selectionStyle = .none
+            
+            cell.lblBookingIdTitle.text = "Booking Id".localized.uppercased()
+            cell.lblPickupAddressTitle.text = "Pickup Location".localized.uppercased()
+            cell.lblDropoffAddressTitle.text = "Dropoff Location".localized.uppercased()
+            cell.lblBookingDateTitle.text = "Booking Date".localized.uppercased()
+            
+            cell.lblPickUpTimeTitle.text = "Pickup Date Time".localized.uppercased()
+            cell.lblDropoffTimeTitle.text = "Dropoff Date Time".localized.uppercased()
+            cell.lblVehicleModelTitle.text = "Vehicle Model".localized.uppercased()
+            cell.lblParcelTypeTitle.text = "Parcel Type".localized.uppercased()
+            cell.lblParcelWeightTitle.text = "Parcel Weight".localized.uppercased()
+            cell.lblParcelImageTitle.text = "Parcel Image".localized.uppercased()
+            cell.lblDeliveredParcelImageTitle.text = "Delivered Parcel Image".localized.uppercased()
+            cell.lblPassengerEmailTitle.text = "Passenger Email".localized.uppercased()
+            cell.lblPassengerNoTitle.text = "Passenger No".localized.uppercased()
+            cell.lblDeliveryDistanceTitle.text = "Delivery Distance".localized.uppercased()
+            cell.lblDeliveryDurationTitle.text = "Delivery Duration".localized.uppercased()
+            cell.lblDeliveryFareTitle.text = "Delivery Fare".localized.uppercased()
+            cell.lblDistanceFareTitle.text = "Distance Fare".localized.uppercased()
+            cell.lblWeightChargeTitle.text = "Weight Charge".localized.uppercased()
+            cell.lblTaxTitle.text = "Tax".localized.uppercased()
+            cell.lblDiscountTitle.text = "Discount".localized.uppercased()
+            cell.lblSubTotalTitle.text = "Sub Total".localized.uppercased()
+            cell.lblBookingChargeTitle.text = "Booking Charge".localized.uppercased()
+            cell.lblGrandTotalTitle.text = "Grand Total".localized.uppercased()
+            cell.lblPaymentTypeTitle.text = "Payment Type".localized.uppercased()
+            cell.lblParcelInformation.text = "Parcel Information".localized.uppercased()
+            cell.lblPassengerNoteTitle.text = "Passenger Note".localized.uppercased()
+
+//            cell.lblPickupAddressTitle.text = "PICK UP LOCATION".localized
+//            cell.lblDropoffAddressTitle.text = "DROP OFF LOCATION".localized
+          
+//            cell.lblTripDistanceTitle.text = "PASSENGER EMAIL".localized
+//            cell.lblPaymentTypeTitle.text = "Payment Type".localized.uppercased()
+            
+            cell.btnCancelRequest.setTitle("On The Way".localized, for: .normal)
+            cell.btnCancelRequest.titleLabel?.font = UIFont.bold(ofSize: 8.0)
+            
+            //            cell.viewCell.layer.cornerRadius = 10
+            //            cell.viewCell.clipsToBounds = true
+            
+            //            let dictData = aryData[indexPath.row] as! NSDictionary
+            let dictData = aryData.object(at: indexPath.row) as! NSDictionary
+            if let BookingID = dictData[ "Id"] as? String {
+                //                cell.lblBookingId.text = "\("Booking Id".localized) : \(BookingID)"
+                cell.lblBookingId.text = ": \(BookingID)"
+            }
+            
+            
+            //            cell.lblBookingID.attributedText = formattedString
+            if let Createdate = dictData[ "CreatedDate"] as? String {
+                cell.lblDateAndTime.text =   ": " + Createdate
+            }
+            
+            //            if let Notes = dictData["Notes"] as? String {
+            //                cell.lblNotes.text = Notes
+            //            }
+            
+            if let PickupLocation = dictData[ "PickupLocation"] as? String {
+                cell.lblPickupAddress.text = ": " + PickupLocation // PickupLocation
+            }
+            if let DropOffAddress = dictData[ "DropoffLocation"] as? String {
+                cell.lblDropoffAddress.text =  ": " + DropOffAddress  // DropoffLocation
+            }
+            if let pickupTime = dictData[ "PickupDateTime"] as? String {
+                if pickupTime == "" {
+                    cell.lblPickUpTime.text =  ": Date and Time not available"
+                }
+                else {
+                    cell.lblPickUpTime.text = ": " +  pickupTime
+                    //                        setTimeStampToDate(timeStamp: pickupTime)
+                }
+            }
+            //            if let vehicleType = dictData["Model"] as? String {
+            //                cell.lblVehicleType.text = ": " + vehicleType
+            //            }
+            
+            if let email = dictData["PassengerEmail"] as? String {
+                cell.lblpassengerEmail.text = ": " + email
+            }
+            
+            if let PaymentType = dictData["PaymentType"] as? String {
+                cell.lblPaymentType.text = ": " + PaymentType
+            }
+            
+            if let ParcelArray = dictData["parcel_info"] as? [[String:Any]] {
+                cell.arrParcel = ParcelArray
+                cell.setParcelDetail()
+            }
+            
+            if let vehicleType = dictData["Model"] as? String {
+                cell.lblVehicleModel.text = ": " + vehicleType
+            }
+            
+            if let ParcelDetail = dictData["Parcel"] as? [String:Any] {
+                if let ParcelType = ParcelDetail["Name"] as? String {
+                    cell.lblParcelType.text  = ": " +  ParcelType
+                }
+            }
+            
+            if let ParcelWeight = dictData["Weight"] as? String , ParcelWeight  != "" {
+                cell.lblParcelWeight.text = String(format: ": %.2f Kgs", (ParcelWeight as NSString).doubleValue)
+            }else if let ParcelWeight = dictData["Weight"] as? Double {
+                cell.lblParcelWeight.text = String(format: ": %.2f Kgs", ParcelWeight)
+            }
+            
+            
+            if let strParcelImage = dictData["ParcelImage"] as? String {
+                cell.imgParcelImage.sd_setShowActivityIndicatorView(true)
+                cell.imgParcelImage.sd_setIndicatorStyle(.gray)
+                cell.imgParcelImage?.sd_setImage(with: URL(string: strParcelImage), completed: { (image, error, cacheType, url) in
+                    cell.imgParcelImage.sd_removeActivityIndicator()
+                    cell.imgParcelImage.contentMode = .scaleAspectFit
+                })
+            }
+            
+            cell.ViewDeliveredParcelImage.isHidden = false
+            if let strDeliverParcelImage = dictData["DeliveredParcelImage"] as? String {
+                cell.imgDeliveredParcelImage.sd_setShowActivityIndicatorView(true)
+                cell.imgDeliveredParcelImage.sd_setIndicatorStyle(.gray)
+                cell.imgDeliveredParcelImage?.sd_setImage(with: URL(string: strDeliverParcelImage), completed: { (image, error, cacheType, url) in
+                    cell.imgDeliveredParcelImage.sd_removeActivityIndicator()
+                    cell.imgDeliveredParcelImage.contentMode = .scaleAspectFit
+                })
+            }
+            
+            if let passengerName = dictData["PassengerName"] as? String {
+                cell.lblDriverName.text =  passengerName
+            }
+            
+            if let passengerNo = dictData["PassengerContact"] as? String {
+                cell.lblPassengerNo.text = ": " +  passengerNo
+            }
+            
+            if let ApartmentNumber = dictData[ "ApartmentNo"] as? String , ApartmentNumber != "" {
+                cell.lblApartmentNumber.text =  ": \(ApartmentNumber)"  // Apartment Number
+                cell.AppartmentStack.isHidden = false
+//                cell.ApartmentTopConstraint.constant = 24.0
+            } else {
+                cell.AppartmentStack.isHidden = true
+//                cell.ApartmentTopConstraint.constant = 5.0
+            }
+            
+            if let parcelPrice = dictData["ParcelPrice"] as? String {
+                if let price = Double(parcelPrice) {
+                    cell.lblParcelPriceValue.text = ": \(currency)" + String(format: "%.2f", price)
+                }
+            }
+            
+            if let note = dictData["Notes"] as? String {
+                cell.vwStackNote.isHidden = note.isEmpty
+                cell.lblNotes.text = ": " +  note
+                
+            }
+            
+            if let dropOfTime = dictData["DropTime"] as? String {
+                cell.lblDropofTime.text = ": " +   setTimeStampToDate(timeStamp: dropOfTime)
+                //                        setTimeStampToDate(timeStamp: pickupTime)
+            }
+            
+            
+            
+            if let tripDistance = dictData["TripDistance"] as? String {
+                cell.lblDistance.text = ": " + tripDistance + " Km"
+            }
+            
+            if let waitingTime = dictData["TripDuration"] as? String
+            {
+                
+                var strWaitingTime: String = "00:00:00"
+                
+                if waitingTime != "" {
+                    let intWaitingTime = Int(waitingTime)
+                    let WaitingTimeIs = ConvertSecondsToHoursMinutesSeconds(seconds: intWaitingTime!)
+                    if WaitingTimeIs.0 == 0 {
+                        if WaitingTimeIs.1 == 0 {
+                            strWaitingTime = "00:00:\(WaitingTimeIs.2)"
+                        } else {
+                            strWaitingTime = "00:\(WaitingTimeIs.1):\(WaitingTimeIs.2)"
+                        }
+                    } else {
+                        strWaitingTime = "\(WaitingTimeIs.0):\(WaitingTimeIs.1):\(WaitingTimeIs.2)"
+                    }
+                }
+                else {
+                    strWaitingTime = waitingTime
+                }
+                
+                cell.lblDuration.text =  ": " + strWaitingTime
+                
+            }
+            if let tripFare = dictData["TripFare"] as? String {
+                cell.lblTripFare.text = ": \(currency)" + tripFare
+            }
+            
+            if let bookingCharge = dictData["BookingCharge"] as? String {
+                cell.lblBookingCharge.text = ": \(currency)" + bookingCharge
+            }
+            
+            if let bookingCharge = dictData["DistanceFare"] as? String {
+                cell.lblDistanceFare.text = ": \(currency)" + bookingCharge
+            }
+            
+            if let WeightCharge = dictData["WeightCharge"] as? String {
+                cell.lblWeightCharge.text = ": \(currency)" + WeightCharge
+            }
+            
+            if let tax = dictData["Tax"] as? String {
+                cell.lblTax.text = ": \(currency)" + tax
+            }
+            
+            if let discount = dictData["Discount"] as? String {
+                cell.lblDiscount.text = ": \(currency)" + discount
+                if discount != "0" && discount != "0.0" && discount != "" {
+                    cell.vwDiscount.isHidden = false
+                } else {
+                    cell.vwDiscount.isHidden = true
+                }
+            }
+            
+            if let subTotal = dictData["SubTotal"] as? String {
+                cell.lblSubtotal.text = ": \(currency)" + subTotal
+            }
+            if let grandTotal = dictData["GrandTotal"] as? String {
+                cell.lblGrandTotal.text = ": \(currency)" + grandTotal
+            }
+            
+            if let status = dictData["Status"] as? String {
+                
+                if let isParcelReturn = dictData["ParcelReturn"] as? String , !isParcelReturn.isEmpty {
+                    
+                    cell.lblTripStatus.text = (isParcelReturn == "1") ?  (" " + status.localized.uppercased() + " (Parcel Return)") : (" " + status.localized.uppercased())
+                    
+                }else {
+                    cell.lblTripStatus.text = (" " + status.localized.uppercased())
+                }
+                
+            }
+            
+            
+            if let status = dictData["Status"] as? String {
+                if status == "canceled" || status == "Canceled" || status == "CANCELED" {
+                    cell.vwPickupTIme.isHidden = true
+                    cell.vwDropTime.isHidden = true
+                    cell.vwDistance.isHidden = true
+                    cell.vwTripDuration.isHidden = true
+                    cell.vwTripFare.isHidden = true
+                    cell.vwBookingCharge.isHidden = true
+                    cell.vwTax.isHidden = true
+                    cell.vwParcelWeight.isHidden = true
+                    cell.ViewDeliveredParcelImage.isHidden = true
+//                    cell.vwDiscount.isHidden = true
+                    cell.vwSubtotal.isHidden = true
+                    cell.vwGrandTotal.isHidden = true
+//                    cell.vwPaymentType.isHidden = true
+                    cell.vwDistanceFare.isHidden = true
+                    cell.vwWeightCharge.isHidden = true
+                    cell.imgTripStatus.image = UIImage(named: "cancel")
+                    //                    cell.vwTripStatus.isHidden = true
+                }else {
+                    cell.vwPickupTIme.isHidden = false
+                    cell.vwDropTime.isHidden = false
+                    cell.vwDistance.isHidden = false
+                    cell.vwTripDuration.isHidden = false
+                    cell.vwTripFare.isHidden = false
+                    cell.vwBookingCharge.isHidden = false
+                    cell.vwTax.isHidden = false
+                    cell.vwParcelWeight.isHidden = false
+                    cell.ViewDeliveredParcelImage.isHidden = false
+//                    cell.vwDiscount.isHidden = false
+                    cell.vwSubtotal.isHidden = false
+                    cell.vwGrandTotal.isHidden = false
+//                    cell.vwPaymentType.isHidden = false
+                    cell.vwDistanceFare.isHidden = false
+                    cell.vwWeightCharge.isHidden = false
+                    cell.imgTripStatus.image = UIImage(named: "icon_check")
+                    //                    cell.vwTripStatus.isHidden = false
+                }
+            }
+            cell.viewDetails.isHidden = !expandedCellPaths.contains(indexPath)
+        }
+        
         
         return cell
         //        }
@@ -436,7 +725,9 @@ class PastJobsListVC: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func setTimeStampToDate(timeStamp: String) -> String {
-        
+        if timeStamp == "" {
+            return ""
+        }
         let unixTimestamp = Double(timeStamp)
         //        let date = Date(timeIntervalSince1970: unixTimestamp)
         
@@ -444,7 +735,7 @@ class PastJobsListVC: UIViewController, UITableViewDataSource, UITableViewDelega
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = TimeZone(abbreviation: "GMT") //Set timezone that you want
         dateFormatter.locale = NSLocale.current
-        dateFormatter.dateFormat = "HH:mm dd/MM/yyyy" //Specify your format that you want
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm" //Specify your format that you want
         let strDate: String = dateFormatter.string(from: date)
         
         return strDate
@@ -476,19 +767,31 @@ class PastJobsListVC: UIViewController, UITableViewDataSource, UITableViewDelega
         //
         //            if aryPastJobs.count != 0 {
         //
-        if let cell = tableView.cellForRow(at: indexPath) as? PastJobsListTableViewCell {
-            cell.viewAllDetails.isHidden = !cell.viewAllDetails.isHidden
-            if cell.viewAllDetails.isHidden {
+//        if let cell = tableView.cellForRow(at: indexPath) as? PastJobsListTableViewCell {
+//            cell.viewAllDetails.isHidden = !cell.viewAllDetails.isHidden
+//            if cell.viewAllDetails.isHidden {
+//                expandedCellPaths.remove(indexPath)
+//            } else {
+//                expandedCellPaths.insert(indexPath)
+//            }
+//            tableView.beginUpdates()
+//            tableView.endUpdates()
+//            //            tableView.deselectRow(at: indexPath, animated: true)
+//        }
+        //            }
+        //        }
+        
+        if let cell = tableView.cellForRow(at: indexPath) as? UpCommingTableViewCell {
+            cell.viewDetails.isHidden = !cell.viewDetails.isHidden
+            if cell.viewDetails.isHidden {
                 expandedCellPaths.remove(indexPath)
             } else {
                 expandedCellPaths.insert(indexPath)
             }
             tableView.beginUpdates()
             tableView.endUpdates()
-            //            tableView.deselectRow(at: indexPath, animated: true)
+            
         }
-        //            }
-        //        }
     }
     
     //-------------------------------------------------------------

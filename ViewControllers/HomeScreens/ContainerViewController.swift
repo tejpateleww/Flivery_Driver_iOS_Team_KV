@@ -32,7 +32,7 @@ class ContainerViewController: BaseViewController {
     @IBAction func btnHome(_ sender: UIButton) {
         self.scrollToPage(page: 0, animated: true)
      }
-
+ 
     @IBAction func btnMyJob(_ sender: UIButton)
     {
         self.scrollToPage(page: 1, animated: true)

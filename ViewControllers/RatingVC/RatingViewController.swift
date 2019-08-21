@@ -54,7 +54,7 @@ class RatingViewController: UIViewController,FloatRatingViewDelegate {
     }
  
     func setLocalization() {
-        self.txtFeedback.placeholder = "Write a comment".localized
+        self.txtFeedback.placeholder = "Any other feedback (Optional)".localized
         btnSubmit.setTitle("Submit".localized, for: .normal)
     }
     
@@ -85,14 +85,13 @@ class RatingViewController: UIViewController,FloatRatingViewDelegate {
         param["Comment"] = txtFeedback.text as AnyObject
         param["BookingType"] = strBookingType as AnyObject
         
-        
         webserviceForGiveRating(param as AnyObject) { (result, status) in
             
             if (status) {
                 print(result)
                 //needToCheck
                 self.ratingToDriver = 0
-                    UtilityClass.showAlertWithCompletion("App Name".localized, message: "Thanks for feedback.".localized, vc: self) { (status) in
+                UtilityClass.showAlertWithCompletion("App Name".localized, message: "Thanks for feedback.".localized, vc: self) { (status) in
                 }
                 
                 self.delegate?.didRatingIsSubmitSuccessfully()

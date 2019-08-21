@@ -50,6 +50,9 @@ class TripInfoCompletedTripVC: UIViewController {
     @IBOutlet var lblTripStatusTitle: UILabel!
     @IBOutlet weak var lblTipAmountTitle: UILabel!
     @IBOutlet weak var lblTaxTitle: UILabel!
+    @IBOutlet var lblParcelTypeTitle: UILabel!
+    @IBOutlet var lblParcelWeightTitle: UILabel!
+    @IBOutlet var lblWeightChargeTitle: UILabel!
     
     @IBOutlet weak var lblDistanceFareTitle: UILabel!
     
@@ -63,13 +66,16 @@ class TripInfoCompletedTripVC: UIViewController {
     @IBOutlet var lblWaitingCost: UILabel!
     @IBOutlet var lblWaitingTime: UILabel!
     @IBOutlet var lblPromoCode: UILabel!
-      @IBOutlet var lblTax: UILabel!
+    @IBOutlet var lblTax: UILabel!
     @IBOutlet var lblTotlaAmount: UILabel!
     @IBOutlet var lblTripStatus: UILabel!
     @IBOutlet weak var lblTipAmount: UILabel!
     @IBOutlet weak var lblDistanceFare: UILabel!
-    
-    
+    @IBOutlet var lblParcelType: UILabel!
+    @IBOutlet var lblParcelWeight: UILabel!
+    @IBOutlet var imgParcel: UIImageView!
+    @IBOutlet var lblWeightCharge: UILabel!
+
     
     @IBOutlet weak var PickupTimeStack: UIStackView!
     @IBOutlet weak var DropoffTimeStack: UIStackView!
@@ -158,20 +164,20 @@ class TripInfoCompletedTripVC: UIViewController {
     }
     func setLocalization()
     {
-        lblTripDetail.text = "Trip Info".localized
+        lblTripDetail.text = "Delivery Info".localized
 //        lblPickupLocation.text =  "Address".localized
 //        lblDropOffLocation.text = "Address".localized
         
         lblTripFareTitle.text = "Base Fare".localized
         lblDistanceTravelledTitle.text = "Trip Distance".localized
         lblDistanceFareTitle.text  = "Distance Fare".localized
-        lblWaitingCostTitle.text  = "Waiting Cost :".localized
-        lblWaitingTimeTitle.text  = "Waiting Time :".localized
+        lblWaitingCostTitle.text  = "Waiting Cost".localized
+        lblWaitingTimeTitle.text  = "Waiting Time".localized
 //        lblTipAmountTitle.text  = "Tip by Passenger".localized
         lblBookingFeeTitle.text  = "Booking Charge".localized
-        lblPromoCodeTitle.text  = "Discount :".localized
+        lblPromoCodeTitle.text  = "Discount".localized
         lblTaxTitle.text  = "Tax" .localized
-        lblTotlaAmountTitle.text  = "Grand Total :".localized
+        lblTotlaAmountTitle.text  = "Grand Total".localized
         lblLessTitle.text  = "(incl tax)".localized
         btnOK.setTitle("OK".localized, for: .normal) 
     
@@ -203,10 +209,12 @@ class TripInfoCompletedTripVC: UIViewController {
         dictData = NSMutableDictionary(dictionary: (dictData.object(forKey: "details") as! NSDictionary))
         print(dictData)
         
+        lblPickupTimeTitle.text = "Pickup Date Time".localized.uppercased()
+        lblDropoffTimeTitle.text = "Dropoff Date Time".localized.uppercased()   
         lblPickupLocation.text = dictData.object(forKey: "PickupLocation") as? String
         lblDropOffLocation.text = dictData.object(forKey: "DropoffLocation") as? String
         
-        /*
+        
         let PickTime = Double(dictData.object(forKey: "PickupTime") as! String)
         let dropoffTime = Double(dictData.object(forKey: "DropTime") as! String)
         let unixTimestamp = PickTime //as Double//as! Double//dictData.object(forKey: "PickupTime")
@@ -220,11 +228,12 @@ class TripInfoCompletedTripVC: UIViewController {
         let strDate = dateFormatter.string(from: date)
         let strDateDrop = dateFormatter.string(from: dateDrop)
         
-        lblPickupTime.text = strDate//dictData.object(forKey: "PickupDateTime") as? String
+        lblPickupTime.text = ": " + strDate//dictData.object(forKey: "PickupDateTime") as? String
         
-        lblDropoffTime.text = strDateDrop //dictData.object(forKey: "PickupDateTime") as? String
+        lblDropoffTime.text = ": " + strDateDrop //dictData.object(forKey: "PickupDateTime") as? String
 //        lblTollFree.text = dictData.object(forKey: "TollFee") as? String
         
+        /*
         if let BookingID = dictData.object(forKey: "Id") as? String {
             lblBookingID.text = "Booking Id : \(BookingID)"
         }
@@ -265,47 +274,76 @@ class TripInfoCompletedTripVC: UIViewController {
          }
 
  */
+
+        if let ParcelDetail = dictData["Parcel"] as? [String:Any] {
+            if let ParcelType = ParcelDetail["Name"] as? String {
+                self.lblParcelType.text  = ": " +  ParcelType
+            }
+        }
+        
+        if let ParcelWeight = dictData["Weight"] as? String , ParcelWeight  != "" {
+            self.lblParcelWeight.text = String(format: ": %.2f Kgs", (ParcelWeight as NSString).doubleValue)
+        }else if let ParcelWeight = dictData["Weight"] as? Double {
+            self.lblParcelWeight.text = String(format: ": %.2f Kgs", ParcelWeight)
+        }
+        
+        if let strParcelImage = dictData["ParcelImage"] as? String {
+            self.imgParcel.sd_setShowActivityIndicatorView(true)
+            self.imgParcel.sd_setIndicatorStyle(.gray)
+            self.imgParcel.sd_setImage(with: URL(string: WebserviceURLs.kImageBaseURL +  strParcelImage), completed: { (image, error, cacheType, url) in
+                self.imgParcel.sd_removeActivityIndicator()
+                self.imgParcel.contentMode = .scaleAspectFit
+            })
+        }
+
+        if let PaymentType = dictData["PaymentType"] as? String {
+            self.lblPaymentType.text = ": " + PaymentType
+        }
         
         if let TripFare = dictData.object(forKey: "TripFare") as? String {
-            lblTripFare.text = "\(currency) \(String(format: "%.2f", Double(TripFare) ?? 0.0))"
+            lblTripFare.text = ": \(currency) \(String(format: "%.2f", Double(TripFare) ?? 0.0))"
         }
         
         if let TripDistance = dictData.object(forKey: "TripDistance") as? String {
-            lblDistanceTravelled.text = "\(String(format: "%.2f", Double(TripDistance) ?? 0.0)) km"
+            lblDistanceTravelled.text = ": \(String(format: "%.2f", Double(TripDistance) ?? 0.0)) km"
         }
         
         if let DistanceFare = dictData.object(forKey: "DistanceFare") as? String {
-            lblDistanceFare.text = "\(currency) \(String(format: "%.2f", Double(DistanceFare) ?? 0.0))"
+            lblDistanceFare.text = ": \(currency) \(String(format: "%.2f", Double(DistanceFare) ?? 0.0))"
+        }
+        
+        if let WeightCharge = dictData["WeightCharge"] as? String {
+            self.lblWeightCharge.text = ": \(currency)" + WeightCharge
         }
         
         if let WaitingTime = dictData.object(forKey: "WaitingTime") as? String {
             let (h,m,s) = secondsToHoursMinutesSeconds(seconds: Int(WaitingTime) ?? 0)
-            lblWaitingTime.text = "\(getStringFrom(seconds: h)):\(getStringFrom(seconds: m)):\(getStringFrom(seconds: s))"
+            lblWaitingTime.text = ": \(getStringFrom(seconds: h)):\(getStringFrom(seconds: m)):\(getStringFrom(seconds: s))"
         }
         
         if let WaitingCost = dictData.object(forKey: "WaitingTimeCost") as? String {
-            lblWaitingCost.text = "\(currency) \(WaitingCost)"
+            lblWaitingCost.text = ": \(currency) \(WaitingCost)"
 //            "\(String(format: "%.2f", Double(WaitingCost)!)) \(currency)"
         }
         
         if let Tip = dictData.object(forKey: "TollFee") as? String {
-            lblTipAmount.text = (Tip != "" && Tip != "0") ? "\(currency) \(String(format: "%.2f", Double(Tip) ?? 0.0))" : "\(currency) 0"
+            lblTipAmount.text =   (Tip != "" && Tip != "0") ? ": \(currency) \(String(format: "%.2f", Double(Tip) ?? 0.0))" : ": \(currency) 0"
         }
         
         if let BookingFee = dictData.object(forKey: "BookingCharge") as? String {
-            lblBookingFee.text = (BookingFee != "" && BookingFee != "0") ? "\(currency) \(String(format: "%.2f", Double(BookingFee) ?? 0.0))" : "\(currency) 0"
+            lblBookingFee.text = (BookingFee != "" && BookingFee != "0") ? ": \(currency) \(String(format: "%.2f", Double(BookingFee) ?? 0.0))" : ": \(currency) 0"
         }
         
         if let discount = dictData.object(forKey: "Discount") as? String {
-            lblPromoCode.text = (discount != "" && discount != "0") ? "\(currency) \(String(format: "%.2f", Double(discount) ?? 0.0))" : "\(currency) 0"
+            lblPromoCode.text = (discount != "" && discount != "0") ? ": \(currency) \(String(format: "%.2f", Double(discount) ?? 0.0))" : ": \(currency) 0"
         }
         
         if let Tax = dictData.object(forKey: "Tax") as? String {
-            lblTax.text = (Tax != "" && Tax != "0") ? "\(currency) \(Tax)" : "\(currency) 0"
+            lblTax.text = (Tax != "" && Tax != "0") ? ": \(currency) \(Tax)" : ": \(currency) 0"
         }
         
         if let GrandTotal = dictData.object(forKey: "GrandTotal") as? String {
-            lblTotlaAmount.text = (GrandTotal != "" && GrandTotal != "0") ? "\(currency) \(GrandTotal)" : "\(currency) 0"
+            lblTotlaAmount.text = (GrandTotal != "" && GrandTotal != "0") ? ": \(currency) \(GrandTotal)" : ": \(currency) 0"
         }
         
     }

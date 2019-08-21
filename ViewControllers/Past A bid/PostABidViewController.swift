@@ -72,6 +72,11 @@ class PostABidViewController: BaseViewController,UITextFieldDelegate {
         super.viewWillAppear(animated)
         self.btnAccept.setTitle("Accept".localized, for: .normal)
         self.btnReject.setTitle("Reject".localized, for: .normal)
+      
+        if self.isThisDetail == true {
+            let RightButton = UIBarButtonItem(image: UIImage(named: "icon_chat"), style: .plain, target: self, action: #selector(OpenChatDetail))
+            self.navigationItem.rightBarButtonItem = RightButton
+        }
     }
     
      //MARK:- ======= Data Setup =======
@@ -110,6 +115,33 @@ class PostABidViewController: BaseViewController,UITextFieldDelegate {
                 webserviceBidAccept()
             }
         }
+    }
+    
+    //MARK:- ====== Navigation bar Button Action ======
+    
+    @objc func OpenChatDetail() {
+        
+        let BidStoryboard = UIStoryboard(name: "ChatStoryboard", bundle: nil)
+        let BidChatPage = BidStoryboard.instantiateViewController(withIdentifier: "BidChatViewController") as! BidChatViewController
+        
+        if let BidID = self.BidData[0]["BidId"] as? Int {
+            BidChatPage.strBidId = "\(BidID)"
+        } else if let BidID = self.BidData[0]["BidId"] as? String {
+            BidChatPage.strBidId = BidID
+        }
+        
+        if let PassengerID = self.BidData[0]["PassengerId"] as? Int {
+            BidChatPage.strPassengerId = "\(PassengerID)"
+        } else if let PassengerID = self.BidData[0]["PassengerId"] as? String {
+            BidChatPage.strPassengerId = PassengerID
+        }
+        
+        if let ShipperName = self.BidData[0]["ShipperName"] as? String {
+            BidChatPage.strShipperName = ShipperName
+        }
+        
+        self.navigationController?.pushViewController(BidChatPage, animated: true)
+        
     }
     
      //MARK:- ======= Accept Button Action=======

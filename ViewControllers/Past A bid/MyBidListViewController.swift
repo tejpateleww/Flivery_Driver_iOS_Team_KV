@@ -107,10 +107,12 @@ class MyBidListViewController:BaseViewController,UITableViewDataSource,UITableVi
             return cell
         } else {
 
-        let customCell = self.tblView.dequeueReusableCell(withIdentifier: "MyBidListViewCell") as! MyBidListViewCell
+            let customCell = self.tblView.dequeueReusableCell(withIdentifier: "MyBidListViewCell") as! MyBidListViewCell
             customCell.btnViewDetails.tag = indexPath.row
             customCell.btnViewDetails.addTarget(self, action:#selector(ViewDetailsAction(_:)), for: .touchUpInside)
-        customCell.selectionStyle = .none
+            customCell.btnViewDetails.setTitle("View Details".localized, for: .normal)
+            customCell.selectionStyle = .none
+            
         if let bids = aryData[indexPath.row]["DriverBids"] as? String{
                 customCell.lblBidCount.text = "Bids - ".localized + bids
             }

@@ -36,6 +36,7 @@ let AcceptDispatchJobRequest = WebserviceURLs.kAcceptDispatchJobRequest
 
 let MyDispatchJob = WebserviceURLs.kMyDispatchJob
 let FutureBooking = WebserviceURLs.kFutureBooking
+let PendingBooking = WebserviceURLs.kPendingJobs
 let BookingHistory = WebserviceURLs.kBookingHistory
 
 let CurrentBooking = WebserviceURLs.kCurrentBooking
@@ -319,6 +320,7 @@ func webserviceForPastBookingList(_ dictParams: AnyObject,PageNumber : AnyObject
     let url = "\(PastBooking)/\(dictParams)/\(PageNumber)"
     getData(dictParams as AnyObject, nsURL: url, completion: completion)
 }
+
 //-------------------------------------------------------------
 // MARK: - Webservice For Future Booking
 //-------------------------------------------------------------
@@ -329,6 +331,18 @@ func webserviceForFutureBooking(_ dictParams: AnyObject, completion: @escaping(_
     let url = FutureBooking + (dictParams as! String)
     getDataOfHistory("" as AnyObject, nsURL: url, completion: completion)
 }
+
+//-------------------------------------------------------------
+// MARK: - Webservice For Future Booking
+//-------------------------------------------------------------
+
+func webserviceForPendingBooking(_ dictParams: AnyObject, completion: @escaping(_ result: AnyObject, _ success: Bool) -> Void)
+{
+    
+    let url = PendingBooking + (dictParams as! String)
+    getDataOfHistory("" as AnyObject, nsURL: url, completion: completion)
+}
+
 
 
 //-------------------------------------------------------------

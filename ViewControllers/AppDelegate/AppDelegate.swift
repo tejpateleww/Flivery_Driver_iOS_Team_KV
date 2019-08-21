@@ -54,18 +54,18 @@ let googlPlacesApiKey = "AIzaSyD1bcITZ_nUkP-ke6xgaP5RIC--tXQU3I4" // "AIzaSyCKEP
         FirebaseApp.configure()
         Messaging.messaging().delegate = self
         IQKeyboardManager.shared.toolbarDoneBarButtonItemText = "Done".localized
-//        SideMenuController.preferences.drawing.menuButtonImage = UIImage(named: "menu")
-//        SideMenuController.preferences.drawing.sidePanelPosition = .overCenterPanelLeft
-//        SideMenuController.preferences.drawing.sidePanelWidth = (window?.frame.width)! * 0.85
-//        SideMenuController.preferences.drawing.centerPanelShadow = true
-//        SideMenuController.preferences.animating.statusBarBehaviour = .showUnderlay
-
+        //        SideMenuController.preferences.drawing.menuButtonImage = UIImage(named: "menu")
+        //        SideMenuController.preferences.drawing.sidePanelPosition = .overCenterPanelLeft
+        //        SideMenuController.preferences.drawing.sidePanelWidth = (window?.frame.width)! * 0.85
+        //        SideMenuController.preferences.drawing.centerPanelShadow = true
+        //        SideMenuController.preferences.animating.statusBarBehaviour = .showUnderlay
+        
         SideMenuController.preferences.basic.menuWidth = SCREEN_WIDTH - 40
         SideMenuController.preferences.basic.defaultCacheKey = "0"
         SideMenuController.preferences.basic.position = .above
         SideMenuController.preferences.basic.statusBarBehavior = .none
         SideMenuController.preferences.basic.direction = .left
-
+        
         UIApplication.shared.isIdleTimerDisabled = true
         
         
@@ -102,23 +102,23 @@ let googlPlacesApiKey = "AIzaSyD1bcITZ_nUkP-ke6xgaP5RIC--tXQU3I4" // "AIzaSyCKEP
         
         
         /*
-        let remoteNotif = launchOptions?[UIApplication.LaunchOptionsKey.remoteNotification] as? NSDictionary
+         let remoteNotif = launchOptions?[UIApplication.LaunchOptionsKey.remoteNotification] as? NSDictionary
+         
+         if remoteNotif != nil
+         {
+         let key = (remoteNotif as! NSDictionary).object(forKey: "gcm.notification.type")!
+         NSLog("\n Custom: \(String(describing: key))")
+         self.pushAfterReceiveNotification(typeKey: key as! String, applicationObject: application)
+         }
+         else {
+         //            let aps = remoteNotif!["aps" as NSString] as? [String:AnyObject]
+         NSLog("//////////////////////////Normal launch")
+         //            self.pushAfterReceiveNotification(typeKey: "")
+         
+         }
+         */
         
-        if remoteNotif != nil
-        {
-            let key = (remoteNotif as! NSDictionary).object(forKey: "gcm.notification.type")!
-            NSLog("\n Custom: \(String(describing: key))")
-            self.pushAfterReceiveNotification(typeKey: key as! String, applicationObject: application)
-        }
-        else {
-            //            let aps = remoteNotif!["aps" as NSString] as? [String:AnyObject]
-            NSLog("//////////////////////////Normal launch")
-            //            self.pushAfterReceiveNotification(typeKey: "")
-            
-        }
-        */
-
-
+        
         UNUserNotificationCenter.current().delegate = self
         
         
@@ -275,6 +275,16 @@ let googlPlacesApiKey = "AIzaSyD1bcITZ_nUkP-ke6xgaP5RIC--tXQU3I4" // "AIzaSyCKEP
         print("Failed to register: \(error)")
     }
     
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        print("Push Notification present method call : \(notification)")
+        let userInfo = notification.request.content.userInfo
+        //         notificationHandler(userInfo)
+        // Print full message.
+        print(userInfo)
+        completionHandler([.alert, .badge, .sound])
+    }
+    
+    
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         
         Messaging.messaging().appDidReceiveMessage(userInfo)
@@ -282,7 +292,7 @@ let googlPlacesApiKey = "AIzaSyD1bcITZ_nUkP-ke6xgaP5RIC--tXQU3I4" // "AIzaSyCKEP
         
         if(application.applicationState == .background || application.applicationState == .inactive)
         {
-            self.pushAfterReceiveNotification(typeKey: key as! String, applicationObject: application)
+            self.pushAfterReceiveNotification(typeKey: key as! String, applicationObject: application,  UserObject: userInfo as! [String : Any])
         }
         else
         {
@@ -297,7 +307,7 @@ let googlPlacesApiKey = "AIzaSyD1bcITZ_nUkP-ke6xgaP5RIC--tXQU3I4" // "AIzaSyCKEP
             if((userInfo as! [String:AnyObject])["gcm.notification.type"]! as! String == "AcceptBookingRequestNotification")
             {
                 alert.addAction(UIAlertAction(title: "Get Details", style: .default, handler: { (action) in
-                    self.pushAfterReceiveNotification(typeKey: key as! String, applicationObject: application)
+                    self.pushAfterReceiveNotification(typeKey: key as! String, applicationObject: application, UserObject: userInfo as! [String : Any])
                 }))
                 
                 alert.addAction(UIAlertAction(title: "Dismiss".localized, style: .destructive, handler: { (action) in
@@ -305,43 +315,47 @@ let googlPlacesApiKey = "AIzaSyD1bcITZ_nUkP-ke6xgaP5RIC--tXQU3I4" // "AIzaSyCKEP
                 }))
                 self.window?.rootViewController?.present(alert, animated: true, completion: nil)
             }
-            if key as? String == "chatbid" {
-                if !Singletons.sharedInstance.isChatingPresented {
-                    let dictData = userInfo["gcm.notification.data"] as! String
-                    let data = dictData.data(using: .utf8)!
-                    do
-                    {
-                        if let jsonResponse = try JSONSerialization.jsonObject(with: data, options : .allowFragments) as? Dictionary<String,Any>
-                        {
-                            var UserDict = [String:Any]()
-                            //                        UserDict["BidId"] = jsonResponse["BidId"] as! String
-                            //                        UserDict["SenderId"] = jsonResponse["SenderId"] as! String
-                            if let vwController = ((gettopMostViewController()?.children.first as? UINavigationController)?.viewControllers.last) {
-                                if let vcChat = UIStoryboard.init(name: "ChatStoryboard", bundle: nil).instantiateViewController(withIdentifier: "BidChatViewController") as? BidChatViewController {
-                                    
-                                    guard let strBidID = jsonResponse["BidId"] as? String else {
-                                        return
-                                    }
-                                    guard let strSenderID = jsonResponse["SenderId"] as? String else {
-                                        return
-                                    }
-                                    vcChat.strPassengerId = strSenderID
-                                    vcChat.strBidId = strBidID
-                                    vwController.navigationController?.pushViewController(vcChat, animated: true)
-                                }
-                            }
-                            
-                        }
-                        else {
-                            print("bad json")
-                        }
-                    }
-                    catch let error as NSError
-                    {
-                        print(error)
-                    }
-                }
-            }
+            
+            /*
+             if key as? String == "chatbid" {
+             if !Singletons.sharedInstance.isChatingPresented {
+             let dictData = userInfo["gcm.notification.data"] as! String
+             let data = dictData.data(using: .utf8)!
+             do
+             {
+             if let jsonResponse = try JSONSerialization.jsonObject(with: data, options : .allowFragments) as? Dictionary<String,Any>
+             {
+             var UserDict = [String:Any]()
+             //                        UserDict["BidId"] = jsonResponse["BidId"] as! String
+             //                        UserDict["SenderId"] = jsonResponse["SenderId"] as! String
+             if let vwController = ((gettopMostViewController()?.children.first as? UINavigationController)?.viewControllers.last) {
+             if let vcChat = UIStoryboard.init(name: "ChatStoryboard", bundle: nil).instantiateViewController(withIdentifier: "BidChatViewController") as? BidChatViewController {
+             
+             guard let strBidID = jsonResponse["BidId"] as? String else {
+             return
+             }
+             guard let strSenderID = jsonResponse["SenderId"] as? String else {
+             return
+             }
+             vcChat.strPassengerId = strSenderID
+             vcChat.strBidId = strBidID
+             vwController.navigationController?.pushViewController(vcChat, animated: true)
+             }
+             }
+             
+             }
+             else {
+             print("bad json")
+             }
+             }
+             catch let error as NSError
+             {
+             print(error)
+             }
+             }
+             }
+             else
+             */
             else if ((userInfo as! [String:AnyObject])["gcm.notification.type"]! as! String == "Logout")
             {
                 let navigationController = application.windows[0].rootViewController as! UINavigationController
@@ -356,6 +370,48 @@ let googlPlacesApiKey = "AIzaSyD1bcITZ_nUkP-ke6xgaP5RIC--tXQU3I4" // "AIzaSyCKEP
                         //                        self.window?.rootViewController?.present(alert, animated: true, completion: nil)
                     }
                 }
+            }
+            else if((userInfo as! [String:AnyObject])["gcm.notification.type"]! as! String == "BookLaterTripNotify")
+            {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    
+                    
+                    if let NavController = self.window?.rootViewController as? UINavigationController {
+                        if let SideMenu = NavController.children.first as? SideMenuController {
+                            if let SubNavController = SideMenu.contentViewController as? UINavigationController  {
+                                print(SubNavController.children)
+                                SubNavController.popToRootViewController(animated: false)
+                                if let HomeContainer = SubNavController.children.first as? ContainerViewController {
+                                    HomeContainer.scrollToPage(page: 1, animated: true)
+                                    
+                                    for ChildViewPage in HomeContainer.children {
+                                        if let MyJOB = ChildViewPage as? MyJobsViewController {
+                                            MyJOB.btnPendingJobsClicked("" as Any)
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                    //                let navController = self.window?.rootViewController as? UINavigationController
+                    //                let notificationController: UIViewController? = navController?.storyboard?.instantiateViewController(withIdentifier: "FutureBookingVC")
+                    //                navController?.present(notificationController ?? UIViewController(), animated: true, completion: {
+                    //
+                    
+                    //                    let tabbarvc = (((((((self.window?.rootViewController as! UINavigationController).viewControllers[1].childViewControllers.last!) as! MenuController).navigationController)?.childViewControllers.last) as! SideMenuController).childViewControllers[0] as! UINavigationController).childViewControllers[0] as! TabbarController
+                    //                    Singletons.sharedInstance.isFromNotification = true
+                    //
+                    //                    tabbarvc.selectedIndex = 1
+                    //
+                    //                let tabBarTemp = (((self.window?.rootViewController as! UINavigationController).childViewControllers.last as! SideMenuController).childViewControllers[0] as! UINavigationController).childViewControllers[0] as! TabbarController
+                    //                 Singletons.sharedInstance.isFromNotification = true
+                    //                tabBarTemp.selectedIndex = 1
+                    //
+                    ////                }
+                    //            }
+                }
+                
             }
         }
         //        let data = ((userInfo["aps"]! as! [String : AnyObject])["alert"]!) as! [String : AnyObject]
@@ -372,93 +428,136 @@ let googlPlacesApiKey = "AIzaSyD1bcITZ_nUkP-ke6xgaP5RIC--tXQU3I4" // "AIzaSyCKEP
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Swift.Void) {
         print("didReceive; \(response)")
         if let userInfo = response.notification.request.content.userInfo as? [String:Any]   {
-        Messaging.messaging().appDidReceiveMessage(userInfo)
-        let key = userInfo["gcm.notification.type"]!
-        
-        if(UIApplication.shared.applicationState == .background || UIApplication.shared.applicationState == .inactive)
-        {
-            self.pushAfterReceiveNotification(typeKey: key as! String, applicationObject: UIApplication.shared)
-        }
-        else
-        {
-            let data = ((userInfo["aps"]! as! [String : AnyObject])["alert"]!) as! [String : AnyObject]
+            Messaging.messaging().appDidReceiveMessage(userInfo)
+            let key = userInfo["gcm.notification.type"]!
             
-            
-            let alert = UIAlertController(title: "App Name".localized,
-                                          message: data["title"] as? String,
-                                          preferredStyle: UIAlertController.Style.alert)
-            
-            //vc will be the view controller on which you will present your alert as you cannot use self because this method is static.
-            if(userInfo["gcm.notification.type"]! as! String == "AcceptBookingRequestNotification")
+            if(UIApplication.shared.applicationState == .background || UIApplication.shared.applicationState == .inactive)
             {
-                alert.addAction(UIAlertAction(title: "Get Details", style: .default, handler: { (action) in
-                    self.pushAfterReceiveNotification(typeKey: key as! String, applicationObject: UIApplication.shared)
-                }))
-                
-                alert.addAction(UIAlertAction(title: "Dismiss".localized, style: .destructive, handler: { (action) in
-                    
-                }))
-                self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+                self.pushAfterReceiveNotification(typeKey: key as! String, applicationObject: UIApplication.shared, UserObject: userInfo)
             }
-            if key as? String == "chatbid" {
-                if !Singletons.sharedInstance.isChatingPresented {
-                    let dictData = userInfo["gcm.notification.data"] as! String
-                    let data = dictData.data(using: .utf8)!
-                    do
-                    {
-                        if let jsonResponse = try JSONSerialization.jsonObject(with: data, options : .allowFragments) as? Dictionary<String,Any>
-                        {
-                            var UserDict = [String:Any]()
-                            //                        UserDict["BidId"] = jsonResponse["BidId"] as! String
-                            //                        UserDict["SenderId"] = jsonResponse["SenderId"] as! String
-                            if let vwController = ((gettopMostViewController()?.children.first as? UINavigationController)?.viewControllers.last) {
-                                if let vcChat = UIStoryboard.init(name: "ChatStoryboard", bundle: nil).instantiateViewController(withIdentifier: "BidChatViewController") as? BidChatViewController {
-                                    
-                                    guard let strBidID = jsonResponse["BidId"] as? String else {
-                                        return
+            else
+            {
+                let data = ((userInfo["aps"]! as! [String : AnyObject])["alert"]!) as! [String : AnyObject]
+                let alert = UIAlertController(title: "App Name".localized,
+                                              message: data["title"] as? String,
+                                              preferredStyle: UIAlertController.Style.alert)
+                
+                //vc will be the view controller on which you will present your alert as you cannot use self because this method is static.
+                if(userInfo["gcm.notification.type"]! as! String == "AcceptBookingRequestNotification")
+                {
+                    alert.addAction(UIAlertAction(title: "Get Details", style: .default, handler: { (action) in
+                        self.pushAfterReceiveNotification(typeKey: key as! String, applicationObject: UIApplication.shared,UserObject: userInfo)
+                    }))
+                    
+                    alert.addAction(UIAlertAction(title: "Dismiss".localized, style: .destructive, handler: { (action) in
+                        
+                    }))
+                    self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+                }
+                /*
+                 if key as? String == "chatbid" {
+                 if !Singletons.sharedInstance.isChatingPresented {
+                 let dictData = userInfo["gcm.notification.data"] as! String
+                 let data = dictData.data(using: .utf8)!
+                 do
+                 {
+                 if let jsonResponse = try JSONSerialization.jsonObject(with: data, options : .allowFragments) as? Dictionary<String,Any>
+                 {
+                 var UserDict = [String:Any]()
+                 //                        UserDict["BidId"] = jsonResponse["BidId"] as! String
+                 //                        UserDict["SenderId"] = jsonResponse["SenderId"] as! String
+                 if let vwController = ((gettopMostViewController()?.children.first as? UINavigationController)?.viewControllers.last) {
+                 if let vcChat = UIStoryboard.init(name: "ChatStoryboard", bundle: nil).instantiateViewController(withIdentifier: "BidChatViewController") as? BidChatViewController {
+                 
+                 guard let strBidID = jsonResponse["BidId"] as? String else {
+                 return
+                 }
+                 
+                 var PassengerId = ""
+                 if let strSenderId = jsonResponse["SenderId"] as? String {
+                 PassengerId = strSenderId
+                 } else if let StrSenderId = jsonResponse["SenderId"] as? Int {
+                 PassengerId = "\(StrSenderId)"
+                 }
+                 
+                 vcChat.strPassengerId = PassengerId
+                 vcChat.strBidId = strBidID
+                 vwController.navigationController?.pushViewController(vcChat, animated: true)
+                 }
+                 }
+                 
+                 }
+                 else {
+                 print("bad json")
+                 }
+                 }
+                 catch let error as NSError
+                 {
+                 print(error)
+                 }
+                 }
+                 }
+                 else
+                 */
+                else if (userInfo["gcm.notification.type"]! as! String == "Logout")
+                {
+                    let navigationController = UIApplication.shared.windows[0].rootViewController as! UINavigationController
+                    let viewControllers: [UIViewController] = navigationController.viewControllers
+                    for aViewController in viewControllers {
+                        if aViewController is SideMenuController {
+                            
+                            //                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                            let homeVC = aViewController.children[0].children[0] as? HomeViewController
+                            homeVC?.webserviceOFSignOut()
+                            //                        }))
+                            //                        self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+                        }
+                    }
+                }
+                else if((userInfo as! [String:AnyObject])["gcm.notification.type"]! as! String == "BookLaterTripNotify")
+                {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                        
+                        
+                        if let NavController = self.window?.rootViewController as? UINavigationController {
+                            if let SideMenu = NavController.children.first as? SideMenuController {
+                                if let SubNavController = SideMenu.contentViewController as? UINavigationController  {
+                                    print(SubNavController.children)
+                                    SubNavController.popToRootViewController(animated: false)
+                                    if let HomeContainer = SubNavController.children.first as? ContainerViewController {
+                                        HomeContainer.scrollToPage(page: 1, animated: true)
+                                        
+                                        for ChildViewPage in HomeContainer.children {
+                                            if let MyJOB = ChildViewPage as? MyJobsViewController {
+                                                MyJOB.btnPendingJobsClicked("" as Any)
+                                            }
+                                        }
                                     }
-                                    
-                                    var PassengerId = ""
-                                    if let strSenderId = jsonResponse["SenderId"] as? String {
-                                        PassengerId = strSenderId
-                                    } else if let StrSenderId = jsonResponse["SenderId"] as? Int {
-                                        PassengerId = "\(StrSenderId)"
-                                    }
-                                    
-                                    vcChat.strPassengerId = PassengerId
-                                    vcChat.strBidId = strBidID
-                                    vwController.navigationController?.pushViewController(vcChat, animated: true)
                                 }
                             }
-                            
                         }
-                        else {
-                            print("bad json")
-                        }
-                    }
-                    catch let error as NSError
-                    {
-                        print(error)
-                    }
-                }
-            }
-            else if (userInfo["gcm.notification.type"]! as! String == "Logout")
-            {
-                let navigationController = UIApplication.shared.windows[0].rootViewController as! UINavigationController
-                let viewControllers: [UIViewController] = navigationController.viewControllers
-                for aViewController in viewControllers {
-                    if aViewController is SideMenuController {
                         
-                        //                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
-                        let homeVC = aViewController.children[0].children[0] as? HomeViewController
-                        homeVC?.webserviceOFSignOut()
-                        //                        }))
-                        //                        self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+                        //                let navController = self.window?.rootViewController as? UINavigationController
+                        //                let notificationController: UIViewController? = navController?.storyboard?.instantiateViewController(withIdentifier: "FutureBookingVC")
+                        //                navController?.present(notificationController ?? UIViewController(), animated: true, completion: {
+                        //
+                        
+                        //                    let tabbarvc = (((((((self.window?.rootViewController as! UINavigationController).viewControllers[1].childViewControllers.last!) as! MenuController).navigationController)?.childViewControllers.last) as! SideMenuController).childViewControllers[0] as! UINavigationController).childViewControllers[0] as! TabbarController
+                        //                    Singletons.sharedInstance.isFromNotification = true
+                        //
+                        //                    tabbarvc.selectedIndex = 1
+                        //
+                        //                let tabBarTemp = (((self.window?.rootViewController as! UINavigationController).childViewControllers.last as! SideMenuController).childViewControllers[0] as! UINavigationController).childViewControllers[0] as! TabbarController
+                        //                 Singletons.sharedInstance.isFromNotification = true
+                        //                tabBarTemp.selectedIndex = 1
+                        //
+                        ////                }
+                        //            }
                     }
+                    
                 }
             }
         }
-    }
         completionHandler()
     }
     
@@ -490,9 +589,9 @@ let googlPlacesApiKey = "AIzaSyD1bcITZ_nUkP-ke6xgaP5RIC--tXQU3I4" // "AIzaSyCKEP
             }
         })
     }
-
+    
     // MARK:- Login & Logout Methods
-
+    
     func GoToHome() {
         let storyborad = UIStoryboard(name: "Main", bundle: nil)
         let CustomSideMenu = storyborad.instantiateViewController(withIdentifier: "SideMenu") as! SideMenuController
@@ -500,25 +599,25 @@ let googlPlacesApiKey = "AIzaSyD1bcITZ_nUkP-ke6xgaP5RIC--tXQU3I4" // "AIzaSyCKEP
         NavHomeVC.isNavigationBarHidden = true
         UIApplication.shared.keyWindow?.rootViewController = NavHomeVC
     }
-
+    
     func GoToLogin() {
-
+        
         let storyborad = UIStoryboard(name: "Main", bundle: nil)
         let Login = storyborad.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
         //        let customNavigation = UINavigationController(rootViewController: Login)
         let NavHomeVC = UINavigationController(rootViewController: Login)
         NavHomeVC.isNavigationBarHidden = true
         UIApplication.shared.keyWindow?.rootViewController = NavHomeVC
-
+        
     }
-
+    
     func GoToLogout() {
-
+        
         for (key, value) in UserDefaults.standard.dictionaryRepresentation() {
             print("\(key) = \(value) \n")
-
+            
             if key == "Token" || key  == "i18n_language" {
-
+                
             }
             else {
                 UserDefaults.standard.removeObject(forKey: key)
@@ -526,25 +625,25 @@ let googlPlacesApiKey = "AIzaSyD1bcITZ_nUkP-ke6xgaP5RIC--tXQU3I4" // "AIzaSyCKEP
         }
         //        UserDefaults.standard.set(false, forKey: kIsSocketEmited)
         //        UserDefaults.standard.synchronize()
-
+        
         Singletons.sharedInstance.strPassengerID = ""
         UserDefaults.standard.removeObject(forKey: "profileData")
         Singletons.sharedInstance.isDriverLoggedIN = false
         //                self.performSegue(withIdentifier: "unwindToContainerVC", sender: self)
         UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
-
+        
         UserDefaults.standard.removeObject(forKey: "Passcode")
         Singletons.sharedInstance.setPasscode = ""
-
+        
         UserDefaults.standard.removeObject(forKey: "isPasscodeON")
         Singletons.sharedInstance.isPasscodeON = false
-
+        
         Singletons.sharedInstance.isPasscodeON = false
         self.GoToLogin()
     }
-
-
-
+    
+    
+    
     //-------------------------------------------------------------
     // MARK: - FireBase Methods
     //-------------------------------------------------------------
@@ -562,7 +661,7 @@ let googlPlacesApiKey = "AIzaSyD1bcITZ_nUkP-ke6xgaP5RIC--tXQU3I4" // "AIzaSyCKEP
         
     }
     
-    func pushAfterReceiveNotification(typeKey : String, applicationObject:UIApplication) {
+    func pushAfterReceiveNotification(typeKey : String, applicationObject:UIApplication, UserObject:[String:Any]) {
         if (typeKey == "Logout") {
             let navigationController = applicationObject.windows[0].rootViewController as! UINavigationController
             let viewControllers: [UIViewController] = navigationController.viewControllers
@@ -590,7 +689,7 @@ let googlPlacesApiKey = "AIzaSyD1bcITZ_nUkP-ke6xgaP5RIC--tXQU3I4" // "AIzaSyCKEP
                 navController?.present(notificationController ?? UIViewController(), animated: true, completion: {
                     
                 })
-           }
+            }
         }
         else if(typeKey == "PostBid")
         {
@@ -641,9 +740,71 @@ let googlPlacesApiKey = "AIzaSyD1bcITZ_nUkP-ke6xgaP5RIC--tXQU3I4" // "AIzaSyCKEP
                 //                MyJob.btnPastJobsClicked(MyJob.btnPastJobs)
             }
         }
-        else if(typeKey == "BookLaterDriverNotify")
+        else if typeKey == "chatbid" {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                if !Singletons.sharedInstance.isChatingPresented {
+                    let dictData = UserObject["gcm.notification.data"] as! String
+                    let data = dictData.data(using: .utf8)!
+                    do
+                    {
+                        if let jsonResponse = try JSONSerialization.jsonObject(with: data, options : .allowFragments) as? Dictionary<String,Any>
+                        {
+                            //                        var UserDict = [String:Any]()
+                            //                        UserDict["BidId"] = jsonResponse["BidId"] as! String
+                            //                        UserDict["SenderId"] = jsonResponse["SenderId"] as! String
+                            if let vwController = ((self.gettopMostViewController()?.children.first as? UINavigationController)?.viewControllers.last) {
+                                if let vcChat = UIStoryboard.init(name: "ChatStoryboard", bundle: nil).instantiateViewController(withIdentifier: "BidChatViewController") as? BidChatViewController {
+                                    
+                                    guard let strBidID = jsonResponse["BidId"] as? String else {
+                                        return
+                                    }
+                                    var PassengerId = ""
+                                    if let strSenderId = jsonResponse["SenderId"] as? String {
+                                        PassengerId = strSenderId
+                                    } else if let StrSenderId = jsonResponse["SenderId"] as? Int {
+                                        PassengerId = "\(StrSenderId)"
+                                    }
+                                    vcChat.strPassengerId = PassengerId
+                                    vcChat.strBidId = strBidID
+                                    vwController.navigationController?.pushViewController(vcChat, animated: true)
+                                }
+                            }
+                            
+                        }
+                        else {
+                            print("bad json")
+                        }
+                    }
+                    catch let error as NSError
+                    {
+                        print(error)
+                    }
+                }
+            }
+        }
+        else if(typeKey == "BookLaterTripNotify")
         {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                
+                
+                if let NavController = self.window?.rootViewController as? UINavigationController {
+                    if let SideMenu = NavController.children.first as? SideMenuController {
+                        if let SubNavController = SideMenu.contentViewController as? UINavigationController  {
+                            print(SubNavController.children)
+                            SubNavController.popToRootViewController(animated: false)
+                            if let HomeContainer = SubNavController.children.first as? ContainerViewController {
+                                HomeContainer.scrollToPage(page: 1, animated: true)
+                                
+                                for ChildViewPage in HomeContainer.children {
+                                    if let MyJOB = ChildViewPage as? MyJobsViewController {
+                                        MyJOB.btnPendingJobsClicked("" as Any)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                
                 //                let navController = self.window?.rootViewController as? UINavigationController
                 //                let notificationController: UIViewController? = navController?.storyboard?.instantiateViewController(withIdentifier: "FutureBookingVC")
                 //                navController?.present(notificationController ?? UIViewController(), animated: true, completion: {
@@ -669,7 +830,7 @@ let googlPlacesApiKey = "AIzaSyD1bcITZ_nUkP-ke6xgaP5RIC--tXQU3I4" // "AIzaSyCKEP
 
 extension String {
     var localized: String {
-
+        
         let lang = UserDefaults.standard.string(forKey: "i18n_language")
         let path = Bundle.main.path(forResource: lang, ofType: "lproj")
         let bundle = Bundle(path: path!)
@@ -686,7 +847,7 @@ let secondLanguage = "fr"
 
 
 extension UILabel {
-
+    
     override open func layoutSubviews() {
         super.layoutSubviews()
         if self.text != nil {
@@ -694,15 +855,15 @@ extension UILabel {
             self.text = self.text?.localized
             //            print("The count is \(count)")
         }
-
+        
     }
 }
 
 //public extension String {
-    /**
-     Swift 2 friendly localization syntax, replaces NSLocalizedString
-     - Returns: The localized string.
-     */
+/**
+ Swift 2 friendly localization syntax, replaces NSLocalizedString
+ - Returns: The localized string.
+ */
 //    func localized1() -> String {
 //        if let path = Bundle.main.path(forResource: Localize.currentLanguage(), ofType: "lproj"), let bundle = Bundle(path: path) {
 //            return bundle.localizedString(forKey: self, value: nil, table: nil)
@@ -716,7 +877,7 @@ extension UILabel {
 
 func setLayoutForswahilLanguage()
 {
-//    UserDefaults.standard.set("sw", forKey: "i18n_language")
+    //    UserDefaults.standard.set("sw", forKey: "i18n_language")
     UserDefaults.standard.set(secondLanguage, forKey: "i18n_language")
     UserDefaults.standard.synchronize()
     Localize.setCurrentLanguage(secondLanguage)
@@ -790,7 +951,7 @@ public extension String {
         }
         return self
     }
-
+    
     
     /**
      Swift 2 friendly localization syntax with format arguments, replaces String(format:NSLocalizedString)

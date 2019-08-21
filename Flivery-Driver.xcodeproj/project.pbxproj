@@ -240,6 +240,8 @@
 		6432FECD22CDC0BC00151492 /* NoDataFoundTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6432FECB22CDC0BB00151492 /* NoDataFoundTableViewCell.xib */; };
 		7A1CD5F422E0811A0049191D /* ChatStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A1CD5F322E0811A0049191D /* ChatStoryboard.storyboard */; };
 		7A1CD5FC22E084BC0049191D /* BidChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1CD5FB22E084BC0049191D /* BidChatViewController.swift */; };
+		7AC8681022EEBAA800C96302 /* UpCommingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC8680F22EEBAA800C96302 /* UpCommingTableViewCell.swift */; };
+		7AC8681222EEBB9F00C96302 /* ParcelTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC8681122EEBB9F00C96302 /* ParcelTblCell.swift */; };
 		EE5FF5BA223A5DA5000FF171 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5FF5B9223A5DA5000FF171 /* BaseViewController.swift */; };
 		EEB3CDF9223B6A7B00676539 /* MainHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB3CDF8223B6A7B00676539 /* MainHeaderTableViewCell.swift */; };
 		EECDB7D9203D48AE0079F78B /* MeterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECDB7D8203D48AE0079F78B /* MeterViewController.swift */; };
@@ -540,6 +542,8 @@
 		71E830EFF7C980BA0858A2D1 /* Pods_TenTexi_Driver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TenTexi_Driver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A1CD5F322E0811A0049191D /* ChatStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChatStoryboard.storyboard; sourceTree = "<group>"; };
 		7A1CD5FB22E084BC0049191D /* BidChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidChatViewController.swift; sourceTree = "<group>"; };
+		7AC8680F22EEBAA800C96302 /* UpCommingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpCommingTableViewCell.swift; sourceTree = "<group>"; };
+		7AC8681122EEBB9F00C96302 /* ParcelTblCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParcelTblCell.swift; sourceTree = "<group>"; };
 		932475C955A0B6A950732388 /* Pods-TenTexi-Driver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TenTexi-Driver.release.xcconfig"; path = "Pods/Target Support Files/Pods-TenTexi-Driver/Pods-TenTexi-Driver.release.xcconfig"; sourceTree = "<group>"; };
 		9E0742A87EB9F6951940B1DC /* Pods-PickNGo-Driver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PickNGo-Driver.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PickNGo-Driver/Pods-PickNGo-Driver.debug.xcconfig"; sourceTree = "<group>"; };
 		AFA70C7471345D085861AE3F /* Pods_TanTaxi_Driver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TanTaxi_Driver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -848,6 +852,8 @@
 		00E9292F202AE2BF00A399E2 /* MyJobs */ = {
 			isa = PBXGroup;
 			children = (
+				7AC8681122EEBB9F00C96302 /* ParcelTblCell.swift */,
+				7AC8680F22EEBAA800C96302 /* UpCommingTableViewCell.swift */,
 				00E92930202AE2BF00A399E2 /* PastJobsListTableViewCell.swift */,
 				00E92931202AE2BF00A399E2 /* PendingJobsListTableViewCell.swift */,
 			);
@@ -1932,6 +1938,7 @@
 				00E92A3C202AE2C100A399E2 /* SPSegmentControlStyleProtocol.swift in Sources */,
 				00E929F2202AE2C100A399E2 /* FutureBookingTableViewCell.swift in Sources */,
 				00E929F4202AE2C100A399E2 /* PastJobsListVC.swift in Sources */,
+				7AC8681022EEBAA800C96302 /* UpCommingTableViewCell.swift in Sources */,
 				3AFADCDB219E98CC0009E3D2 /* iToast.m in Sources */,
 				00E92A28202AE2C100A399E2 /* SPUIColorExtenshion.swift in Sources */,
 				00E929E4202AE2C100A399E2 /* CarAndTaxiesTableViewCell.swift in Sources */,
@@ -2012,6 +2019,7 @@
 				00E92A69202AE2C100A399E2 /* WalletTransferViewController.swift in Sources */,
 				00E929FD202AE2C100A399E2 /* TickPayAlertViewController.swift in Sources */,
 				00E92A25202AE2C100A399E2 /* SPAnimationSpring.swift in Sources */,
+				7AC8681222EEBB9F00C96302 /* ParcelTblCell.swift in Sources */,
 				00E92A70202AE2C100A399E2 /* Singletons.swift in Sources */,
 				2101CD0E216F2CBA007B9680 /* ThemeButton.swift in Sources */,
 				00E92A45202AE2C100A399E2 /* SPUIViewExtenshion.swift in Sources */,

@@ -292,8 +292,6 @@ class updateDriverSelectVehicleTypesViewControllerViewController: BaseViewContro
         let vehicleNumber = txtVehicleRegistrationNumber.text
         let VehiclaName = txtCompany.text
         let vehicleColor = txtCarType.text
-    
-        
         userDefault.set(vehicleNumber, forKey: RegistrationFinalKeys.kVehicleRegistrationNo)
         userDefault.set(VehiclaName, forKey: RegistrationFinalKeys.kCompanyModel)
         userDefault.set(vehicleColor, forKey: RegistrationFinalKeys.kCarThreeTypeName)
@@ -313,8 +311,7 @@ class updateDriverSelectVehicleTypesViewControllerViewController: BaseViewContro
     func getData()
     {
         let profile: NSMutableDictionary = NSMutableDictionary(dictionary: (Singletons.sharedInstance.dictDriverProfile.object(forKey: "profile") as! NSDictionary))
-        let Vehicle: NSMutableDictionary = NSMutableDictionary(dictionary: profile.object(forKey: "Vehicle") as! NSDictionary )
-        
+        let Vehicle: NSMutableDictionary = NSMutableDictionary(dictionary: profile.object(forKey: "Vehicle") as! NSDictionary)
         
         txtVehicleRegistrationNumber.text = Vehicle.object(forKey: "VehicleRegistrationNo") as? String
         txtVehicleModel.text = Vehicle.object(forKey: "VehicleModel") as? String
@@ -324,7 +321,7 @@ class updateDriverSelectVehicleTypesViewControllerViewController: BaseViewContro
         let carType = Vehicle.object(forKey: "VehicleClass") as? String
         txtCarType.text = carType
 
-        txtNoOfPassenger.selectedItem = Vehicle.object(forKey: "NoOfPassenger") as? String
+//        txtNoOfPassenger.selectedItem = Vehicle.object(forKey: "NoOfPassenger") as? String
         imgVehicle.sd_setImage(with: URL.init(string: Vehicle.object(forKey: "VehicleImage") as! String), completed: nil)
     }
     
@@ -420,7 +417,7 @@ class updateDriverSelectVehicleTypesViewControllerViewController: BaseViewContro
                 dictData["VehicleClass"] = strVehicleClass as AnyObject
                 dictData["CompanyModel"] = txtCompany.text as AnyObject
                 dictData["VehicleRegistrationNo"] = txtVehicleRegistrationNumber.text as AnyObject
-                dictData["NoOfPassenger"] = txtNoOfPassenger.selectedItem as AnyObject
+//                dictData["NoOfPassenger"] = txtNoOfPassenger.selectedItem as AnyObject
                 dictData["VehicleModelName"] = txtVehicleModel.text as AnyObject
                 // DriverId,VehicleClass,VehicleColor,CompanyModel,VehicleRegistrationNo
                 
@@ -466,12 +463,12 @@ class updateDriverSelectVehicleTypesViewControllerViewController: BaseViewContro
             UtilityClass.showAlert("App Name".localized, message: "Vehicle Type".localized, vc: self)
             return false
         }
-        else if txtNoOfPassenger.selectedItem == nil ||  txtNoOfPassenger.selectedItem == "" || txtNoOfPassenger.selectedItem == "Number of Passenger"
-        {
-
-            UtilityClass.showAlert("App Name".localized, message: "Number Of Passenger".localized, vc: self)
-            return false
-        }
+//        else if txtNoOfPassenger.selectedItem == nil ||  txtNoOfPassenger.selectedItem == "" || txtNoOfPassenger.selectedItem == "Number of Passenger"
+//        {
+//
+//            UtilityClass.showAlert("App Name".localized, message: "Number Of Passenger".localized, vc: self)
+//            return false
+//        }
         
         return true
     }

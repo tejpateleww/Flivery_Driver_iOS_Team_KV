@@ -184,7 +184,7 @@
 "Please fill all the details." = "Please fill all the details.";
 "Alert!   This is a cash job" = "Alert!   This is a cash job";
 "Please collect money from shipper." = "Please collect money from shipper.";
-"On the way" = "On the way";
+"On The Way" = "On The Way";
 "Please stay connected to app, until finish the trip!\nOtherwise you may lost your data." = "Please stay connected to app, until finish the trip!\nOtherwise you may lost your data.";
 "km" = "km";
 "m" = "m";
@@ -311,7 +311,7 @@
 "Drop Time" = "Drop Time";
 "Created Date" = "Created Date";
 "Booking Id" = "Booking Id";
-"PickUp Date" = "PickUp Date";
+"Pickup Date Time" = "Pickup Date Time";
 "Goods Type" = "Goods Type";
 "Goods Weight" = "Goods Weight";
 "Parcel Weight" = "Parcel Weight";

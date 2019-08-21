@@ -2052,6 +2052,25 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, ARCarMove
             else {
                 next.strGrandTotal = "0"
             }
+            
+            if let dictData = data as? [[String:AnyObject]]
+            {
+                next.arrParcelData = dictData
+            }
+            
+            if let EstimateFare = ((data as NSArray).object(at: 0) as! NSDictionary).object(forKey: "EstimateFare") as? String {
+                if EstimateFare == "" {
+                    next.strEstimateFare = "0"
+                }
+                else {
+                    next.strEstimateFare = EstimateFare
+                }
+            }
+            else {
+                next.strEstimateFare = "0"
+            }
+            
+            
             if let PickupLocation = ((data as NSArray).object(at: 0) as! NSDictionary).object(forKey: "PickupLocation") as? String {
                 next.strPickupLocation = PickupLocation
             }
@@ -2350,7 +2369,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, ARCarMove
             return
         }
         
-        let CancelTripAlert = UIAlertController(title: "App Name".localized, message: "Are you sure you want to cancel the trip?".localized, preferredStyle: .alert)
+        let CancelTripAlert = UIAlertController(title: "App Name".localized, message: "Are you sure you want to cancel your trip?".localized, preferredStyle: .alert)
         CancelTripAlert.addAction(UIAlertAction(title: "Yes".localized, style: .default , handler: { (UIAlertAction) in
             self.cancelTrip()
         }))
@@ -2788,9 +2807,11 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, ARCarMove
         
         dismiss(animated: true, completion: {self.completeTripButtonAction()})
     }
+    
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: {self.completeTripButtonAction()})
     }
+    
     func completeTripButtonAction()
     {
         
@@ -2885,12 +2906,9 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, ARCarMove
                 self.getLastAddressForLatLng(DropOffAddress: (self.lastLocation != nil) ? self.lastLocation : self.defaultLocation)
                 Appdelegate.WaitingTimeCount = 0
                 Appdelegate.WaitingTime = "00:00:00"
-
                 self.tollFee = "0"
-
             }
-            else
-            {
+            else {
                 //                self.completeTripButtonAction()
 //                self.completeTripFinalSubmit()
                 self.getLastAddressForLatLng(DropOffAddress: (self.lastLocation != nil) ? self.lastLocation : self.defaultLocation)
@@ -3482,24 +3500,32 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, ARCarMove
             
             let PassengerInfo = getBookingAndPassengerInfo.1
             
-            //            if isAdvanceBooking {
-            //                if bookingID == "" {
-            //                     moveToTripInfo.strBookingType = "BookLater"
-            //                }
-            //            }
-            //            else {
-            //                if advanceBookingID == "" {
-            //
-            //                }
-            //            }
+//                        if isAdvanceBooking {
+//                            if bookingID == "" {
+//                                 moveToTripInfo.strBookingType = "BookLater"
+//                            }
+//                        }
+//                        else {
+//                            if advanceBookingID == "" {
+//            
+//                            }
+//                        }
             
+            // commented by Bhautik
+            /*
             if (Singletons.sharedInstance.oldBookingType.isBookLater || (isAdvanceBooking == true && bookingID == "") ) {
                 moveToTripInfo.strBookingType = "BookLater"
             }
             else {
                 moveToTripInfo.strBookingType = "BookNow"
             }
+      */
             
+            if advanceBookingID != "" {
+                moveToTripInfo.strBookingType = "BookLater"
+            } else if bookingID != ""  {
+                moveToTripInfo.strBookingType = "BookNow"
+            }
             
             //           moveToTripInfo.strBookingType = "BookNow"
             //            if(isAdvanceBooking)

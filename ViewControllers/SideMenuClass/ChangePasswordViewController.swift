@@ -16,6 +16,8 @@ class ChangePasswordViewController: BaseViewController {
     
 //    @IBOutlet var iconPassword: UIImageView!
     @IBOutlet var btnSubmit: UIButton!
+    
+    @IBOutlet var txtCurrentPassword: UITextField!
     @IBOutlet weak var txtConfirmPass: UITextField!
     @IBOutlet weak var txtNewPassword: UITextField!
 
@@ -38,6 +40,7 @@ class ChangePasswordViewController: BaseViewController {
     func setLicalization()
     {
         self.title = "Change Password".localized
+        txtCurrentPassword.placeholder = "Current Password".localized
         txtNewPassword.placeholder = "New Password".localized
         txtConfirmPass.placeholder = "Confirm Password".localized
         btnSubmit.setTitle("Submit".localized, for: .normal)
@@ -90,9 +93,12 @@ class ChangePasswordViewController: BaseViewController {
     func isValidate() -> (Bool,String) {
         var isValid:Bool = true
         var ValidatorMessage:String = ""
-        if self.txtNewPassword.text?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines) == "" {
+        if self.txtCurrentPassword.text?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines) == "" {
             isValid = false
-            ValidatorMessage = "Please enter password".localized
+            ValidatorMessage = "Please enter current password".localized
+        } else if self.txtNewPassword.text?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines) == "" {
+            isValid = false
+            ValidatorMessage = "Please enter new password".localized
         } else if (self.txtNewPassword.text?.count)! < 8 {
             isValid = false
             ValidatorMessage = "Password must contain at least 8 characters.".localized
@@ -129,6 +135,7 @@ class ChangePasswordViewController: BaseViewController {
         var dictdata = [String:AnyObject]()
         
         dictdata["DriverId"] = Singletons.sharedInstance.strDriverID as AnyObject
+        dictdata["OldPassword"] = txtCurrentPassword.text as AnyObject
         dictdata["Password"] = txtNewPassword.text as AnyObject
         
         webserviceForChangePassword(dictdata as AnyObject) { (result, status) in

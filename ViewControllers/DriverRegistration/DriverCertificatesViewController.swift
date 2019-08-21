@@ -626,6 +626,9 @@ class DriverCertificatesViewController: UIViewController,UIImagePickerController
                     let profileData = Singletons.sharedInstance.dictDriverProfile
                     
                     Singletons.sharedInstance.strDriverID = (profileData?.object(forKey: "profile") as! NSDictionary).object(forKey: "Id") as! String
+                    DispatchQueue.global(qos: DispatchQoS.QoSClass.background).async(execute: {
+                        self.DeleteRegisterDatafromUserDefaults()
+                    })
                     
 //                    let next = self.storyboard?.instantiateViewController(withIdentifier: "SideMenuController") as! SideMenuController
 //                    self.navigationController?.pushViewController(next, animated: true)
@@ -692,9 +695,9 @@ class DriverCertificatesViewController: UIViewController,UIImagePickerController
 //         let passenger: String = userDefault.object(forKey: RegistrationFinalKeys.kNumberOfPasssenger) as! String
 //            dictData[RegistrationFinalKeys.kNumberOfPasssenger] = passenger as AnyObject
         
-        let vehicleModelName: String = userDefault.object(forKey: RegistrationFinalKeys.kVehicleModelName) as! String
-        dictData[RegistrationFinalKeys.kVehicleModelName] = vehicleModelName as AnyObject
-        
+//        let vehicleModelName: String = userDefault.object(forKey: RegistrationFinalKeys.kVehicleModelName) as! String
+//        dictData[RegistrationFinalKeys.kVehicleModelName] = vehicleModelName as AnyObject
+//
 //
         
 //        message =     (
@@ -815,6 +818,30 @@ class DriverCertificatesViewController: UIViewController,UIImagePickerController
         dictData[RegistrationFinalKeys.kAccreditationCertificateExpiryDate] = AccreditationCertificateExpiryDate as AnyObject
         dictData[RegistrationFinalKeys.kVehicleInsuranceCertificateExpiryDate] = VehicleInsuranceCertificateExpiryDate as AnyObject
         
+    }
+    
+    func DeleteRegisterDatafromUserDefaults() {
+        userDefault.removeObject(forKey: savedDataForRegistration.kPageNumber)
+        userDefault.removeObject(forKey: RegistrationFinalKeys.kEmail)
+        userDefault.removeObject(forKey: RegistrationFinalKeys.kFullname)
+        userDefault.removeObject(forKey: RegistrationFinalKeys.kGender)
+        userDefault.removeObject(forKey: RegistrationFinalKeys.kMobileNo)
+        userDefault.removeObject(forKey: RegistrationFinalKeys.kPassword)
+        userDefault.removeObject(forKey: RegistrationFinalKeys.kAddress)
+        userDefault.removeObject(forKey: RegistrationFinalKeys.kZipcode)
+        userDefault.removeObject(forKey: RegistrationFinalKeys.kVehicleModelName)
+        userDefault.removeObject(forKey: RegistrationFinalKeys.kKeyDOB)
+        userDefault.removeObject(forKey: RegistrationFinalKeys.kBSB)
+        userDefault.removeObject(forKey: RegistrationFinalKeys.kBankName)
+        userDefault.removeObject(forKey: RegistrationFinalKeys.kBankAccountNo)
+        userDefault.removeObject(forKey: RegistrationFinalKeys.kReferralCode)
+        userDefault.removeObject(forKey: RegistrationFinalKeys.kVehicleRegistrationNo)
+        userDefault.removeObject(forKey: RegistrationFinalKeys.kCarThreeTypeName)
+        userDefault.removeObject(forKey: RegistrationFinalKeys.kVehicleClass)
+        userDefault.removeObject(forKey: RegistrationFinalKeys.kCompanyModel)
+        userDefault.removeObject(forKey: RegistrationFinalKeys.kbankHolderName)
+        userDefault.removeObject(forKey: RegistrationFinalKeys.kDriverImage)
+        userDefault.removeObject(forKey: RegistrationFinalKeys.kVehicleImage)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

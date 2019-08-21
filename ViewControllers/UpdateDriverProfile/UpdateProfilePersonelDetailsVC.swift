@@ -372,7 +372,8 @@ class UpdateProfilePersonelDetailsVC: BaseViewController,UIImagePickerController
 
 //         txtCompanyID.text       = (self.aryCompanyIDS as NSArray).filtered(using: "") as? String
         
-        imgProfile.sd_setImage(with: URL(string: profile.object(forKey: "Image") as! String))
+//        imgProfile.sd_setImage(with: URL(string: profile.object(forKey: "Image") as! String))
+        imgProfile.sd_setImage(with: URL(string: profile.object(forKey: "Image") as! String), placeholderImage: UIImage(named: "icon_UserImage"), options:[], completed: nil)
         
         let strGender = profile.object(forKey: "Gender") as? String
         thePicker.reloadAllComponents()

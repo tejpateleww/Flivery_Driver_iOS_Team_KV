@@ -35,9 +35,11 @@ class  MenuController: UIViewController, UITableViewDataSource, UITableViewDeleg
         //kiconMyJobs
         //kMyRating
         //kiconMyRating
-        aryItemNames = ["Your Running Trip",kPaymentOption,kPassword,kTripToDestination,kBidList,kInviteFriend,kSettings,kLogout]
+//        kiconTripToDestination
+//        kTripToDestination
+        aryItemNames = ["Your Running Trip",kPaymentOption,kPassword,kBidList,kInviteFriend,kSettings,kLogout]
         
-        aryItemIcons = ["iconMyBooking",kiconPaymentOption,kiconPassword,kiconTripToDestination,kIconBids,kiconInviteFriend,kiconSettings,kIconLogout]
+        aryItemIcons = ["iconMyBooking",kiconPaymentOption,kiconPassword,kIconBids,kiconInviteFriend,kiconSettings,kIconLogout]
 
         
         self.view.backgroundColor = UIColor.black
@@ -133,7 +135,8 @@ class  MenuController: UIViewController, UITableViewDataSource, UITableViewDeleg
             cellProfile.lblName.text = driverFullName
             cellProfile.lblMobileNumber.text = driverEmail
             //            cellProfile.lblRating.text = Singletons.sharedInstance.strRating
-            cellProfile.imgProfile.sd_setImage(with: URL(string: strImagPath))
+            cellProfile.imgProfile.sd_setImage(with: URL(string: strImagPath), placeholderImage: UIImage(named: "icon_UserImage"), options:[], completed: nil)
+//            cellProfile.imgProfile.sd_setImage(with: URL(string: strImagPath))
 //            cellProfile.lblLaungageName.layer.cornerRadius = 5
 //            cellProfile.lblLaungageName.backgroundColor = ThemeYellowColor
 //            cellProfile.lblLaungageName.layer.borderColor = UIColor.black.cgColor

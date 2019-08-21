@@ -120,6 +120,13 @@ class DriverPersonelDetailsViewController: UIViewController, UIImagePickerContro
             }
         }
         
+        
+        btnMale.setImage((UIImage(named: "iconRadioSelected")?.withRenderingMode(.alwaysTemplate)), for: .selected)
+        btnMale.setImage((UIImage(named: "iconRadioUnSelected")?.withRenderingMode(.alwaysTemplate)), for: .normal)
+        btnFemale.setImage((UIImage(named: "iconRadioSelected")?.withRenderingMode(.alwaysTemplate)), for: .selected)
+        btnFemale.setImage((UIImage(named: "iconRadioUnSelected")?.withRenderingMode(.alwaysTemplate)), for: .normal)
+        
+        
         selectedMale()
     }
     func showDatePicker(){
@@ -179,18 +186,18 @@ class DriverPersonelDetailsViewController: UIViewController, UIImagePickerContro
     
     func selectedMale()
     {
-        btnMale.setImage((UIImage(named: "iconRadioSelected")?.withRenderingMode(.alwaysTemplate)), for: .normal)
+        btnMale.isSelected = true
         btnMale.tintColor = ThemeYellowColor
-        btnFemale.setImage((UIImage(named: "iconRadioUnSelected")?.withRenderingMode(.alwaysTemplate)), for: .normal)
+        btnFemale.isSelected = false
         btnFemale.tintColor = UIColor.white
 //        btnOthers.setImage(UIImage(named: "iconCheckMarkUnSelected"), for: .normal)
     }
     func selectedFemale()
     {
-        btnMale.setImage((UIImage(named: "iconRadioUnSelected")?.withRenderingMode(.alwaysTemplate)), for: .normal)
-        btnMale.tintColor = UIColor.white
-        btnFemale.setImage((UIImage(named: "iconRadioSelected")?.withRenderingMode(.alwaysTemplate)), for: .normal)
+        btnFemale.isSelected = true
         btnFemale.tintColor = ThemeYellowColor
+        btnMale.isSelected = false
+        btnMale.tintColor = UIColor.white
         
 //        btnOthers.setImage(UIImage(named: "iconCheckMarkUnSelected"), for: .normal)
     }
@@ -386,10 +393,10 @@ class DriverPersonelDetailsViewController: UIViewController, UIImagePickerContro
         userDefault.set(txtPostCode.text, forKey: RegistrationFinalKeys.kZipcode)
 
         
-        if (btnMale.currentImage?.isEqual(UIImage(named: "iconRadioSelected")))! {
+        if btnMale.isSelected {
             userDefault.set("Male", forKey: RegistrationFinalKeys.kGender)
         }
-        else if (btnFemale.currentImage?.isEqual(UIImage(named: "iconRadioSelected")))! {
+        else if btnFemale.isSelected {
             userDefault.set("Female", forKey: RegistrationFinalKeys.kGender)
         }
 //        else if (btnOthers.currentImage?.isEqual(UIImage(named: "iconRadioSelected")))! {

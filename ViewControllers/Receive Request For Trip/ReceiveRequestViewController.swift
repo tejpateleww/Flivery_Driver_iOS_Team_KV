@@ -128,7 +128,7 @@ class ReceiveRequestViewController: UIViewController, SRCountdownTimerDelegate {
 //
 //            viewDetails.isHidden = true
 //
-//            lblGrandTotal.isHidden = true
+            lblGrandTotal.isHidden = true
 ////            constratintHorizontalSpaceBetweenButtonAndTimer.priority = 1000
 ////            stackViewFlightNumber.isHidden = true
 ////            stackViewNotes.isHidden = true
@@ -145,17 +145,19 @@ class ReceiveRequestViewController: UIViewController, SRCountdownTimerDelegate {
 //            } else if strEstimateFare != "0" {
 //        lblGrandTotal.text = arrParcelData[0]["name"] == nil ? "-" : arrParcelData[0]["name"] as? String//"\("Estimate Fare".localized) : \(currency) \(strEstimateFare)"
 //            }
-
-        if let dictData = arrParcelData[0] as? [String:AnyObject]
-        {
-            if let arrParcelData = dictData["Parcel"] as? [[String:AnyObject]]
-            {
-                if let strName = arrParcelData[0]["Name"] as? String
-                {
-                    lblGrandTotal.text = strName
-                }
-            }
-        }
+        
+        
+        
+//        if  let dictData = arrParcelData[0] as? [String:AnyObject], arrParcelData.count != 0
+//            {
+//                if let arrParcels = dictData["Parcel"] as? [[String:AnyObject]] , arrParcels.count != 0
+//                {
+//                    if let strName = arrParcels[0]["Name"] as? String
+//                    {
+//                        lblGrandTotal.text = strName
+//                    }
+//                }
+//            }
 
 
             lblMessage.text = strRequestMessage

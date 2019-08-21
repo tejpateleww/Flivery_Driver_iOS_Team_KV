@@ -158,6 +158,12 @@ class DriverSelectVehicleTypesViewController: UIViewController,getVehicleIdAndNa
             let carType: String = UserDefaults.standard.object(forKey: RegistrationFinalKeys.kCarThreeTypeName) as! String
             txtCarType.text = carType
         }
+        
+        if UserDefaults.standard.object(forKey: RegistrationFinalKeys.kVehicleClass) != nil
+        {
+            let carTypes: String = UserDefaults.standard.object(forKey: RegistrationFinalKeys.kVehicleClass) as! String
+            VehicleCarIds = carTypes
+        }
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool
@@ -201,6 +207,8 @@ class DriverSelectVehicleTypesViewController: UIViewController,getVehicleIdAndNa
     
     @IBOutlet weak var viewbtnCarsAndTexis: UIView!
     @IBOutlet weak var viewbtnDeliveryService: UIView!
+    
+    var VehicleCarIds:String = ""
     
     //-------------------------------------------------------------
     // MARK: - Actions
@@ -605,10 +613,10 @@ class DriverSelectVehicleTypesViewController: UIViewController,getVehicleIdAndNa
 //        txtNumberPassenger = number of passenger = NoOfPassenger
         
         let vehicleRegistrationNumber = txtVehicleRegistrationNumber.text
-        let VehiclaCompanyModelName = txtCompany.text // CompanyModel
-        let vehicleClasscarType = txtCarType.text
+//        let VehiclaCompanyModelName = txtCompany.text // CompanyModel
+//        let vehicleClasscarType = txtCarType.text
         let VehiclaMakeCompanyModel = txtVehicleMake.text
-        let vehiclePassenger = txtNumberPassenger.selectedItem
+//        let vehiclePassenger = txtNumberPassenger.selectedItem
         
         if imgVehicle.image != nil
         {
@@ -621,9 +629,9 @@ class DriverSelectVehicleTypesViewController: UIViewController,getVehicleIdAndNa
         
         userDefault.set(vehicleRegistrationNumber, forKey: RegistrationFinalKeys.kVehicleRegistrationNo)
         userDefault.set(VehiclaMakeCompanyModel, forKey: RegistrationFinalKeys.kCompanyModel)
-        userDefault.set(vehicleClasscarType, forKey: RegistrationFinalKeys.kVehicleClass)
-        userDefault.set(VehiclaCompanyModelName, forKey: RegistrationFinalKeys.kVehicleModelName)
-        userDefault.set(vehiclePassenger, forKey: RegistrationFinalKeys.kNumberOfPasssenger)
+        userDefault.set(VehicleCarIds, forKey: RegistrationFinalKeys.kVehicleClass)
+//        userDefault.set(VehiclaCompanyModelName, forKey: RegistrationFinalKeys.kVehicleModelName)
+//        userDefault.set(vehiclePassenger, forKey: RegistrationFinalKeys.kNumberOfPasssenger)
        
     }
     
