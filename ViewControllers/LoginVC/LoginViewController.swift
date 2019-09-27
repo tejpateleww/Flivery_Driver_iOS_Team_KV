@@ -403,9 +403,9 @@
         param = version + "/" + "IOSDriver"
         
         webserviceForAppSetting(param as AnyObject) { (result, status) in
-            
+            print("\n\nInit Response : \(result)\n\n")
             if(status) {
-                print(result)
+
                 /*
                  {
                  "status": true,

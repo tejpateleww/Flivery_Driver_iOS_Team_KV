@@ -153,6 +153,33 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, ARCarMove
       
 //        btnMyJob.borderColor = UIColor.red// UIColor.init(red: 228/255, green: 132/255, blue: 40/255, alpha: 1.0)
 //        btnHome.borderColor = UIColor.red//.init(red: 228/255, green: 132/255, blue: 40/255, alpha: 1.0)
+
+
+        if(!checkIfLocationIsOn())
+        {
+            let alertController = UIAlertController(title: "Location Services Disabled", message: "Please enable location services for this app.", preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            let settingsAction = UIAlertAction(title: "Settings", style: .default) { (_) -> Void in
+
+                guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+                    return
+                }
+
+                if UIApplication.shared.canOpenURL(settingsUrl) {
+                    UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
+                        print("Settings opened: \(success)") // Prints true
+                    })
+                }
+            }
+            alertController.addAction(settingsAction)
+
+            alertController.addAction(OKAction)
+            OperationQueue.main.addOperation {
+                self.present(alertController, animated: true,
+                             completion:nil)
+            }
+        }
+
         print("Home")
         btnCurrentlocation.layer.cornerRadius = 5
         btnCurrentlocation.layer.masksToBounds = true
@@ -269,6 +296,23 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, ARCarMove
         
         runTimer()
     }
+
+    func checkIfLocationIsOn() -> Bool
+    {
+
+        if CLLocationManager.locationServicesEnabled() {
+            switch CLLocationManager.authorizationStatus() {
+            case .notDetermined, .restricted, .denied:
+                return false
+            case .authorizedAlways, .authorizedWhenInUse:
+                return true
+            }
+        } else {
+            return false
+
+        }
+    }
+
     override func viewDidLayoutSubviews()
     {
         self.title = "Home".localized
