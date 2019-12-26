@@ -790,6 +790,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, ARCarMove
         
         socket.on(clientEvent: .reconnect) { (data, ack) in
             print ("socket is reconnected please reconnect")
+//            self.webserviceOfCurrentBooking()
         }
         
         socket.on(clientEvent: .connect) {data, ack in
@@ -3669,8 +3670,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, ARCarMove
                                 let endLocationDictionary = legs[legs.count - 1]["end_location"] as! Dictionary<String, AnyObject>
                                 self.destinationCoordinate = CLLocationCoordinate2DMake(endLocationDictionary["lat"] as! Double, endLocationDictionary["lng"] as! Double)
                                 
-                                let originAddress = legs[0]["start_address"] as! String
-                                let destinationAddress = legs[legs.count - 1]["end_address"] as! String
+                                let originAddress = legs[0]["start_address"] as? String ?? ""
+                                let destinationAddress = legs[legs.count - 1]["end_address"] as? String ?? ""
                                 
                                 
                                 if(self.driverMarker == nil)
@@ -4792,13 +4793,22 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, ARCarMove
             else {
                 
                 if let res: String = result as? String {
-                    UtilityClass.showAlert("App Name".localized, message: res, vc: self)
+//                    UtilityClass.showAlert("App Name".localized, message: res, vc: self)
+                    UtilityClass.showAlertWithCompletion("App Name".localized, message: res, vc: self, completionHandler: { (status) in
+                        self.webserviceOfCurrentBooking()
+                    })
                 }
                 else if let resDict = result as? NSDictionary {
-                    UtilityClass.showAlert("App Name".localized, message: resDict.object(forKey: GetResponseMessageKey()) as! String, vc: self)
+//                    UtilityClass.showAlert("App Name".localized, message: resDict.object(forKey: GetResponseMessageKey()) as! String, vc: self)
+                    UtilityClass.showAlertWithCompletion("App Name".localized, message: resDict.object(forKey: GetResponseMessageKey()) as? String ?? "", vc: self, completionHandler: { (status) in
+                        self.webserviceOfCurrentBooking()
+                         })
                 }
                 else if let resAry = result as? NSArray {
-                    UtilityClass.showAlert("App Name".localized, message: (resAry.object(at: 0) as! NSDictionary).object(forKey: GetResponseMessageKey()) as! String, vc: self)
+//                    UtilityClass.showAlert("App Name".localized, message: (resAry.object(at: 0) as! NSDictionary).object(forKey: GetResponseMessageKey()) as! String, vc: self)
+                    UtilityClass.showAlertWithCompletion("App Name".localized, message: (resAry.object(at: 0) as? NSDictionary)?.object(forKey: GetResponseMessageKey()) as? String ?? "", vc: self, completionHandler: { (status) in
+                        self.webserviceOfCurrentBooking()
+                    })
                 }
             }
         }

@@ -429,11 +429,11 @@ let googlPlacesApiKey = "AIzaSyD1bcITZ_nUkP-ke6xgaP5RIC--tXQU3I4" // "AIzaSyCKEP
         print("didReceive; \(response)")
         if let userInfo = response.notification.request.content.userInfo as? [String:Any]   {
             Messaging.messaging().appDidReceiveMessage(userInfo)
-            let key = userInfo["gcm.notification.type"]!
+            let key = userInfo["gcm.notification.type"]
             
             if(UIApplication.shared.applicationState == .background || UIApplication.shared.applicationState == .inactive)
             {
-                self.pushAfterReceiveNotification(typeKey: key as! String, applicationObject: UIApplication.shared, UserObject: userInfo)
+                self.pushAfterReceiveNotification(typeKey: key as? String ?? "", applicationObject: UIApplication.shared, UserObject: userInfo)
             }
             else
             {
@@ -446,7 +446,7 @@ let googlPlacesApiKey = "AIzaSyD1bcITZ_nUkP-ke6xgaP5RIC--tXQU3I4" // "AIzaSyCKEP
                 if(userInfo["gcm.notification.type"]! as! String == "AcceptBookingRequestNotification")
                 {
                     alert.addAction(UIAlertAction(title: "Get Details", style: .default, handler: { (action) in
-                        self.pushAfterReceiveNotification(typeKey: key as! String, applicationObject: UIApplication.shared,UserObject: userInfo)
+                        self.pushAfterReceiveNotification(typeKey: key as? String ?? "", applicationObject: UIApplication.shared,UserObject: userInfo)
                     }))
                     
                     alert.addAction(UIAlertAction(title: "Dismiss".localized, style: .destructive, handler: { (action) in

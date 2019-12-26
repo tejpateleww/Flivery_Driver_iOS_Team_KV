@@ -88,7 +88,7 @@ class OpenBidListViewController: UIViewController,UITableViewDelegate,UITableVie
             if let PickupLocation = aryData[indexPath.row]["PickupLocation"] as? String{
                 customCell.lblPickupLocation.text = PickupLocation
             }
-            
+             customCell.lblBidId.text = ""
             if let BidID =  aryData[indexPath.row]["BidId"] as? Int {
                 customCell.lblBidId.text = "Bid Id - ".localized + "\(BidID)"
             } else if let BidID =  aryData[indexPath.row]["BidId"] as? String {
@@ -103,7 +103,7 @@ class OpenBidListViewController: UIViewController,UITableViewDelegate,UITableVie
             }
             if let pickup = aryData[indexPath.row]["PickupDateTime"] as? String{
                 let pickupDate : [String] = pickup.components(separatedBy: " ")
-                var date : String = pickupDate[0]
+                let date : String = pickupDate[0]
                 let dateString = UtilityClass.formattedDateFromString(dateString: date, withFormat:"dd MMMM" )
                 customCell.lblPickupDate.text = dateString
             }

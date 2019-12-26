@@ -165,7 +165,7 @@ extension MultipleBookingTrackingViewController: UITableViewDataSource, UITableV
             cell.lblParcelWeightDesc.text = ": " + "N/A"
         }
         
-        if let imgURL = currrentData["Image"] as? String {
+        if let imgURL = currrentData["ParcelImage"] as? String {
             if imgURL != "" {
                 cell.viewParcelImage.isHidden = false
                 cell.constantHeightOfViewParcelImage.constant = 92

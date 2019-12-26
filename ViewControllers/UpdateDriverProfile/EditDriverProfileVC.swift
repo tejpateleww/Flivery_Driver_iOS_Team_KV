@@ -45,14 +45,14 @@ class EditDriverProfileVC: BaseViewController {
 //        self.giveCornorRadiosToView(view: viewLogout)
         // Do any additional setup after loading the view.
     }
-//    @IBOutlet weak var lblLogout: UILabel!
+//    @IBOutlet weak var lblLogout: UILabel!                                                                                                                                                                                                                                                                                                   
     override func viewWillAppear(_ animated: Bool)
     {
         super.viewWillAppear(true)
         setLocalizable()
 //        self.setNavBarWithBack(Title: "Profile Update".localized, IsNeedRightButton: false)
-        self.title = "Profile Update".localized
-        setNavBarWithMenuORBack(Title: "Profile Update".localized, LetfBtn: kIconBack, IsNeedRightButton: false, isTranslucent: false)
+        self.title = "Profile".localized
+        setNavBarWithMenuORBack(Title: "Profile".localized, LetfBtn: kIconBack, IsNeedRightButton: false, isTranslucent: false)
 
     }
     func setLocalizable()

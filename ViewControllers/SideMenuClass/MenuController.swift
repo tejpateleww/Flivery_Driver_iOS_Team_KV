@@ -37,9 +37,9 @@ class  MenuController: UIViewController, UITableViewDataSource, UITableViewDeleg
         //kiconMyRating
 //        kiconTripToDestination
 //        kTripToDestination
-        aryItemNames = ["Your Running Trip",kPaymentOption,kPassword,kBidList,kInviteFriend,kSettings,kLogout]
+        aryItemNames = [kSettings,"Your Running Trip",kPaymentOption,kPassword,kBidList,kInviteFriend,kLogout]
         
-        aryItemIcons = ["iconMyBooking",kiconPaymentOption,kiconPassword,kIconBids,kiconInviteFriend,kiconSettings,kIconLogout]
+        aryItemIcons = [kiconSettings,"iconMyBooking",kiconPaymentOption,kiconPassword,kIconBids,kiconInviteFriend,kIconLogout]
 
         
         self.view.backgroundColor = UIColor.black
@@ -326,7 +326,7 @@ class  MenuController: UIViewController, UITableViewDataSource, UITableViewDeleg
             }
             else if strCellItemTitle == kSettings
             {
-                let viewController = self.storyboard?.instantiateViewController(withIdentifier: "SettingPasscodeVC") as! SettingPasscodeVC
+                let viewController = self.storyboard?.instantiateViewController(withIdentifier: "EditDriverProfileVC") as! EditDriverProfileVC
                 homeVC?.navigationController?.pushViewController(viewController, animated: true)
             }
             else if strCellItemTitle == kTripToDestination

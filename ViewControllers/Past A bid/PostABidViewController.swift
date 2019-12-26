@@ -161,7 +161,7 @@ class PostABidViewController: BaseViewController,UITextFieldDelegate {
         if let pickup = BidData[0]["PickupDateTime"] as? String{
             
             let pickupDate : [String] = pickup.components(separatedBy: " ")
-            var date : String = pickupDate[0]
+            let date : String = pickupDate[0]
             var pickupTime:String = pickupDate[1]
             print(pickupTime)
             let dateformat = Date()
@@ -176,6 +176,12 @@ class PostABidViewController: BaseViewController,UITextFieldDelegate {
         if let droplocation = BidData[0]["DropoffLocation"] as? String{
             txtDropLocation!.text = droplocation
         }
+
+        if let notes = BidData[0]["Notes"] as? String{
+            txtNotes!.text = notes
+        }
+
+
         if let modelName = BidData[0]["Name"] as? String{
             txtVehicleType!.text = modelName
         }

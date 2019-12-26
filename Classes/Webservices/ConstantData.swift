@@ -19,8 +19,8 @@ struct WebSupport {
 
 struct WebserviceURLs {
     
-    static let kBaseURL                                 = "http://34.73.215.81/web/Drvier_Api/"//"https://pickngolk.info/web/Drvier_Api/" // "http://54.169.67.226/web/Drvier_Api/" //
-    static let kImageBaseURL                            = "http://34.73.215.81/web/" //"https://www.tantaxitanzania.com/" // "http://54.169.67.226/web/" //
+    static let kBaseURL                                 = "http://104.196.119.234/web/Drvier_Api/"//"https://pickngolk.info/web/Drvier_Api/" // "http://54.169.67.226/web/Drvier_Api/" //
+    static let kImageBaseURL                            = "http://104.196.119.234/web/" //"https://www.tantaxitanzania.com/" // "http://54.169.67.226/web/" //
     static let kOTPForDriverRegister                    = "OtpForRegister"
     static let kVehicalModelList                        = "TaxiModel/"
     static let kDriverRegister                          = "Register"
@@ -205,7 +205,7 @@ struct RegistrationFinalKeys {
 
 struct socketApiKeys {
     
-    static let kSocketBaseURL = "http://34.73.215.81:8080"
+    static let kSocketBaseURL = "http://104.196.119.234:8080"
     //"https://www.tantaxitanzania.com:8081"//"http://3.120.161.225:8080" //"http://13.237.0.107:8080/" //http://3.120.161.225:8080"//"https://pickngolk.info:8081" // "https://pickngolk.info:8081"   // "http://54.169.67.226:8080"  //
     
     static let kUpdateDriverLocation = "UpdateDriverLatLong"

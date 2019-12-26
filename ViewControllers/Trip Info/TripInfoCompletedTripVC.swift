@@ -215,12 +215,12 @@ class TripInfoCompletedTripVC: UIViewController {
         lblDropOffLocation.text = dictData.object(forKey: "DropoffLocation") as? String
         
         
-        let PickTime = Double(dictData.object(forKey: "PickupTime") as! String)
+        let PickTime = Double(dictData.object(forKey: "PickupTime") as? String ?? "0")
         let dropoffTime = Double(dictData.object(forKey: "DropTime") as! String)
         let unixTimestamp = PickTime //as Double//as! Double//dictData.object(forKey: "PickupTime")
         let unixTimestampDrop = dropoffTime
-        let date = Date(timeIntervalSince1970: TimeInterval(unixTimestamp!))
-        let dateDrop = Date(timeIntervalSince1970: TimeInterval(unixTimestampDrop!))
+        let date = Date(timeIntervalSince1970: TimeInterval(unixTimestamp ?? 00.00))
+        let dateDrop = Date(timeIntervalSince1970: TimeInterval(unixTimestampDrop ?? 00.00))
         let dateFormatter = DateFormatter()
 //        dateFormatter.timeZone = TimeZone(abbreviation: "GMT") //Set timezone that you want
 //        dateFormatter.locale = NSLocale.current
