@@ -116,8 +116,14 @@ class OpenBidListViewController: UIViewController,UITableViewDelegate,UITableVie
             if let modelimage = aryData[indexPath.row]["ModelImage"] as? String{
                 customCell.iconVehicle.sd_setImage(with: URL(string: WebserviceURLs.kImageBaseURL + modelimage), placeholderImage: UIImage(named: "iconProfilePicBlank"), options: [], completed: nil)
             }
+            customCell.btnViewDetails.isHidden = false
+
             if let driverStatus = aryData[indexPath.row]["DriverStatus"] as? String{
-                if driverStatus != "1" {
+                if driverStatus == "0"
+                {
+                    customCell.btnViewDetails.isHidden = true
+                }
+                else if driverStatus != "1" {
                     customCell.btnViewDetails.isUserInteractionEnabled = true
                     customCell.btnViewDetails.setTitle("Send Offer".localized, for: .normal)
                 }
