@@ -24,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ej-c3-Vav" customClass="CustomView" customModule="Flivery_Driver" customModuleProvider="target">
-                                <rect key="frame" x="5" y="608" width="365" height="54"/>
+                                <rect key="frame" x="5" y="598" width="365" height="54"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g5u-cb-cuB">
                                         <rect key="frame" x="0.0" y="0.0" width="365" height="0.0"/>
@@ -103,7 +103,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vrR-cI-LBk">
-                                <rect key="frame" x="0.0" y="608" width="375" height="0.0"/>
+                                <rect key="frame" x="0.0" y="598" width="375" height="0.0"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message will be sent &amp; marked as a clinical emergency" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ym-hE-AZm">
                                         <rect key="frame" x="5" y="0.0" width="365" height="0.0"/>
@@ -122,7 +122,7 @@
                                 </constraints>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lF6-jz-ckB">
-                                <rect key="frame" x="0.0" y="608" width="375" height="0.0"/>
+                                <rect key="frame" x="0.0" y="598" width="375" height="0.0"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="j96-f0-RjH">
                                         <rect key="frame" x="12" y="-20" width="40" height="40"/>
@@ -204,7 +204,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gab-hT-F0c">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="608"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="598"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecieverCell" rowHeight="272" id="Ivf-O2-ejE" customClass="MessageCell" customModule="Flivery_Driver" customModuleProvider="target">
@@ -362,7 +362,7 @@
                         <constraints>
                             <constraint firstItem="lF6-jz-ckB" firstAttribute="leading" secondItem="sf3-Ir-AnA" secondAttribute="leading" id="19Q-eB-MGY"/>
                             <constraint firstItem="gab-hT-F0c" firstAttribute="leading" secondItem="sf3-Ir-AnA" secondAttribute="leading" id="3jf-TD-2rD"/>
-                            <constraint firstItem="sf3-Ir-AnA" firstAttribute="bottom" secondItem="4ej-c3-Vav" secondAttribute="bottom" constant="5" id="6WG-JZ-ggU"/>
+                            <constraint firstItem="sf3-Ir-AnA" firstAttribute="bottom" secondItem="4ej-c3-Vav" secondAttribute="bottom" constant="15" id="6WG-JZ-ggU"/>
                             <constraint firstItem="vrR-cI-LBk" firstAttribute="top" secondItem="lF6-jz-ckB" secondAttribute="bottom" id="7c3-c1-8df"/>
                             <constraint firstItem="sf3-Ir-AnA" firstAttribute="trailing" secondItem="lF6-jz-ckB" secondAttribute="trailing" id="CAp-l4-wf4"/>
                             <constraint firstItem="gab-hT-F0c" firstAttribute="top" secondItem="gmd-8R-k8m" secondAttribute="bottom" id="Qhp-UL-d4W"/>
