@@ -83,7 +83,7 @@ class BidChatViewController: BaseViewController , UINavigationControllerDelegate
         NotificationCenter.default.removeObserver(self, name: NotificationgetResponseOfChatting, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.reloadNewData), name: NotificationgetResponseOfChatting, object: nil)
         
-        self.setNavBarWithMenuORBack(Title: strShipperName, LetfBtn: kIconBack, IsNeedRightButton: false, isTranslucent: false)
+        
         Singletons.sharedInstance.strChatingBidId = strBidId
         self.setSocketONforReceiveMessage()
         self.webserviceForChatHistory()
@@ -124,6 +124,7 @@ class BidChatViewController: BaseViewController , UINavigationControllerDelegate
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.setNavBarWithMenuORBack(Title: strShipperName, LetfBtn: kIconBack, IsNeedRightButton: false, isTranslucent: false)
         setupKeyboard(false)
         self.hideKeyboard()
         self.registerForKeyboardNotifications()
@@ -392,39 +393,38 @@ class BidChatViewController: BaseViewController , UINavigationControllerDelegate
     func setSocketONforReceiveMessage() {
         self.socket.on(socketApiKeys.kReceiveMessage, callback: { (data, ack) in
             print("\(#function) \(data)")
-            if let arrData = data as? [[String:Any]] {
-                let MessageData = arrData[0]
-                var objMessage = MessageObject()
-                objMessage.strMessage = MessageData["Message"] as! String
-                objMessage.isEmergency = false
-                objMessage.isImage = false
-                objMessage.type = ""
-                objMessage.bookingId = ""
-                objMessage.receiverId = ""
-                
-                if MessageData["Sender"] as! String == "Driver" {
-                    objMessage.isSender = true
-                }
-                else {
-                    objMessage.isSender = false
-                }
-                
-                objMessage.id = MessageData["BidId"] as? String
-                //                                    value["BookingId"] as? String
-                //                                    value["Type"] as? String
-                objMessage.senderId = MessageData["SenderId"] as? String
-                objMessage.sender = MessageData["Sender"] as? String
-                //                                    value["ReceiverId"] as? String
-                objMessage.message = MessageData["Message"] as? String
-                objMessage.date = MessageData["Date"] as? String
-                
-                self.arrData.append(objMessage)
-                
-            }
-//            arrData.append(Singletons.sharedInstance.ChattingMessages)
-            let indexPath = IndexPath.init(row: self.arrData.count-1, section: 0)
-            self.tblVw.insertRows(at: [indexPath], with: .bottom)
-            self.tblVw.scrollToRow(at: indexPath, at: .bottom, animated: true)
+//            if let arrData = data as? [[String:Any]] {
+//                let MessageData = arrData[0]
+//                var objMessage = MessageObject()
+//                objMessage.strMessage = MessageData["Message"] as! String
+//                objMessage.isEmergency = false
+//                objMessage.isImage = false
+//                objMessage.type = ""
+//                objMessage.bookingId = ""
+//                objMessage.receiverId = ""
+//
+//                if MessageData["Sender"] as! String == "Driver" {
+//                    objMessage.isSender = true
+//                }
+//                else {
+//                    objMessage.isSender = false
+//                }
+//
+//                objMessage.id = MessageData["BidId"] as? String
+//                //                                    value["BookingId"] as? String
+//                //                                    value["Type"] as? String
+//                objMessage.senderId = MessageData["SenderId"] as? String
+//                objMessage.sender = MessageData["Sender"] as? String
+//                //                                    value["ReceiverId"] as? String
+//                objMessage.message = MessageData["Message"] as? String
+//                objMessage.date = MessageData["Date"] as? String
+//
+//                self.arrData.append(objMessage)
+//
+//            }
+//            let indexPath = IndexPath.init(row: self.arrData.count-1, section: 0)
+//            self.tblVw.insertRows(at: [indexPath], with: .bottom)
+//            self.tblVw.scrollToRow(at: indexPath, at: .bottom, animated: true)
         })
     }
     
@@ -486,7 +486,8 @@ class BidChatViewController: BaseViewController , UINavigationControllerDelegate
                         }
                         */
                         if let ShipperName = res["ReceiverName"] as? String {
-                               self.setNavBarWithMenuORBack(Title: ShipperName, LetfBtn: kIconBack, IsNeedRightButton: false, isTranslucent: false)
+                            self.strShipperName = ShipperName
+                            self.setNavBarWithMenuORBack(Title: self.strShipperName, LetfBtn: kIconBack, IsNeedRightButton: false, isTranslucent: false)
                         }
                         if let message = res["data"] as? [[String:Any]] {
                             if message.count != 0 {

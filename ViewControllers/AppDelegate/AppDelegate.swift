@@ -32,6 +32,7 @@ let googlPlacesApiKey = "AIzaSyD1bcITZ_nUkP-ke6xgaP5RIC--tXQU3I4" // "AIzaSyCKEP
     var WaitingTimeCount  : Double = 0
     var DistanceKiloMeter  = ""
     var Speed  = ""
+    var objMessage = MessageObject()
     
     var RoadPickupTimer = Timer()
     let SocketManager = SocketIOClient(socketURL: URL(string: socketApiKeys.kSocketBaseURL)!, config: [.log(false), .compress])
@@ -278,10 +279,64 @@ let googlPlacesApiKey = "AIzaSyD1bcITZ_nUkP-ke6xgaP5RIC--tXQU3I4" // "AIzaSyCKEP
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         print("Push Notification present method call : \(notification)")
         let userInfo = notification.request.content.userInfo
-        //         notificationHandler(userInfo)
-        // Print full message.
+         print(Appdelegate.window?.rootViewController?.navigationController?.children.first as Any)
         print(userInfo)
-        completionHandler([.alert, .badge, .sound])
+       
+        if userInfo["gcm.notification.type"] as! String == "chatbid"{
+            let BidId = userInfo["gcm.notification.b_id"] as! String
+            
+            let vc = (self.window?.rootViewController as? UINavigationController)?.topViewController as? SideMenuController
+            if vc != nil {
+                if let vc : BidChatViewController = (vc?.children.first as? UINavigationController)?.topViewController as? BidChatViewController {
+                    if vc.strBidId != BidId {
+
+                        completionHandler([.alert, .sound])
+                    }
+                    else if vc.strBidId == BidId{
+                        print(vc.strBidId)
+                        if let response = userInfo["gcm.notification.data"] as? String {
+                            let jsonData = response.data(using: .utf8)!
+                            let dictionary = try? JSONSerialization.jsonObject(with: jsonData, options: .mutableLeaves)
+
+                            if let MsgDataDictionary = dictionary  as? [String: Any]{
+                                print(MsgDataDictionary)
+
+                                if MsgDataDictionary["Sender"] as! String == "Driver" {
+                                    objMessage.isSender = true
+                                }
+                                else {
+                                    objMessage.isSender = false
+                                }
+                                
+                                objMessage.sender = MsgDataDictionary["Sender"] as? String ?? ""
+                                objMessage.senderId = String(MsgDataDictionary["SenderId"] as? Int ?? 0)
+                                objMessage.receiverId = MsgDataDictionary["ReceiverId"] as? String ?? ""
+                                objMessage.receiver =  MsgDataDictionary["Receiver"] as? String ?? ""
+                                objMessage.id = MsgDataDictionary["BidId"] as? String ?? ""
+                                objMessage.date = MsgDataDictionary["Date"] as? String ?? ""
+                                objMessage.strMessage = MsgDataDictionary["Message"] as? String ?? ""
+                                print(objMessage)
+                                vc.arrData.append(objMessage)
+                                let indexPath = IndexPath.init(row: vc.arrData.count-1, section: 0)
+                                vc.tblVw.insertRows(at: [indexPath], with: .bottom)
+                                let path = IndexPath.init(row: vc.arrData.count-1, section: 0)
+                                vc.tblVw.scrollToRow(at: path, at: .bottom, animated: true)
+                            }
+                        }
+                    }
+                }
+                else{
+                    
+                    completionHandler([.alert, .badge, .sound])
+                }
+                
+            }
+            else{
+                completionHandler([.alert, .badge, .sound])
+            }
+        }
+        
+        
     }
     
     
@@ -316,46 +371,6 @@ let googlPlacesApiKey = "AIzaSyD1bcITZ_nUkP-ke6xgaP5RIC--tXQU3I4" // "AIzaSyCKEP
                 self.window?.rootViewController?.present(alert, animated: true, completion: nil)
             }
             
-            /*
-             if key as? String == "chatbid" {
-             if !Singletons.sharedInstance.isChatingPresented {
-             let dictData = userInfo["gcm.notification.data"] as! String
-             let data = dictData.data(using: .utf8)!
-             do
-             {
-             if let jsonResponse = try JSONSerialization.jsonObject(with: data, options : .allowFragments) as? Dictionary<String,Any>
-             {
-             var UserDict = [String:Any]()
-             //                        UserDict["BidId"] = jsonResponse["BidId"] as! String
-             //                        UserDict["SenderId"] = jsonResponse["SenderId"] as! String
-             if let vwController = ((gettopMostViewController()?.children.first as? UINavigationController)?.viewControllers.last) {
-             if let vcChat = UIStoryboard.init(name: "ChatStoryboard", bundle: nil).instantiateViewController(withIdentifier: "BidChatViewController") as? BidChatViewController {
-             
-             guard let strBidID = jsonResponse["BidId"] as? String else {
-             return
-             }
-             guard let strSenderID = jsonResponse["SenderId"] as? String else {
-             return
-             }
-             vcChat.strPassengerId = strSenderID
-             vcChat.strBidId = strBidID
-             vwController.navigationController?.pushViewController(vcChat, animated: true)
-             }
-             }
-             
-             }
-             else {
-             print("bad json")
-             }
-             }
-             catch let error as NSError
-             {
-             print(error)
-             }
-             }
-             }
-             else
-             */
             else if ((userInfo as! [String:AnyObject])["gcm.notification.type"]! as! String == "Logout")
             {
                 let navigationController = application.windows[0].rootViewController as! UINavigationController
@@ -435,6 +450,63 @@ let googlPlacesApiKey = "AIzaSyD1bcITZ_nUkP-ke6xgaP5RIC--tXQU3I4" // "AIzaSyCKEP
             {
                 self.pushAfterReceiveNotification(typeKey: key as? String ?? "", applicationObject: UIApplication.shared, UserObject: userInfo)
             }
+            else if key as! String  == "chatbid" {
+                let BidId = userInfo["gcm.notification.b_id"] as! String
+                
+                let vc = (self.window?.rootViewController as? UINavigationController)?.topViewController as? SideMenuController
+                if vc != nil {
+                    if let vc : BidChatViewController = (vc?.children.first as? UINavigationController)?.topViewController as? BidChatViewController {
+                       if let response = userInfo["gcm.notification.data"] as? String {
+                            let jsonData = response.data(using: .utf8)!
+                            let dictionary = try? JSONSerialization.jsonObject(with: jsonData, options: .mutableLeaves)
+                            var PassengerId = ""
+                            if let MsgDataDictionary = dictionary  as? [String: Any]{
+                                print(MsgDataDictionary)
+                                
+                                if let strSenderId = MsgDataDictionary["SenderId"] as? String {
+                                    PassengerId = strSenderId
+                                } else if let StrSenderId = MsgDataDictionary["SenderId"] as? Int {
+                                    PassengerId = "\(StrSenderId)"
+                                }
+                                
+                            }
+                            vc.strPassengerId = PassengerId
+                            vc.strBidId = BidId
+                            vc.webserviceForChatHistory()
+                        }
+                   }
+                    else{
+                        if let vwController = ((self.gettopMostViewController()?.children.first as? UINavigationController)?.viewControllers.last) {
+                            if let vcChat = UIStoryboard.init(name: "ChatStoryboard", bundle: nil).instantiateViewController(withIdentifier: "BidChatViewController") as? BidChatViewController {
+                                
+                                guard  let BidId = userInfo["gcm.notification.b_id"] as? String else {
+                                    return
+                                }
+                                if let response = userInfo["gcm.notification.data"] as? String {
+                                    let jsonData = response.data(using: .utf8)!
+                                    let dictionary = try? JSONSerialization.jsonObject(with: jsonData, options: .mutableLeaves)
+                                     var PassengerId = ""
+                                    if let MsgDataDictionary = dictionary  as? [String: Any]{
+                                        print(MsgDataDictionary)
+                                       
+                                        if let strSenderId = MsgDataDictionary["SenderId"] as? String {
+                                            PassengerId = strSenderId
+                                        } else if let StrSenderId = MsgDataDictionary["SenderId"] as? Int {
+                                            PassengerId = "\(StrSenderId)"
+                                        }
+                                       
+                                    }
+                                    vcChat.strPassengerId = PassengerId
+                                    vcChat.strBidId = BidId
+                                    vwController.navigationController?.pushViewController(vcChat, animated: true)
+                                }
+ 
+                            }
+                        }
+                    }
+              }
+            }
+                
             else
             {
                 let data = ((userInfo["aps"]! as! [String : AnyObject])["alert"]!) as! [String : AnyObject]
