@@ -111,7 +111,7 @@ class DriverPersonelDetailsViewController: UIViewController, UIImagePickerContro
                 if manager.location != nil
                 {
                     currentLocation = manager.location!
-                    
+                    manager.delegate = self
                     strLatitude = currentLocation.coordinate.latitude
                     strLongitude = currentLocation.coordinate.longitude
                 }
@@ -314,7 +314,9 @@ class DriverPersonelDetailsViewController: UIViewController, UIImagePickerContro
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
     {
-        
+        let location: CLLocation = locations.last!
+        strLatitude = location.coordinate.latitude
+        strLongitude = location.coordinate.longitude
     }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error)
     {

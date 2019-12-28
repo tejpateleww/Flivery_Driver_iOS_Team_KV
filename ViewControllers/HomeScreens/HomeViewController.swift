@@ -4562,6 +4562,25 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, ARCarMove
                             //                            })
                         }
                     }
+
+                    if let loginStatus = (self.aryCurrentBookingData.object(at: 0) as! NSDictionary).object(forKey: "document_is_expired") as? String {
+
+                        if (loginStatus.lowercased() == "yes".lowercased()) {
+
+                            let parentVC = self.parent as? ContainerViewController
+                            parentVC?.webserviceForChangeDutyStatus()
+
+                            UtilityClass.showAlertWithCompletion("Document Expired", message: (self.aryCurrentBookingData.object(at: 0) as! NSDictionary).object(forKey: "expire_message") as? String ?? "Documents expired", vc: self, completionHandler: { (status) in
+
+                            })
+                        }
+                        else {
+                            //                            UtilityClass.showAlertWithCompletion("Multiple login", message: "Please Re-Login", vc: self, completionHandler: { ACTION in
+
+//                            self.webserviceOFSignOut()
+                            //                            })
+                        }
+                    }
                     
                     self.webserviceOFGetAllCards()
                 }

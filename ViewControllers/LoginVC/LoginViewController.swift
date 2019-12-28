@@ -117,15 +117,21 @@
                 if manager.location != nil
                 {
                     currentLocation = manager.location!
-                    
+                    manager.delegate = self
+                    manager.desiredAccuracy =  kCLLocationAccuracyBest
                     strLatitude = currentLocation.coordinate.latitude
                     strLongitude = currentLocation.coordinate.longitude
+                    self.manager.startUpdatingLocation()
                 }
                 
-                manager.startUpdatingLocation()
             }
         }
-        
+        DispatchQueue.main.async {
+            self.manager.delegate = self
+            self.manager.startUpdatingLocation()
+
+        }
+
         // Do any additional setup after loading the view.
     }
 
@@ -263,7 +269,12 @@
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
     {
-        
+
+        let location: CLLocation = locations.last!
+        strLatitude = location.coordinate.latitude
+        strLongitude = location.coordinate.longitude
+//        strLatitude
+//        strLongitude
     }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error)
     {
@@ -388,6 +399,10 @@
                 }
             }
         }
+    }
+
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        print(status)
     }
     // ----------------------------------------------------------------------
     
