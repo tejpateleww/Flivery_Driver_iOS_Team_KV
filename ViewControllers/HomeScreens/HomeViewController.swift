@@ -4626,7 +4626,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, ARCarMove
                     
                     
                     self.playSound(strName: "\(RingToneSound)")
-                    UtilityClass.showAlertWithCompletion("Alert! This is a cash job".localized, message: "Please Collect Money From Passenger".localized, vc: self, completionHandler: { ACTION in
+                    UtilityClass.showAlertWithCompletion("Alert! This is a cash job".localized, message: "Please collect money from passenger".localized, vc: self, completionHandler: { ACTION in
                         
                         DispatchQueue.main.async {
                             self.stopSound()

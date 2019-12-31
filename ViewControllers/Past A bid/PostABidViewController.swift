@@ -84,7 +84,7 @@ class PostABidViewController: BaseViewController,UITextFieldDelegate {
         btnReject.isSelected = false
         btnAccept.isSelected = true
         if txtBudget?.text == "" || txtBudget?.text?.trimmingCharacters(in:.whitespaces) == ""{
-            UtilityClass.showAlert("", message: "Please Enter Budget", vc: self)
+            UtilityClass.showAlert("", message: "Please enter budget", vc: self)
         }
         else{
 
@@ -276,7 +276,7 @@ class PostABidViewController: BaseViewController,UITextFieldDelegate {
             return false
         }
          else if txtNotes?.text == "" || txtNotes?.text?.trimmingCharacters(in:.whitespaces) == ""{
-            UtilityClass.showAlert("", message: "Please Enter Notes", vc: self)
+            UtilityClass.showAlert("", message: "Please enter notes", vc: self)
             return false
         }
         return true

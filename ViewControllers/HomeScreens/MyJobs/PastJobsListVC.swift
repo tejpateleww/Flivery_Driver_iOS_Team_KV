@@ -418,7 +418,9 @@ class PastJobsListVC: UIViewController, UITableViewDataSource, UITableViewDelega
         }
       */
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UpCommingTableViewCell") as! UpCommingTableViewCell
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "UpCommingTableViewCell") as! UpCommingTableViewCell
+
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "UpCommingTableViewCell", for: indexPath) as? UpCommingTableViewCell else { return UITableViewCell() }
         
         if aryData.count > 0 {
             //            let currentData = (aryData.object(at: indexPath.row) as! [String:AnyObject])
@@ -488,12 +490,13 @@ class PastJobsListVC: UIViewController, UITableViewDataSource, UITableViewDelega
             if let DropOffAddress = dictData[ "DropoffLocation"] as? String {
                 cell.lblDropoffAddress.text =  ": " + DropOffAddress  // DropoffLocation
             }
-            if let pickupTime = dictData[ "PickupDateTime"] as? String {
+            if let pickupTime = dictData[ "PickupTime"] as? String {
                 if pickupTime == "" {
                     cell.lblPickUpTime.text =  ": Date and Time not available"
                 }
                 else {
-                    cell.lblPickUpTime.text = ": " +  pickupTime
+                    cell.lblPickUpTime.text = ": " +  setTimeStampToDate(timeStamp: pickupTime)
+
                     //                        setTimeStampToDate(timeStamp: pickupTime)
                 }
             }
