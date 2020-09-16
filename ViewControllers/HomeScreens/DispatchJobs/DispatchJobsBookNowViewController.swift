@@ -700,11 +700,11 @@ class DispatchJobsBookNowViewController: UIViewController, getVehicleIdAndNameDe
     func validationForDispathcJobsNow() -> Bool {
         
         if (txtContactName.text!.count == 0) {
-            UtilityClass.showAlert("App Name".localized, message: "Enter Customer Name", vc: self)
+            UtilityClass.showAlert("App Name".localized, message: "Enter customer name", vc: self)
             return false
         }
         else if (txtMobileNumber.text!.count == 0) {
-            UtilityClass.showAlert("App Name".localized, message: "Enter Mobile Number", vc: self)
+            UtilityClass.showAlert("App Name".localized, message: "Enter mobile number", vc: self)
             return false
         }
 //        else if (txtCustomerEmail.text!.count == 0) {
@@ -712,19 +712,19 @@ class DispatchJobsBookNowViewController: UIViewController, getVehicleIdAndNameDe
 //            return false
 //        }
         else if (txtPickupLocation.text!.count == 0) {
-            UtilityClass.showAlert("App Name".localized, message: "Enter Pickup Location", vc: self)
+            UtilityClass.showAlert("App Name".localized, message: "Enter pickup location", vc: self)
             return false
         }
         else if (txtDropLocation.text!.count == 0) {
-            UtilityClass.showAlert("App Name".localized, message: "Enter Dropoff Location", vc: self)
+            UtilityClass.showAlert("App Name".localized, message: "Enter dropoff location", vc: self)
             return false
         }
         else if (txtFareAmount.text!.count == 0) {
-            UtilityClass.showAlert("App Name".localized, message: "Enter Fare Amount", vc: self)
+            UtilityClass.showAlert("App Name".localized, message: "Enter fare amount", vc: self)
             return false
         }
         else if (vehicleTypeData.Id == "") {
-            UtilityClass.showAlert("App Name".localized, message: "Select Vehicle Type", vc: self)
+            UtilityClass.showAlert("App Name".localized, message: "Select vehicle type", vc: self)
             return false
         }
         

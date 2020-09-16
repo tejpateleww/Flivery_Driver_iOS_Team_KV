@@ -35,7 +35,12 @@ let googlPlacesApiKey = "AIzaSyD1bcITZ_nUkP-ke6xgaP5RIC--tXQU3I4" // "AIzaSyCKEP
     var objMessage = MessageObject()
     
     var RoadPickupTimer = Timer()
-    let SocketManager = SocketIOClient(socketURL: URL(string: socketApiKeys.kSocketBaseURL)!, config: [.log(false), .compress])
+//    let socket_Manager = SocketIOClient(socketURL: URL(string: socketApiKeys.kSocketBaseURL)!, config: [.log(false), .compress])
+    
+    
+    let socket_Manager = SocketManager(socketURL: URL(string: socketApiKeys.kSocketBaseURL)!, config: [.log(false), .compress])
+    lazy var socket = socket_Manager.defaultSocket
+    
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -206,8 +211,8 @@ let googlPlacesApiKey = "AIzaSyD1bcITZ_nUkP-ke6xgaP5RIC--tXQU3I4" // "AIzaSyCKEP
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
         
         print("App is in Background mode")
-        SocketManager.connect()
-        SocketManager.on(clientEvent: .connect) {data, ack in
+        socket.connect()
+        socket.on(clientEvent: .connect) {data, ack in
             print ("socket connected")
             
         }
@@ -279,7 +284,7 @@ let googlPlacesApiKey = "AIzaSyD1bcITZ_nUkP-ke6xgaP5RIC--tXQU3I4" // "AIzaSyCKEP
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         print("Push Notification present method call : \(notification)")
         let userInfo = notification.request.content.userInfo
-         print(Appdelegate.window?.rootViewController?.navigationController?.children.first as Any)
+        print(Appdelegate.window?.rootViewController?.navigationController?.children.first as Any)
         print(userInfo)
        
         if userInfo["gcm.notification.type"] as! String == "chatbid"{
@@ -538,7 +543,7 @@ let googlPlacesApiKey = "AIzaSyD1bcITZ_nUkP-ke6xgaP5RIC--tXQU3I4" // "AIzaSyCKEP
                  var UserDict = [String:Any]()
                  //                        UserDict["BidId"] = jsonResponse["BidId"] as! String
                  //                        UserDict["SenderId"] = jsonResponse["SenderId"] as! String
-                 if let vwController = ((gettopMostViewController()?.children.first as? UINavigationController)?.viewControllers.last) {
+                 if let vwController = ((gettopMostViewController()?.childViewControllers.first as? UINavigationController)?.viewControllers.last) {
                  if let vcChat = UIStoryboard.init(name: "ChatStoryboard", bundle: nil).instantiateViewController(withIdentifier: "BidChatViewController") as? BidChatViewController {
                  
                  guard let strBidID = jsonResponse["BidId"] as? String else {
@@ -686,7 +691,7 @@ let googlPlacesApiKey = "AIzaSyD1bcITZ_nUkP-ke6xgaP5RIC--tXQU3I4" // "AIzaSyCKEP
     func GoToLogout() {
         
         for (key, value) in UserDefaults.standard.dictionaryRepresentation() {
-            print("\(key) = \(value) \n")
+//            print("\(key) = \(value) \n")
             
             if key == "Token" || key  == "i18n_language" {
                 

@@ -199,7 +199,7 @@ class VerifyPasswordViewController: UIViewController {
         let alert = UIAlertController(title: "App Name".localized, message: msg, preferredStyle: .alert)
         let OK = UIAlertAction(title: "OK", style: .default, handler: { ACTIOn in
             
-            let socket = (UIApplication.shared.delegate as! AppDelegate).SocketManager
+            let socket = (UIApplication.shared.delegate as! AppDelegate).socket
             
             socket.off(socketApiKeys.kReceiveBookingRequest)
             socket.off(socketApiKeys.kBookLaterDriverNotify)

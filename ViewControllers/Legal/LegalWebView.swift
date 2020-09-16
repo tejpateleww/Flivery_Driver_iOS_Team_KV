@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import WebKit
 
-class LegalWebView: ParentViewController, UIWebViewDelegate  {
+class LegalWebView: ParentViewController, WKNavigationDelegate {
 
+    @IBOutlet weak var webView: WKWebView!
     
     var headerName = String()
     var strURL = String()
@@ -48,32 +50,28 @@ class LegalWebView: ParentViewController, UIWebViewDelegate  {
         
         let requestURL = URL(string: url)
         let request = URLRequest(url: requestURL! as URL)
-        webView.loadRequest(request)
+        webView.load(request)
         
     }
     
-    // MARK: - Outlets
-    @IBOutlet weak var webView: UIWebView!
+
     
     @IBAction func btnBack(_ sender: UIButton) {
 //        self.navigationController?.popToViewController(LegalViewController, animated: true)
-    }
-    // MARK: - web view delegate method
-    func webViewDidFinishLoad(_ webView: UIWebView)
-    {
-        UtilityClass.hideACProgressHUD()
-    }
-    
-    
+    }    
 }
-class termsConditionWebviewVc: ParentViewController, UIWebViewDelegate  {
+
+
+
+
+class termsConditionWebviewVc: ParentViewController, WKNavigationDelegate  {
     
+    @IBOutlet weak var webView: WKWebView!
     
     var headerName = String()
     var strURL = String()
     
     // MARK: - Outlets
-    @IBOutlet weak var webView: UIWebView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,6 +85,7 @@ class termsConditionWebviewVc: ParentViewController, UIWebViewDelegate  {
        
 
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -98,14 +97,14 @@ class termsConditionWebviewVc: ParentViewController, UIWebViewDelegate  {
         
         let requestURL = URL(string: url)
         let request = URLRequest(url: requestURL! as URL)
-        webView.loadRequest(request)
+        webView.load(request)
         
     }
     
     
     // MARK: - web view delegate method
-    func webViewDidFinishLoad(_ webView: UIWebView)
-    {
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         UtilityClass.hideACProgressHUD()
     }
     

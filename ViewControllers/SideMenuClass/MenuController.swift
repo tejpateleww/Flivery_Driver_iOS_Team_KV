@@ -341,16 +341,15 @@ class  MenuController: UIViewController, UITableViewDataSource, UITableViewDeleg
                 RMUniversalAlert.show(in: self, withTitle:appName.kAPPName, message: "Are you sure you want to logout?".localized, cancelButtonTitle: nil, destructiveButtonTitle: nil, otherButtonTitles: ["Logout".localized, "Cancel".localized], tap: {(alert, buttonIndex) in
                     if (buttonIndex == 2)
                     {
-                          (UIApplication.shared.delegate as! AppDelegate).GoToLogout()
+                        self.socketOff()
+                        (UIApplication.shared.delegate as! AppDelegate).GoToLogout()
                     }
                 })
 
-
+//(self.parent?.children.first?.children.first?.children.first as! HomeViewController).socket
             }
-
             sideMenuController?.hideMenu()
         }
-
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -364,11 +363,28 @@ class  MenuController: UIViewController, UITableViewDataSource, UITableViewDeleg
             return 524
         }
     }
-    
    
     //-------------------------------------------------------------
     // MARK: - Custom Methods
     //-------------------------------------------------------------
+    func socketOff() {
+        let socket = (UIApplication.shared.delegate as! AppDelegate).socket
+            
+        socket.off(socketApiKeys.kReceiveBookingRequest)
+        socket.off(socketApiKeys.kAriveAdvancedBookingRequest)
+        socket.off(socketApiKeys.kAdvancedBookingDriverCancelTripNotification)
+        socket.off(socketApiKeys.kGetBookingDetailsAfterBookingRequestAccepted)
+        socket.off(socketApiKeys.kAdvancedBookingInfo)
+        socket.off(socketApiKeys.kDriverCancelTripNotification)
+        socket.off(socketApiKeys.kBookLaterDriverNotify)
+        socket.off(socketApiKeys.kReceiveMoneyNotify)
+        socket.off("SessionError")
+        socket.off(socketApiKeys.kStartTripTimeError)
+        socket.off(socketApiKeys.kReceiveTipsToDriver)
+        socket.off(socketApiKeys.kReceiveTipsToDriverForBookLater)
+        socket.off(socketApiKeys.kAdvancedBookingPickupPassengerNotification)
+        socket.disconnect()
+    }
     
     @objc func updateProfile()
     {

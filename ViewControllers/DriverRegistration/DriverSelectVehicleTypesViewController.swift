@@ -323,19 +323,19 @@ class DriverSelectVehicleTypesViewController: UIViewController,getVehicleIdAndNa
         
         if txtCompany.text == "" {
             isValidate = false
-            validatorMessage = "Enter Company Name"
+            validatorMessage = "Enter company name"
 //            sb.createWithAction(text: "Enter Company Name", actionTitle: "Dismiss".localized, action: { print("Button is push") })
 //            sb.show()
         }
         else if txtCarType.text == "" {
             isValidate = false
-            validatorMessage = "Enter Car Color"
+            validatorMessage = "Enter car color"
 //            sb.createWithAction(text: "Enter Car Color", actionTitle: "Dismiss".localized, action: { print("Button is push") })
 //            sb.show()
         }
         else if txtVehicleRegistrationNumber.text == "" {
             isValidate = false
-            validatorMessage = "Vehicle Registration Document".localized
+            validatorMessage = "Vehicle registration document".localized
 //            sb.createWithAction(text: "Vehicle Registration Document".localized, actionTitle: "Dismiss".localized, action: { print("Button is push") })
 //            sb.show()
         }
@@ -417,7 +417,7 @@ class DriverSelectVehicleTypesViewController: UIViewController,getVehicleIdAndNa
         }
         else if txtVehicleRegistrationNumber.text?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines) == "" {
             isValidate = false
-            validatorMessage = "Vehicle Registration Document".localized
+            validatorMessage = "Vehicle registration document".localized
 //            sb.createWithAction(text: "Vehicle Registration Document".localized, actionTitle: "Dismiss".localized, action: { print("Button is push") })
 //            sb.show()
         }

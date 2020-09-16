@@ -180,8 +180,12 @@ class Utilities: NSObject
     
     class func setStatusBarColor(color: UIColor)
     {
-        guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else { return }
-        statusBar.backgroundColor = UIColor.clear
+//        guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else { return }
+//        statusBar.backgroundColor = UIColor.clear
+        
+        if let view = UIApplication.shared.statusBarUIView {
+            view.backgroundColor = .clear //color
+        }
     }
   
     

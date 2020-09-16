@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="EQ5-DG-fhx">
-    <device id="retina4_0" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="EQ5-DG-fhx">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -34,7 +32,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TvV-Am-ftR">
-                                <rect key="frame" x="0.0" y="50" width="320" height="80"/>
+                                <rect key="frame" x="0.0" y="30" width="320" height="80"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gfv-Zv-gqB">
                                         <rect key="frame" x="15" y="39.5" width="290" height="1.5"/>
@@ -192,38 +190,38 @@
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDi-np-y9r">
-                                <rect key="frame" x="0.0" y="130" width="320" height="418"/>
+                                <rect key="frame" x="0.0" y="110" width="320" height="438"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fgq-d6-aa2">
-                                        <rect key="frame" x="0.0" y="0.0" width="1600" height="418"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="1600" height="438"/>
                                         <subviews>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1aE-7g-9Sc">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="418"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="438"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
                                                     <segue destination="reg-LN-93W" kind="embed" id="pTi-hc-cp9"/>
                                                 </connections>
                                             </containerView>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G1j-4T-IKK">
-                                                <rect key="frame" x="320" y="0.0" width="320" height="418"/>
+                                                <rect key="frame" x="320" y="0.0" width="320" height="438"/>
                                                 <connections>
                                                     <segue destination="JTk-re-dVi" kind="embed" id="3d4-f2-EY8"/>
                                                 </connections>
                                             </containerView>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qr7-mw-1Gu">
-                                                <rect key="frame" x="640" y="0.0" width="320" height="418"/>
+                                                <rect key="frame" x="640" y="0.0" width="320" height="438"/>
                                                 <connections>
                                                     <segue destination="Qg5-lo-G1Z" kind="embed" id="NLC-RW-LwT"/>
                                                 </connections>
                                             </containerView>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sc0-9h-1Gg">
-                                                <rect key="frame" x="960" y="0.0" width="320" height="418"/>
+                                                <rect key="frame" x="960" y="0.0" width="320" height="438"/>
                                                 <connections>
                                                     <segue destination="Ftm-BO-rKl" kind="embed" id="UGq-aL-hxe"/>
                                                 </connections>
                                             </containerView>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Af-oF-xNy">
-                                                <rect key="frame" x="1280" y="0.0" width="320" height="418"/>
+                                                <rect key="frame" x="1280" y="0.0" width="320" height="438"/>
                                                 <connections>
                                                     <segue destination="EGc-cO-SG2" kind="embed" id="Ed2-qC-YAl"/>
                                                 </connections>
@@ -943,28 +941,24 @@
                         <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="  One Time Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SuB-gh-2Wd">
                             <rect key="frame" x="20" y="64.5" width="280" height="40"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="  One Time Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uYv-hh-ZmC">
                             <rect key="frame" x="20" y="64.5" width="280" height="40"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="  One Time Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KPX-Om-zLt">
                             <rect key="frame" x="20" y="64.5" width="280" height="40"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="  One Time Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Ki-Ff-5EG">
                             <rect key="frame" x="20" y="20" width="280" height="40"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
@@ -1412,11 +1406,11 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qkx-bV-luk" id="knA-kq-Vmy">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="79.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qxf-bH-Sw2">
-                                                    <rect key="frame" x="8" y="15" width="304" height="58"/>
+                                                    <rect key="frame" x="8" y="15" width="304" height="58.5"/>
                                                     <string key="text">Please select which vehicle classes you are a part of.
 Select up to 3 classes of 4-door vehicles.
 You must be 21 years of age or over.</string>
@@ -1442,11 +1436,11 @@ You must be 21 years of age or over.</string>
                                         <rect key="frame" x="0.0" y="108" width="320" height="95"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Hvi-iR-jrN" id="2dY-ah-W0v">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="94.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="95"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nuD-kd-vVl">
-                                                    <rect key="frame" x="8" y="5" width="304" height="84.5"/>
+                                                    <rect key="frame" x="8" y="5" width="304" height="85"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="First Class" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3aT-zx-Yu9">
                                                             <rect key="frame" x="8" y="5" width="288" height="16"/>
@@ -1455,7 +1449,7 @@ You must be 21 years of age or over.</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GLL-4I-wQ6">
-                                                            <rect key="frame" x="8" y="24" width="233" height="50.5"/>
+                                                            <rect key="frame" x="8" y="24" width="233" height="51"/>
                                                             <string key="text">(All First Class Cars can be a part of Business Class) Mercedes S series, BMW 7 series, Audi A8 &amp; S, Tesla S, X, Porsche Cayenne, Jaguar, All luxury SUV’s.</string>
                                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                             <nil key="textColor"/>
@@ -1504,7 +1498,7 @@ You must be 21 years of age or over.</string>
                                         <rect key="frame" x="0.0" y="203" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BBB-LN-ySA" id="kW3-37-YMQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CGC-BN-dlR">
@@ -1573,11 +1567,11 @@ You must be 21 years of age or over.</string>
                                         <rect key="frame" x="0.0" y="28" width="320" height="122"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Dl4-CZ-vZj" id="4ZW-Wr-fRm">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="121.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="122"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please select which delivery classes you are a part of. You must be 18 years of age or over as per" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fnu-yL-0id">
-                                                    <rect key="frame" x="7" y="15" width="306" height="39"/>
+                                                    <rect key="frame" x="7" y="15" width="306" height="39.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="39" id="znf-Iz-uYi"/>
                                                     </constraints>
@@ -1586,7 +1580,7 @@ You must be 21 years of age or over.</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vNn-la-lTh">
-                                                    <rect key="frame" x="7" y="56" width="306" height="17"/>
+                                                    <rect key="frame" x="7" y="56.5" width="306" height="17"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="17" id="6po-a8-Ec7"/>
                                                     </constraints>
@@ -1596,7 +1590,7 @@ You must be 21 years of age or over.</string>
                                                     </state>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select up to 3 vehicles." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJb-3i-sEm">
-                                                    <rect key="frame" x="7" y="92" width="306" height="21"/>
+                                                    <rect key="frame" x="7" y="92.5" width="306" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="BOC-xI-mRQ"/>
                                                     </constraints>
@@ -1629,11 +1623,11 @@ You must be 21 years of age or over.</string>
                                         <rect key="frame" x="0.0" y="150" width="320" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hZi-LE-J4a" id="IGZ-PJ-f54">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="65.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bMk-So-xGZ">
-                                                    <rect key="frame" x="7" y="10" width="306" height="45.5"/>
+                                                    <rect key="frame" x="7" y="10" width="306" height="46"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bicycle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Orz-GH-Jyz">
                                                             <rect key="frame" x="10" y="12.5" width="59" height="21"/>
@@ -1678,7 +1672,7 @@ You must be 21 years of age or over.</string>
                                         <rect key="frame" x="0.0" y="216" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tJF-Vj-Nlx" id="U7X-Kk-1MV">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nw4-Px-JVZ">
@@ -1740,7 +1734,7 @@ You must be 21 years of age or over.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eET-1D-ye4">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="-20" width="320" height="588"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ydu-Z5-9Tb">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="368"/>
@@ -1782,9 +1776,6 @@ You must be 21 years of age or over.</string>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isLeftViewNeeded" value="YES"/>
-                                                                            <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
-                                                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                            </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </textField>
                                                                 </subviews>
@@ -1885,9 +1876,6 @@ You must be 21 years of age or over.</string>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isLeftViewNeeded" value="YES"/>
-                                                                            <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
-                                                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                            </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </textField>
                                                                 </subviews>
@@ -1976,9 +1964,6 @@ You must be 21 years of age or over.</string>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isLeftViewNeeded" value="YES"/>
-                                                                            <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
-                                                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                            </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </textField>
                                                                 </subviews>
@@ -2082,9 +2067,6 @@ You must be 21 years of age or over.</string>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isLeftViewNeeded" value="YES"/>
-                                                                            <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
-                                                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                            </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </textField>
                                                                 </subviews>
@@ -2287,7 +2269,7 @@ You must be 21 years of age or over.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iIG-Ed-f3A">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="870"/>
+                                <rect key="frame" x="0.0" y="-20" width="320" height="890"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mV5-Pl-GeM">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="438"/>
@@ -2758,11 +2740,11 @@ You must be 21 years of age or over.</string>
                                                 <rect key="frame" x="0.0" y="28" width="260" height="50"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iRu-sK-lMB" id="6ey-lF-yTs">
-                                                    <rect key="frame" x="0.0" y="0.0" width="260" height="49.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="260" height="50"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0QC-HH-3pE">
-                                                            <rect key="frame" x="5" y="5" width="250" height="39.5"/>
+                                                            <rect key="frame" x="5" y="5" width="250" height="40"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="First Class" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SvI-tl-LUO">
                                                                     <rect key="frame" x="5" y="10" width="68" height="16"/>
@@ -2861,7 +2843,7 @@ You must be 21 years of age or over.</string>
     </scenes>
     <resources>
         <image name="Title_logo" width="205" height="168"/>
-        <image name="Unchecked" width="45" height="45"/>
+        <image name="Unchecked" width="30" height="30"/>
         <image name="bottomLine" width="386" height="1"/>
         <image name="iconBirthday" width="85" height="85"/>
         <image name="iconCARPlaceholder" width="85" height="85"/>

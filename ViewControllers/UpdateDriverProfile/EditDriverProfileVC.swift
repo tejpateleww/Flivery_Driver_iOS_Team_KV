@@ -189,7 +189,7 @@ class EditDriverProfileVC: BaseViewController {
             if (status) {
                 print(result)
                 
-                let socket = (UIApplication.shared.delegate as! AppDelegate).SocketManager
+                let socket = (UIApplication.shared.delegate as! AppDelegate).socket
                 
                 socket.off(socketApiKeys.kReceiveBookingRequest)
                 socket.off(socketApiKeys.kBookLaterDriverNotify)

@@ -89,7 +89,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, ARCarMove
     @IBOutlet var btnDirectionFourBTN: UIButton!
     @IBOutlet var btnCancelTrip: UIButton!
 //    @IBOutlet var constrainLocationViewBottom: NSLayoutConstraint!
-    let socket = (UIApplication.shared.delegate as! AppDelegate).SocketManager
+    let socket = (UIApplication.shared.delegate as! AppDelegate).socket
     
 //    @IBOutlet var viewHomeMyJobsBTN: UIView!
     let baseURLDirections = "https://maps.googleapis.com/maps/api/directions/json?"
@@ -1262,27 +1262,32 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, ARCarMove
                 }
                 
                 //                ((self.aryPassengerData as NSArray).object(at: 0) as! NSDictionary).object(forKey: "BookingInfo") as? NSDictionary
-                
-                self.btnStartTripAction()
+                // Bhavesh changes : 12:45 2/Jan-2020
+//                self.btnStartTripAction()
                 
                 self.mapView.clear()
                 self.driverMarker = nil
                 self.UpdateDriverLocation()
                 
 //                Singletons.sharedInstance.isRequestAccepted = true  // Bhavesh Changes
-                Singletons.sharedInstance.isTripContinue = true
+//                Singletons.sharedInstance.isTripContinue = true  // Bhavesh Changes
                 
                 UserDefaults.standard.set(Singletons.sharedInstance.isRequestAccepted, forKey: tripStatus.kisRequestAccepted)
                 UserDefaults.standard.set(Singletons.sharedInstance.isTripContinue, forKey: tripStatus.kisTripContinue)
                 
-                self.BottomButtonView.isHidden = true
-                self.StartTripView.isHidden = false
+//                self.BottomButtonView.isHidden = true
+//                self.StartTripView.isHidden = false
+                
+                self.BottomButtonView.isHidden = false // Bhavesh Changes
+                self.StartTripView.isHidden = true // Bhavesh Changes
+                
                 //                self.btnStartTrip.isHidden = false
                 self.viewLocationDetails.isHidden = false
 //                self.constrainLocationViewBottom.constant = self.BottomButtonView.frame.height
                 Singletons.sharedInstance.MeterStatus = meterStatus.kIsMeterStart
                 
-                self.pickupPassengerFromLocation()
+                // Bhavesh changes : 12:45 2/Jan-2020
+//                self.pickupPassengerFromLocation()
                 
             }
             else {
@@ -2034,11 +2039,11 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, ARCarMove
             alert.addAction(okAction)
             //            Utilities.presentPopupOverScreen(alert)
             
-            //            UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: {
-            //                self.completeTripFinalSubmit()
-            //                Appdelegate.WaitingTimeCount = 0
-            //                Appdelegate.WaitingTime = "00:00:00"
-            //            })
+//                        UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: {
+//                            self.completeTripFinalSubmit()
+//                            Appdelegate.WaitingTimeCount = 0
+//                            Appdelegate.WaitingTime = "00:00:00"
+//                        })
             
             let alertWindow = UIWindow(frame: UIScreen.main.bounds)
             alertWindow.rootViewController = UIViewController()
@@ -2661,35 +2666,35 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, ARCarMove
     
     func playSound(strName : String) {
         
-        //        guard let url = Bundle.main.url(forResource: strName, withExtension: "mp3") else { return }
-        //
-        //        do {
-        //            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, with: .mixWithOthers)
-        //            try AVAudioSession.sharedInstance().setActive(true)
-        //
-        //            audioPlayer = try AVAudioPlayer(contentsOf: url)
-        //            audioPlayer.numberOfLoops = 1
-        //            audioPlayer.play()
-        //        }
-        //        catch let error {
-        //            print(error.localizedDescription)
-        //        }
+                guard let url = Bundle.main.url(forResource: strName, withExtension: "mp3") else { return }
+        
+                do {
+                    try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+                    try AVAudioSession.sharedInstance().setActive(true)
+        
+                    audioPlayer = try AVAudioPlayer(contentsOf: url)
+                    audioPlayer.numberOfLoops = 1
+                    audioPlayer.play()
+                }
+                catch let error {
+                    print(error.localizedDescription)
+                }
     }
     
     func stopSound() {
         
-        //        guard let url = Bundle.main.url(forResource: "\(RingToneSound)", withExtension: "mp3") else { return }
-        //
-        //        do {
-        //            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
-        //            try AVAudioSession.sharedInstance().setActive(true)
-        //
-        //            audioPlayer = try AVAudioPlayer(contentsOf: url)
-        //            audioPlayer.stop()
-        //        }
-        //        catch let error {
-        //            print(error.localizedDescription)
-        //        }
+                guard let url = Bundle.main.url(forResource: "\(RingToneSound)", withExtension: "mp3") else { return }
+        
+                do {
+                    try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+                    try AVAudioSession.sharedInstance().setActive(true)
+        
+                    audioPlayer = try AVAudioPlayer(contentsOf: url)
+                    audioPlayer.stop()
+                }
+                catch let error {
+                    print(error.localizedDescription)
+                }
     }
     
     @objc func enableButton() {
@@ -4878,7 +4883,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, ARCarMove
             if (status) {
                 print(result)
                 
-                let socket = (UIApplication.shared.delegate as! AppDelegate).SocketManager
+                let socket = (UIApplication.shared.delegate as! AppDelegate).socket
                 
                 Utilities.removeUserDefaultsValue()
                 socket.off(socketApiKeys.kReceiveBookingRequest)

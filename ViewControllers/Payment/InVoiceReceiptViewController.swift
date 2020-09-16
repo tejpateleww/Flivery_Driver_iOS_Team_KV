@@ -291,12 +291,12 @@ class InVoiceReceiptViewController: ParentViewController, UIPickerViewDelegate, 
         {
             if txtEmailId.text!.count == 0
             {
-                UtilityClass.showAlert("App Name".localized, message: "Please Enter Email Id", vc: self)
+                UtilityClass.showAlert("App Name".localized, message: "Please enter rmail id", vc: self)
                 return false
             }
             else if (!isEmailAddressValid)
             {
-                UtilityClass.showAlert("App Name".localized, message: "Please Enter Valid Email ID", vc: self)
+                UtilityClass.showAlert("App Name".localized, message: "Please enter valid email id", vc: self)
                 
                 return false
             }
@@ -306,16 +306,14 @@ class InVoiceReceiptViewController: ParentViewController, UIPickerViewDelegate, 
              if txtPhoneNumber.text!.count == 0
             {
                 
-                UtilityClass.showAlert("App Name".localized, message: "Please Enter Phone number", vc: self)
+                UtilityClass.showAlert("App Name".localized, message: "Please enter phone number", vc: self)
                 
                 return false
             }
         }
-        
-       
        
          if txtCustomerName.text!.count == 0 {
-            UtilityClass.showAlert("App Name".localized, message: "Please enter Customer Name.".localized, vc: self)
+            UtilityClass.showAlert("App Name".localized, message: "Please enter customer name.".localized, vc: self)
             return false
         }
         else if txtDescription.text!.count == 0 {

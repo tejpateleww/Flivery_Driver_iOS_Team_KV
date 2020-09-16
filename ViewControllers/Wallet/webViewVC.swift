@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import WebKit
 
-class webViewVC: ParentViewController, UIWebViewDelegate {
+class webViewVC: ParentViewController, WKNavigationDelegate {
 
     var headerName = String()
     var strURL = String()
@@ -22,7 +23,7 @@ class webViewVC: ParentViewController, UIWebViewDelegate {
 
         let requestURL = URL(string: strURL)!
         let request = URLRequest(url: requestURL as URL)
-        webView.loadRequest(request)
+        webView.load(request)
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,23 +42,21 @@ class webViewVC: ParentViewController, UIWebViewDelegate {
         
         let requestURL = URL(string: url)
         let request = URLRequest(url: requestURL! as URL)
-        webView.loadRequest(request)
+        webView.load(request)
         
     }
     
     // MARK: - Outlets
-    @IBOutlet weak var webView: UIWebView!
+    @IBOutlet weak var webView: WKWebView!
     
-    // MARK: - web view delegate method
-    func webViewDidStartLoad(_ webView: UIWebView) {
-        
+    
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        UtilityClass.hideACProgressHUD()
+        // Show Alert here.
     }
     
-    // MARK: - web view delegate method
-    func webViewDidFinishLoad(_ webView: UIWebView)
-    {
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         UtilityClass.hideACProgressHUD()
     }
-    
 
 }

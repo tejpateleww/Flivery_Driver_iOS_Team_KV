@@ -62,12 +62,12 @@ class TickPayRegistrationViewController: UIViewController,UIImagePickerControlle
         
         if(txtCompanyName.text?.count == 0)
         {
-            UtilityClass.showAlert("App Name".localized, message: "Please insert Company Name", vc: self)
+            UtilityClass.showAlert("App Name".localized, message: "Please insert company name", vc: self)
             return false
         }
         else if(txtAbn.text?.count == 0)
         {
-            UtilityClass.showAlert("App Name".localized, message: "Please insert Company Name", vc: self)
+            UtilityClass.showAlert("App Name".localized, message: "Please insert abn name", vc: self)
             return false
         }
         

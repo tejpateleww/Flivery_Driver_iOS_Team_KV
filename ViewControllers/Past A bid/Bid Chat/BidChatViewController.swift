@@ -58,7 +58,7 @@ class BidChatViewController: BaseViewController , UINavigationControllerDelegate
 //    var strBookingId = String()
 //    var strBookingType = String()
     
-    let socket = (UIApplication.shared.delegate as! AppDelegate).SocketManager
+    let socket = (UIApplication.shared.delegate as! AppDelegate).socket
     
     var isFromSupport = Bool()
     

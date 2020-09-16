@@ -213,7 +213,7 @@ class updateDriverSelectVehicleTypesViewControllerViewController: BaseViewContro
 //            sb.createWithAction(text: "Enter Company Name", actionTitle: "OK".localized, action: { print("Button is push") })
 //            sb.show()
             isValidate = false
-            ValidatorMessage = "Enter Company Name"
+            ValidatorMessage = "Enter company name"
         }
         else if txtCarType.text == "" {
             isValidate = false
@@ -223,7 +223,7 @@ class updateDriverSelectVehicleTypesViewControllerViewController: BaseViewContro
         }
         else if txtVehicleRegistrationNumber.text == "" {
             isValidate = false
-            ValidatorMessage = "Enter Vehicle Registration No."
+            ValidatorMessage = "Enter vehicle registration no."
 //            sb.createWithAction(text: "Enter Vehicle Registration No.", actionTitle: "OK".localized, action: { print("Button is push") })
 //            sb.show()
         }
@@ -239,20 +239,20 @@ class updateDriverSelectVehicleTypesViewControllerViewController: BaseViewContro
         
         if txtCompany.text == "" {
             isValidate = false
-            ValidatorMessage = "Enter Company Name"
+            ValidatorMessage = "Enter company name"
 //            sb.createWithAction(text: "Enter Company Name", actionTitle: "OK".localized, action: { print("Button is push") })
 //            sb.show()
         }
         else if txtCarType.text == ""
         {
             isValidate = false
-            ValidatorMessage = "Enter Car Type"
+            ValidatorMessage = "Enter car type"
 //            sb.createWithAction(text: "Enter Car Type", actionTitle: "OK".localized, action: { print("Button is push") })
 //            sb.show()
         }
         else if txtVehicleRegistrationNumber.text == "" {
             isValidate = false
-            ValidatorMessage = "Enter Vehicle Registration No."
+            ValidatorMessage = "Enter vehicle registration no."
 //            sb.createWithAction(text: "Enter Vehicle Registration No.", actionTitle: "OK".localized, action: { print("Button is push") })
 //            sb.show()
         }
@@ -445,22 +445,22 @@ class updateDriverSelectVehicleTypesViewControllerViewController: BaseViewContro
 //        }
         if txtVehicleRegistrationNumber.text == "" {
             
-            UtilityClass.showAlert("App Name".localized, message: "Vehicle Plate Number".localized, vc: self)
+            UtilityClass.showAlert("App Name".localized, message: "Enter vehicle plate number".localized, vc: self)
             return false
         }
         else if txtCompany.text == "" {
             
-            UtilityClass.showAlert("App Name".localized, message: "Vehicle Model".localized, vc: self)
+            UtilityClass.showAlert("App Name".localized, message: "Enter vehicle company".localized, vc: self)
             return false
         }
         else if txtVehicleModel.text == "" {
             
-            UtilityClass.showAlert("App Name".localized, message: "Vehicle Model".localized, vc: self)
+            UtilityClass.showAlert("App Name".localized, message: "Enter vehicle model".localized, vc: self)
             return false
         }
         else if (txtCarType.text as! String) == "" {
             
-            UtilityClass.showAlert("App Name".localized, message: "Vehicle Type".localized, vc: self)
+            UtilityClass.showAlert("App Name".localized, message: "Enter vehicle type".localized, vc: self)
             return false
         }
 //        else if txtNoOfPassenger.selectedItem == nil ||  txtNoOfPassenger.selectedItem == "" || txtNoOfPassenger.selectedItem == "Number of Passenger"

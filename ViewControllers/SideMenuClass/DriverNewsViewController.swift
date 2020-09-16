@@ -91,12 +91,6 @@ class DriverNewsViewController: ParentViewController, UITableViewDelegate, UITab
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-//        let News = aryNews[indexPath.row]
-//        
-//        let next = self.storyboard?.instantiateViewController(withIdentifier: "webViewForNewsViewController") as! webViewForNewsViewController
-//        next.strURL = News["url"] as! String
-//        self.navigationController?.pushViewController(next, animated: true)
-        
     }
     
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {

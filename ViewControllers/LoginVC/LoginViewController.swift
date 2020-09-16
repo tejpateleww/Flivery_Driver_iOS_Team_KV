@@ -64,7 +64,6 @@
         lblDonTHaveAnyAccount.text = "Don't have an Account? Sign up!".localized
         lblSignInTitle.text = "SIGN IN".localized
 
-
     }
 
     @IBAction func unwindToVCWithSegue(segue:UIStoryboardSegue) { }

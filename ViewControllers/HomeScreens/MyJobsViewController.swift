@@ -309,7 +309,7 @@ class MyJobsViewController: BaseViewController
         //        let socket = (((self.navigationController?.childViewControllers[0] as! TabbarController).childViewControllers)[0] as! ContentViewController).socket
         
         
-        let socket = (UIApplication.shared.delegate as! AppDelegate).SocketManager
+        let socket = (UIApplication.shared.delegate as! AppDelegate).socket
         //
         //        var isAdvance = (((self.navigationController?.childViewControllers[0] as! TabbarController).childViewControllers)[0] as! HomeViewController).isAdvanceBooking
         //        isAdvance = true

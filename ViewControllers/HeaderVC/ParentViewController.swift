@@ -323,7 +323,7 @@ class ParentViewController: UIViewController, HeaderViewDelegate {
                         Singletons.sharedInstance.driverDuty = "0"
                          UtilityClass.showAlert("", message: (result as! NSDictionary).object(forKey: GetResponseMessageKey()) as! String, vc: self)
                         UIApplication.shared.isIdleTimerDisabled = false
-                        let socket = (UIApplication.shared.delegate as! AppDelegate).SocketManager
+                        let socket = (UIApplication.shared.delegate as! AppDelegate).socket
                         socket.disconnect()
 
                     }
@@ -332,7 +332,7 @@ class ParentViewController: UIViewController, HeaderViewDelegate {
                         self.headerView?.btnSwitch.setImage(UIImage(named: "iconSwitchOn"), for: .normal)
                         Singletons.sharedInstance.driverDuty = "1"
                         
-                        let socket = (UIApplication.shared.delegate as! AppDelegate).SocketManager
+                        let socket = (UIApplication.shared.delegate as! AppDelegate).socket
                         socket.connect()
                         UIApplication.shared.isIdleTimerDisabled = true
 

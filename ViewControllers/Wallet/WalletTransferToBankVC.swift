@@ -246,27 +246,27 @@ class WalletTransferToBankVC: ParentViewController, SelectBankCardDelegate {
             
 //            Utilities.showCustomAlert(title: "Missing", message: "Enter Amount") { (index, title) in
 //            }
-            Utilities.showAlert(appName.kAPPName, message: "Enter Amount", vc: (UIApplication.shared.keyWindow?.rootViewController)!)
+            Utilities.showAlert(appName.kAPPName, message: "Enter amount", vc: (UIApplication.shared.keyWindow?.rootViewController)!)
             return false
         }
         else if txtAccountName.text!.count == 0 {
             
-            Utilities.showAlert(appName.kAPPName, message: "Enter Account Holder Name", vc: (UIApplication.shared.keyWindow?.rootViewController)!)
+            Utilities.showAlert(appName.kAPPName, message: "Enter account holder name", vc: (UIApplication.shared.keyWindow?.rootViewController)!)
             return false
         }
             
         else if txtBankName.text!.count == 0 {
             
-            Utilities.showAlert(appName.kAPPName, message: "Enter Bank Name", vc: (UIApplication.shared.keyWindow?.rootViewController)!)
+            Utilities.showAlert(appName.kAPPName, message: "Enter bank name", vc: (UIApplication.shared.keyWindow?.rootViewController)!)
             return false
         }
         else if txtBankAccountNo.text!.count == 0 {
-            Utilities.showAlert(appName.kAPPName, message: "Enter Bank Account Number", vc: (UIApplication.shared.keyWindow?.rootViewController)!)
+            Utilities.showAlert(appName.kAPPName, message: "Enter bank account number", vc: (UIApplication.shared.keyWindow?.rootViewController)!)
             return false
         }
         else if txtBSB.text!.count == 0 {
             
-            Utilities.showAlert(appName.kAPPName, message: "Enter BSB Number", vc: (UIApplication.shared.keyWindow?.rootViewController)!)
+            Utilities.showAlert(appName.kAPPName, message: "Enter BSB number", vc: (UIApplication.shared.keyWindow?.rootViewController)!)
             return false
         }
             
