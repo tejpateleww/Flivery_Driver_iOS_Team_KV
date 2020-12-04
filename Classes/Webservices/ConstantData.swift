@@ -158,6 +158,7 @@ struct RegistrationFinalKeys {
     
      static let kSuburb = "Suburb"// Done
     
+    
     static let kBankBranch = "BankBranch"// Done
     static let kCity = "City"// Done
     static let kState = "State"// Done
@@ -226,7 +227,7 @@ struct socketApiKeys {
     static let kEndHoldTrip = "EndHoldTrip"
     
     static let kDriverCancelTripNotification = "DriverCancelTripNotification"
-    static let kSendDriverLocationRequestByPassenger        = "DriverLocation"
+    static let kSendDriverLocationRequestByPassenger        = "DriverLocationNew" // DriverLocation
 
     static let kAriveAdvancedBookingRequest = "AriveAdvancedBookingRequest"
     static let kForwardAdvancedBookingRequestToAnother = "ForwardAdvancedBookingRequestToAnother"

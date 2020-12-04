@@ -26,21 +26,22 @@ class TabbarController: UITabBarController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 //          self.navigationController?.isNavigationBarHidden = true
     }
+    
     override func viewWillAppear(_ animated: Bool)
     {
         super.viewWillAppear(true)
       
       
     }
+    
     override func viewDidAppear(_ animated: Bool)
     {
         super.viewDidAppear(true)
-        
-        
     }
     
  

@@ -150,7 +150,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, ARCarMove
         super.viewDidLoad()
         
 //       self.title = "Home"
-      
 //        btnMyJob.borderColor = UIColor.red// UIColor.init(red: 228/255, green: 132/255, blue: 40/255, alpha: 1.0)
 //        btnHome.borderColor = UIColor.red//.init(red: 228/255, green: 132/255, blue: 40/255, alpha: 1.0)
 
@@ -230,7 +229,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, ARCarMove
         
         let profile: NSMutableDictionary = NSMutableDictionary(dictionary: (Singletons.sharedInstance.dictDriverProfile.object(forKey: "profile") as? NSDictionary)!)
         let Vehicle: NSMutableDictionary = NSMutableDictionary(dictionary: profile.object(forKey: "Vehicle") as! NSDictionary)
-        
         
         let stringOFVehicleModel: String = Vehicle.object(forKey: "VehicleModel") as! String
         
@@ -621,7 +619,24 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, ARCarMove
                 oldCoordinate = newCoordinate
             }
             
-            if(Singletons.sharedInstance.driverDuty == "1")
+            var id : String = ""
+            if let arr = self.aryPassengerData.firstObject as? [String : Any] {
+                if let passengerInfo = arr["BookingInfo"] as? [String : Any] {
+                    if let passengerID = passengerInfo["PassengerId"] as? String {
+                        print("works")
+                        id = passengerID
+                    }
+                }
+            }
+            
+            
+            if(Singletons.sharedInstance.driverDuty == "1") && (id != "") {
+                
+                let myJSON = ["PassengerId" : id,  "DriverId" : Singletons.sharedInstance.strDriverID, "Lat" : defaultLocation.coordinate.latitude, "Long" : defaultLocation.coordinate.longitude] as [String : Any]
+                socket.emit(socketApiKeys.kSendDriverLocationRequestByPassenger , with: [myJSON])
+                
+            }
+            else if(Singletons.sharedInstance.driverDuty == "1")
             {
                 self.UpdateDriverLocation()
             }
@@ -2859,7 +2874,11 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, ARCarMove
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        dismiss(animated: true, completion: {self.completeTripButtonAction()})
+        
+        //SJ_Change:   When we cancle the image picker controller . we dont want to complete the trip on completion/ dismissal.
+//        dismiss(animated: true, completion: {self.completeTripButtonAction()})
+        
+        dismiss(animated: true, completion: nil)
     }
     
     func completeTripButtonAction()
@@ -5167,14 +5186,11 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, ARCarMove
     
     @IBAction func btnRoadPickUp(_ sender: Any)
     {
-        
         //        self.performSegue(withIdentifier: "segueToTRoadPickup", sender: nil)
-        
         
         let viewController = self.storyboard?.instantiateViewController(withIdentifier: "MeterViewController") as! MeterViewController
         viewController.strVehicleName = strVehicleName
         viewController.baseFare = baseFare
-        
         
         self.navigationController?.pushViewController(viewController, animated: true)
         

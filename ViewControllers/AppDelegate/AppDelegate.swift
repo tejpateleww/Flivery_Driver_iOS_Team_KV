@@ -339,6 +339,19 @@ let googlPlacesApiKey = "AIzaSyD1bcITZ_nUkP-ke6xgaP5RIC--tXQU3I4" // "AIzaSyCKEP
             else{
                 completionHandler([.alert, .badge, .sound])
             }
+        } else if userInfo["gcm.notification.type"] as! String == "Logout"{
+            let navigationController = UIApplication.shared.windows[0].rootViewController as! UINavigationController
+            let viewControllers: [UIViewController] = navigationController.viewControllers
+            for aViewController in viewControllers {
+                if aViewController is SideMenuController {
+                    
+                    //                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                    let homeVC = aViewController.children[0].children[0].children[0] as? HomeViewController
+                    homeVC?.webserviceOFSignOut()
+                    //                        }))
+                    //                        self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+                }
+            }
         }
         
         
@@ -357,7 +370,6 @@ let googlPlacesApiKey = "AIzaSyD1bcITZ_nUkP-ke6xgaP5RIC--tXQU3I4" // "AIzaSyCKEP
         else
         {
             let data = ((userInfo["aps"]! as! [String : AnyObject])["alert"]!) as! [String : AnyObject]
-            
             
             let alert = UIAlertController(title: "App Name".localized,
                                           message: data["title"] as? String,
